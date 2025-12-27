@@ -7,7 +7,7 @@ This file was automatically generated from the AMIS JSON Schema.
 To regenerate, run: python scripts/generate_models.py
 
 Generation info:
-- Generated at: 2025-12-28T00:41:20.674101
+- Generated at: 2025-12-28T00:45:53.715943
 - Source schema: schema_simplified.json
 - Generator: datamodel-code-generator
 
@@ -70,7 +70,7 @@ class PullRefresh(BaseModel):
 
 class PageSchema(BaseModel):
     """
-    amis Page 渲染器。详情请见：https://aisuda.bce.baidu.com/amis/zh-CN/components/page 一个页面只允许有一个 Page 渲染器。
+    AMIS Page renderer. For more details, see: https://aisuda.bce.baidu.com/amis/en-US/components/page. Only one Page renderer is allowed per page.
     """
 
     model_config = ConfigDict(
@@ -175,7 +175,7 @@ class PageSchema(BaseModel):
 
 class SchemaRemark1(BaseModel):
     """
-    提示渲染器，默认会显示个小图标，鼠标放上来的时候显示配置的内容。
+    AMIS SchemaRemark1 component.
     """
 
     model_config = ConfigDict(
@@ -247,7 +247,7 @@ class Shape(Enum):
 
 class BaseRemarkSchema(BaseModel):
     """
-    提示渲染器，默认会显示个小图标，鼠标放上来的时候显示配置的内容。
+    AMIS BaseRemarkSchema component.
     """
 
     model_config = ConfigDict(
@@ -287,7 +287,7 @@ class BaseRemarkSchema(BaseModel):
     title: str | None = Field(None, description='Tooltip title')
     content: str = Field(
         ...,
-        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/en-US/docs/concepts/template',
     )
     placement: Placement | None = Field(None, description='Display position')
     root_close: bool | None = Field(
@@ -314,7 +314,7 @@ class SchemaExpression(RootModel[str]):
 class SchemaTpl(RootModel[str]):
     root: str = Field(
         ...,
-        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/en-US/docs/concepts/template',
     )
 
 
@@ -836,9 +836,9 @@ class EditorSetting1(BaseModel):
     Editor configuration, can be ignored at runtime
     """
 
-    behavior: str | None = Field(None, description='组件行为、用途，如 create、update、remove')
-    display_name: str | None = Field(None, alias='displayName', description='组件名称，通常是业务名称方便定位')
-    mock: Any | None = Field(None, description='编辑器假数据，方便展示')
+    behavior: str | None = Field(None, description='Component property')
+    display_name: str | None = Field(None, alias='displayName', description='Component property')
+    mock: Any | None = Field(None, description='Component property')
 
 
 class BaseSchemaWithoutType(BaseModel):
@@ -1057,7 +1057,7 @@ class SchemaObject(BaseModel):
 
 class Justify(Enum):
     """
-    水平分布
+    AMIS Justify component.
     """
 
     start = 'start'
@@ -1072,7 +1072,7 @@ class Justify(Enum):
 
 class AlignItems(Enum):
     """
-    垂直布局
+    AMIS AlignItems component.
     """
 
     stretch = 'stretch'
@@ -1086,7 +1086,7 @@ class AlignItems(Enum):
 
 class AlignContent(Enum):
     """
-    多行情况下的垂直分布
+    AMIS AlignContent component.
     """
 
     normal = 'normal'
@@ -1101,7 +1101,7 @@ class AlignContent(Enum):
 
 class Direction(Enum):
     """
-    方向
+    AMIS Direction component.
     """
 
     row = 'row'
@@ -1112,7 +1112,7 @@ class Direction(Enum):
 
 class FlexSchema(BaseModel):
     """
-    Flex 布局 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/flex
+    AMIS FlexSchema component.
     """
 
     model_config = ConfigDict(
@@ -1141,16 +1141,16 @@ class FlexSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     type: Any
     testid: Any | None = None
-    justify: Justify | None = Field(None, description='水平分布')
-    align_items: AlignItems | None = Field(None, alias='alignItems', description='垂直布局')
-    align_content: AlignContent | None = Field(None, alias='alignContent', description='多行情况下的垂直分布')
-    direction: Direction | None = Field(None, description='方向')
+    justify: Justify | None = Field(None, description='Component property')
+    align_items: AlignItems | None = Field(None, alias='alignItems', description='Component property')
+    align_content: AlignContent | None = Field(None, alias='alignContent', description='Component property')
+    direction: Direction | None = Field(None, description='Component property')
     items: dict[str, Any]
 
 
 class Badge(BaseModel):
     """
-    Badge 角标。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/badge
+    AMIS Badge component.
     """
 
     model_config = ConfigDict(
@@ -1178,7 +1178,7 @@ class TestidBuilder(BaseModel):
 
 class TplSchema(BaseModel):
     """
-    tpl 渲染器
+    tpl renderer
     """
 
     model_config = ConfigDict(
@@ -1209,28 +1209,28 @@ class TplSchema(BaseModel):
     testid: Any | None = None
     tpl: str | None = Field(
         None,
-        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/en-US/docs/concepts/template',
     )
     html: str | None = Field(
         None,
-        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/en-US/docs/concepts/template',
     )
     text: str | None = Field(
         None,
-        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/en-US/docs/concepts/template',
     )
     raw: str | None = None
-    inline: bool | None = Field(None, description='是否内联显示？')
-    wrapper_component: Any | None = Field(None, alias='wrapperComponent', description='标签类型')
+    inline: bool | None = Field(None, description='Component property')
+    wrapper_component: Any | None = Field(None, alias='wrapperComponent', description='Component property')
     badge: Badge | None = Field(
-        None, description='Badge 角标。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/badge'
+        None, description='Component property'
     )
     testid_builder: TestidBuilder | None = Field(None, alias='testidBuilder')
 
 
 class Mode(Enum):
     """
-    角标类型
+    AMIS Mode component.
     """
 
     text = 'text'
@@ -1240,7 +1240,7 @@ class Mode(Enum):
 
 class Position(Enum):
     """
-    角标位置
+    AMIS Position component.
     """
 
     top_right = 'top-right'
@@ -1251,25 +1251,25 @@ class Position(Enum):
 
 class BadgeObject(BaseModel):
     """
-    Badge 角标。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/badge
+    AMIS BadgeObject component.
     """
 
     model_config = ConfigDict(
         extra='forbid',
     )
     class_name: str | None = Field(None, alias='className')
-    text: str | float | None = Field(None, description='文本内容')
-    size: float | None = Field(None, description='大小')
-    mode: Mode | None = Field(None, description='角标类型')
+    text: str | float | None = Field(None, description='Component property')
+    size: float | None = Field(None, description='Component property')
+    mode: Mode | None = Field(None, description='Component property')
     offset: list[float | str] | None = Field(
-        None, description='角标位置，相对于position的位置进行偏移', max_length=2, min_length=2
+        None, description='Component property', max_length=2, min_length=2
     )
-    position: Position | None = Field(None, description='角标位置')
-    overflow_count: float | None = Field(None, alias='overflowCount', description='封顶的数字值')
-    visible_on: str | None = Field(None, alias='visibleOn', description='动态控制Whether visible')
-    animation: bool | None = Field(None, description='Whether visible动画')
-    style: dict[str, Any] | None = Field(None, description='角标的自定义样式')
-    level: str | None = Field(None, description='提示类型')
+    position: Position | None = Field(None, description='Component property')
+    overflow_count: float | None = Field(None, alias='overflowCount', description='Component property')
+    visible_on: str | None = Field(None, alias='visibleOn', description='Component property')
+    animation: bool | None = Field(None, description='Component property')
+    style: dict[str, Any] | None = Field(None, description='Component property')
+    level: str | None = Field(None, description='Component property')
 
 
 class TestIdBuilder(BaseModel):
@@ -1281,7 +1281,7 @@ class TestIdBuilder(BaseModel):
 
 class RemarkSchema(BaseModel):
     """
-    提示渲染器，默认会显示个小图标，鼠标放上来的时候显示配置的内容。
+    AMIS RemarkSchema component.
     """
 
     model_config = ConfigDict(
@@ -1448,23 +1448,23 @@ class AjaxActionSchema(BaseModel):
     body: Any | None = None
     tab_index: Any | None = Field(None, alias='tabIndex')
     href: Any | None = None
-    action_type: Literal['ajax'] = Field(..., alias='actionType', description='指定为发送 ajax 的行为。')
+    action_type: Literal['ajax'] = Field(..., alias='actionType', description='Component property')
     api: dict[str, Any]
     feedback: Feedback | None = None
     reload: str | None = Field(
         None,
-        description='配置刷新动作，这个动作通常在完成渲染器本省的固定动作后出发。\n\n一般用来配置目标组件的 name 属性。多个目标可以用逗号隔开。\n\n当目标是 windows 时表示刷新整个页面。\n\n刷新目标的同时还支持传递参数如： `foo?a=${a}&b=${b},boo?c=${c}`',
+        description='Component property',
     )
     redirect: str | None = None
     ignore_confirm: bool | None = Field(None, alias='ignoreConfirm')
     isolate_scope: bool | None = Field(
-        None, alias='isolateScope', description='是否开启请求隔离, 主要用于隔离联动CRUD, Service的请求'
+        None, alias='isolateScope', description='Component property'
     )
 
 
 class Method(Enum):
     """
-    API 发送类型
+    AMIS Method component.
     """
 
     get = 'get'
@@ -1478,7 +1478,7 @@ class Method(Enum):
 
 class DataType(Enum):
     """
-    发送体的格式
+    AMIS DataType component.
     """
 
     json = 'json'
@@ -1488,7 +1488,7 @@ class DataType(Enum):
 
 class QsOptions(BaseModel):
     """
-    qs 配置项
+    AMIS QsOptions component.
     """
 
     model_config = ConfigDict(
@@ -1503,49 +1503,55 @@ class SchemaApi1(BaseModel):
     model_config = ConfigDict(
         extra='forbid',
     )
-    method: Method | None = Field(None, description='API 发送类型')
+    method: Method | None = Field(None, description='Component property')
     url: dict[str, Any]
     data: dict[str, Any] | None = Field(
         None,
-        description='用来控制携带数据. 当key 为 `&` 值为 `$$` 时, 将所有原始数据打平设置到 data 中. 当值为 $$ 将所有原始数据赋值到对应的 key 中. 当值为 $ 打头时, 将变量值设置到 key 中.',
+        description='Component property',
     )
     convert_key_to_path: bool | None = Field(
         None,
         alias='convertKeyToPath',
-        description="默认数据映射中的key如果带点，或者带大括号，会转成对象比如：\n\n{   'a.b': '123' }\n\n经过数据映射后变成 {  a: {   b: '123  } }\n\n如果想要关闭此功能，请设置 convertKeyToPath 为 false",
+        description="Component property'a.b': '123' }\n\n经过data映射后变成 {  a: {   b: '123  } }\n\nif想要Close此功能，请Set convertKeyToPath 为 false",
     )
-    response_data: dict[str, Any] | None = Field(None, alias='responseData', description='用来做接口返回的数据映射。')
+    response_data: dict[str, Any] | None = Field(
+        None, alias='responseData', description='Component property'
+    )
     attach_data_to_query: bool | None = Field(
         None,
         alias='attachDataToQuery',
-        description='如果 method 为 get 的接口，设置了 data 信息。 默认 data 会自动附带在 query 里面发送给后端。\n\n如果想通过 body 发送给后端，那么请把这个配置成 false。\n\n但是，浏览器还不支持啊，设置了只是摆设。除非服务端支持 method-override',
+        description='Component property',
     )
-    data_type: DataType | None = Field(None, alias='dataType', description='发送体的格式')
-    response_type: Literal['blob'] = Field('blob', alias='responseType', description='如果是文件下载接口，请配置这个。')
-    headers: dict[str, dict[str, Any]] | None = Field(None, description='携带 headers，用法和 data 一样，可以用变量。')
+    data_type: DataType | None = Field(None, alias='dataType', description='Component property')
+    response_type: Literal['blob'] = Field(
+        'blob', alias='responseType', description='Component property'
+    )
+    headers: dict[str, dict[str, Any]] | None = Field(
+        None, description='Component property'
+    )
     send_on: dict[str, Any] | None = Field(None, alias='sendOn')
     replace_data: bool | None = Field(
-        None, alias='replaceData', description='默认都是追加模式，如果想完全替换把这个配置成 true'
+        None, alias='replaceData', description='Component property'
     )
     auto_refresh: bool | None = Field(
-        True, alias='autoRefresh', description='是否自动刷新，当 url 中的取值结果变化时，自动刷新数据。'
+        True, alias='autoRefresh', description='Component property'
     )
     track_expression: str | None = Field(
         None,
         alias='trackExpression',
-        description='当开启自动刷新的时候，默认是 api 的 url 来自动跟踪变量变化的。 如果你希望监控 url 外的变量，请配置 trackExpression。',
+        description='Component property',
     )
     cache: float | None = Field(
-        None, description='如果设置了值，同一个接口，相同参数，指定的时间（单位：ms）内请求将直接走缓存。'
+        None, description='Component property'
     )
     force_append_data_to_query: bool | None = Field(
         None,
         alias='forceAppendDataToQuery',
-        description='强制将数据附加在 query，默认只有 api 地址中没有用变量的时候 crud 查询接口才会 自动附加数据到 query 部分，如果想强制附加请设置这个属性。 对于那种临时加了个变量但是又不想全部参数写一遍的时候配置很有用。',
+        description='Component property',
     )
-    qs_options: QsOptions | None = Field(None, alias='qsOptions', description='qs 配置项')
-    silent: bool | None = Field(None, description='autoFill Whether visible自动填充错误提示')
-    download_file_name: str | None = Field(None, alias='downloadFileName', description='文件下载时，指定文件名')
+    qs_options: QsOptions | None = Field(None, alias='qsOptions', description='Component property')
+    silent: bool | None = Field(None, description='Component property')
+    download_file_name: str | None = Field(None, alias='downloadFileName', description='Component property')
 
 
 class SchemaApi(RootModel[str | SchemaApi1]):
@@ -1561,7 +1567,7 @@ class ArrayFormat(Enum):
 
 class QsOptions1(BaseModel):
     """
-    qs 配置项
+    AMIS QsOptions1 component.
     """
 
     model_config = ConfigDict(
@@ -1576,49 +1582,53 @@ class SchemaApiObject(BaseModel):
     model_config = ConfigDict(
         extra='forbid',
     )
-    method: Method | None = Field(None, description='API 发送类型')
+    method: Method | None = Field(None, description='Component property')
     url: str
     data: dict[str, Any] | None = Field(
         None,
-        description='用来控制携带数据. 当key 为 `&` 值为 `$$` 时, 将所有原始数据打平设置到 data 中. 当值为 $$ 将所有原始数据赋值到对应的 key 中. 当值为 $ 打头时, 将变量值设置到 key 中.',
+        description='Component property',
     )
     convert_key_to_path: bool | None = Field(
         None,
         alias='convertKeyToPath',
-        description="默认数据映射中的key如果带点，或者带大括号，会转成对象比如：\n\n{   'a.b': '123' }\n\n经过数据映射后变成 {  a: {   b: '123  } }\n\n如果想要关闭此功能，请设置 convertKeyToPath 为 false",
+        description="Component property'a.b': '123' }\n\n经过data映射后变成 {  a: {   b: '123  } }\n\nif想要Close此功能，请Set convertKeyToPath 为 false",
     )
-    response_data: dict[str, Any] | None = Field(None, alias='responseData', description='用来做接口返回的数据映射。')
+    response_data: dict[str, Any] | None = Field(
+        None, alias='responseData', description='Component property'
+    )
     attach_data_to_query: bool | None = Field(
         None,
         alias='attachDataToQuery',
-        description='如果 method 为 get 的接口，设置了 data 信息。 默认 data 会自动附带在 query 里面发送给后端。\n\n如果想通过 body 发送给后端，那么请把这个配置成 false。\n\n但是，浏览器还不支持啊，设置了只是摆设。除非服务端支持 method-override',
+        description='Component property',
     )
-    data_type: DataType | None = Field(None, alias='dataType', description='发送体的格式')
-    response_type: Literal['blob'] = Field('blob', alias='responseType', description='如果是文件下载接口，请配置这个。')
-    headers: dict[str, str | float] | None = Field(None, description='携带 headers，用法和 data 一样，可以用变量。')
+    data_type: DataType | None = Field(None, alias='dataType', description='Component property')
+    response_type: Literal['blob'] = Field(
+        'blob', alias='responseType', description='Component property'
+    )
+    headers: dict[str, str | float] | None = Field(None, description='Component property')
     send_on: str | None = Field(None, alias='sendOn', description='Expression, syntax `${xxx > 5}`.')
     replace_data: bool | None = Field(
-        None, alias='replaceData', description='默认都是追加模式，如果想完全替换把这个配置成 true'
+        None, alias='replaceData', description='Component property'
     )
     auto_refresh: bool | None = Field(
-        True, alias='autoRefresh', description='是否自动刷新，当 url 中的取值结果变化时，自动刷新数据。'
+        True, alias='autoRefresh', description='Component property'
     )
     track_expression: str | None = Field(
         None,
         alias='trackExpression',
-        description='当开启自动刷新的时候，默认是 api 的 url 来自动跟踪变量变化的。 如果你希望监控 url 外的变量，请配置 trackExpression。',
+        description='Component property',
     )
     cache: float | None = Field(
-        None, description='如果设置了值，同一个接口，相同参数，指定的时间（单位：ms）内请求将直接走缓存。'
+        None, description='Component property'
     )
     force_append_data_to_query: bool | None = Field(
         None,
         alias='forceAppendDataToQuery',
-        description='强制将数据附加在 query，默认只有 api 地址中没有用变量的时候 crud 查询接口才会 自动附加数据到 query 部分，如果想强制附加请设置这个属性。 对于那种临时加了个变量但是又不想全部参数写一遍的时候配置很有用。',
+        description='Component property',
     )
-    qs_options: QsOptions1 | None = Field(None, alias='qsOptions', description='qs 配置项')
-    silent: bool | None = Field(None, description='autoFill Whether visible自动填充错误提示')
-    download_file_name: str | None = Field(None, alias='downloadFileName', description='文件下载时，指定文件名')
+    qs_options: QsOptions1 | None = Field(None, alias='qsOptions', description='Component property')
+    silent: bool | None = Field(None, description='Component property')
+    download_file_name: str | None = Field(None, alias='downloadFileName', description='Component property')
 
 
 class SchemaUrlPath(RootModel[str]):
@@ -1631,7 +1641,7 @@ class SchemaTokenizeableString(RootModel[str]):
 
 class FeedbackDialog(BaseModel):
     """
-    Dialog 弹框渲染器。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/dialog
+    AMIS FeedbackDialog component.
     """
 
     model_config = ConfigDict(
@@ -1684,16 +1694,16 @@ class FeedbackDialog(BaseModel):
     allow_fullscreen: Any | None = Field(None, alias='allowFullscreen')
     data: Any | None = None
     skip_rest_on_cancel: bool | None = Field(
-        None, alias='skipRestOnCancel', description='feedback 弹框取消是否中断后续操作'
+        None, alias='skipRestOnCancel', description='Component property'
     )
     skip_rest_on_confirm: bool | None = Field(
-        None, alias='skipRestOnConfirm', description='feedback 弹框确认是否中断后续操作'
+        None, alias='skipRestOnConfirm', description='Component property'
     )
 
 
 class Size(Enum):
     """
-    Dialog 大小
+    AMIS Size component.
     """
 
     xs = 'xs'
@@ -1706,7 +1716,7 @@ class Size(Enum):
 
 class DialogSchemaBase(BaseModel):
     """
-    Dialog 弹框渲染器。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/dialog
+    AMIS DialogSchemaBase component.
     """
 
     model_config = ConfigDict(
@@ -1735,22 +1745,22 @@ class DialogSchemaBase(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     type: Any
     testid: Any | None = None
-    input_params: Any | None = Field(None, alias='inputParams', description='弹窗参数说明，值格式为 JSONSchema。')
-    actions: list[dict[str, Any]] | None = Field(None, description='默认不用填写，自动会创建确认和取消按钮。')
+    input_params: Any | None = Field(None, alias='inputParams', description='Component property')
+    actions: list[dict[str, Any]] | None = Field(None, description='Component property')
     body: dict[str, Any] | None = None
     body_class_name: dict[str, Any] | None = Field(
         None,
         alias='bodyClassName',
         description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
-    close_on_esc: bool | None = Field(None, alias='closeOnEsc', description='是否支持按 ESC 关闭 Dialog')
-    close_on_outside: bool | None = Field(None, alias='closeOnOutside', description='是否支持点其它区域关闭 Dialog')
+    close_on_esc: bool | None = Field(None, alias='closeOnEsc', description='Component property')
+    close_on_outside: bool | None = Field(None, alias='closeOnOutside', description='Component property')
     name: str | None = Field(
         None, description='Component name, this name can be used for positioning and component communication'
     )
-    size: Size | None = Field(None, description='Dialog 大小')
-    height: str | None = Field(None, description='Dialog 高度')
-    width: str | None = Field(None, description='Dialog 宽度')
+    size: Size | None = Field(None, description='Component property')
+    height: str | None = Field(None, description='Component property')
+    width: str | None = Field(None, description='Component property')
     title: dict[str, Any] | None = None
     header: dict[str, Any] | None = None
     header_class_name: dict[str, Any] | None = Field(
@@ -1759,15 +1769,15 @@ class DialogSchemaBase(BaseModel):
         description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     footer: dict[str, Any] | None = None
-    confirm: bool | None = Field(None, description='影响自动生成的按钮，如果自己配置了按钮这个配置无效。')
-    show_close_button: bool | None = Field(None, alias='showCloseButton', description='Whether visible关闭按钮')
-    show_error_msg: bool | None = Field(None, alias='showErrorMsg', description='Whether visible错误信息')
+    confirm: bool | None = Field(None, description='Component property')
+    show_close_button: bool | None = Field(None, alias='showCloseButton', description='Component property')
+    show_error_msg: bool | None = Field(None, alias='showErrorMsg', description='Whether visibleError message')
     show_loading: bool | None = Field(None, alias='showLoading', description='Whether visible spinner')
-    overlay: bool | None = Field(None, description='Whether visible蒙层')
-    dialog_type: Literal['confirm'] = Field('confirm', alias='dialogType', description='弹框类型 confirm 确认弹框')
-    draggable: bool | None = Field(None, description='可拖拽')
-    allow_fullscreen: bool | None = Field(None, alias='allowFullscreen', description='可全屏')
-    data: dict[str, Any] | None = Field(None, description='数据映射')
+    overlay: bool | None = Field(None, description='Component property')
+    dialog_type: Literal['confirm'] = Field('confirm', alias='dialogType', description='Component property')
+    draggable: bool | None = Field(None, description='Component property')
+    allow_fullscreen: bool | None = Field(None, alias='allowFullscreen', description='Component property')
+    data: dict[str, Any] | None = Field(None, description='Component property')
 
 
 class SchemaName(RootModel[str]):
@@ -1779,13 +1789,13 @@ class SchemaName(RootModel[str]):
 class SchemaReload(RootModel[str]):
     root: str = Field(
         ...,
-        description='配置刷新动作，这个动作通常在完成渲染器本省的固定动作后出发。\n\n一般用来配置目标组件的 name 属性。多个目标可以用逗号隔开。\n\n当目标是 windows 时表示刷新整个页面。\n\n刷新目标的同时还支持传递参数如： `foo?a=${a}&b=${b},boo?c=${c}`',
+        description='Component property',
     )
 
 
 class Level(Enum):
     """
-    按钮样式
+    AMIS Level component.
     """
 
     info = 'info'
@@ -1801,7 +1811,7 @@ class Level(Enum):
 
 class Size1(Enum):
     """
-    按钮大小
+    AMIS Size1 component.
     """
 
     xs = 'xs'
@@ -1844,8 +1854,8 @@ class ButtonSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     type: Any
     testid: Any | None = None
-    block: bool | None = Field(None, description='是否为块状展示，默认为内联。')
-    disabled_tip: str | None = Field(None, alias='disabledTip', description='禁用时的文案提示。')
+    block: bool | None = Field(None, description='Component property')
+    disabled_tip: str | None = Field(None, alias='disabledTip', description='Component property')
     icon: str | None = Field(None, description='Class name in iconfont.')
     icon_class_name: dict[str, Any] | None = Field(
         None,
@@ -1863,48 +1873,52 @@ class ButtonSchema(BaseModel):
         alias='loadingClassName',
         description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
-    label: str | None = Field(None, description='按钮文字')
-    level: Level | None = Field(None, description='按钮样式')
+    label: str | None = Field(None, description='Component property')
+    level: Level | None = Field(None, description='Component property')
     primary: bool | None = None
-    size: Size1 | None = Field(None, description='按钮大小')
+    size: Size1 | None = Field(None, description='Component property')
     tooltip: dict[str, Any] | None = None
     tooltip_placement: TooltipPlacement | None = Field(None, alias='tooltipPlacement')
-    confirm_text: str | None = Field(None, alias='confirmText', description='提示文字，配置了操作前会要求用户确认。')
-    required: list[str] | None = Field(
-        None, description='如果按钮在form中，配置此属性会要求用户把指定的字段通过验证后才会触发行为。'
+    confirm_text: str | None = Field(
+        None, alias='confirmText', description='Component property'
     )
-    active_level: str | None = Field(None, alias='activeLevel', description='激活状态时的样式')
-    active_class_name: str | None = Field(None, alias='activeClassName', description='激活状态时的类名')
+    required: list[str] | None = Field(
+        None, description='Component property'
+    )
+    active_level: str | None = Field(None, alias='activeLevel', description='Component property')
+    active_class_name: str | None = Field(None, alias='activeClassName', description='Component property')
     close: bool | str | None = Field(
-        None, description='如果按钮在弹框中，可以配置这个动作完成后是否关闭弹窗，或者指定关闭目标弹框。'
+        None, description='Component property'
     )
     require_selected: bool | None = Field(
         None,
         alias='requireSelected',
-        description='当按钮时批量操作按钮时，默认必须有勾选元素才能可点击，如果此属性配置成 false，则没有点选成员也能点击。',
+        description='Component property',
     )
-    merge_data: bool | None = Field(None, alias='mergeData', description='是否将弹框中数据 merge 到父级作用域。')
-    target: str | None = Field(None, description='可以指定让谁来触发这个动作。')
-    count_down: float | None = Field(None, alias='countDown', description='点击后的禁止倒计时（秒）')
-    count_down_tpl: str | None = Field(None, alias='countDownTpl', description='倒计时文字自定义')
+    merge_data: bool | None = Field(None, alias='mergeData', description='Component property')
+    target: str | None = Field(None, description='Component property')
+    count_down: float | None = Field(None, alias='countDown', description='Component property')
+    count_down_tpl: str | None = Field(None, alias='countDownTpl', description='Component property')
     badge: Badge | None = Field(
-        None, description='Badge 角标。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/badge'
+        None, description='Component property'
     )
-    hot_key: str | None = Field(None, alias='hotKey', description='键盘快捷键')
-    loading_on: str | None = Field(None, alias='loadingOn', description='Whether visibleloading效果')
-    disabled_on_action: bool | None = Field(None, alias='disabledOnAction', description='是否在动作结束前禁用按钮')
-    on_click: str | Any | None = Field(None, alias='onClick', description='自定义事件处理函数')
+    hot_key: str | None = Field(None, alias='hotKey', description='Component property')
+    loading_on: str | None = Field(None, alias='loadingOn', description='Component property')
+    disabled_on_action: bool | None = Field(
+        None, alias='disabledOnAction', description='Component property'
+    )
+    on_click: str | Any | None = Field(None, alias='onClick', description='Component property')
     body: dict[str, Any] | None = None
     tab_index: str | None = Field(None, alias='tabIndex')
-    href: str | None = Field(None, description='点击后打开的链接地址')
+    href: str | None = Field(None, description='Component property')
 
 
 class SchemaTooltip1(BaseModel):
     model_config = ConfigDict(
         extra='forbid',
     )
-    title: str | None = Field(None, description='标题')
-    content: str = Field(..., description='内容')
+    title: str | None = Field(None, description='Title')
+    content: str = Field(..., description='content')
 
 
 class SchemaTooltip(RootModel[str | SchemaTooltip1]):
@@ -1969,9 +1983,9 @@ class UrlActionSchema(BaseModel):
     body: Any | None = None
     tab_index: Any | None = Field(None, alias='tabIndex')
     href: Any | None = None
-    action_type: Literal['url'] = Field(..., alias='actionType', description='指定为打开链接')
-    blank: bool | None = Field(None, description='是否新窗口打开')
-    url: str = Field(..., description='打开的目标地址')
+    action_type: Literal['url'] = Field(..., alias='actionType', description='Component property')
+    blank: bool | None = Field(None, description='Component property')
+    url: str = Field(..., description='Component property')
 
 
 class Type3(Enum):
@@ -2056,7 +2070,7 @@ class Type4(Enum):
 
 class Dialog(BaseModel):
     """
-    Dialog 弹框渲染器。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/dialog
+    AMIS Dialog component.
     """
 
     model_config = ConfigDict(
@@ -2168,22 +2182,22 @@ class DialogActionSchema(BaseModel):
     body: Any | None = None
     tab_index: Any | None = Field(None, alias='tabIndex')
     href: Any | None = None
-    action_type: Literal['dialog'] = Field(..., alias='actionType', description='指定为打开弹窗')
+    action_type: Literal['dialog'] = Field(..., alias='actionType', description='Component property')
     dialog: Dialog = Field(
-        ..., description='Dialog 弹框渲染器。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/dialog'
+        ..., description='Component property'
     )
     next_condition: str | None = Field(None, alias='nextCondition', description='Expression, syntax `${xxx > 5}`.')
     reload: str | None = Field(
         None,
-        description='配置刷新动作，这个动作通常在完成渲染器本省的固定动作后出发。\n\n一般用来配置目标组件的 name 属性。多个目标可以用逗号隔开。\n\n当目标是 windows 时表示刷新整个页面。\n\n刷新目标的同时还支持传递参数如： `foo?a=${a}&b=${b},boo?c=${c}`',
+        description='Component property',
     )
     redirect: str | None = None
-    data: Any | None = Field(None, description='数据映射')
+    data: Any | None = Field(None, description='Component property')
 
 
 class Drawer(BaseModel):
     """
-    Drawer 抽出式弹框。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/drawer
+    AMIS Drawer component.
     """
 
     model_config = ConfigDict(
@@ -2294,22 +2308,22 @@ class DrawerActionSchema(BaseModel):
     body: Any | None = None
     tab_index: Any | None = Field(None, alias='tabIndex')
     href: Any | None = None
-    action_type: Literal['drawer'] = Field(..., alias='actionType', description='指定为打开弹窗，抽出式弹窗')
+    action_type: Literal['drawer'] = Field(..., alias='actionType', description='Component property')
     drawer: Drawer = Field(
-        ..., description='Drawer 抽出式弹框。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/drawer'
+        ..., description='Component property'
     )
     next_condition: str | None = Field(None, alias='nextCondition', description='Expression, syntax `${xxx > 5}`.')
     reload: str | None = Field(
         None,
-        description='配置刷新动作，这个动作通常在完成渲染器本省的固定动作后出发。\n\n一般用来配置目标组件的 name 属性。多个目标可以用逗号隔开。\n\n当目标是 windows 时表示刷新整个页面。\n\n刷新目标的同时还支持传递参数如： `foo?a=${a}&b=${b},boo?c=${c}`',
+        description='Component property',
     )
     redirect: str | None = None
-    data: Any | None = Field(None, description='数据映射')
+    data: Any | None = Field(None, description='Component property')
 
 
 class Size2(Enum):
     """
-    Dialog 大小
+    AMIS Size2 component.
     """
 
     xs = 'xs'
@@ -2321,7 +2335,7 @@ class Size2(Enum):
 
 class Position1(Enum):
     """
-    从什么位置弹出
+    AMIS Position1 component.
     """
 
     left = 'left'
@@ -2332,7 +2346,7 @@ class Position1(Enum):
 
 class DrawerSchemaBase(BaseModel):
     """
-    Drawer 抽出式弹框。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/drawer
+    AMIS DrawerSchemaBase component.
     """
 
     model_config = ConfigDict(
@@ -2361,8 +2375,8 @@ class DrawerSchemaBase(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     type: Any
     testid: Any | None = None
-    input_params: Any | None = Field(None, alias='inputParams', description='弹窗参数说明，值格式为 JSONSchema。')
-    actions: list[dict[str, Any]] | None = Field(None, description='默认不用填写，自动会创建确认和取消按钮。')
+    input_params: Any | None = Field(None, alias='inputParams', description='Component property')
+    actions: list[dict[str, Any]] | None = Field(None, description='Component property')
     body: dict[str, Any] | None = None
     body_class_name: dict[str, Any] | None = Field(
         None,
@@ -2379,26 +2393,28 @@ class DrawerSchemaBase(BaseModel):
         alias='footerClassName',
         description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
-    close_on_esc: bool | None = Field(None, alias='closeOnEsc', description='是否支持按 ESC 关闭 Dialog')
+    close_on_esc: bool | None = Field(None, alias='closeOnEsc', description='Component property')
     name: str | None = Field(
         None, description='Component name, this name can be used for positioning and component communication'
     )
-    size: Size2 | None = Field(None, description='Dialog 大小')
+    size: Size2 | None = Field(None, description='Component property')
     title: dict[str, Any] | None = None
-    position: Position1 | None = Field(None, description='从什么位置弹出')
+    position: Position1 | None = Field(None, description='Component property')
     show_close_button: bool | None = Field(
-        None, alias='showCloseButton', description='是否展示关闭按钮 当值为false时，默认开启closeOnOutside'
+        None, alias='showCloseButton', description='Component property'
     )
-    width: float | str | None = Field(None, description='抽屉的宽度 （当position为left | right时生效）')
-    height: float | str | None = Field(None, description='抽屉的高度 （当position为top | bottom时生效）')
+    width: float | str | None = Field(None, description='Component property')
+    height: float | str | None = Field(None, description='Component property')
     header: dict[str, Any] | None = None
     footer: dict[str, Any] | None = None
-    confirm: bool | None = Field(None, description='影响自动生成的按钮，如果自己配置了按钮这个配置无效。')
-    resizable: bool | None = Field(None, description='是否可以拖动弹窗大小')
-    overlay: bool | None = Field(None, description='Whether visible蒙层')
-    close_on_outside: bool | None = Field(None, alias='closeOnOutside', description='点击外部的时候是否关闭弹框。')
-    show_error_msg: bool | None = Field(None, alias='showErrorMsg', description='Whether visible错误信息')
-    data: dict[str, Any] | None = Field(None, description='数据映射')
+    confirm: bool | None = Field(None, description='Component property')
+    resizable: bool | None = Field(None, description='Component property')
+    overlay: bool | None = Field(None, description='Component property')
+    close_on_outside: bool | None = Field(
+        None, alias='closeOnOutside', description='Component property'
+    )
+    show_error_msg: bool | None = Field(None, alias='showErrorMsg', description='Whether visibleError message')
+    data: dict[str, Any] | None = Field(None, description='Component property')
 
 
 class Type6(Enum):
@@ -2601,7 +2617,7 @@ class ReloadActionSchema(BaseModel):
     body: Any | None = None
     tab_index: Any | None = Field(None, alias='tabIndex')
     href: Any | None = None
-    action_type: Literal['reload'] = Field(..., alias='actionType', description='指定为刷新目标组件。')
+    action_type: Literal['reload'] = Field(..., alias='actionType', description='Component property')
 
 
 class EmailActionSchema(BaseModel):
@@ -2662,11 +2678,11 @@ class EmailActionSchema(BaseModel):
     body: Any | None = None
     tab_index: Any | None = Field(None, alias='tabIndex')
     href: Any | None = None
-    action_type: Literal['email'] = Field(..., alias='actionType', description='指定为打开邮箱行为')
-    to: str = Field(..., description='收件人邮箱')
-    cc: str | None = Field(None, description='抄送邮箱')
-    bcc: str | None = Field(None, description='匿名抄送邮箱')
-    subject: str | None = Field(None, description='邮件主题')
+    action_type: Literal['email'] = Field(..., alias='actionType', description='Component property')
+    to: str = Field(..., description='Component property')
+    cc: str | None = Field(None, description='Component property')
+    bcc: str | None = Field(None, description='Component property')
+    subject: str | None = Field(None, description='Component property')
 
 
 class Type10(Enum):
@@ -2810,7 +2826,7 @@ class VanillaAction(BaseModel):
 
 class Level1(Enum):
     """
-    提示类型
+    AMIS Level1 component.
     """
 
     info = 'info'
@@ -2821,7 +2837,7 @@ class Level1(Enum):
 
 class AlertSchema(BaseModel):
     """
-    Alert 提示渲染器。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/alert
+    AMIS AlertSchema component.
     """
 
     model_config = ConfigDict(
@@ -2850,14 +2866,16 @@ class AlertSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     type: Any
     testid: Any | None = None
-    title: str | None = Field(None, description='提示框标题')
+    title: str | None = Field(None, description='Component property')
     body: dict[str, Any]
-    level: Level1 | None = Field(None, description='提示类型')
-    show_close_button: bool | None = Field(None, alias='showCloseButton', description='Whether visible关闭按钮')
-    close_button_class_name: str | None = Field(None, alias='closeButtonClassName', description='关闭按钮CSS类名')
+    level: Level1 | None = Field(None, description='Component property')
+    show_close_button: bool | None = Field(None, alias='showCloseButton', description='Component property')
+    close_button_class_name: str | None = Field(
+        None, alias='closeButtonClassName', description='Component property'
+    )
     show_icon: bool | None = Field(None, alias='showIcon', description='Whether visibleICON')
     icon: str | None = Field(None, description='Class name in iconfont.')
-    icon_class_name: str | None = Field(None, alias='iconClassName', description='图标CSS类名')
+    icon_class_name: str | None = Field(None, alias='iconClassName', description='Component property')
     actions: dict[str, Any] | None = None
 
 
@@ -2871,7 +2889,7 @@ class Control(Enum):
 
 class AudioSchema(BaseModel):
     """
-    Audio 音频渲染器。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/audio
+    AMIS AudioSchema component.
     """
 
     model_config = ConfigDict(
@@ -2900,17 +2918,17 @@ class AudioSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     type: Any
     testid: Any | None = None
-    inline: bool | None = Field(None, description='是否是内联模式')
+    inline: bool | None = Field(None, description='Component property')
     src: dict[str, Any] | None = None
-    loop: bool | None = Field(None, description='是否循环播放')
-    auto_play: bool | None = Field(None, alias='autoPlay', description='是否自动播放')
-    rates: list[float] | None = Field(None, description='配置可选播放倍速')
-    controls: list[Control] | None = Field(None, description='可以配置控制器')
+    loop: bool | None = Field(None, description='Component property')
+    auto_play: bool | None = Field(None, alias='autoPlay', description='Component property')
+    rates: list[float] | None = Field(None, description='Component property')
+    controls: list[Control] | None = Field(None, description='Component property')
 
 
 class Fit(Enum):
     """
-    图片相对于容器的缩放方式
+    AMIS Fit component.
     """
 
     fill = 'fill'
@@ -2922,7 +2940,7 @@ class Fit(Enum):
 
 class Shape1(Enum):
     """
-    形状
+    Shape
     """
 
     circle = 'circle'
@@ -2932,7 +2950,7 @@ class Shape1(Enum):
 
 class CrossOrigin(Enum):
     """
-    图片CORS属性
+    AMIS CrossOrigin component.
     """
 
     anonymous = 'anonymous'
@@ -2968,25 +2986,25 @@ class AvatarSchema(BaseModel):
     type: Any
     testid: Any | None = None
     badge: Badge | None = Field(
-        None, description='Badge 角标。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/badge'
+        None, description='Component property'
     )
-    src: str | None = Field(None, description='图片地址')
-    default_avatar: str | None = Field(None, alias='defaultAvatar', description='默认头像')
-    icon: str | None = Field(None, description='图标')
-    fit: Fit | None = Field(None, description='图片相对于容器的缩放方式')
-    shape: Shape1 | None = Field(None, description='形状')
-    size: float | str | None = Field(None, description='大小')
-    text: str | None = Field(None, description='文本')
-    gap: float | None = Field(None, description='字符类型距离左右两侧边界单位像素')
-    alt: str | None = Field(None, description='图片无法显示时的替换文字地址')
-    draggable: bool | None = Field(None, description='图片是否允许拖动')
-    cross_origin: CrossOrigin = Field(..., alias='crossOrigin', description='图片CORS属性')
-    on_error: str | None = Field(None, alias='onError', description='图片加载失败的是否默认处理，字符串函数')
+    src: str | None = Field(None, description='Component property')
+    default_avatar: str | None = Field(None, alias='defaultAvatar', description='Component property')
+    icon: str | None = Field(None, description='Component property')
+    fit: Fit | None = Field(None, description='Component property')
+    shape: Shape1 | None = Field(None, description='Shape')
+    size: float | str | None = Field(None, description='Component property')
+    text: str | None = Field(None, description='Component property')
+    gap: float | None = Field(None, description='Component property')
+    alt: str | None = Field(None, description='Component property')
+    draggable: bool | None = Field(None, description='Component property')
+    cross_origin: CrossOrigin = Field(..., alias='crossOrigin', description='Component property')
+    on_error: str | None = Field(None, alias='onError', description='Component property')
 
 
 class ButtonGroupSchema(BaseModel):
     """
-    Button Group 渲染器。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/button-group
+    AMIS ButtonGroupSchema component.
     """
 
     model_config = ConfigDict(
@@ -3027,7 +3045,7 @@ class ButtonGroupSchema(BaseModel):
 
 class Size3(Enum):
     """
-    按钮大小
+    AMIS Size3 component.
     """
 
     xs = 'xs'
@@ -3038,7 +3056,7 @@ class Size3(Enum):
 
 class BaseButtonGroupSchema(BaseModel):
     """
-    Button Group 渲染器。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/button-group
+    AMIS BaseButtonGroupSchema component.
     """
 
     model_config = ConfigDict(
@@ -3073,17 +3091,17 @@ class BaseButtonGroupSchema(BaseModel):
         description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     btn_active_class_name: str | None = Field(None, alias='btnActiveClassName')
-    buttons: list[dict[str, Any]] | None = Field(None, description='按钮集合')
-    btn_level: str | None = Field(None, alias='btnLevel', description='按钮样式级别')
-    btn_active_level: str | None = Field(None, alias='btnActiveLevel', description='按钮选中的样式级别')
-    vertical: bool | None = Field(None, description='垂直展示？')
-    tiled: bool | None = Field(None, description='平铺展示？')
-    size: Size3 | None = Field(None, description='按钮大小')
+    buttons: list[dict[str, Any]] | None = Field(None, description='Component property')
+    btn_level: str | None = Field(None, alias='btnLevel', description='Component property')
+    btn_active_level: str | None = Field(None, alias='btnActiveLevel', description='Component property')
+    vertical: bool | None = Field(None, description='Component property')
+    tiled: bool | None = Field(None, description='Component property')
+    size: Size3 | None = Field(None, description='Component property')
 
 
 class LabelOverflow(Enum):
     """
-    label展示形式
+    AMIS LabelOverflow component.
     """
 
     default = 'default'
@@ -3092,7 +3110,7 @@ class LabelOverflow(Enum):
 
 class Mode1(Enum):
     """
-    配置当前表单项展示模式
+    AMIS Mode1 component.
     """
 
     normal = 'normal'
@@ -3102,7 +3120,7 @@ class Mode1(Enum):
 
 class ValidationErrors(BaseModel):
     """
-    验证失败的提示信息
+    AMIS ValidationErrors component.
     """
 
     is_alpha: dict[str, Any] | None = Field(None, alias='isAlpha')
@@ -3140,59 +3158,63 @@ class ValidationErrors(BaseModel):
 
 class ButtonToolbarSchema(BaseModel):
     """
-    Button Toolar 渲染器。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/button-toolbar
+    AMIS ButtonToolbarSchema component.
     """
 
     model_config = ConfigDict(
         extra='forbid',
     )
-    label: dict[str, Any] | None = Field(None, description='描述标题, 当值为 false 时不展示')
+    label: dict[str, Any] | None = Field(None, description='Component property')
     label_align: dict[str, Any] | None = Field(None, alias='labelAlign')
-    label_width: float | str | None = Field(None, alias='labelWidth', description='label自定义宽度，默认单位为px')
-    label_overflow: LabelOverflow | None = Field(None, alias='labelOverflow', description='label展示形式')
-    label_class_name: str | None = Field(None, alias='labelClassName', description='配置 label className')
-    name: str | None = Field(None, description='字段名，表单提交时的 key，支持多层级，用.连接，如： a.b.c')
+    label_width: float | str | None = Field(None, alias='labelWidth', description='Component property')
+    label_overflow: LabelOverflow | None = Field(None, alias='labelOverflow', description='Component property')
+    label_class_name: str | None = Field(None, alias='labelClassName', description='Configure label className')
+    name: str | None = Field(None, description='Component property')
     extra_name: str | None = Field(
-        None, alias='extraName', description='额外的字段名，当为范围组件时可以用来将另外一个值打平出来'
+        None, alias='extraName', description='Component property'
     )
-    remark: Any | None = Field(None, description='显示一个小图标, 鼠标放上去的时候显示提示内容')
+    remark: Any | None = Field(None, description='Component property')
     label_remark: Any | None = Field(
-        None, alias='labelRemark', description='显示一个小图标, 鼠标放上去的时候显示提示内容, 这个小图标跟 label 在一起'
+        None,
+        alias='labelRemark',
+        description='Component property',
     )
-    hint: str | None = Field(None, description='输入提示，聚焦的时候显示')
-    submit_on_change: bool | None = Field(None, alias='submitOnChange', description='当修改完的时候是否提交表单。')
-    read_only: bool | None = Field(None, alias='readOnly', description='是否只读')
-    read_only_on: str | None = Field(None, alias='readOnlyOn', description='只读条件')
+    hint: str | None = Field(None, description='Component property')
+    submit_on_change: bool | None = Field(None, alias='submitOnChange', description='Component property')
+    read_only: bool | None = Field(None, alias='readOnly', description='Component property')
+    read_only_on: str | None = Field(None, alias='readOnlyOn', description='Component property')
     validate_on_change: bool | None = Field(
         None,
         alias='validateOnChange',
-        description='不设置时，当表单提交过后表单项每次修改都会触发重新验证， 如果设置了，则由此配置项来决定要不要每次修改都触发验证。',
+        description='Component property',
     )
-    description: str | None = Field(None, description='描述内容，支持 Html 片段。')
+    description: str | None = Field(None, description='Component property')
     desc: str | None = None
     description_class_name: dict[str, Any] | None = Field(None, alias='descriptionClassName')
-    mode: Mode1 | None = Field(None, description='配置当前表单项展示模式')
+    mode: Mode1 | None = Field(None, description='Component property')
     horizontal: dict[str, Any] | None = None
-    inline: bool | None = Field(None, description='表单 control 是否为 inline 模式。')
+    inline: bool | None = Field(None, description='Component property')
     input_class_name: dict[str, Any] | None = Field(None, alias='inputClassName')
-    placeholder: dict[str, Any] | None = Field(None, description='占位符')
-    required: bool | None = Field(None, description='是否为必填')
-    validation_errors: ValidationErrors | None = Field(None, alias='validationErrors', description='验证失败的提示信息')
+    placeholder: dict[str, Any] | None = Field(None, description='Component property')
+    required: bool | None = Field(None, description='Component property')
+    validation_errors: ValidationErrors | None = Field(
+        None, alias='validationErrors', description='Component property'
+    )
     validations: dict[str, Any] | None = None
     value: Any | None = Field(
-        None, description='默认值，切记只能是静态值，不支持取变量，跟数据关联是通过设置 name 属性来实现的。'
+        None, description='Component property'
     )
     clear_value_on_hidden: bool | None = Field(
         None,
         alias='clearValueOnHidden',
-        description='表单项隐藏时，是否在当前 Form 中删除掉该表单项值。注意同名的未隐藏的表单项值也会删掉',
+        description='Component property',
     )
-    validate_api: dict[str, Any] | None = Field(None, alias='validateApi', description='远端校验表单项接口')
+    validate_api: dict[str, Any] | None = Field(None, alias='validateApi', description='Component property')
     auto_fill: dict[str, Any] | None = Field(
-        None, alias='autoFill', description='自动填充，当选项被选择的时候，将选项中的其他值同步设置到表单内。'
+        None, alias='autoFill', description='Component property'
     )
     init_auto_fill: dict[str, Any] | None = Field(
-        'fillIfNotSet\n初始化时是否把其他字段同步到表单内部。', alias='initAutoFill'
+        'fillIfNotSet\n初始化时Whether把其他字段同步到表单Internal。', alias='initAutoFill'
     )
     row: float | None = None
     field__id: Any | None = Field(None, alias='$$id')
@@ -3223,7 +3245,7 @@ class ButtonToolbarSchema(BaseModel):
 
 class Label(Enum):
     """
-    描述标题, 当值为 false 时不展示
+    AMIS Label component.
     """
 
     boolean_false = False
@@ -3255,13 +3277,13 @@ class Horizontal(BaseModel):
     left_fixed: dict[str, Any] | None = Field(None, alias='leftFixed')
     justify: bool | None = None
     label_align: LabelAlign1 | None = Field(None, alias='labelAlign')
-    label_width: float | str | None = Field(None, alias='labelWidth', description='label自定义宽度，默认单位为px')
+    label_width: float | str | None = Field(None, alias='labelWidth', description='Component property')
     label_overflow: LabelOverflow2 | None = Field(None, alias='labelOverflow')
 
 
 class ValidationErrors1(BaseModel):
     """
-    验证失败的提示信息
+    AMIS ValidationErrors1 component.
     """
 
     is_alpha: str | None = Field(None, alias='isAlpha')
@@ -3298,71 +3320,71 @@ class ValidationErrors1(BaseModel):
 
 
 class Validations(BaseModel):
-    is_alpha: bool | None = Field(None, alias='isAlpha', description='是否是字母')
-    is_alphanumeric: bool | None = Field(None, alias='isAlphanumeric', description='是否为字母数字')
-    is_email: bool | None = Field(None, alias='isEmail', description='是否为邮箱地址')
-    is_float: bool | None = Field(None, alias='isFloat', description='是否为浮点型')
-    is_int: bool | None = Field(None, alias='isInt', description='是否为整型')
-    is_json: bool | None = Field(None, alias='isJson', description='是否为 json')
-    is_length: float | None = Field(None, alias='isLength', description='长度等于指定值')
-    is_numeric: bool | None = Field(None, alias='isNumeric', description='是否为数字')
-    is_required: bool | None = Field(None, alias='isRequired', description='是否为必填')
-    is_url: bool | None = Field(None, alias='isUrl', description='是否为 URL 地址')
-    match_regexp: str | None = Field(None, alias='matchRegexp', description='内容命中指定正则')
-    match_regexp1: str | None = Field(None, alias='matchRegexp1', description='内容命中指定正则')
-    match_regexp2: str | None = Field(None, alias='matchRegexp2', description='内容命中指定正则')
-    match_regexp3: str | None = Field(None, alias='matchRegexp3', description='内容命中指定正则')
-    match_regexp4: str | None = Field(None, alias='matchRegexp4', description='内容命中指定正则')
-    match_regexp5: str | None = Field(None, alias='matchRegexp5', description='内容命中指定正则')
-    max_length: float | None = Field(None, alias='maxLength', description='最大长度为指定值')
-    maximum: float | None = Field(None, description='最大值为指定值')
-    min_length: float | None = Field(None, alias='minLength', description='最小长度为指定值')
-    minimum: float | None = Field(None, description='最小值为指定值')
+    is_alpha: bool | None = Field(None, alias='isAlpha', description='Component property')
+    is_alphanumeric: bool | None = Field(None, alias='isAlphanumeric', description='Component property')
+    is_email: bool | None = Field(None, alias='isEmail', description='Component property')
+    is_float: bool | None = Field(None, alias='isFloat', description='Component property')
+    is_int: bool | None = Field(None, alias='isInt', description='Component property')
+    is_json: bool | None = Field(None, alias='isJson', description='Component property')
+    is_length: float | None = Field(None, alias='isLength', description='Component property')
+    is_numeric: bool | None = Field(None, alias='isNumeric', description='Component property')
+    is_required: bool | None = Field(None, alias='isRequired', description='Component property')
+    is_url: bool | None = Field(None, alias='isUrl', description='Component property')
+    match_regexp: str | None = Field(None, alias='matchRegexp', description='Component property')
+    match_regexp1: str | None = Field(None, alias='matchRegexp1', description='Component property')
+    match_regexp2: str | None = Field(None, alias='matchRegexp2', description='Component property')
+    match_regexp3: str | None = Field(None, alias='matchRegexp3', description='Component property')
+    match_regexp4: str | None = Field(None, alias='matchRegexp4', description='Component property')
+    match_regexp5: str | None = Field(None, alias='matchRegexp5', description='Component property')
+    max_length: float | None = Field(None, alias='maxLength', description='Component property')
+    maximum: float | None = Field(None, description='Component property')
+    min_length: float | None = Field(None, alias='minLength', description='Component property')
+    minimum: float | None = Field(None, description='Component property')
     is_date_time_same: dict[str, Any] | None = Field(
-        None, alias='isDateTimeSame', description='和目标日期相同，支持指定粒度，默认到毫秒'
+        None, alias='isDateTimeSame', description='Component property'
     )
     is_date_time_before: dict[str, Any] | None = Field(
-        None, alias='isDateTimeBefore', description='早于目标日期，支持指定粒度，默认到毫秒'
+        None, alias='isDateTimeBefore', description='Component property'
     )
     is_date_time_after: dict[str, Any] | None = Field(
-        None, alias='isDateTimeAfter', description='晚于目标日期，支持指定粒度，默认到毫秒'
+        None, alias='isDateTimeAfter', description='Component property'
     )
     is_date_time_same_or_before: dict[str, Any] | None = Field(
-        None, alias='isDateTimeSameOrBefore', description='早于目标日期或和目标日期相同，支持指定粒度，默认到毫秒'
+        None, alias='isDateTimeSameOrBefore', description='Component property'
     )
     is_date_time_same_or_after: dict[str, Any] | None = Field(
-        None, alias='isDateTimeSameOrAfter', description='晚于目标日期或和目标日期相同，支持指定粒度，默认到毫秒'
+        None, alias='isDateTimeSameOrAfter', description='Component property'
     )
     is_date_time_between: dict[str, Any] | None = Field(
         None,
         alias='isDateTimeBetween',
-        description='日期处于目标日期范围，支持指定粒度和区间的开闭形式，默认到毫秒, 左右开区间',
+        description='Component property',
     )
     is_time_same: dict[str, Any] | None = Field(
-        None, alias='isTimeSame', description='和目标时间相同，支持指定粒度，默认到毫秒'
+        None, alias='isTimeSame', description='Component property'
     )
     is_time_before: dict[str, Any] | None = Field(
-        None, alias='isTimeBefore', description='早于目标时间，支持指定粒度，默认到毫秒'
+        None, alias='isTimeBefore', description='Component property'
     )
     is_time_after: dict[str, Any] | None = Field(
-        None, alias='isTimeAfter', description='晚于目标时间，支持指定粒度，默认到毫秒'
+        None, alias='isTimeAfter', description='Component property'
     )
     is_time_same_or_before: dict[str, Any] | None = Field(
-        None, alias='isTimeSameOrBefore', description='早于目标时间或和目标时间相同，支持指定粒度，默认到毫秒'
+        None, alias='isTimeSameOrBefore', description='Component property'
     )
     is_time_same_or_after: dict[str, Any] | None = Field(
-        None, alias='isTimeSameOrAfter', description='晚于目标时间或和目标时间相同，支持指定粒度，默认到毫秒'
+        None, alias='isTimeSameOrAfter', description='Component property'
     )
     is_time_between: dict[str, Any] | None = Field(
         None,
         alias='isTimeBetween',
-        description='时间处于目标时间范围，支持指定粒度和区间的开闭形式，默认到毫秒, 左右开区间',
+        description='Component property',
     )
 
 
 class ValidateApi(BaseModel):
     """
-    远端校验表单项接口
+    AMIS ValidateApi component.
     """
 
     model_config = ConfigDict(
@@ -3391,7 +3413,7 @@ class ValidateApi(BaseModel):
 
 class Trigger(Enum):
     """
-    触发条件，默认为 change
+    AMIS Trigger component.
     """
 
     change = 'change'
@@ -3401,7 +3423,7 @@ class Trigger(Enum):
 
 class Mode3(Enum):
     """
-    弹窗方式，当为参照录入时用可以配置
+    AMIS Mode3 component.
     """
 
     pop_over = 'popOver'
@@ -3411,80 +3433,84 @@ class Mode3(Enum):
 
 class AutoFill(BaseModel):
     """
-    自动填充，当选项被选择的时候，将选项中的其他值同步设置到表单内。
+    AMIS AutoFill component.
     """
 
     model_config = ConfigDict(
         extra='forbid',
     )
     show_suggestion: bool | None = Field(
-        None, alias='showSuggestion', description='是否为参照录入模式，参照录入会展示候选值供用户选择，而不是直接填充。'
+        None,
+        alias='showSuggestion',
+        description='Component property',
     )
-    default_selection: Any | None = Field(None, alias='defaultSelection', description='参照录入时，默认选中的值')
+    default_selection: Any | None = Field(None, alias='defaultSelection', description='Component property')
     api: dict[str, Any] | None = None
-    silent: bool | None = Field(True, description='是否展示数据格式错误提示，默认为不展示')
-    fill_mappinng: dict[str, Any] | None = Field(None, alias='fillMappinng', description='填充时的数据映射')
-    trigger: Trigger | None = Field(None, description='触发条件，默认为 change')
-    mode: Mode3 | None = Field(None, description='弹窗方式，当为参照录入时用可以配置')
-    position: str | None = Field(None, description='当参照录入为抽屉时可以配置弹出位置')
-    size: str | None = Field(None, description='当为参照录入时可以配置弹出容器的大小')
-    columns: list[dict[str, Any]] | None = Field(None, description='参照录入展示的项')
-    filter: Any | None = Field(None, description='参照录入时的过滤条件')
+    silent: bool | None = Field(True, description='Component property')
+    fill_mappinng: dict[str, Any] | None = Field(None, alias='fillMappinng', description='Component property')
+    trigger: Trigger | None = Field(None, description='Component property')
+    mode: Mode3 | None = Field(None, description='Component property')
+    position: str | None = Field(None, description='Component property')
+    size: str | None = Field(None, description='Component property')
+    columns: list[dict[str, Any]] | None = Field(None, description='Component property')
+    filter: Any | None = Field(None, description='Component property')
 
 
 class FormBaseControlWithoutSize(BaseModel):
     model_config = ConfigDict(
         extra='forbid',
     )
-    label: str | Label | None = Field(None, description='描述标题, 当值为 false 时不展示')
+    label: str | Label | None = Field(None, description='Component property')
     label_align: LabelAlign | None = Field(None, alias='labelAlign')
-    label_width: float | str | None = Field(None, alias='labelWidth', description='label自定义宽度，默认单位为px')
-    label_overflow: LabelOverflow | None = Field(None, alias='labelOverflow', description='label展示形式')
-    label_class_name: str | None = Field(None, alias='labelClassName', description='配置 label className')
-    name: str | None = Field(None, description='字段名，表单提交时的 key，支持多层级，用.连接，如： a.b.c')
+    label_width: float | str | None = Field(None, alias='labelWidth', description='Component property')
+    label_overflow: LabelOverflow | None = Field(None, alias='labelOverflow', description='Component property')
+    label_class_name: str | None = Field(None, alias='labelClassName', description='Configure label className')
+    name: str | None = Field(None, description='Component property')
     extra_name: str | None = Field(
-        None, alias='extraName', description='额外的字段名，当为范围组件时可以用来将另外一个值打平出来'
+        None, alias='extraName', description='Component property'
     )
-    remark: Any | None = Field(None, description='显示一个小图标, 鼠标放上去的时候显示提示内容')
+    remark: Any | None = Field(None, description='Component property')
     label_remark: Any | None = Field(
-        None, alias='labelRemark', description='显示一个小图标, 鼠标放上去的时候显示提示内容, 这个小图标跟 label 在一起'
+        None,
+        alias='labelRemark',
+        description='Component property',
     )
-    hint: str | None = Field(None, description='输入提示，聚焦的时候显示')
-    submit_on_change: bool | None = Field(None, alias='submitOnChange', description='当修改完的时候是否提交表单。')
-    read_only: bool | None = Field(None, alias='readOnly', description='是否只读')
-    read_only_on: str | None = Field(None, alias='readOnlyOn', description='只读条件')
+    hint: str | None = Field(None, description='Component property')
+    submit_on_change: bool | None = Field(None, alias='submitOnChange', description='Component property')
+    read_only: bool | None = Field(None, alias='readOnly', description='Component property')
+    read_only_on: str | None = Field(None, alias='readOnlyOn', description='Component property')
     validate_on_change: bool | None = Field(
         None,
         alias='validateOnChange',
-        description='不设置时，当表单提交过后表单项每次修改都会触发重新验证， 如果设置了，则由此配置项来决定要不要每次修改都触发验证。',
+        description='Component property',
     )
-    description: str | None = Field(None, description='描述内容，支持 Html 片段。')
+    description: str | None = Field(None, description='Component property')
     desc: str | None = None
     description_class_name: str | dict[str, dict[str, Any]] | None = Field(None, alias='descriptionClassName')
-    mode: Mode1 | None = Field(None, description='配置当前表单项展示模式')
+    mode: Mode1 | None = Field(None, description='Component property')
     horizontal: Horizontal | None = None
-    inline: bool | None = Field(None, description='表单 control 是否为 inline 模式。')
+    inline: bool | None = Field(None, description='Component property')
     input_class_name: str | dict[str, dict[str, Any]] | None = Field(None, alias='inputClassName')
-    placeholder: str | dict[str, str] | None = Field(None, description='占位符')
-    required: bool | None = Field(None, description='是否为必填')
+    placeholder: str | dict[str, str] | None = Field(None, description='Component property')
+    required: bool | None = Field(None, description='Component property')
     validation_errors: ValidationErrors1 | None = Field(
-        None, alias='validationErrors', description='验证失败的提示信息'
+        None, alias='validationErrors', description='Component property'
     )
     validations: str | Validations | None = None
     value: Any | None = Field(
-        None, description='默认值，切记只能是静态值，不支持取变量，跟数据关联是通过设置 name 属性来实现的。'
+        None, description='Component property'
     )
     clear_value_on_hidden: bool | None = Field(
         None,
         alias='clearValueOnHidden',
-        description='表单项隐藏时，是否在当前 Form 中删除掉该表单项值。注意同名的未隐藏的表单项值也会删掉',
+        description='Component property',
     )
-    validate_api: str | ValidateApi | None = Field(None, alias='validateApi', description='远端校验表单项接口')
+    validate_api: str | ValidateApi | None = Field(None, alias='validateApi', description='Component property')
     auto_fill: dict[str, str] | AutoFill | None = Field(
-        None, alias='autoFill', description='自动填充，当选项被选择的时候，将选项中的其他值同步设置到表单内。'
+        None, alias='autoFill', description='Component property'
     )
     init_auto_fill: bool | str | None = Field(
-        'fillIfNotSet\n初始化时是否把其他字段同步到表单内部。', alias='initAutoFill'
+        'fillIfNotSet\n初始化时Whether把其他字段同步到表单Internal。', alias='initAutoFill'
     )
     row: float | None = None
 
@@ -3514,13 +3540,13 @@ class FormHorizontal(BaseModel):
     left_fixed: bool | float | None = Field(None, alias='leftFixed')
     justify: bool | None = None
     label_align: LabelAlign3 | None = Field(None, alias='labelAlign')
-    label_width: float | str | None = Field(None, alias='labelWidth', description='label自定义宽度，默认单位为px')
+    label_width: float | str | None = Field(None, alias='labelWidth', description='Component property')
     label_overflow: LabelOverflow2 | None = Field(None, alias='labelOverflow')
 
 
 class QsOptions2(BaseModel):
     """
-    qs 配置项
+    AMIS QsOptions2 component.
     """
 
     model_config = ConfigDict(
@@ -3533,7 +3559,7 @@ class QsOptions2(BaseModel):
 
 class Messages1(BaseModel):
     """
-    提示信息
+    AMIS Messages1 component.
     """
 
     model_config = ConfigDict(
@@ -3547,59 +3573,63 @@ class BaseApiObject(BaseModel):
     model_config = ConfigDict(
         extra='forbid',
     )
-    method: Method | None = Field(None, description='API 发送类型')
-    url: str = Field(..., description='API 发送目标地址')
+    method: Method | None = Field(None, description='Component property')
+    url: str = Field(..., description='Component property')
     data: dict[str, Any] | None = Field(
         None,
-        description='用来控制携带数据. 当key 为 `&` 值为 `$$` 时, 将所有原始数据打平设置到 data 中. 当值为 $$ 将所有原始数据赋值到对应的 key 中. 当值为 $ 打头时, 将变量值设置到 key 中.',
+        description='Component property',
     )
     convert_key_to_path: bool | None = Field(
         None,
         alias='convertKeyToPath',
-        description="默认数据映射中的key如果带点，或者带大括号，会转成对象比如：\n\n{   'a.b': '123' }\n\n经过数据映射后变成 {  a: {   b: '123  } }\n\n如果想要关闭此功能，请设置 convertKeyToPath 为 false",
+        description="Component property'a.b': '123' }\n\n经过data映射后变成 {  a: {   b: '123  } }\n\nif想要Close此功能，请Set convertKeyToPath 为 false",
     )
-    response_data: dict[str, Any] | None = Field(None, alias='responseData', description='用来做接口返回的数据映射。')
+    response_data: dict[str, Any] | None = Field(
+        None, alias='responseData', description='Component property'
+    )
     attach_data_to_query: bool | None = Field(
         None,
         alias='attachDataToQuery',
-        description='如果 method 为 get 的接口，设置了 data 信息。 默认 data 会自动附带在 query 里面发送给后端。\n\n如果想通过 body 发送给后端，那么请把这个配置成 false。\n\n但是，浏览器还不支持啊，设置了只是摆设。除非服务端支持 method-override',
+        description='Component property',
     )
-    data_type: DataType | None = Field(None, alias='dataType', description='发送体的格式')
-    response_type: Literal['blob'] = Field('blob', alias='responseType', description='如果是文件下载接口，请配置这个。')
-    headers: dict[str, str | float] | None = Field(None, description='携带 headers，用法和 data 一样，可以用变量。')
-    send_on: str | None = Field(None, alias='sendOn', description='设置发送条件')
+    data_type: DataType | None = Field(None, alias='dataType', description='Component property')
+    response_type: Literal['blob'] = Field(
+        'blob', alias='responseType', description='Component property'
+    )
+    headers: dict[str, str | float] | None = Field(None, description='Component property')
+    send_on: str | None = Field(None, alias='sendOn', description='Component property')
     replace_data: bool | None = Field(
-        None, alias='replaceData', description='默认都是追加模式，如果想完全替换把这个配置成 true'
+        None, alias='replaceData', description='Component property'
     )
     concat_data_fields: str | list[str] | None = Field(
         None,
         alias='concatDataFields',
-        description="是否将两次返回的数据字段，做一个合并。配置返回对象中的字段名，支持配置多个。\n\n比如：同时返回 log 字段，第一次返回 {log: '1'}，第二次返回 {log: '2'}，合并后的结果是 {log: ['1', '2']]} 再比如：同时返回 items 字段，第一次返回 {items: [1, 2]}，第二次返回 {items: [3, 4]}，合并后的结果是 {items: [1, 2, 3, 4]}",
+        description="Component property'1'}，第二次Return {log: '2'}，合并后的结果是 {log: ['1', '2']]} 再比如：同时Return items 字段，第一次Return {items: [1, 2]}，第二次Return {items: [3, 4]}，合并后的结果是 {items: [1, 2, 3, 4]}",
     )
     auto_refresh: bool | None = Field(
-        True, alias='autoRefresh', description='是否自动刷新，当 url 中的取值结果变化时，自动刷新数据。'
+        True, alias='autoRefresh', description='Component property'
     )
     track_expression: str | None = Field(
         None,
         alias='trackExpression',
-        description='当开启自动刷新的时候，默认是 api 的 url 来自动跟踪变量变化的。 如果你希望监控 url 外的变量，请配置 trackExpression。',
+        description='Component property',
     )
     cache: float | None = Field(
-        None, description='如果设置了值，同一个接口，相同参数，指定的时间（单位：ms）内请求将直接走缓存。'
+        None, description='Component property'
     )
     force_append_data_to_query: bool | None = Field(
         None,
         alias='forceAppendDataToQuery',
-        description='强制将数据附加在 query，默认只有 api 地址中没有用变量的时候 crud 查询接口才会 自动附加数据到 query 部分，如果想强制附加请设置这个属性。 对于那种临时加了个变量但是又不想全部参数写一遍的时候配置很有用。',
+        description='Component property',
     )
-    qs_options: QsOptions2 | None = Field(None, alias='qsOptions', description='qs 配置项')
-    silent: bool | None = Field(None, description='autoFill Whether visible自动填充错误提示')
-    messages: Messages1 | None = Field(None, description='提示信息')
+    qs_options: QsOptions2 | None = Field(None, alias='qsOptions', description='Component property')
+    silent: bool | None = Field(None, description='Component property')
+    messages: Messages1 | None = Field(None, description='Component property')
 
 
 class QsOptions3(BaseModel):
     """
-    qs 配置项
+    AMIS QsOptions3 component.
     """
 
     model_config = ConfigDict(
@@ -3612,7 +3642,7 @@ class QsOptions3(BaseModel):
 
 class Messages2(BaseModel):
     """
-    提示信息
+    AMIS Messages2 component.
     """
 
     model_config = ConfigDict(
@@ -3626,54 +3656,60 @@ class BaseApi1(BaseModel):
     model_config = ConfigDict(
         extra='forbid',
     )
-    method: Method | None = Field(None, description='API 发送类型')
-    url: str = Field(..., description='API 发送目标地址')
+    method: Method | None = Field(None, description='Component property')
+    url: str = Field(..., description='Component property')
     data: dict[str, Any] | None = Field(
         None,
-        description='用来控制携带数据. 当key 为 `&` 值为 `$$` 时, 将所有原始数据打平设置到 data 中. 当值为 $$ 将所有原始数据赋值到对应的 key 中. 当值为 $ 打头时, 将变量值设置到 key 中.',
+        description='Component property',
     )
     convert_key_to_path: bool | None = Field(
         None,
         alias='convertKeyToPath',
-        description="默认数据映射中的key如果带点，或者带大括号，会转成对象比如：\n\n{   'a.b': '123' }\n\n经过数据映射后变成 {  a: {   b: '123  } }\n\n如果想要关闭此功能，请设置 convertKeyToPath 为 false",
+        description="Component property'a.b': '123' }\n\n经过data映射后变成 {  a: {   b: '123  } }\n\nif想要Close此功能，请Set convertKeyToPath 为 false",
     )
-    response_data: dict[str, Any] | None = Field(None, alias='responseData', description='用来做接口返回的数据映射。')
+    response_data: dict[str, Any] | None = Field(
+        None, alias='responseData', description='Component property'
+    )
     attach_data_to_query: bool | None = Field(
         None,
         alias='attachDataToQuery',
-        description='如果 method 为 get 的接口，设置了 data 信息。 默认 data 会自动附带在 query 里面发送给后端。\n\n如果想通过 body 发送给后端，那么请把这个配置成 false。\n\n但是，浏览器还不支持啊，设置了只是摆设。除非服务端支持 method-override',
+        description='Component property',
     )
-    data_type: DataType | None = Field(None, alias='dataType', description='发送体的格式')
-    response_type: Literal['blob'] = Field('blob', alias='responseType', description='如果是文件下载接口，请配置这个。')
-    headers: dict[str, dict[str, Any]] | None = Field(None, description='携带 headers，用法和 data 一样，可以用变量。')
-    send_on: str | None = Field(None, alias='sendOn', description='设置发送条件')
+    data_type: DataType | None = Field(None, alias='dataType', description='Component property')
+    response_type: Literal['blob'] = Field(
+        'blob', alias='responseType', description='Component property'
+    )
+    headers: dict[str, dict[str, Any]] | None = Field(
+        None, description='Component property'
+    )
+    send_on: str | None = Field(None, alias='sendOn', description='Component property')
     replace_data: bool | None = Field(
-        None, alias='replaceData', description='默认都是追加模式，如果想完全替换把这个配置成 true'
+        None, alias='replaceData', description='Component property'
     )
     concat_data_fields: dict[str, Any] | None = Field(
         None,
         alias='concatDataFields',
-        description="是否将两次返回的数据字段，做一个合并。配置返回对象中的字段名，支持配置多个。\n\n比如：同时返回 log 字段，第一次返回 {log: '1'}，第二次返回 {log: '2'}，合并后的结果是 {log: ['1', '2']]} 再比如：同时返回 items 字段，第一次返回 {items: [1, 2]}，第二次返回 {items: [3, 4]}，合并后的结果是 {items: [1, 2, 3, 4]}",
+        description="Component property'1'}，第二次Return {log: '2'}，合并后的结果是 {log: ['1', '2']]} 再比如：同时Return items 字段，第一次Return {items: [1, 2]}，第二次Return {items: [3, 4]}，合并后的结果是 {items: [1, 2, 3, 4]}",
     )
     auto_refresh: bool | None = Field(
-        True, alias='autoRefresh', description='是否自动刷新，当 url 中的取值结果变化时，自动刷新数据。'
+        True, alias='autoRefresh', description='Component property'
     )
     track_expression: str | None = Field(
         None,
         alias='trackExpression',
-        description='当开启自动刷新的时候，默认是 api 的 url 来自动跟踪变量变化的。 如果你希望监控 url 外的变量，请配置 trackExpression。',
+        description='Component property',
     )
     cache: float | None = Field(
-        None, description='如果设置了值，同一个接口，相同参数，指定的时间（单位：ms）内请求将直接走缓存。'
+        None, description='Component property'
     )
     force_append_data_to_query: bool | None = Field(
         None,
         alias='forceAppendDataToQuery',
-        description='强制将数据附加在 query，默认只有 api 地址中没有用变量的时候 crud 查询接口才会 自动附加数据到 query 部分，如果想强制附加请设置这个属性。 对于那种临时加了个变量但是又不想全部参数写一遍的时候配置很有用。',
+        description='Component property',
     )
-    qs_options: QsOptions3 | None = Field(None, alias='qsOptions', description='qs 配置项')
-    silent: bool | None = Field(None, description='autoFill Whether visible自动填充错误提示')
-    messages: Messages2 | None = Field(None, description='提示信息')
+    qs_options: QsOptions3 | None = Field(None, alias='qsOptions', description='Component property')
+    silent: bool | None = Field(None, description='Component property')
+    messages: Messages2 | None = Field(None, description='Component property')
 
 
 class BaseApi(RootModel[BaseApi1 | str]):
@@ -3711,18 +3747,20 @@ class CalendarSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     type: Any
     testid: Any | None = None
-    schedules: list[dict[str, Any]] | str | None = Field(None, description='日程')
-    schedule_class_names: list[str] | None = Field(None, alias='scheduleClassNames', description='日程显示颜色自定义')
+    schedules: list[dict[str, Any]] | str | None = Field(None, description='Component property')
+    schedule_class_names: list[str] | None = Field(
+        None, alias='scheduleClassNames', description='Component property'
+    )
     schedule_action: ScheduleAction | None = Field(None, alias='scheduleAction')
-    large_mode: bool | None = Field(None, alias='largeMode', description='是否开启放大模式')
+    large_mode: bool | None = Field(None, alias='largeMode', description='Component property')
     today_active_style: dict[str, Any] | None = Field(
-        None, alias='todayActiveStyle', description='今日激活时的自定义样式'
+        None, alias='todayActiveStyle', description='Component property'
     )
 
 
 class Header(BaseModel):
     """
-    头部配置
+    AMIS Header component.
     """
 
     model_config = ConfigDict(
@@ -3754,7 +3792,7 @@ class Header(BaseModel):
 
 class Media(BaseModel):
     """
-    多媒体区域
+    AMIS Media component.
     """
 
     model_config = ConfigDict(
@@ -3771,7 +3809,7 @@ class Media(BaseModel):
 
 class CardSchema(BaseModel):
     """
-    Card 卡片渲染器。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/card
+    AMIS CardSchema component.
     """
 
     model_config = ConfigDict(
@@ -3800,14 +3838,16 @@ class CardSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     type: Any
     testid: Any | None = None
-    header: Header | None = Field(None, description='头部配置')
+    header: Header | None = Field(None, description='Component property')
     body: list[dict[str, Any]] | None = Field(None, description='Content area')
-    media: Media | None = Field(None, description='多媒体区域')
-    actions: list[dict[str, Any]] | None = Field(None, description='底部按钮集合。')
-    toolbar: list[dict[str, Any]] | None = Field(None, description='工具栏按钮')
+    media: Media | None = Field(None, description='Component property')
+    actions: list[dict[str, Any]] | None = Field(None, description='Component property')
+    toolbar: list[dict[str, Any]] | None = Field(None, description='Component property')
     secondary: dict[str, Any] | None = None
     use_card_label: bool | None = Field(
-        None, alias='useCardLabel', description='卡片内容区的表单项label是否使用Card内部的样式，默认为true'
+        None,
+        alias='useCardLabel',
+        description='Component property',
     )
 
 
@@ -3817,7 +3857,7 @@ class AvatarTextBackgroundItem(BaseModel):
 
 class Header1(BaseModel):
     """
-    头部配置
+    AMIS Header1 component.
     """
 
     model_config = ConfigDict(
@@ -3830,7 +3870,7 @@ class Header1(BaseModel):
     )
     title: str | None = Field(
         None,
-        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/en-US/docs/concepts/template',
     )
     title_class_name: dict[str, Any] | None = Field(
         None,
@@ -3846,9 +3886,9 @@ class Header1(BaseModel):
     sub_title_placeholder: str | None = Field(None, alias='subTitlePlaceholder')
     description: str | None = Field(
         None,
-        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/en-US/docs/concepts/template',
     )
-    description_placeholder: str | None = Field(None, alias='descriptionPlaceholder', description='描述占位内容')
+    description_placeholder: str | None = Field(None, alias='descriptionPlaceholder', description='Component property')
     description_class_name: dict[str, Any] | None = Field(
         None,
         alias='descriptionClassName',
@@ -3856,12 +3896,12 @@ class Header1(BaseModel):
     )
     desc: str | None = Field(
         None,
-        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/en-US/docs/concepts/template',
     )
     desc_placeholder: str | None = Field(
         None,
         alias='descPlaceholder',
-        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/en-US/docs/concepts/template',
     )
     desc_class_name: dict[str, Any] | None = Field(
         None,
@@ -3872,7 +3912,7 @@ class Header1(BaseModel):
     avatar_text: str | None = Field(
         None,
         alias='avatarText',
-        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/en-US/docs/concepts/template',
     )
     avatar_text_background: list[AvatarTextBackgroundItem] | None = Field(None, alias='avatarTextBackground')
     avatar_text_class_name: dict[str, Any] | None = Field(
@@ -3898,9 +3938,9 @@ class Header1(BaseModel):
     )
     href: str | None = Field(
         None,
-        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/en-US/docs/concepts/template',
     )
-    blank: bool | None = Field(None, description='是否新窗口打开')
+    blank: bool | None = Field(None, description='Component property')
 
 
 class BodyItem(BaseModel):
@@ -3909,7 +3949,7 @@ class BodyItem(BaseModel):
 
 class Type12(Enum):
     """
-    多媒体类型
+    AMIS Type12 component.
     """
 
     image = 'image'
@@ -3918,7 +3958,7 @@ class Type12(Enum):
 
 class Position2(Enum):
     """
-    多媒体区域位置
+    AMIS Position2 component.
     """
 
     top = 'top'
@@ -3929,7 +3969,7 @@ class Position2(Enum):
 
 class Media1(BaseModel):
     """
-    多媒体区域
+    AMIS Media1 component.
     """
 
     model_config = ConfigDict(
@@ -3940,11 +3980,11 @@ class Media1(BaseModel):
         alias='className',
         description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
-    type: Type12 | None = Field(None, description='多媒体类型')
+    type: Type12 | None = Field(None, description='Component property')
     url: dict[str, Any] | None = None
-    position: Position2 | None = Field(None, description='多媒体区域位置')
-    auto_play: bool | None = Field(None, alias='autoPlay', description='类型为video时是否自动播放')
-    is_live: bool | None = Field(None, alias='isLive', description='类型为video时是否是直播')
+    position: Position2 | None = Field(None, description='Component property')
+    auto_play: bool | None = Field(None, alias='autoPlay', description='Component property')
+    is_live: bool | None = Field(None, alias='isLive', description='Component property')
     poster: dict[str, Any] | None = None
 
 
@@ -3952,28 +3992,30 @@ class CardSchemaWithoutType(BaseModel):
     model_config = ConfigDict(
         extra='forbid',
     )
-    header: Header1 | None = Field(None, description='头部配置')
+    header: Header1 | None = Field(None, description='Component property')
     body: list[BodyItem] | None = Field(None, description='Content area')
-    media: Media1 | None = Field(None, description='多媒体区域')
-    actions: list[Any] | None = Field(None, description='底部按钮集合。')
-    toolbar: list[Any] | None = Field(None, description='工具栏按钮')
+    media: Media1 | None = Field(None, description='Component property')
+    actions: list[Any] | None = Field(None, description='Component property')
+    toolbar: list[Any] | None = Field(None, description='Component property')
     secondary: str | None = Field(
         None,
-        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/en-US/docs/concepts/template',
     )
     use_card_label: bool | None = Field(
-        None, alias='useCardLabel', description='卡片内容区的表单项label是否使用Card内部的样式，默认为true'
+        None,
+        alias='useCardLabel',
+        description='Component property',
     )
 
 
 class CardBodyField(BaseModel):
-    label: str = Field(..., description='列标题')
+    label: str = Field(..., description='Component property')
     label_class_name: dict[str, Any] | None = Field(
         None,
         alias='labelClassName',
         description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
-    name: str | None = Field(None, description='绑定字段名')
+    name: str | None = Field(None, description='Component property')
     pop_over: dict[str, Any] | None = Field(None, alias='popOver')
     quick_edit: dict[str, Any] | None = Field(None, alias='quickEdit')
     copyable: dict[str, Any] | None = None
@@ -3981,7 +4023,7 @@ class CardBodyField(BaseModel):
 
 class Mode4(Enum):
     """
-    弹出模式
+    AMIS Mode4 component.
     """
 
     dialog = 'dialog'
@@ -3991,7 +4033,7 @@ class Mode4(Enum):
 
 class Size4(Enum):
     """
-    是弹窗形式的时候有用。
+    AMIS Size4 component.
     """
 
     sm = 'sm'
@@ -4002,7 +4044,7 @@ class Size4(Enum):
 
 class Position3(Enum):
     """
-    弹出位置
+    AMIS Position3 component.
     """
 
     center_ = 'center'
@@ -4055,7 +4097,7 @@ class Position3(Enum):
 
 class Trigger1(Enum):
     """
-    触发条件，默认是 click
+    AMIS Trigger1 component.
     """
 
     click = 'click'
@@ -4064,7 +4106,7 @@ class Trigger1(Enum):
 
 class Offset(BaseModel):
     """
-    偏移量
+    AMIS Offset component.
     """
 
     model_config = ConfigDict(
@@ -4078,18 +4120,18 @@ class SchemaPopOver1(BaseModel):
     model_config = ConfigDict(
         extra='forbid',
     )
-    class_name: str | None = Field(None, alias='className', description='类名')
-    pop_over_class_name: str | None = Field(None, alias='popOverClassName', description='弹框外层类名')
+    class_name: str | None = Field(None, alias='className', description='Class name')
+    pop_over_class_name: str | None = Field(None, alias='popOverClassName', description='Component property')
     pop_over_enable_on: dict[str, Any] | None = Field(None, alias='popOverEnableOn')
-    mode: Mode4 | None = Field(None, description='弹出模式')
-    size: Size4 | None = Field(None, description='是弹窗形式的时候有用。')
-    position: Position3 | None = Field(None, description='弹出位置')
-    trigger: Trigger1 | None = Field(None, description='触发条件，默认是 click')
+    mode: Mode4 | None = Field(None, description='Component property')
+    size: Size4 | None = Field(None, description='Component property')
+    position: Position3 | None = Field(None, description='Component property')
+    trigger: Trigger1 | None = Field(None, description='Component property')
     show_icon: bool | None = Field(
-        None, alias='showIcon', description='Whether visible查看更多的 icon，通常是放大图标。'
+        None, alias='showIcon', description='Component property'
     )
-    offset: Offset | None = Field(None, description='偏移量')
-    title: str | None = Field(None, description='标题')
+    offset: Offset | None = Field(None, description='Component property')
+    title: str | None = Field(None, description='Title')
     body: dict[str, Any] | None = None
 
 
@@ -4099,7 +4141,7 @@ class SchemaPopOver(RootModel[bool | SchemaPopOver1]):
 
 class Offset1(BaseModel):
     """
-    偏移量
+    AMIS Offset1 component.
     """
 
     model_config = ConfigDict(
@@ -4113,20 +4155,20 @@ class SchemaPopOverObject(BaseModel):
     model_config = ConfigDict(
         extra='forbid',
     )
-    class_name: str | None = Field(None, alias='className', description='类名')
-    pop_over_class_name: str | None = Field(None, alias='popOverClassName', description='弹框外层类名')
+    class_name: str | None = Field(None, alias='className', description='Class name')
+    pop_over_class_name: str | None = Field(None, alias='popOverClassName', description='Component property')
     pop_over_enable_on: str | None = Field(
         None, alias='popOverEnableOn', description='Expression, syntax `${xxx > 5}`.'
     )
-    mode: Mode4 | None = Field(None, description='弹出模式')
-    size: Size4 | None = Field(None, description='是弹窗形式的时候有用。')
-    position: Position3 | None = Field(None, description='弹出位置')
-    trigger: Trigger1 | None = Field(None, description='触发条件，默认是 click')
+    mode: Mode4 | None = Field(None, description='Component property')
+    size: Size4 | None = Field(None, description='Component property')
+    position: Position3 | None = Field(None, description='Component property')
+    trigger: Trigger1 | None = Field(None, description='Component property')
     show_icon: bool | None = Field(
-        None, alias='showIcon', description='Whether visible查看更多的 icon，通常是放大图标。'
+        None, alias='showIcon', description='Component property'
     )
-    offset: Offset1 | None = Field(None, description='偏移量')
-    title: str | None = Field(None, description='标题')
+    offset: Offset1 | None = Field(None, description='Component property')
+    title: str | None = Field(None, description='Title')
     body: dict[str, Any] | None = None
 
 
@@ -4151,30 +4193,30 @@ class SchemaQuickEdit(RootModel[bool | SchemaQuickEdit1 | SchemaQuickEdit2]):
 
 
 class SchemaQuickEditObject1(BaseModel):
-    save_immediately: bool | None = Field(None, alias='saveImmediately', description='是否立即保存')
+    save_immediately: bool | None = Field(None, alias='saveImmediately', description='Component property')
     reset_on_failed: bool | None = Field(
-        None, alias='resetOnFailed', description='接口保存失败后，是否重置组件编辑状态'
+        None, alias='resetOnFailed', description='Component property'
     )
     reload: str | None = Field(
-        None, description='配置刷新目标，默认就会刷新所属 crud 组件， 如果不需要，请配置为 "none"'
+        None, description='Component property"none"'
     )
-    mode: Literal['inline'] = Field('inline', description='是否直接内嵌')
-    icon: str | None = Field(None, description='配置按钮图标')
+    mode: Literal['inline'] = Field('inline', description='Component property')
+    icon: str | None = Field(None, description='Component property')
 
 
 class SchemaQuickEditObject2(BaseModel):
     model_config = ConfigDict(
         extra='forbid',
     )
-    save_immediately: bool | None = Field(None, alias='saveImmediately', description='是否立即保存')
+    save_immediately: bool | None = Field(None, alias='saveImmediately', description='Component property')
     reset_on_failed: bool | None = Field(
-        None, alias='resetOnFailed', description='接口保存失败后，是否重置组件编辑状态'
+        None, alias='resetOnFailed', description='Component property'
     )
     reload: str | None = Field(
-        None, description='配置刷新目标，默认就会刷新所属 crud 组件， 如果不需要，请配置为 "none"'
+        None, description='Component property"none"'
     )
-    mode: Literal['inline'] = Field('inline', description='是否直接内嵌')
-    icon: str | None = Field(None, description='配置按钮图标')
+    mode: Literal['inline'] = Field('inline', description='Component property')
+    icon: str | None = Field(None, description='Component property')
     body: dict[str, Any]
 
 
@@ -4188,7 +4230,7 @@ class SchemaCopyable1(BaseModel):
     )
     icon: dict[str, Any] | None = None
     content: dict[str, Any] | None = None
-    tooltip: str | None = Field(None, description='提示文字内容')
+    tooltip: str | None = Field(None, description='Component property')
 
 
 class SchemaCopyable(RootModel[bool | SchemaCopyable1]):
@@ -4202,14 +4244,14 @@ class SchemaCopyableObject(BaseModel):
     icon: str | None = Field(None, description='Class name in iconfont.')
     content: str | None = Field(
         None,
-        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/en-US/docs/concepts/template',
     )
-    tooltip: str | None = Field(None, description='提示文字内容')
+    tooltip: str | None = Field(None, description='Component property')
 
 
 class CardsSchema(BaseModel):
     """
-    Cards 卡片集合渲染器。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/cards
+    AMIS CardsSchema component.
     """
 
     model_config = ConfigDict(
@@ -4262,7 +4304,7 @@ class CardsSchema(BaseModel):
 
 class BaseCardsSchema(BaseModel):
     """
-    Cards 卡片集合渲染器。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/cards
+    AMIS BaseCardsSchema component.
     """
 
     model_config = ConfigDict(
@@ -4310,30 +4352,32 @@ class BaseCardsSchema(BaseModel):
     )
     placeholder: str | None = Field(
         None,
-        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/en-US/docs/concepts/template',
     )
-    show_footer: bool | None = Field(None, alias='showFooter', description='Whether visible底部')
-    show_header: bool | None = Field(None, alias='showHeader', description='Whether visible头部')
+    show_footer: bool | None = Field(None, alias='showFooter', description='Component property')
+    show_header: bool | None = Field(None, alias='showHeader', description='Component property')
     source: str | None = None
     title: str | None = Field(
         None,
-        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/en-US/docs/concepts/template',
     )
-    hide_check_toggler: bool | None = Field(None, alias='hideCheckToggler', description='Whether hidden勾选框')
-    affix_header: bool | None = Field(None, alias='affixHeader', description='是否固顶')
-    affix_footer: bool | None = Field(None, alias='affixFooter', description='是否固底')
+    hide_check_toggler: bool | None = Field(None, alias='hideCheckToggler', description='Component property')
+    affix_header: bool | None = Field(None, alias='affixHeader', description='Component property')
+    affix_footer: bool | None = Field(None, alias='affixFooter', description='Component property')
     header: dict[str, Any] | None = None
     footer: dict[str, Any] | None = None
     item_checkable_on: str | None = Field(None, alias='itemCheckableOn', description='Expression, syntax `${xxx > 5}`.')
     item_draggable_on: str | None = Field(None, alias='itemDraggableOn', description='Expression, syntax `${xxx > 5}`.')
-    check_on_item_click: bool | None = Field(None, alias='checkOnItemClick', description='点击卡片的时候是否勾选卡片。')
-    masonry_layout: bool | None = Field(None, alias='masonryLayout', description='是否为瀑布流布局？')
-    value_field: str | None = Field(None, alias='valueField', description='可以用来作为值的字段')
+    check_on_item_click: bool | None = Field(
+        None, alias='checkOnItemClick', description='Component property'
+    )
+    masonry_layout: bool | None = Field(None, alias='masonryLayout', description='Component property')
+    value_field: str | None = Field(None, alias='valueField', description='Component property')
 
 
 class Card2Schema(BaseModel):
     """
-    Card2 新卡片渲染器。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/card2
+    AMIS Card2Schema component.
     """
 
     model_config = ConfigDict(
@@ -4368,11 +4412,11 @@ class Card2Schema(BaseModel):
         alias='bodyClassName',
         description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
-    hide_check_toggler: bool | None = Field(None, alias='hideCheckToggler', description='隐藏选框')
+    hide_check_toggler: bool | None = Field(None, alias='hideCheckToggler', description='Component property')
     check_on_item_click: bool = Field(
-        ..., alias='checkOnItemClick', description='不配置href且cards容器下生效，点击整个卡片触发选中'
+        ..., alias='checkOnItemClick', description='Component property'
     )
-    wrapper_component: str | None = Field(None, alias='wrapperComponent', description='渲染标签')
+    wrapper_component: str | None = Field(None, alias='wrapperComponent', description='Component property')
 
 
 class LoadingConfig(BaseModel):
@@ -4392,7 +4436,7 @@ class SpinnerExtraProps(BaseModel):
 
 class Direction1(Enum):
     """
-    轮播图方向，默认为水平方向
+    AMIS Direction1 component.
     """
 
     horizontal = 'horizontal'
@@ -4411,7 +4455,7 @@ class Control1(Enum):
 
 class Animation(Enum):
     """
-    动画类型
+    AMIS Animation component.
     """
 
     fade = 'fade'
@@ -4421,7 +4465,7 @@ class Animation(Enum):
 
 class ThumbMode(Enum):
     """
-    预览图模式
+    AMIS ThumbMode component.
     """
 
     contain = 'contain'
@@ -4430,7 +4474,7 @@ class ThumbMode(Enum):
 
 class Multiple(BaseModel):
     """
-    多图模式配置项
+    AMIS Multiple component.
     """
 
     model_config = ConfigDict(
@@ -4441,7 +4485,7 @@ class Multiple(BaseModel):
 
 class Icons(BaseModel):
     """
-    自定义箭头图标
+    AMIS Icons component.
     """
 
     model_config = ConfigDict(
@@ -4453,7 +4497,7 @@ class Icons(BaseModel):
 
 class CarouselSchema(BaseModel):
     """
-    Carousel 轮播图渲染器。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/carousel
+    AMIS CarouselSchema component.
     """
 
     model_config = ConfigDict(
@@ -4482,32 +4526,32 @@ class CarouselSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     type: Any
     testid: Any | None = None
-    direction: Direction1 | None = Field(None, description='轮播图方向，默认为水平方向')
-    loop: bool | None = Field(None, description='是否循环播放, 默认为 true。')
-    mouse_event: bool | None = Field(None, alias='mouseEvent', description='是否支持鼠标事件 默认为 true。')
-    auto: bool | None = Field(None, description='是否自动播放')
-    interval: float | str | None = Field(None, description='轮播间隔时间')
-    duration: float | None = Field(None, description='动画时长')
-    width: float | str | None = Field(None, description='设置宽度')
-    height: float | str | None = Field(None, description='设置高度')
+    direction: Direction1 | None = Field(None, description='Component property')
+    loop: bool | None = Field(None, description='Component property')
+    mouse_event: bool | None = Field(None, alias='mouseEvent', description='Component property')
+    auto: bool | None = Field(None, description='Component property')
+    interval: float | str | None = Field(None, description='Component property')
+    duration: float | None = Field(None, description='Component property')
+    width: float | str | None = Field(None, description='Component property')
+    height: float | str | None = Field(None, description='Component property')
     controls_theme: ControlsTheme | None = Field(None, alias='controlsTheme')
-    placeholder: str | None = Field(None, description='占位')
-    controls: list[Control1] | None = Field(None, description='配置控件内容')
-    animation: Animation | None = Field(None, description='动画类型')
+    placeholder: str | None = Field(None, description='Component property')
+    controls: list[Control1] | None = Field(None, description='Component property')
+    animation: Animation | None = Field(None, description='Component property')
     item_schema: dict[str, Any] | None = Field(None, alias='itemSchema')
     name: str | None = Field(
         None, description='Component name, this name can be used for positioning and component communication'
     )
-    thumb_mode: ThumbMode | None = Field(None, alias='thumbMode', description='预览图模式')
-    options: list[Any] | None = Field(None, description='配置固定值')
-    always_show_arrow: bool | None = Field(None, alias='alwaysShowArrow', description='是否一直显示箭头')
-    multiple: Multiple | None = Field(None, description='多图模式配置项')
-    icons: Icons | None = Field(None, description='自定义箭头图标')
+    thumb_mode: ThumbMode | None = Field(None, alias='thumbMode', description='Component property')
+    options: list[Any] | None = Field(None, description='Component property')
+    always_show_arrow: bool | None = Field(None, alias='alwaysShowArrow', description='Component property')
+    multiple: Multiple | None = Field(None, description='Component property')
+    icons: Icons | None = Field(None, description='Component property')
 
 
 class ChartSchema(BaseModel):
     """
-    Chart 图表渲染器。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/chart
+    AMIS ChartSchema component.
     """
 
     model_config = ConfigDict(
@@ -4536,37 +4580,39 @@ class ChartSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     type: Any
     testid: Any | None = None
-    chart_theme: Any | None = Field(None, alias='chartTheme', description='Chart 主题配置')
+    chart_theme: Any | None = Field(None, alias='chartTheme', description='Component property')
     api: dict[str, Any] | None = None
-    init_fetch: bool | None = Field(None, alias='initFetch', description='是否初始加载。')
+    init_fetch: bool | None = Field(None, alias='initFetch', description='Component property')
     init_fetch_on: str | None = Field(None, alias='initFetchOn', description='Expression, syntax `${xxx > 5}`.')
     config: Any | None = Field(
-        None, description='配置echart的config，支持数据映射。如果用了数据映射，为了同步更新，请设置 trackExpression'
+        None, description='Component property'
     )
     track_expression: str | None = Field(
         None,
         alias='trackExpression',
-        description='跟踪表达式，如果这个表达式的运行结果发生变化了，则会更新 Echart，当 config 中用了数据映射时有用。',
+        description='Component property',
     )
-    width: float | str | None = Field(None, description='宽度设置')
-    height: float | str | None = Field(None, description='高度设置')
-    interval: float | None = Field(None, description='刷新时间')
+    width: float | str | None = Field(None, description='Component property')
+    height: float | str | None = Field(None, description='Component property')
+    interval: float | None = Field(None, description='Component property')
     name: str | None = Field(
         None, description='Component name, this name can be used for positioning and component communication'
     )
     data_filter: str | None = Field(None, alias='dataFilter')
     source: str | None = None
     disable_data_mapping: bool | None = Field(
-        None, alias='disableDataMapping', description='默认开启 Config 中的数据映射，如果想关闭，请开启此功能。'
+        None, alias='disableDataMapping', description='Component property'
     )
     click_action: Any | None = Field(None, alias='clickAction')
     replace_chart_option: bool | None = Field(
-        None, alias='replaceChartOption', description='默认配置时追加的，如果更新配置想完全替换配置请配置为 true.'
+        None,
+        alias='replaceChartOption',
+        description='Component property',
     )
-    un_mount_on_hidden: bool | None = Field(None, alias='unMountOnHidden', description='不可见的时候隐藏')
+    un_mount_on_hidden: bool | None = Field(None, alias='unMountOnHidden', description='Component property')
     map_url: dict[str, Any] | None = Field(None, alias='mapURL')
-    map_name: str | None = Field(None, alias='mapName', description='地图名称')
-    load_baidu_map: bool | None = Field(None, alias='loadBaiduMap', description='加载百度地图')
+    map_name: str | None = Field(None, alias='mapName', description='Component property')
+    load_baidu_map: bool | None = Field(None, alias='loadBaiduMap', description='Component property')
 
 
 class SchemaFunction(RootModel[str]):
@@ -4575,7 +4621,7 @@ class SchemaFunction(RootModel[str]):
 
 class CollapseSchema(BaseModel):
     """
-    Collapse 折叠渲染器，格式说明。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/collapse
+    AMIS CollapseSchema component.
     """
 
     model_config = ConfigDict(
@@ -4623,7 +4669,7 @@ class CollapseSchema(BaseModel):
 
 class HeaderPosition(Enum):
     """
-    标题展示位置
+    TitleDisplayPosition
     """
 
     top = 'top'
@@ -4636,7 +4682,7 @@ class ExpandIcon(BaseModel):
 
 class Size6(Enum):
     """
-    控件大小
+    AMIS Size6 component.
     """
 
     xs = 'xs'
@@ -4673,29 +4719,29 @@ class BaseCollapseSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     type: Any
     testid: Any | None = None
-    key: str | None = Field(None, description='标识')
-    header_position: HeaderPosition | None = Field(None, alias='headerPosition', description='标题展示位置')
-    header: str | dict[str, Any] | None = Field(None, description='标题')
-    body_class_name: str | None = Field(None, alias='bodyClassName', description='配置 Body 容器 className')
-    collapsable: bool | None = Field(None, description='是否可折叠')
-    collapsed: bool | None = Field(None, description='默认是否折叠')
-    show_arrow: bool | None = Field(None, alias='showArrow', description='图标是否展示')
+    key: str | None = Field(None, description='Component property')
+    header_position: HeaderPosition | None = Field(None, alias='headerPosition', description='TitleDisplayPosition')
+    header: str | dict[str, Any] | None = Field(None, description='Title')
+    body_class_name: str | None = Field(None, alias='bodyClassName', description='Configure Body Container className')
+    collapsable: bool | None = Field(None, description='Component property')
+    collapsed: bool | None = Field(None, description='Component property')
+    show_arrow: bool | None = Field(None, alias='showArrow', description='Component property')
     expand_icon: ExpandIcon | None = Field(None, alias='expandIcon')
-    heading_class_name: str | None = Field(None, alias='headingClassName', description='标题 CSS 类名')
+    heading_class_name: str | None = Field(None, alias='headingClassName', description='Title CSS Class name')
     collapse_header: str | None = Field(
         None,
         alias='collapseHeader',
-        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/en-US/docs/concepts/template',
     )
-    size: Size6 | None = Field(None, description='控件大小')
-    mount_on_enter: bool | None = Field(None, alias='mountOnEnter', description='点开时才加载内容')
-    unmount_on_exit: bool | None = Field(None, alias='unmountOnExit', description='卡片隐藏就销毁内容。')
-    divide_line: bool | None = Field(None, alias='divideLine', description='标题内容分割线')
+    size: Size6 | None = Field(None, description='Component property')
+    mount_on_enter: bool | None = Field(None, alias='mountOnEnter', description='Component property')
+    unmount_on_exit: bool | None = Field(None, alias='unmountOnExit', description='Component property')
+    divide_line: bool | None = Field(None, alias='divideLine', description='Component property')
 
 
 class ExpandIconPosition(Enum):
     """
-    设置图标位置
+    AMIS ExpandIconPosition component.
     """
 
     left = 'left'
@@ -4704,7 +4750,7 @@ class ExpandIconPosition(Enum):
 
 class CollapseGroupSchema(BaseModel):
     """
-    CollapseGroup 折叠渲染器，格式说明。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/collapse
+    AMIS CollapseGroupSchema component.
     """
 
     model_config = ConfigDict(
@@ -4733,23 +4779,23 @@ class CollapseGroupSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     type: Any
     testid: Any | None = None
-    active_key: list[dict[str, Any]] | str | None = Field(None, alias='activeKey', description='激活面板')
-    accordion: bool | None = Field(None, description='手风琴模式')
+    active_key: list[dict[str, Any]] | str | None = Field(None, alias='activeKey', description='Component property')
+    accordion: bool | None = Field(None, description='Component property')
     expand_icon: ExpandIcon | None = Field(None, alias='expandIcon')
     expand_icon_position: ExpandIconPosition | None = Field(
-        None, alias='expandIconPosition', description='设置图标位置'
+        None, alias='expandIconPosition', description='Component property'
     )
     body: dict[str, Any] | None = None
     enable_field_set_style: bool | None = Field(
         None,
         alias='enableFieldSetStyle',
-        description='当Collapse作为Form组件的子元素时，开启该属性后Component style设置为FieldSet组件的样式，默认开启',
+        description='Component property',
     )
 
 
 class ColorSchema(BaseModel):
     """
-    Color 显示渲染器，格式说明。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/color
+    AMIS ColorSchema component.
     """
 
     model_config = ConfigDict(
@@ -4778,13 +4824,13 @@ class ColorSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     type: Any
     testid: Any | None = None
-    default_color: str | None = Field(None, alias='defaultColor', description='默认颜色')
-    show_value: bool | None = Field(None, alias='showValue', description='是否用文字显示值。')
+    default_color: str | None = Field(None, alias='defaultColor', description='Component property')
+    show_value: bool | None = Field(None, alias='showValue', description='Component property')
 
 
 class ContainerSchema(BaseModel):
     """
-    Container 容器渲染器。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/container
+    AMIS ContainerSchema component.
     """
 
     model_config = ConfigDict(
@@ -4819,15 +4865,19 @@ class ContainerSchema(BaseModel):
         alias='bodyClassName',
         description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
-    wrapper_component: str | None = Field(None, alias='wrapperComponent', description='使用的标签')
-    wrapper_body: bool | None = Field(None, alias='wrapperBody', description='是否需要对body加一层div包裹，默认为 true')
-    draggable: bool | str | None = Field(None, description='是否开启容器拖拽')
-    draggable_config: dict[str, Any] | str = Field(..., alias='draggableConfig', description='是否开启容器拖拽配置')
+    wrapper_component: str | None = Field(None, alias='wrapperComponent', description='Component property')
+    wrapper_body: bool | None = Field(
+        None, alias='wrapperBody', description='Component property'
+    )
+    draggable: bool | str | None = Field(None, description='Component property')
+    draggable_config: dict[str, Any] | str = Field(
+        ..., alias='draggableConfig', description='Component property'
+    )
 
 
 class Axis(Enum):
     """
-    可拖拽的方向, 默认为所有方向, 支持设置为X或Y轴
+    AMIS Axis component.
     """
 
     both = 'both'
@@ -4837,7 +4887,7 @@ class Axis(Enum):
 
 class DefaultPosition(BaseModel):
     """
-    元素的起始位置
+    AMIS DefaultPosition component.
     """
 
     model_config = ConfigDict(
@@ -4849,7 +4899,7 @@ class DefaultPosition(BaseModel):
 
 class Bounds(BaseModel):
     """
-    拖拽的边界, 可以设置坐标, 也可以设置父级元素的选择器
+    AMIS Bounds component.
     """
 
     model_config = ConfigDict(
@@ -4863,27 +4913,27 @@ class Bounds(BaseModel):
 
 class ContainerDraggableConfig(BaseModel):
     """
-    容器拖拽配置
+    AMIS ContainerDraggableConfig component.
     """
 
     model_config = ConfigDict(
         extra='forbid',
     )
-    axis: Axis | None = Field(None, description='可拖拽的方向, 默认为所有方向, 支持设置为X或Y轴')
-    default_position: DefaultPosition | None = Field(None, alias='defaultPosition', description='元素的起始位置')
-    bounds: Bounds | str | None = Field(None, description='拖拽的边界, 可以设置坐标, 也可以设置父级元素的选择器')
-    grid: list[float] | None = Field(None, description='以网格模式拖拽的步长', max_length=2, min_length=2)
-    handle: str | None = Field(None, description='初始化拖拽的选择器')
-    cancel: str | None = Field(None, description='禁止拖拽的选择器')
-    scale: float | None = Field(None, description='拖拽距离的缩放比, 默认为1')
+    axis: Axis | None = Field(None, description='Component property')
+    default_position: DefaultPosition | None = Field(None, alias='defaultPosition', description='Component property')
+    bounds: Bounds | str | None = Field(None, description='Component property')
+    grid: list[float] | None = Field(None, description='Component property', max_length=2, min_length=2)
+    handle: str | None = Field(None, description='Component property')
+    cancel: str | None = Field(None, description='Component property')
+    scale: float | None = Field(None, description='Component property')
     enable_user_select: bool | None = Field(
-        None, alias='enableUserSelect', description="默认设置容器内部为'user-select:none', 可以设置true关闭"
+        None, alias='enableUserSelect', description="Component property'user-select:none', canSettrueClose"
     )
 
 
 class SwitchContainerSchema(BaseModel):
     """
-    SwitchContainer 状态容器渲染器。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/state-container
+    AMIS SwitchContainerSchema component.
     """
 
     model_config = ConfigDict(
@@ -4912,7 +4962,7 @@ class SwitchContainerSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     type: Any
     testid: Any | None = None
-    items: list[dict[str, Any]] = Field(..., description='状态项列表')
+    items: list[dict[str, Any]] = Field(..., description='Component property')
 
 
 class EditorSetting2(BaseModel):
@@ -4941,7 +4991,7 @@ class StateSchema(BaseModel):
     hidden: bool | None = Field(None, description='Whether hidden')
     hidden_on: dict[str, Any] | None = Field(None, alias='hiddenOn')
     visible: bool | None = Field(None, description='Whether visible')
-    visible_on: dict[str, Any] | None = Field(None, alias='visibleOn', description='显示条件')
+    visible_on: dict[str, Any] | None = Field(None, alias='visibleOn', description='Component property')
     id: str | None = Field(None, description='Unique component ID, mainly used for log collection')
     on_event: dict[str, dict[str, Any]] | None = Field(None, alias='onEvent', description='Event action configuration')
     static: bool | None = Field(None, description='Whether to display statically')
@@ -4960,7 +5010,7 @@ class StateSchema(BaseModel):
     use_mobile_ui: bool | None = Field(
         None, alias='useMobileUI', description='Can be used at the component level to turn off mobile styles'
     )
-    title: str | None = Field(None, description='状态标题')
+    title: str | None = Field(None, description='Component property')
     body: dict[str, Any] | None = None
 
 
@@ -4970,7 +5020,7 @@ class CRUDSchema(RootModel[Any]):
 
 class Mode6(Enum):
     """
-    指定内容区的展示模式。
+    AMIS Mode6 component.
     """
 
     table = 'table'
@@ -4981,7 +5031,7 @@ class Mode6(Enum):
 
 class OrderDir(Enum):
     """
-    默认排序方向
+    AMIS OrderDir component.
     """
 
     asc = 'asc'
@@ -4990,7 +5040,7 @@ class OrderDir(Enum):
 
 class ExpandConfig(BaseModel):
     """
-    如果时内嵌模式，可以通过这个来配置默认的展开选项。
+    AMIS ExpandConfig component.
     """
 
     model_config = ConfigDict(
@@ -5003,7 +5053,7 @@ class ExpandConfig(BaseModel):
 
 class LoadMoreProps(BaseModel):
     """
-    加载更多配置
+    AMIS LoadMoreProps component.
     """
 
     model_config = ConfigDict(
@@ -5020,7 +5070,7 @@ class LoadMoreProps(BaseModel):
 
 class CRUDCardsSchema(BaseModel):
     """
-    Cards 卡片集合渲染器。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/cards
+    AMIS CRUDCardsSchema component.
     """
 
     model_config = ConfigDict(
@@ -5069,110 +5119,112 @@ class CRUDCardsSchema(BaseModel):
     check_on_item_click: Any | None = Field(None, alias='checkOnItemClick')
     masonry_layout: Any | None = Field(None, alias='masonryLayout')
     value_field: Any | None = Field(None, alias='valueField')
-    mode: Literal['cards'] = Field(..., description='指定内容区的展示模式。')
+    mode: Literal['cards'] = Field(..., description='Component property')
     api: dict[str, Any] | None = None
     defer_api: dict[str, Any] | None = Field(None, alias='deferApi')
-    bulk_actions: list[dict[str, Any]] | None = Field(None, alias='bulkActions', description='批量操作')
-    item_actions: list[dict[str, Any]] | None = Field(None, alias='itemActions', description='单条操作')
-    per_page: float | None = Field(10, alias='perPage', description='每页个数，默认为 10，如果不是请设置。')
-    order_by: str | None = Field(None, alias='orderBy', description='默认排序字段')
-    order_dir: OrderDir | None = Field(None, alias='orderDir', description='默认排序方向')
+    bulk_actions: list[dict[str, Any]] | None = Field(None, alias='bulkActions', description='Component property')
+    item_actions: list[dict[str, Any]] | None = Field(None, alias='itemActions', description='Component property')
+    per_page: float | None = Field(10, alias='perPage', description='Component property')
+    order_by: str | None = Field(None, alias='orderBy', description='Component property')
+    order_dir: OrderDir | None = Field(None, alias='orderDir', description='Component property')
     default_params: dict[str, Any] | None = Field(None, alias='defaultParams')
-    draggable: bool | None = Field(None, description='是否可通过拖拽排序')
+    draggable: bool | None = Field(None, description='Component property')
     draggable_on: dict[str, Any] | None = Field(None, alias='draggableOn')
     name: dict[str, Any] | None = None
-    filter: Any | None = Field(None, description='过滤器表单')
-    init_fetch: bool | None = Field(None, alias='initFetch', description='初始是否拉取')
+    filter: Any | None = Field(None, description='Component property')
+    init_fetch: bool | None = Field(None, alias='initFetch', description='Component property')
     init_fetch_on: dict[str, Any] | None = Field(None, alias='initFetchOn')
     inner_class_name: dict[str, Any] | None = Field(None, alias='innerClassName')
-    interval: float | None = Field(None, description='设置自动刷新时间')
+    interval: float | None = Field(None, description='Component property')
     order_field: str | None = Field(
-        None, alias='orderField', description='设置用来确定位置的字段名，设置后新的顺序将被赋值到该字段中。'
+        None, alias='orderField', description='Component property'
     )
-    page_field: str | None = Field('page', alias='pageField', description='设置分页页码字段名。')
+    page_field: str | None = Field('page', alias='pageField', description='Component property')
     per_page_field: str | None = Field(
-        'perPage', alias='perPageField', description='设置分页一页显示的多少条数据的字段名。'
+        'perPage', alias='perPageField', description='Component property'
     )
     page_direction_field: str | None = Field(
-        'pageDir',
-        alias='pageDirectionField',
-        description='设置分页方向的字段名。单位简单分页时清楚时向前还是向后翻页。',
+        'pageDir', alias='pageDirectionField', description='Component property'
     )
-    total_field: str | None = Field(None, alias='totalField', description='设置总条数的字段名。')
+    total_field: str | None = Field(None, alias='totalField', description='Component property')
     quick_save_api: dict[str, Any] | None = Field(None, alias='quickSaveApi')
     quick_save_item_api: dict[str, Any] | None = Field(None, alias='quickSaveItemApi')
     save_order_api: dict[str, Any] | None = Field(None, alias='saveOrderApi')
     sync_location: bool | None = Field(
-        True, alias='syncLocation', description='是否将过滤条件的参数同步到地址栏,默认为true'
+        True, alias='syncLocation', description='Component property'
     )
     toolbar: dict[str, Any] | None = None
-    toolbar_inline: bool | None = Field(None, alias='toolbarInline', description='工具栏是否为 inline 模式')
-    header_toolbar: list[dict[str, Any]] | None = Field(None, alias='headerToolbar', description='顶部工具栏')
-    footer_toolbar: list[dict[str, Any]] | None = Field(None, alias='footerToolbar', description='底部工具栏')
+    toolbar_inline: bool | None = Field(None, alias='toolbarInline', description='Component property')
+    header_toolbar: list[dict[str, Any]] | None = Field(None, alias='headerToolbar', description='Component property')
+    footer_toolbar: list[dict[str, Any]] | None = Field(None, alias='footerToolbar', description='Component property')
     per_page_available: list[dict[str, Any]] | None = Field(
-        None, alias='perPageAvailable', description='每页显示多少个空间成员的配置如： [10, 20, 50, 100]。'
+        None, alias='perPageAvailable', description='Component property'
     )
     messages: dict[str, Any] | None = None
     hide_quick_save_btn: bool | None = Field(
-        None, alias='hideQuickSaveBtn', description='Whether hidden快速编辑的按钮。'
+        None, alias='hideQuickSaveBtn', description='Component property'
     )
     auto_jump_to_top_on_pager_change: bool | None = Field(
-        None, alias='autoJumpToTopOnPagerChange', description='是否自动跳顶部，当切分页的时候。'
+        None, alias='autoJumpToTopOnPagerChange', description='Component property'
     )
-    silent_polling: bool | None = Field(None, alias='silentPolling', description='静默拉取')
+    silent_polling: bool | None = Field(None, alias='silentPolling', description='Component property')
     stop_auto_refresh_when: dict[str, Any] | None = Field(None, alias='stopAutoRefreshWhen')
     stop_auto_refresh_when_modal_is_open: bool | None = Field(None, alias='stopAutoRefreshWhenModalIsOpen')
     filter_togglable: dict[str, Any] | None = Field(None, alias='filterTogglable')
     filter_default_visible: bool | None = Field(None, alias='filterDefaultVisible')
     sync_response2_query: bool | None = Field(
-        None, alias='syncResponse2Query', description='是否将接口返回的内容自动同步到地址栏，前提是开启了同步地址栏。'
+        None,
+        alias='syncResponse2Query',
+        description='Component property',
     )
     keep_item_selection_on_page_change: bool | None = Field(
-        None, alias='keepItemSelectionOnPageChange', description='分页的时候是否保留用户选择。'
+        None, alias='keepItemSelectionOnPageChange', description='Component property'
     )
     max_keep_item_selection_length: float | None = Field(
         None,
         alias='maxKeepItemSelectionLength',
-        description='当开启 keepItemSelectionOnPageChange 时，最大保留已勾选项的数量。',
+        description='Component property',
     )
     label_tpl: dict[str, Any] | None = Field(None, alias='labelTpl')
     load_data_once: bool | None = Field(
-        None, alias='loadDataOnce', description='是否为前端单次加载模式，可以用来实现前端分页。'
+        None, alias='loadDataOnce', description='Component property'
     )
     load_data_once_fetch_on_filter: bool | None = Field(
         None,
         alias='loadDataOnceFetchOnFilter',
-        description='在开启loadDataOnce时，当修改过滤条件时是否重新请求api\n\n如果没有配置，当查询条件表单触发的会重新请求 api，当是列过滤或者是 search-box 触发的则不重新请求 api 如果配置为 true，则不管是什么触发都会重新请求 api 如果配置为 false 则不管是什么触发都不会重新请求 api',
+        description='Component property',
     )
     match_func: dict[str, Any] | None = Field(
         None,
         alias='matchFunc',
-        description='自定义搜索匹配函数，当开启loadDataOnce时，会基于该函数计算的匹配结果进行过滤，主要用于处理列字段类型较为复杂或者字段值格式和后端返回不一致的场景\n\n参数说明\n\n * `items` 当前表格数据  * `itemsRaw` 当前表格数据（未处理）  * `options` 配置  * `options.query` 查询条件  * `options.columns` 列配置  * `options.matchSorter` 系统默认的排序方法',
+        description='Component property',
     )
     expand_config: ExpandConfig | None = Field(
-        None, alias='expandConfig', description='如果时内嵌模式，可以通过这个来配置默认的展开选项。'
+        None, alias='expandConfig', description='Component property'
     )
     always_show_pagination: bool | None = Field(
-        None, alias='alwaysShowPagination', description='默认只有当分页数大于 1 是才显示，如果总是想显示请配置。'
+        None,
+        alias='alwaysShowPagination',
+        description='Component property',
     )
     auto_generate_filter: dict[str, Any] | None = Field(
         None,
         alias='autoGenerateFilter',
-        description='开启查询区域，会根据列元素的searchable属性值，自动生成查询条件表单',
+        description='Component property',
     )
     auto_fill_height: dict[str, Any] | None = Field(
-        None, alias='autoFillHeight', description='Content area占满屏幕剩余空间'
+        None, alias='autoFillHeight', description='Component property'
     )
     parse_primitive_query: dict[str, Any] | None = Field(
         None,
         alias='parsePrimitiveQuery',
-        description='是否开启Query信息转换，开启后将会对url中的Query进行转换，默认开启，默认仅转化布尔值',
+        description='Component property',
     )
     selectable: bool | None = Field(
-        None, description='是否开启行选择功能, 默认为 false 开启后将支持行选择功能,需要结合事件动作使用'
+        None, description='Component property'
     )
-    multiple: bool | None = Field(None, description='控制是否多选，默认为 false')
-    load_more_props: LoadMoreProps | None = Field(None, alias='loadMoreProps', description='加载更多配置')
+    multiple: bool | None = Field(None, description='Component property')
+    load_more_props: LoadMoreProps | None = Field(None, alias='loadMoreProps', description='Component property')
 
 
 class HeaderToolbar(BaseModel):
@@ -5249,10 +5301,10 @@ class Messages3(BaseModel):
     model_config = ConfigDict(
         extra='forbid',
     )
-    fetch_failed: str | None = Field(None, alias='fetchFailed', description='获取失败时的提示')
-    fetch_success: str | None = Field(None, alias='fetchSuccess', description='获取成功的提示，默认为空。')
-    save_failed: str | None = Field(None, alias='saveFailed', description='保存失败时的提示。')
-    save_success: str | None = Field(None, alias='saveSuccess', description='保存成功时的提示。')
+    fetch_failed: str | None = Field(None, alias='fetchFailed', description='Component property')
+    fetch_success: str | None = Field(None, alias='fetchSuccess', description='Component property')
+    save_failed: str | None = Field(None, alias='saveFailed', description='Component property')
+    save_success: str | None = Field(None, alias='saveSuccess', description='Component property')
 
 
 class FilterTogglable(BaseModel):
@@ -5267,7 +5319,7 @@ class FilterTogglable(BaseModel):
 
 class Expand(Enum):
     """
-    默认是展开第一个、所有、还是都不展开。
+    AMIS Expand component.
     """
 
     first = 'first'
@@ -5277,20 +5329,20 @@ class Expand(Enum):
 
 class ExpandConfig1(BaseModel):
     """
-    如果时内嵌模式，可以通过这个来配置默认的展开选项。
+    AMIS ExpandConfig1 component.
     """
 
     model_config = ConfigDict(
         extra='forbid',
     )
-    expand: Expand | None = Field(None, description='默认是展开第一个、所有、还是都不展开。')
-    expand_all: bool | None = Field(None, alias='expandAll', description='Whether visible全部切换按钮')
-    accordion: bool | None = Field(None, description='是否为手风琴模式')
+    expand: Expand | None = Field(None, description='Component property')
+    expand_all: bool | None = Field(None, alias='expandAll', description='Component property')
+    accordion: bool | None = Field(None, description='Component property')
 
 
 class AutoGenerateFilter(BaseModel):
     """
-    开启查询区域，会根据列元素的searchable属性值，自动生成查询条件表单
+    AMIS AutoGenerateFilter component.
     """
 
     model_config = ConfigDict(
@@ -5305,7 +5357,7 @@ class AutoGenerateFilter(BaseModel):
 
 class AutoFillHeight(BaseModel):
     """
-    Content area占满屏幕剩余空间
+    AMIS AutoFillHeight component.
     """
 
     model_config = ConfigDict(
@@ -5317,7 +5369,7 @@ class AutoFillHeight(BaseModel):
 
 class ParsePrimitiveQuery(BaseModel):
     """
-    是否开启Query信息转换，开启后将会对url中的Query进行转换，默认开启，默认仅转化布尔值
+    AMIS ParsePrimitiveQuery component.
     """
 
     model_config = ConfigDict(
@@ -5343,7 +5395,7 @@ class DataAppendTo(Enum):
 
 class LoadMoreProps1(BaseModel):
     """
-    加载更多配置
+    AMIS LoadMoreProps1 component.
     """
 
     model_config = ConfigDict(
@@ -5362,70 +5414,68 @@ class CRUDCommonSchemaWithoutType(BaseModel):
     model_config = ConfigDict(
         extra='forbid',
     )
-    mode: Mode6 | None = Field(None, description='指定内容区的展示模式。')
+    mode: Mode6 | None = Field(None, description='Component property')
     api: str | dict[str, Any] | None = None
     defer_api: str | dict[str, Any] | None = Field(None, alias='deferApi')
-    bulk_actions: list[Any] | None = Field(None, alias='bulkActions', description='批量操作')
-    item_actions: list[Any] | None = Field(None, alias='itemActions', description='单条操作')
-    per_page: float | None = Field(10, alias='perPage', description='每页个数，默认为 10，如果不是请设置。')
-    order_by: str | None = Field(None, alias='orderBy', description='默认排序字段')
-    order_dir: OrderDir | None = Field(None, alias='orderDir', description='默认排序方向')
+    bulk_actions: list[Any] | None = Field(None, alias='bulkActions', description='Component property')
+    item_actions: list[Any] | None = Field(None, alias='itemActions', description='Component property')
+    per_page: float | None = Field(10, alias='perPage', description='Component property')
+    order_by: str | None = Field(None, alias='orderBy', description='Component property')
+    order_dir: OrderDir | None = Field(None, alias='orderDir', description='Component property')
     default_params: dict[str, Any] | None = Field(None, alias='defaultParams')
-    draggable: bool | None = Field(None, description='是否可通过拖拽排序')
+    draggable: bool | None = Field(None, description='Component property')
     draggable_on: str | None = Field(None, alias='draggableOn', description='Expression, syntax `${xxx > 5}`.')
     name: str | None = Field(
         None, description='Component name, this name can be used for positioning and component communication'
     )
-    filter: Any | None = Field(None, description='过滤器表单')
-    init_fetch: bool | None = Field(None, alias='initFetch', description='初始是否拉取')
+    filter: Any | None = Field(None, description='Component property')
+    init_fetch: bool | None = Field(None, alias='initFetch', description='Component property')
     init_fetch_on: str | None = Field(None, alias='initFetchOn', description='Expression, syntax `${xxx > 5}`.')
     inner_class_name: str | dict[str, dict[str, Any]] | None = Field(
         None,
         alias='innerClassName',
         description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
-    interval: float | None = Field(None, description='设置自动刷新时间')
+    interval: float | None = Field(None, description='Component property')
     order_field: str | None = Field(
-        None, alias='orderField', description='设置用来确定位置的字段名，设置后新的顺序将被赋值到该字段中。'
+        None, alias='orderField', description='Component property'
     )
-    page_field: str | None = Field('page', alias='pageField', description='设置分页页码字段名。')
+    page_field: str | None = Field('page', alias='pageField', description='Component property')
     per_page_field: str | None = Field(
-        'perPage', alias='perPageField', description='设置分页一页显示的多少条数据的字段名。'
+        'perPage', alias='perPageField', description='Component property'
     )
     page_direction_field: str | None = Field(
-        'pageDir',
-        alias='pageDirectionField',
-        description='设置分页方向的字段名。单位简单分页时清楚时向前还是向后翻页。',
+        'pageDir', alias='pageDirectionField', description='Component property'
     )
-    total_field: str | None = Field(None, alias='totalField', description='设置总条数的字段名。')
+    total_field: str | None = Field(None, alias='totalField', description='Component property')
     quick_save_api: str | dict[str, Any] | None = Field(None, alias='quickSaveApi')
     quick_save_item_api: str | dict[str, Any] | None = Field(None, alias='quickSaveItemApi')
     save_order_api: str | dict[str, Any] | None = Field(None, alias='saveOrderApi')
     sync_location: bool | None = Field(
-        True, alias='syncLocation', description='是否将过滤条件的参数同步到地址栏,默认为true'
+        True, alias='syncLocation', description='Component property'
     )
     toolbar: dict[str, Any] | None = None
-    toolbar_inline: bool | None = Field(None, alias='toolbarInline', description='工具栏是否为 inline 模式')
+    toolbar_inline: bool | None = Field(None, alias='toolbarInline', description='Component property')
     header_toolbar: list[HeaderToolbar | HeaderToolbar1] | None = Field(
-        None, alias='headerToolbar', description='顶部工具栏'
+        None, alias='headerToolbar', description='Component property'
     )
     footer_toolbar: list[FooterToolbar | FooterToolbar1] | None = Field(
-        None, alias='footerToolbar', description='底部工具栏'
+        None, alias='footerToolbar', description='Component property'
     )
     per_page_available: list[float] | None = Field(
-        None, alias='perPageAvailable', description='每页显示多少个空间成员的配置如： [10, 20, 50, 100]。'
+        None, alias='perPageAvailable', description='Component property'
     )
     messages: Messages3 | None = Field(
         None,
         description='Message text configuration. Remember that this has the lowest priority. If your interface returns a msg, the interface return takes precedence.',
     )
     hide_quick_save_btn: bool | None = Field(
-        None, alias='hideQuickSaveBtn', description='Whether hidden快速编辑的按钮。'
+        None, alias='hideQuickSaveBtn', description='Component property'
     )
     auto_jump_to_top_on_pager_change: bool | None = Field(
-        None, alias='autoJumpToTopOnPagerChange', description='是否自动跳顶部，当切分页的时候。'
+        None, alias='autoJumpToTopOnPagerChange', description='Component property'
     )
-    silent_polling: bool | None = Field(None, alias='silentPolling', description='静默拉取')
+    silent_polling: bool | None = Field(None, alias='silentPolling', description='Component property')
     stop_auto_refresh_when: str | None = Field(
         None, alias='stopAutoRefreshWhen', description='Expression, syntax `${xxx > 5}`.'
     )
@@ -5433,59 +5483,63 @@ class CRUDCommonSchemaWithoutType(BaseModel):
     filter_togglable: bool | FilterTogglable | None = Field(None, alias='filterTogglable')
     filter_default_visible: bool | None = Field(None, alias='filterDefaultVisible')
     sync_response2_query: bool | None = Field(
-        None, alias='syncResponse2Query', description='是否将接口返回的内容自动同步到地址栏，前提是开启了同步地址栏。'
+        None,
+        alias='syncResponse2Query',
+        description='Component property',
     )
     keep_item_selection_on_page_change: bool | None = Field(
-        None, alias='keepItemSelectionOnPageChange', description='分页的时候是否保留用户选择。'
+        None, alias='keepItemSelectionOnPageChange', description='Component property'
     )
     max_keep_item_selection_length: float | None = Field(
         None,
         alias='maxKeepItemSelectionLength',
-        description='当开启 keepItemSelectionOnPageChange 时，最大保留已勾选项的数量。',
+        description='Component property',
     )
     label_tpl: str | None = Field(
         None,
         alias='labelTpl',
-        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/en-US/docs/concepts/template',
     )
     load_data_once: bool | None = Field(
-        None, alias='loadDataOnce', description='是否为前端单次加载模式，可以用来实现前端分页。'
+        None, alias='loadDataOnce', description='Component property'
     )
     load_data_once_fetch_on_filter: bool | None = Field(
         None,
         alias='loadDataOnceFetchOnFilter',
-        description='在开启loadDataOnce时，当修改过滤条件时是否重新请求api\n\n如果没有配置，当查询条件表单触发的会重新请求 api，当是列过滤或者是 search-box 触发的则不重新请求 api 如果配置为 true，则不管是什么触发都会重新请求 api 如果配置为 false 则不管是什么触发都不会重新请求 api',
+        description='Component property',
     )
     match_func: str | Any | None = Field(
         None,
         alias='matchFunc',
-        description='自定义搜索匹配函数，当开启loadDataOnce时，会基于该函数计算的匹配结果进行过滤，主要用于处理列字段类型较为复杂或者字段值格式和后端返回不一致的场景\n\n参数说明\n\n * `items` 当前表格数据  * `itemsRaw` 当前表格数据（未处理）  * `options` 配置  * `options.query` 查询条件  * `options.columns` 列配置  * `options.matchSorter` 系统默认的排序方法',
+        description='Component property',
     )
     source: str | None = None
     expand_config: ExpandConfig1 | None = Field(
-        None, alias='expandConfig', description='如果时内嵌模式，可以通过这个来配置默认的展开选项。'
+        None, alias='expandConfig', description='Component property'
     )
     always_show_pagination: bool | None = Field(
-        None, alias='alwaysShowPagination', description='默认只有当分页数大于 1 是才显示，如果总是想显示请配置。'
+        None,
+        alias='alwaysShowPagination',
+        description='Component property',
     )
     auto_generate_filter: AutoGenerateFilter | bool | None = Field(
         None,
         alias='autoGenerateFilter',
-        description='开启查询区域，会根据列元素的searchable属性值，自动生成查询条件表单',
+        description='Component property',
     )
     auto_fill_height: bool | AutoFillHeight | None = Field(
-        None, alias='autoFillHeight', description='Content area占满屏幕剩余空间'
+        None, alias='autoFillHeight', description='Component property'
     )
     parse_primitive_query: ParsePrimitiveQuery | bool | None = Field(
         None,
         alias='parsePrimitiveQuery',
-        description='是否开启Query信息转换，开启后将会对url中的Query进行转换，默认开启，默认仅转化布尔值',
+        description='Component property',
     )
     selectable: bool | None = Field(
-        None, description='是否开启行选择功能, 默认为 false 开启后将支持行选择功能,需要结合事件动作使用'
+        None, description='Component property'
     )
-    multiple: bool | None = Field(None, description='控制是否多选，默认为 false')
-    load_more_props: LoadMoreProps1 | None = Field(None, alias='loadMoreProps', description='加载更多配置')
+    multiple: bool | None = Field(None, description='Component property')
+    load_more_props: LoadMoreProps1 | None = Field(None, alias='loadMoreProps', description='Component property')
 
 
 class PlainObject(BaseModel):
@@ -5494,7 +5548,7 @@ class PlainObject(BaseModel):
 
 class Align(Enum):
     """
-    对齐方式
+    AMIS Align component.
     """
 
     left = 'left'
@@ -5505,7 +5559,7 @@ class CRUDToolbarObject(BaseModel):
     model_config = ConfigDict(
         extra='forbid',
     )
-    align: Align | None = Field(None, description='对齐方式')
+    align: Align | None = Field(None, description='Component property')
 
 
 class CRUDBultinToolbarType(Enum):
@@ -5530,20 +5584,20 @@ class SchemaMessage(BaseModel):
     model_config = ConfigDict(
         extra='forbid',
     )
-    fetch_failed: str | None = Field(None, alias='fetchFailed', description='获取失败时的提示')
-    fetch_success: str | None = Field(None, alias='fetchSuccess', description='获取成功的提示，默认为空。')
-    save_failed: str | None = Field(None, alias='saveFailed', description='保存失败时的提示。')
-    save_success: str | None = Field(None, alias='saveSuccess', description='保存成功时的提示。')
+    fetch_failed: str | None = Field(None, alias='fetchFailed', description='Component property')
+    fetch_success: str | None = Field(None, alias='fetchSuccess', description='Component property')
+    save_failed: str | None = Field(None, alias='saveFailed', description='Component property')
+    save_success: str | None = Field(None, alias='saveSuccess', description='Component property')
 
 
 class AutoGenerateFilterObject(BaseModel):
     model_config = ConfigDict(
         extra='forbid',
     )
-    columns_num: float | None = Field(None, alias='columnsNum', description='过滤条件单行列数')
-    show_btn_toolbar: bool | None = Field(None, alias='showBtnToolbar', description='Whether visible设置查询字段')
-    default_collapsed: bool | None = Field(True, alias='defaultCollapsed', description='是否默认收起')
-    enable_bulk_actions: bool | None = Field(None, alias='enableBulkActions', description='是否启用多选框')
+    columns_num: float | None = Field(None, alias='columnsNum', description='Component property')
+    show_btn_toolbar: bool | None = Field(None, alias='showBtnToolbar', description='Component property')
+    default_collapsed: bool | None = Field(True, alias='defaultCollapsed', description='Component property')
+    enable_bulk_actions: bool | None = Field(None, alias='enableBulkActions', description='Component property')
     enable_bulk_actions_on: str | None = Field(
         None, alias='enableBulkActionsOn', description='Expression, syntax `${xxx > 5}`.'
     )
@@ -5551,7 +5605,7 @@ class AutoGenerateFilterObject(BaseModel):
 
 class ExpandConfig2(BaseModel):
     """
-    如果时内嵌模式，可以通过这个来配置默认的展开选项。
+    AMIS ExpandConfig2 component.
     """
 
     model_config = ConfigDict(
@@ -5564,7 +5618,7 @@ class ExpandConfig2(BaseModel):
 
 class LoadMoreProps2(BaseModel):
     """
-    加载更多配置
+    AMIS LoadMoreProps2 component.
     """
 
     model_config = ConfigDict(
@@ -5581,7 +5635,7 @@ class LoadMoreProps2(BaseModel):
 
 class CRUDListSchema(BaseModel):
     """
-    List 列表展示控件。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/card
+    AMIS CRUDListSchema component.
     """
 
     model_config = ConfigDict(
@@ -5632,110 +5686,112 @@ class CRUDListSchema(BaseModel):
     show_index_bar: Any | None = Field(None, alias='showIndexBar')
     index_field: Any | None = Field(None, alias='indexField')
     index_bar_offset: Any | None = Field(None, alias='indexBarOffset')
-    mode: Literal['list'] = Field(..., description='指定内容区的展示模式。')
+    mode: Literal['list'] = Field(..., description='Component property')
     api: dict[str, Any] | None = None
     defer_api: dict[str, Any] | None = Field(None, alias='deferApi')
-    bulk_actions: list[dict[str, Any]] | None = Field(None, alias='bulkActions', description='批量操作')
-    item_actions: list[dict[str, Any]] | None = Field(None, alias='itemActions', description='单条操作')
-    per_page: float | None = Field(10, alias='perPage', description='每页个数，默认为 10，如果不是请设置。')
-    order_by: str | None = Field(None, alias='orderBy', description='默认排序字段')
-    order_dir: OrderDir | None = Field(None, alias='orderDir', description='默认排序方向')
+    bulk_actions: list[dict[str, Any]] | None = Field(None, alias='bulkActions', description='Component property')
+    item_actions: list[dict[str, Any]] | None = Field(None, alias='itemActions', description='Component property')
+    per_page: float | None = Field(10, alias='perPage', description='Component property')
+    order_by: str | None = Field(None, alias='orderBy', description='Component property')
+    order_dir: OrderDir | None = Field(None, alias='orderDir', description='Component property')
     default_params: dict[str, Any] | None = Field(None, alias='defaultParams')
-    draggable: bool | None = Field(None, description='是否可通过拖拽排序')
+    draggable: bool | None = Field(None, description='Component property')
     draggable_on: dict[str, Any] | None = Field(None, alias='draggableOn')
     name: dict[str, Any] | None = None
-    filter: Any | None = Field(None, description='过滤器表单')
-    init_fetch: bool | None = Field(None, alias='initFetch', description='初始是否拉取')
+    filter: Any | None = Field(None, description='Component property')
+    init_fetch: bool | None = Field(None, alias='initFetch', description='Component property')
     init_fetch_on: dict[str, Any] | None = Field(None, alias='initFetchOn')
     inner_class_name: dict[str, Any] | None = Field(None, alias='innerClassName')
-    interval: float | None = Field(None, description='设置自动刷新时间')
+    interval: float | None = Field(None, description='Component property')
     order_field: str | None = Field(
-        None, alias='orderField', description='设置用来确定位置的字段名，设置后新的顺序将被赋值到该字段中。'
+        None, alias='orderField', description='Component property'
     )
-    page_field: str | None = Field('page', alias='pageField', description='设置分页页码字段名。')
+    page_field: str | None = Field('page', alias='pageField', description='Component property')
     per_page_field: str | None = Field(
-        'perPage', alias='perPageField', description='设置分页一页显示的多少条数据的字段名。'
+        'perPage', alias='perPageField', description='Component property'
     )
     page_direction_field: str | None = Field(
-        'pageDir',
-        alias='pageDirectionField',
-        description='设置分页方向的字段名。单位简单分页时清楚时向前还是向后翻页。',
+        'pageDir', alias='pageDirectionField', description='Component property'
     )
-    total_field: str | None = Field(None, alias='totalField', description='设置总条数的字段名。')
+    total_field: str | None = Field(None, alias='totalField', description='Component property')
     quick_save_api: dict[str, Any] | None = Field(None, alias='quickSaveApi')
     quick_save_item_api: dict[str, Any] | None = Field(None, alias='quickSaveItemApi')
     save_order_api: dict[str, Any] | None = Field(None, alias='saveOrderApi')
     sync_location: bool | None = Field(
-        True, alias='syncLocation', description='是否将过滤条件的参数同步到地址栏,默认为true'
+        True, alias='syncLocation', description='Component property'
     )
     toolbar: dict[str, Any] | None = None
-    toolbar_inline: bool | None = Field(None, alias='toolbarInline', description='工具栏是否为 inline 模式')
-    header_toolbar: list[dict[str, Any]] | None = Field(None, alias='headerToolbar', description='顶部工具栏')
-    footer_toolbar: list[dict[str, Any]] | None = Field(None, alias='footerToolbar', description='底部工具栏')
+    toolbar_inline: bool | None = Field(None, alias='toolbarInline', description='Component property')
+    header_toolbar: list[dict[str, Any]] | None = Field(None, alias='headerToolbar', description='Component property')
+    footer_toolbar: list[dict[str, Any]] | None = Field(None, alias='footerToolbar', description='Component property')
     per_page_available: list[dict[str, Any]] | None = Field(
-        None, alias='perPageAvailable', description='每页显示多少个空间成员的配置如： [10, 20, 50, 100]。'
+        None, alias='perPageAvailable', description='Component property'
     )
     messages: dict[str, Any] | None = None
     hide_quick_save_btn: bool | None = Field(
-        None, alias='hideQuickSaveBtn', description='Whether hidden快速编辑的按钮。'
+        None, alias='hideQuickSaveBtn', description='Component property'
     )
     auto_jump_to_top_on_pager_change: bool | None = Field(
-        None, alias='autoJumpToTopOnPagerChange', description='是否自动跳顶部，当切分页的时候。'
+        None, alias='autoJumpToTopOnPagerChange', description='Component property'
     )
-    silent_polling: bool | None = Field(None, alias='silentPolling', description='静默拉取')
+    silent_polling: bool | None = Field(None, alias='silentPolling', description='Component property')
     stop_auto_refresh_when: dict[str, Any] | None = Field(None, alias='stopAutoRefreshWhen')
     stop_auto_refresh_when_modal_is_open: bool | None = Field(None, alias='stopAutoRefreshWhenModalIsOpen')
     filter_togglable: dict[str, Any] | None = Field(None, alias='filterTogglable')
     filter_default_visible: bool | None = Field(None, alias='filterDefaultVisible')
     sync_response2_query: bool | None = Field(
-        None, alias='syncResponse2Query', description='是否将接口返回的内容自动同步到地址栏，前提是开启了同步地址栏。'
+        None,
+        alias='syncResponse2Query',
+        description='Component property',
     )
     keep_item_selection_on_page_change: bool | None = Field(
-        None, alias='keepItemSelectionOnPageChange', description='分页的时候是否保留用户选择。'
+        None, alias='keepItemSelectionOnPageChange', description='Component property'
     )
     max_keep_item_selection_length: float | None = Field(
         None,
         alias='maxKeepItemSelectionLength',
-        description='当开启 keepItemSelectionOnPageChange 时，最大保留已勾选项的数量。',
+        description='Component property',
     )
     label_tpl: dict[str, Any] | None = Field(None, alias='labelTpl')
     load_data_once: bool | None = Field(
-        None, alias='loadDataOnce', description='是否为前端单次加载模式，可以用来实现前端分页。'
+        None, alias='loadDataOnce', description='Component property'
     )
     load_data_once_fetch_on_filter: bool | None = Field(
         None,
         alias='loadDataOnceFetchOnFilter',
-        description='在开启loadDataOnce时，当修改过滤条件时是否重新请求api\n\n如果没有配置，当查询条件表单触发的会重新请求 api，当是列过滤或者是 search-box 触发的则不重新请求 api 如果配置为 true，则不管是什么触发都会重新请求 api 如果配置为 false 则不管是什么触发都不会重新请求 api',
+        description='Component property',
     )
     match_func: dict[str, Any] | None = Field(
         None,
         alias='matchFunc',
-        description='自定义搜索匹配函数，当开启loadDataOnce时，会基于该函数计算的匹配结果进行过滤，主要用于处理列字段类型较为复杂或者字段值格式和后端返回不一致的场景\n\n参数说明\n\n * `items` 当前表格数据  * `itemsRaw` 当前表格数据（未处理）  * `options` 配置  * `options.query` 查询条件  * `options.columns` 列配置  * `options.matchSorter` 系统默认的排序方法',
+        description='Component property',
     )
     expand_config: ExpandConfig2 | None = Field(
-        None, alias='expandConfig', description='如果时内嵌模式，可以通过这个来配置默认的展开选项。'
+        None, alias='expandConfig', description='Component property'
     )
     always_show_pagination: bool | None = Field(
-        None, alias='alwaysShowPagination', description='默认只有当分页数大于 1 是才显示，如果总是想显示请配置。'
+        None,
+        alias='alwaysShowPagination',
+        description='Component property',
     )
     auto_generate_filter: dict[str, Any] | None = Field(
         None,
         alias='autoGenerateFilter',
-        description='开启查询区域，会根据列元素的searchable属性值，自动生成查询条件表单',
+        description='Component property',
     )
     auto_fill_height: dict[str, Any] | None = Field(
-        None, alias='autoFillHeight', description='Content area占满屏幕剩余空间'
+        None, alias='autoFillHeight', description='Component property'
     )
     parse_primitive_query: dict[str, Any] | None = Field(
         None,
         alias='parsePrimitiveQuery',
-        description='是否开启Query信息转换，开启后将会对url中的Query进行转换，默认开启，默认仅转化布尔值',
+        description='Component property',
     )
     selectable: bool | None = Field(
-        None, description='是否开启行选择功能, 默认为 false 开启后将支持行选择功能,需要结合事件动作使用'
+        None, description='Component property'
     )
-    multiple: bool | None = Field(None, description='控制是否多选，默认为 false')
-    load_more_props: LoadMoreProps2 | None = Field(None, alias='loadMoreProps', description='加载更多配置')
+    multiple: bool | None = Field(None, description='Component property')
+    load_more_props: LoadMoreProps2 | None = Field(None, alias='loadMoreProps', description='Component property')
 
 
 class ListItem(BaseModel):
@@ -5775,7 +5831,7 @@ class ListItem(BaseModel):
 
 class Size7(Enum):
     """
-    大小
+    AMIS Size7 component.
     """
 
     sm = 'sm'
@@ -5784,7 +5840,7 @@ class Size7(Enum):
 
 class BaseListSchema(BaseModel):
     """
-    List 列表展示控件。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/card
+    AMIS BaseListSchema component.
     """
 
     model_config = ConfigDict(
@@ -5815,7 +5871,7 @@ class BaseListSchema(BaseModel):
     testid: Any | None = None
     title: str | None = Field(
         None,
-        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/en-US/docs/concepts/template',
     )
     footer: dict[str, Any] | None = None
     footer_class_name: dict[str, Any] | None = Field(
@@ -5831,29 +5887,29 @@ class BaseListSchema(BaseModel):
     )
     list_item: ListItem | None = Field(None, alias='listItem')
     source: str | None = None
-    show_footer: bool | None = Field(None, alias='showFooter', description='Whether visible底部')
-    show_header: bool | None = Field(None, alias='showHeader', description='Whether visible头部')
+    show_footer: bool | None = Field(None, alias='showFooter', description='Component property')
+    show_header: bool | None = Field(None, alias='showHeader', description='Component property')
     placeholder: str | None = Field(
         None,
-        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/en-US/docs/concepts/template',
     )
-    hide_check_toggler: bool | None = Field(None, alias='hideCheckToggler', description='Whether hidden勾选框')
-    affix_header: bool | None = Field(None, alias='affixHeader', description='是否固顶')
-    affix_footer: bool | None = Field(None, alias='affixFooter', description='是否固底')
+    hide_check_toggler: bool | None = Field(None, alias='hideCheckToggler', description='Component property')
+    affix_header: bool | None = Field(None, alias='affixHeader', description='Component property')
+    affix_footer: bool | None = Field(None, alias='affixFooter', description='Component property')
     item_checkable_on: str | None = Field(None, alias='itemCheckableOn', description='Expression, syntax `${xxx > 5}`.')
     item_draggable_on: str | None = Field(None, alias='itemDraggableOn', description='Expression, syntax `${xxx > 5}`.')
-    check_on_item_click: bool | None = Field(None, alias='checkOnItemClick', description='点击列表单行时，是否选择')
-    value_field: str | None = Field(None, alias='valueField', description='可以用来作为值的字段')
-    size: Size7 | None = Field(None, description='大小')
+    check_on_item_click: bool | None = Field(None, alias='checkOnItemClick', description='Component property')
+    value_field: str | None = Field(None, alias='valueField', description='Component property')
+    size: Size7 | None = Field(None, description='Component property')
     item_action: Any | None = Field(None, alias='itemAction')
-    show_index_bar: bool | None = Field(None, alias='showIndexBar', description='Whether visible右侧字母索引条')
-    index_field: str | None = Field(None, alias='indexField', description='索引依据字段')
-    index_bar_offset: float | None = Field(None, alias='indexBarOffset', description='索引条偏移量')
+    show_index_bar: bool | None = Field(None, alias='showIndexBar', description='Component property')
+    index_field: str | None = Field(None, alias='indexField', description='Component property')
+    index_bar_offset: float | None = Field(None, alias='indexBarOffset', description='Component property')
 
 
 class ActionsPosition(Enum):
     """
-    操作位置，默认在右侧，可以设置成左侧。
+    AMIS ActionsPosition component.
     """
 
     left = 'left'
@@ -5897,31 +5953,31 @@ class ListItemSchema(BaseModel):
     )
     actions: list[dict[str, Any]] | None = None
     actions_position: ActionsPosition | None = Field(
-        None, alias='actionsPosition', description='操作位置，默认在右侧，可以设置成左侧。'
+        None, alias='actionsPosition', description='Component property'
     )
     avatar: dict[str, Any] | None = None
     body: list[dict[str, Any]] | None = Field(None, description='Content area')
     desc: str | None = Field(
         None,
-        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/en-US/docs/concepts/template',
     )
     remark: dict[str, Any] | None = None
     title: str | None = Field(
         None,
-        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/en-US/docs/concepts/template',
     )
     sub_title: str | None = Field(
         None,
         alias='subTitle',
-        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/en-US/docs/concepts/template',
     )
 
 
 class ListBodyField(BaseModel):
-    label: str | None = Field(None, description='列标题')
+    label: str | None = Field(None, description='Component property')
     label_class_name: dict[str, Any] | None = Field(None, alias='labelClassName')
     inner_class_name: dict[str, Any] | None = Field(None, alias='innerClassName')
-    name: str | None = Field(None, description='绑定字段名')
+    name: str | None = Field(None, description='Component property')
     pop_over: dict[str, Any] | None = Field(None, alias='popOver')
     quick_edit: dict[str, Any] | None = Field(None, alias='quickEdit')
     copyable: dict[str, Any] | None = None
@@ -5929,13 +5985,13 @@ class ListBodyField(BaseModel):
 
 class ListBodyFieldObject(BaseModel):
     """
-    不指定类型默认就是文本
+    AMIS ListBodyFieldObject component.
     """
 
     model_config = ConfigDict(
         extra='forbid',
     )
-    label: str | None = Field(None, description='列标题')
+    label: str | None = Field(None, description='Component property')
     label_class_name: str | dict[str, dict[str, Any]] | None = Field(
         None,
         alias='labelClassName',
@@ -5946,7 +6002,7 @@ class ListBodyFieldObject(BaseModel):
         alias='innerClassName',
         description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
-    name: str | None = Field(None, description='绑定字段名')
+    name: str | None = Field(None, description='Component property')
     pop_over: bool | dict[str, Any] | None = Field(None, alias='popOver')
     quick_edit: bool | dict[str, Any] | None = Field(None, alias='quickEdit')
     copyable: bool | dict[str, Any] | None = None
@@ -6004,115 +6060,117 @@ class CRUDTableSchema(BaseModel):
     auto_generate_filter: dict[str, Any] | None = Field(
         None,
         alias='autoGenerateFilter',
-        description='开启查询区域，会根据列元素的searchable属性值，自动生成查询条件表单',
+        description='Component property',
     )
     can_access_super_data: Any | None = Field(None, alias='canAccessSuperData')
     auto_fill_height: dict[str, Any] | None = Field(
-        None, alias='autoFillHeight', description='Content area占满屏幕剩余空间'
+        None, alias='autoFillHeight', description='Component property'
     )
     table_layout: Any | None = Field(None, alias='tableLayout')
     defer_api: dict[str, Any] | None = Field(None, alias='deferApi')
     persist_key: Any | None = Field(None, alias='persistKey')
-    mode: Literal['table'] = Field('table', description='指定内容区的展示模式。')
+    mode: Literal['table'] = Field('table', description='Component property')
     api: dict[str, Any] | None = None
-    bulk_actions: list[dict[str, Any]] | None = Field(None, alias='bulkActions', description='批量操作')
-    item_actions: list[dict[str, Any]] | None = Field(None, alias='itemActions', description='单条操作')
-    per_page: float | None = Field(10, alias='perPage', description='每页个数，默认为 10，如果不是请设置。')
-    order_by: str | None = Field(None, alias='orderBy', description='默认排序字段')
-    order_dir: OrderDir | None = Field(None, alias='orderDir', description='默认排序方向')
+    bulk_actions: list[dict[str, Any]] | None = Field(None, alias='bulkActions', description='Component property')
+    item_actions: list[dict[str, Any]] | None = Field(None, alias='itemActions', description='Component property')
+    per_page: float | None = Field(10, alias='perPage', description='Component property')
+    order_by: str | None = Field(None, alias='orderBy', description='Component property')
+    order_dir: OrderDir | None = Field(None, alias='orderDir', description='Component property')
     default_params: dict[str, Any] | None = Field(None, alias='defaultParams')
-    draggable: bool | None = Field(None, description='是否可通过拖拽排序')
+    draggable: bool | None = Field(None, description='Component property')
     draggable_on: dict[str, Any] | None = Field(None, alias='draggableOn')
     name: dict[str, Any] | None = None
-    filter: Any | None = Field(None, description='过滤器表单')
-    init_fetch: bool | None = Field(None, alias='initFetch', description='初始是否拉取')
+    filter: Any | None = Field(None, description='Component property')
+    init_fetch: bool | None = Field(None, alias='initFetch', description='Component property')
     init_fetch_on: dict[str, Any] | None = Field(None, alias='initFetchOn')
     inner_class_name: dict[str, Any] | None = Field(None, alias='innerClassName')
-    interval: float | None = Field(None, description='设置自动刷新时间')
+    interval: float | None = Field(None, description='Component property')
     order_field: str | None = Field(
-        None, alias='orderField', description='设置用来确定位置的字段名，设置后新的顺序将被赋值到该字段中。'
+        None, alias='orderField', description='Component property'
     )
-    page_field: str | None = Field('page', alias='pageField', description='设置分页页码字段名。')
+    page_field: str | None = Field('page', alias='pageField', description='Component property')
     per_page_field: str | None = Field(
-        'perPage', alias='perPageField', description='设置分页一页显示的多少条数据的字段名。'
+        'perPage', alias='perPageField', description='Component property'
     )
     page_direction_field: str | None = Field(
-        'pageDir',
-        alias='pageDirectionField',
-        description='设置分页方向的字段名。单位简单分页时清楚时向前还是向后翻页。',
+        'pageDir', alias='pageDirectionField', description='Component property'
     )
-    total_field: str | None = Field(None, alias='totalField', description='设置总条数的字段名。')
+    total_field: str | None = Field(None, alias='totalField', description='Component property')
     quick_save_api: dict[str, Any] | None = Field(None, alias='quickSaveApi')
     quick_save_item_api: dict[str, Any] | None = Field(None, alias='quickSaveItemApi')
     save_order_api: dict[str, Any] | None = Field(None, alias='saveOrderApi')
     sync_location: bool | None = Field(
-        True, alias='syncLocation', description='是否将过滤条件的参数同步到地址栏,默认为true'
+        True, alias='syncLocation', description='Component property'
     )
     toolbar: dict[str, Any] | None = None
-    toolbar_inline: bool | None = Field(None, alias='toolbarInline', description='工具栏是否为 inline 模式')
-    header_toolbar: list[dict[str, Any]] | None = Field(None, alias='headerToolbar', description='顶部工具栏')
-    footer_toolbar: list[dict[str, Any]] | None = Field(None, alias='footerToolbar', description='底部工具栏')
+    toolbar_inline: bool | None = Field(None, alias='toolbarInline', description='Component property')
+    header_toolbar: list[dict[str, Any]] | None = Field(None, alias='headerToolbar', description='Component property')
+    footer_toolbar: list[dict[str, Any]] | None = Field(None, alias='footerToolbar', description='Component property')
     per_page_available: list[dict[str, Any]] | None = Field(
-        None, alias='perPageAvailable', description='每页显示多少个空间成员的配置如： [10, 20, 50, 100]。'
+        None, alias='perPageAvailable', description='Component property'
     )
     messages: dict[str, Any] | None = None
     hide_quick_save_btn: bool | None = Field(
-        None, alias='hideQuickSaveBtn', description='Whether hidden快速编辑的按钮。'
+        None, alias='hideQuickSaveBtn', description='Component property'
     )
     auto_jump_to_top_on_pager_change: bool | None = Field(
-        None, alias='autoJumpToTopOnPagerChange', description='是否自动跳顶部，当切分页的时候。'
+        None, alias='autoJumpToTopOnPagerChange', description='Component property'
     )
-    silent_polling: bool | None = Field(None, alias='silentPolling', description='静默拉取')
+    silent_polling: bool | None = Field(None, alias='silentPolling', description='Component property')
     stop_auto_refresh_when: dict[str, Any] | None = Field(None, alias='stopAutoRefreshWhen')
     stop_auto_refresh_when_modal_is_open: bool | None = Field(None, alias='stopAutoRefreshWhenModalIsOpen')
     filter_togglable: dict[str, Any] | None = Field(None, alias='filterTogglable')
     filter_default_visible: bool | None = Field(None, alias='filterDefaultVisible')
     sync_response2_query: bool | None = Field(
-        None, alias='syncResponse2Query', description='是否将接口返回的内容自动同步到地址栏，前提是开启了同步地址栏。'
+        None,
+        alias='syncResponse2Query',
+        description='Component property',
     )
     keep_item_selection_on_page_change: bool | None = Field(
-        None, alias='keepItemSelectionOnPageChange', description='分页的时候是否保留用户选择。'
+        None, alias='keepItemSelectionOnPageChange', description='Component property'
     )
     max_keep_item_selection_length: float | None = Field(
         None,
         alias='maxKeepItemSelectionLength',
-        description='当开启 keepItemSelectionOnPageChange 时，最大保留已勾选项的数量。',
+        description='Component property',
     )
     label_tpl: dict[str, Any] | None = Field(None, alias='labelTpl')
     load_data_once: bool | None = Field(
-        None, alias='loadDataOnce', description='是否为前端单次加载模式，可以用来实现前端分页。'
+        None, alias='loadDataOnce', description='Component property'
     )
     load_data_once_fetch_on_filter: bool | None = Field(
         None,
         alias='loadDataOnceFetchOnFilter',
-        description='在开启loadDataOnce时，当修改过滤条件时是否重新请求api\n\n如果没有配置，当查询条件表单触发的会重新请求 api，当是列过滤或者是 search-box 触发的则不重新请求 api 如果配置为 true，则不管是什么触发都会重新请求 api 如果配置为 false 则不管是什么触发都不会重新请求 api',
+        description='Component property',
     )
     match_func: dict[str, Any] | None = Field(
         None,
         alias='matchFunc',
-        description='自定义搜索匹配函数，当开启loadDataOnce时，会基于该函数计算的匹配结果进行过滤，主要用于处理列字段类型较为复杂或者字段值格式和后端返回不一致的场景\n\n参数说明\n\n * `items` 当前表格数据  * `itemsRaw` 当前表格数据（未处理）  * `options` 配置  * `options.query` 查询条件  * `options.columns` 列配置  * `options.matchSorter` 系统默认的排序方法',
+        description='Component property',
     )
     expand_config: ExpandConfig2 | None = Field(
-        None, alias='expandConfig', description='如果时内嵌模式，可以通过这个来配置默认的展开选项。'
+        None, alias='expandConfig', description='Component property'
     )
     always_show_pagination: bool | None = Field(
-        None, alias='alwaysShowPagination', description='默认只有当分页数大于 1 是才显示，如果总是想显示请配置。'
+        None,
+        alias='alwaysShowPagination',
+        description='Component property',
     )
     parse_primitive_query: dict[str, Any] | None = Field(
         None,
         alias='parsePrimitiveQuery',
-        description='是否开启Query信息转换，开启后将会对url中的Query进行转换，默认开启，默认仅转化布尔值',
+        description='Component property',
     )
     selectable: bool | None = Field(
-        None, description='是否开启行选择功能, 默认为 false 开启后将支持行选择功能,需要结合事件动作使用'
+        None, description='Component property'
     )
-    multiple: bool | None = Field(None, description='控制是否多选，默认为 false')
-    load_more_props: LoadMoreProps2 | None = Field(None, alias='loadMoreProps', description='加载更多配置')
+    multiple: bool | None = Field(None, description='Component property')
+    load_more_props: LoadMoreProps2 | None = Field(None, alias='loadMoreProps', description='Component property')
 
 
 class Footable(BaseModel):
     """
-    是否开启底部展示功能，适合移动端展示
+    AMIS Footable component.
     """
 
     model_config = ConfigDict(
@@ -6124,7 +6182,7 @@ class Footable(BaseModel):
 
 class ItemBadge(BaseModel):
     """
-    Badge 角标。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/badge
+    AMIS ItemBadge component.
     """
 
     model_config = ConfigDict(
@@ -6145,7 +6203,7 @@ class ItemBadge(BaseModel):
 
 class AutoFillHeight1(BaseModel):
     """
-    表格自动计算高度
+    AMIS AutoFillHeight1 component.
     """
 
     model_config = ConfigDict(
@@ -6166,7 +6224,7 @@ class TableLayout(Enum):
 
 class BaseTableSchema(BaseModel):
     """
-    Table 表格渲染器。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/table
+    AMIS BaseTableSchema component.
     """
 
     model_config = ConfigDict(
@@ -6195,13 +6253,13 @@ class BaseTableSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     type: Any
     testid: Any | None = None
-    affix_header: bool | None = Field(None, alias='affixHeader', description='是否固定表头')
-    affix_footer: bool | None = Field(None, alias='affixFooter', description='是否固底')
-    columns: list[dict[str, Any]] | None = Field(None, description='表格的列信息')
+    affix_header: bool | None = Field(None, alias='affixHeader', description='Component property')
+    affix_footer: bool | None = Field(None, alias='affixFooter', description='Component property')
+    columns: list[dict[str, Any]] | None = Field(None, description='Component property')
     columns_togglable: bool | str | None = Field(
-        None, alias='columnsTogglable', description='展示列显示开关，自动即：列数量大于或等于5个时自动开启'
+        None, alias='columnsTogglable', description='Component property'
     )
-    footable: bool | Footable | None = Field(None, description='是否开启底部展示功能，适合移动端展示')
+    footable: bool | Footable | None = Field(None, description='Component property')
     footer_class_name: dict[str, Any] | None = Field(
         None,
         alias='footerClassName',
@@ -6212,51 +6270,51 @@ class BaseTableSchema(BaseModel):
         alias='headerClassName',
         description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
-    placeholder: str | dict[str, dict[str, Any]] | None = Field(None, description='占位符')
-    show_index: bool | None = Field(None, alias='showIndex', description='Whether visible序号')
-    show_footer: bool | None = Field(None, alias='showFooter', description='Whether visible底部')
-    show_header: bool | None = Field(None, alias='showHeader', description='Whether visible头部')
+    placeholder: str | dict[str, dict[str, Any]] | None = Field(None, description='Component property')
+    show_index: bool | None = Field(None, alias='showIndex', description='Component property')
+    show_footer: bool | None = Field(None, alias='showFooter', description='Component property')
+    show_header: bool | None = Field(None, alias='showHeader', description='Component property')
     source: str | None = None
     table_class_name: dict[str, Any] | None = Field(
         None,
         alias='tableClassName',
         description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
-    title: str | None = Field(None, description='标题')
+    title: str | None = Field(None, description='Title')
     toolbar_class_name: dict[str, Any] | None = Field(
         None,
         alias='toolbarClassName',
         description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     combine_num: float | dict[str, Any] | None = Field(
-        None, alias='combineNum', description='合并单元格配置，配置数字表示从左到右的多少列自动合并单元格。'
+        None, alias='combineNum', description='Component property'
     )
     combine_from_index: float | None = Field(
-        None, alias='combineFromIndex', description='合并单元格配置，配置从第几列开始合并。'
+        None, alias='combineFromIndex', description='Component property'
     )
-    prefix_row: list[dict[str, Any]] | None = Field(None, alias='prefixRow', description='顶部总结行')
-    affix_row: list[dict[str, Any]] | None = Field(None, alias='affixRow', description='底部总结行')
-    resizable: bool | None = Field(None, description='是否可调整列宽')
-    row_class_name_expr: str | None = Field(None, alias='rowClassNameExpr', description='行样式表表达式')
+    prefix_row: list[dict[str, Any]] | None = Field(None, alias='prefixRow', description='Component property')
+    affix_row: list[dict[str, Any]] | None = Field(None, alias='affixRow', description='Component property')
+    resizable: bool | None = Field(None, description='Component property')
+    row_class_name_expr: str | None = Field(None, alias='rowClassNameExpr', description='Component property')
     item_badge: ItemBadge | None = Field(
         None,
         alias='itemBadge',
-        description='Badge 角标。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/badge',
+        description='Component property',
     )
     auto_generate_filter: dict[str, Any] | bool | None = Field(
         None,
         alias='autoGenerateFilter',
-        description='开启查询区域，会根据列元素的searchable属性值，自动生成查询条件表单',
+        description='Component property',
     )
     can_access_super_data: bool | None = Field(
-        None, alias='canAccessSuperData', description='表格是否可以获取父级数据域值，默认为false'
+        None, alias='canAccessSuperData', description='Component property'
     )
     auto_fill_height: bool | AutoFillHeight1 | None = Field(
-        None, alias='autoFillHeight', description='表格自动计算高度'
+        None, alias='autoFillHeight', description='Component property'
     )
     table_layout: TableLayout | None = Field(None, alias='tableLayout', description='table layout')
     defer_api: dict[str, Any] | None = Field(None, alias='deferApi')
-    persist_key: str | None = Field(None, alias='persistKey', description='持久化 key')
+    persist_key: str | None = Field(None, alias='persistKey', description='Component property')
 
 
 class TableColumn1(BaseModel):
@@ -6265,7 +6323,7 @@ class TableColumn1(BaseModel):
 
 class Fixed(Enum):
     """
-    配置是否固定当前列
+    AMIS Fixed component.
     """
 
     left = 'left'
@@ -6275,7 +6333,7 @@ class Fixed(Enum):
 
 class Align1(Enum):
     """
-    列对齐方式
+    AMIS Align1 component.
     """
 
     left = 'left'
@@ -6286,7 +6344,7 @@ class Align1(Enum):
 
 class VAlign(Enum):
     """
-    列垂直对齐方式
+    AMIS VAlign component.
     """
 
     top = 'top'
@@ -6296,7 +6354,7 @@ class VAlign(Enum):
 
 class HeaderAlign(Enum):
     """
-    标题左右对齐方式
+    AMIS HeaderAlign component.
     """
 
     left = 'left'
@@ -6307,7 +6365,7 @@ class HeaderAlign(Enum):
 
 class Breakpoint(Enum):
     """
-    结合表格的 footable 一起使用。 填写 *、xs、sm、md、lg指定 footable 的触发条件，可以填写多个用空格隔开
+    AMIS Breakpoint component.
     """
 
     field_ = '*'
@@ -6319,44 +6377,44 @@ class Breakpoint(Enum):
 
 class TableColumn2(BaseModel):
     """
-    表格列，不指定类型时默认为文本类型。
+    AMIS TableColumn2 component.
     """
 
-    label: str = Field(..., description='列标题')
-    fixed: Fixed | None = Field(None, description='配置是否固定当前列')
-    name: str | None = Field(None, description='绑定字段名')
+    label: str = Field(..., description='Component property')
+    fixed: Fixed | None = Field(None, description='Component property')
+    name: str | None = Field(None, description='Component property')
     pop_over: dict[str, Any] | None = Field(None, alias='popOver')
     quick_edit: dict[str, Any] | None = Field(None, alias='quickEdit')
     quick_edit_on_update: dict[str, Any] | None = Field(None, alias='quickEditOnUpdate')
     copyable: dict[str, Any] | None = None
-    sortable: bool | None = Field(None, description='配置是否可以排序')
-    searchable: dict[str, Any] | None = Field(None, description='是否可快速搜索')
-    toggled: bool | None = Field(None, description='配置是否默认展示')
-    width: float | str | None = Field(None, description='列宽度')
-    align: Align1 | None = Field(None, description='列对齐方式')
-    v_align: VAlign | None = Field(None, alias='vAlign', description='列垂直对齐方式')
-    header_align: HeaderAlign | None = Field(None, alias='headerAlign', description='标题左右对齐方式')
-    class_name: str | None = Field(None, alias='className', description='列样式表')
-    class_name_expr: str | None = Field(None, alias='classNameExpr', description='单元格样式表达式')
-    label_class_name: str | None = Field(None, alias='labelClassName', description='列头样式表')
+    sortable: bool | None = Field(None, description='Component property')
+    searchable: dict[str, Any] | None = Field(None, description='Component property')
+    toggled: bool | None = Field(None, description='ConfigureWhetherDefaultDisplay')
+    width: float | str | None = Field(None, description='Component property')
+    align: Align1 | None = Field(None, description='Component property')
+    v_align: VAlign | None = Field(None, alias='vAlign', description='Component property')
+    header_align: HeaderAlign | None = Field(None, alias='headerAlign', description='Component property')
+    class_name: str | None = Field(None, alias='className', description='Component property')
+    class_name_expr: str | None = Field(None, alias='classNameExpr', description='Component property')
+    label_class_name: str | None = Field(None, alias='labelClassName', description='Component property')
     filterable: dict[str, Any] | None = Field(None, description='todo')
     breakpoint: Breakpoint | None = Field(
         None,
-        description='结合表格的 footable 一起使用。 填写 *、xs、sm、md、lg指定 footable 的触发条件，可以填写多个用空格隔开',
+        description='Component property',
     )
     remark: dict[str, Any] | None = None
-    value: Any | None = Field(None, description='默认值, 只有在 inputTable 里面才有用')
-    unique: bool | None = Field(None, description='是否唯一, 只有在 inputTable 里面才有用')
+    value: Any | None = Field(None, description='Component property')
+    unique: bool | None = Field(None, description='Component property')
     can_access_super_data: bool | None = Field(
         None,
         alias='canAccessSuperData',
-        description='表格列单元格是否可以获取父级数据域值，默认为true，该配置对当前列内单元格生效',
+        description='Component property',
     )
     lazy_render_after: float | None = Field(
-        100, alias='lazyRenderAfter', description='当一次性渲染太多列上有用，默认为 100，可以用来提升表格渲染性能'
+        100, alias='lazyRenderAfter', description='Component property'
     )
     inner_style: dict[str, Any] | None = Field(
-        None, alias='innerStyle', description='单元格内部组件自定义样式 style作为单元格自定义样式的配置'
+        None, alias='innerStyle', description='Component property'
     )
 
 
@@ -6365,47 +6423,47 @@ class TableColumn(RootModel[TableColumn1 | TableColumn2]):
 
 
 class TableColumnWithType(BaseModel):
-    label: str = Field(..., description='列标题')
-    fixed: Fixed | None = Field(None, description='配置是否固定当前列')
-    name: str | None = Field(None, description='绑定字段名')
+    label: str = Field(..., description='Component property')
+    fixed: Fixed | None = Field(None, description='Component property')
+    name: str | None = Field(None, description='Component property')
     pop_over: dict[str, Any] | None = Field(None, alias='popOver')
     quick_edit: dict[str, Any] | None = Field(None, alias='quickEdit')
     quick_edit_on_update: dict[str, Any] | None = Field(None, alias='quickEditOnUpdate')
     copyable: dict[str, Any] | None = None
-    sortable: bool | None = Field(None, description='配置是否可以排序')
-    searchable: dict[str, Any] | None = Field(None, description='是否可快速搜索')
-    toggled: bool | None = Field(None, description='配置是否默认展示')
-    width: float | str | None = Field(None, description='列宽度')
-    align: Align1 | None = Field(None, description='列对齐方式')
-    v_align: VAlign | None = Field(None, alias='vAlign', description='列垂直对齐方式')
-    header_align: HeaderAlign | None = Field(None, alias='headerAlign', description='标题左右对齐方式')
-    class_name: str | None = Field(None, alias='className', description='列样式表')
-    class_name_expr: str | None = Field(None, alias='classNameExpr', description='单元格样式表达式')
-    label_class_name: str | None = Field(None, alias='labelClassName', description='列头样式表')
+    sortable: bool | None = Field(None, description='Component property')
+    searchable: dict[str, Any] | None = Field(None, description='Component property')
+    toggled: bool | None = Field(None, description='ConfigureWhetherDefaultDisplay')
+    width: float | str | None = Field(None, description='Component property')
+    align: Align1 | None = Field(None, description='Component property')
+    v_align: VAlign | None = Field(None, alias='vAlign', description='Component property')
+    header_align: HeaderAlign | None = Field(None, alias='headerAlign', description='Component property')
+    class_name: str | None = Field(None, alias='className', description='Component property')
+    class_name_expr: str | None = Field(None, alias='classNameExpr', description='Component property')
+    label_class_name: str | None = Field(None, alias='labelClassName', description='Component property')
     filterable: dict[str, Any] | None = Field(None, description='todo')
     breakpoint: Breakpoint | None = Field(
         None,
-        description='结合表格的 footable 一起使用。 填写 *、xs、sm、md、lg指定 footable 的触发条件，可以填写多个用空格隔开',
+        description='Component property',
     )
     remark: dict[str, Any] | None = None
-    value: Any | None = Field(None, description='默认值, 只有在 inputTable 里面才有用')
-    unique: bool | None = Field(None, description='是否唯一, 只有在 inputTable 里面才有用')
+    value: Any | None = Field(None, description='Component property')
+    unique: bool | None = Field(None, description='Component property')
     can_access_super_data: bool | None = Field(
         None,
         alias='canAccessSuperData',
-        description='表格列单元格是否可以获取父级数据域值，默认为true，该配置对当前列内单元格生效',
+        description='Component property',
     )
     lazy_render_after: float | None = Field(
-        100, alias='lazyRenderAfter', description='当一次性渲染太多列上有用，默认为 100，可以用来提升表格渲染性能'
+        100, alias='lazyRenderAfter', description='Component property'
     )
     inner_style: dict[str, Any] | None = Field(
-        None, alias='innerStyle', description='单元格内部组件自定义样式 style作为单元格自定义样式的配置'
+        None, alias='innerStyle', description='Component property'
     )
 
 
 class Searchable(BaseModel):
     """
-    是否可快速搜索
+    AMIS Searchable component.
     """
 
 
@@ -6423,44 +6481,44 @@ class Filterable(BaseModel):
 
 class TableColumnObject(BaseModel):
     """
-    表格列，不指定类型时默认为文本类型。
+    AMIS TableColumnObject component.
     """
 
-    label: str = Field(..., description='列标题')
-    fixed: Fixed | None = Field(None, description='配置是否固定当前列')
-    name: str | None = Field(None, description='绑定字段名')
+    label: str = Field(..., description='Component property')
+    fixed: Fixed | None = Field(None, description='Component property')
+    name: str | None = Field(None, description='Component property')
     pop_over: bool | dict[str, Any] | None = Field(None, alias='popOver')
     quick_edit: bool | dict[str, Any] | None = Field(None, alias='quickEdit')
     quick_edit_on_update: bool | dict[str, Any] | None = Field(None, alias='quickEditOnUpdate')
     copyable: bool | dict[str, Any] | None = None
-    sortable: bool | None = Field(None, description='配置是否可以排序')
-    searchable: bool | Searchable | None = Field(None, description='是否可快速搜索')
-    toggled: bool | None = Field(None, description='配置是否默认展示')
-    width: float | str | None = Field(None, description='列宽度')
-    align: Align1 | None = Field(None, description='列对齐方式')
-    v_align: VAlign | None = Field(None, alias='vAlign', description='列垂直对齐方式')
-    header_align: HeaderAlign | None = Field(None, alias='headerAlign', description='标题左右对齐方式')
-    class_name: str | None = Field(None, alias='className', description='列样式表')
-    class_name_expr: str | None = Field(None, alias='classNameExpr', description='单元格样式表达式')
-    label_class_name: str | None = Field(None, alias='labelClassName', description='列头样式表')
+    sortable: bool | None = Field(None, description='Component property')
+    searchable: bool | Searchable | None = Field(None, description='Component property')
+    toggled: bool | None = Field(None, description='ConfigureWhetherDefaultDisplay')
+    width: float | str | None = Field(None, description='Component property')
+    align: Align1 | None = Field(None, description='Component property')
+    v_align: VAlign | None = Field(None, alias='vAlign', description='Component property')
+    header_align: HeaderAlign | None = Field(None, alias='headerAlign', description='Component property')
+    class_name: str | None = Field(None, alias='className', description='Component property')
+    class_name_expr: str | None = Field(None, alias='classNameExpr', description='Component property')
+    label_class_name: str | None = Field(None, alias='labelClassName', description='Component property')
     filterable: bool | Filterable | None = Field(None, description='todo')
     breakpoint: Breakpoint | None = Field(
         None,
-        description='结合表格的 footable 一起使用。 填写 *、xs、sm、md、lg指定 footable 的触发条件，可以填写多个用空格隔开',
+        description='Component property',
     )
     remark: str | dict[str, Any] | None = None
-    value: Any | None = Field(None, description='默认值, 只有在 inputTable 里面才有用')
-    unique: bool | None = Field(None, description='是否唯一, 只有在 inputTable 里面才有用')
+    value: Any | None = Field(None, description='Component property')
+    unique: bool | None = Field(None, description='Component property')
     can_access_super_data: bool | None = Field(
         None,
         alias='canAccessSuperData',
-        description='表格列单元格是否可以获取父级数据域值，默认为true，该配置对当前列内单元格生效',
+        description='Component property',
     )
     lazy_render_after: float | None = Field(
-        100, alias='lazyRenderAfter', description='当一次性渲染太多列上有用，默认为 100，可以用来提升表格渲染性能'
+        100, alias='lazyRenderAfter', description='Component property'
     )
     inner_style: dict[str, Any] | None = Field(
-        None, alias='innerStyle', description='单元格内部组件自定义样式 style作为单元格自定义样式的配置'
+        None, alias='innerStyle', description='Component property'
     )
 
 
@@ -6716,7 +6774,7 @@ class CRUD2TableSchema(BaseModel):
 
 class DateSchema(BaseModel):
     """
-    Date 展示渲染器。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/date
+    AMIS DateSchema component.
     """
 
     model_config = ConfigDict(
@@ -6745,15 +6803,15 @@ class DateSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     type: Any
     testid: Any | None = None
-    format: str | None = Field(None, description='展示的时间格式，参考 moment 中的格式说明。')
+    format: str | None = Field(None, description='Component property')
     display_format: str | None = Field(
-        None, alias='displayFormat', description='展示的时间格式，参考 moment 中的格式说明。（新：同format）'
+        None, alias='displayFormat', description='Component property'
     )
-    placeholder: str | None = Field(None, description='占位符')
-    value_format: str | None = Field(None, alias='valueFormat', description='值的时间格式，参考 moment 中的格式说明。')
-    from_now: bool | None = Field(None, alias='fromNow', description='显示成相对时间，比如1分钟前')
-    update_frequency: float | None = Field(None, alias='updateFrequency', description='更新频率， 默认为1分钟')
-    display_time_zone: str | None = Field(None, alias='displayTimeZone', description='时区')
+    placeholder: str | None = Field(None, description='Component property')
+    value_format: str | None = Field(None, alias='valueFormat', description='Component property')
+    from_now: bool | None = Field(None, alias='fromNow', description='Component property')
+    update_frequency: float | None = Field(None, alias='updateFrequency', description='Component property')
+    display_time_zone: str | None = Field(None, alias='displayTimeZone', description='Component property')
 
 
 class DialogSchema(BaseModel):
@@ -6826,7 +6884,7 @@ class TitlePosition(Enum):
 
 class DividerSchema(BaseModel):
     """
-    Divider 分割线渲染器。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/divider
+    AMIS DividerSchema component.
     """
 
     model_config = ConfigDict(
@@ -6866,7 +6924,7 @@ class DividerSchema(BaseModel):
 
 class DrawerSchema(BaseModel):
     """
-    Drawer 抽出式弹框。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/drawer
+    AMIS DrawerSchema component.
     """
 
     model_config = ConfigDict(
@@ -6921,7 +6979,7 @@ class DrawerSchema(BaseModel):
 
 class Level2(Enum):
     """
-    按钮级别，样式
+    AMIS Level2 component.
     """
 
     info = 'info'
@@ -6934,7 +6992,7 @@ class Level2(Enum):
 
 class Size8(Enum):
     """
-    按钮大小
+    AMIS Size8 component.
     """
 
     xs = 'xs'
@@ -6945,7 +7003,7 @@ class Size8(Enum):
 
 class Align4(Enum):
     """
-    对齐方式
+    AMIS Align4 component.
     """
 
     left = 'left'
@@ -6954,7 +7012,7 @@ class Align4(Enum):
 
 class DropdownButtonSchema(BaseModel):
     """
-    下拉按钮渲染器。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/dropdown-button
+    AMIS DropdownButtonSchema component.
     """
 
     model_config = ConfigDict(
@@ -6983,28 +7041,28 @@ class DropdownButtonSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     type: Any
     testid: Any | None = None
-    block: bool | None = Field(None, description='是否独占一行 `display: block`')
+    block: bool | None = Field(None, description='Component property')
     btn_class_name: dict[str, Any] | None = Field(
         None,
         alias='btnClassName',
         description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
-    buttons: list[dict[str, Any]] | None = Field(None, description='按钮集合，支持分组')
+    buttons: list[dict[str, Any]] | None = Field(None, description='Component property')
     body: dict[str, Any] | None = None
-    label: str | None = Field(None, description='按钮文字')
-    level: Level2 | None = Field(None, description='按钮级别，样式')
-    close_on_outside: bool | None = Field(None, alias='closeOnOutside', description='点击外部是否关闭')
-    close_on_click: bool | None = Field(None, alias='closeOnClick', description='点击内容是否关闭')
-    size: Size8 | None = Field(None, description='按钮大小')
-    align: Align4 | None = Field(None, description='对齐方式')
-    icon_only: bool | None = Field(None, alias='iconOnly', description='是否只显示图标。')
+    label: str | None = Field(None, description='Component property')
+    level: Level2 | None = Field(None, description='Component property')
+    close_on_outside: bool | None = Field(None, alias='closeOnOutside', description='Component property')
+    close_on_click: bool | None = Field(None, alias='closeOnClick', description='ClickcontentWhetherClose')
+    size: Size8 | None = Field(None, description='Component property')
+    align: Align4 | None = Field(None, description='Component property')
+    icon_only: bool | None = Field(None, alias='iconOnly', description='Component property')
     right_icon: str | None = Field(None, alias='rightIcon', description='Class name in iconfont.')
-    trigger: Trigger1 | None = Field(None, description='触发条件，默认是 click')
-    hide_caret: bool | None = Field(None, alias='hideCaret', description='Whether visible下拉按钮')
+    trigger: Trigger1 | None = Field(None, description='Component property')
+    hide_caret: bool | None = Field(None, alias='hideCaret', description='Component property')
     pop_over_container_selector: str | None = Field(
-        None, alias='popOverContainerSelector', description='弹出的下拉按钮放在哪个节点下'
+        None, alias='popOverContainerSelector', description='Component property'
     )
-    menu_class_name: str | None = Field(None, alias='menuClassName', description='菜单 CSS 样式')
+    menu_class_name: str | None = Field(None, alias='menuClassName', description='Component property')
     overlay_placement: str | None = Field(None, alias='overlayPlacement')
 
 
@@ -7014,7 +7072,7 @@ class DropdownButton1(BaseModel):
 
 class DropdownButton2(BaseModel):
     """
-    Divider 分割线渲染器。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/divider
+    AMIS DropdownButton2 component.
     """
 
     type: dict[str, Any]
@@ -7033,7 +7091,7 @@ class DropdownButton(RootModel[DropdownButton1 | DropdownButton2]):
 
 class EachSchema(BaseModel):
     """
-    Each 循环功能渲染器。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/each
+    AMIS EachSchema component.
     """
 
     model_config = ConfigDict(
@@ -7062,17 +7120,17 @@ class EachSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     type: Any
     testid: Any | None = None
-    name: str | None = Field(None, description='关联字段名')
-    source: str | None = Field(None, description='关联字段名 支持数据映射')
+    name: str | None = Field(None, description='Component property')
+    source: str | None = Field(None, description='Component property')
     item_key_name: str | None = Field(
         'item',
         alias='itemKeyName',
-        description='用来控制通过什么字段读取成员数据，考虑到可能多层嵌套 如果名字一样会读取不到上层变量，所以这里可以指定一下',
+        description='Component property',
     )
     index_key_name: str | None = Field(
         'index',
         alias='indexKeyName',
-        description='用来控制通过什么字段读取序号，考虑到可能多层嵌套 如果名字一样会读取不到上层变量，所以这里可以指定一下',
+        description='Component property',
     )
     items: dict[str, Any] | None = None
     placeholder: str | None = None
@@ -7080,7 +7138,7 @@ class EachSchema(BaseModel):
 
 class Gap(Enum):
     """
-    水平间距
+    AMIS Gap component.
     """
 
     xs = 'xs'
@@ -7093,7 +7151,7 @@ class Gap(Enum):
 
 class Valign(Enum):
     """
-    垂直对齐方式
+    AMIS Valign component.
     """
 
     top = 'top'
@@ -7104,7 +7162,7 @@ class Valign(Enum):
 
 class Align5(Enum):
     """
-    水平对齐方式
+    AMIS Align5 component.
     """
 
     left = 'left'
@@ -7115,7 +7173,7 @@ class Align5(Enum):
 
 class GridSchema(BaseModel):
     """
-    Grid 格子布局渲染器。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/grid
+    AMIS GridSchema component.
     """
 
     model_config = ConfigDict(
@@ -7144,15 +7202,15 @@ class GridSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     type: Any
     testid: Any | None = None
-    columns: list[dict[str, Any]] = Field(..., description='列集合')
-    gap: Gap | None = Field(None, description='水平间距')
-    valign: Valign | None = Field(None, description='垂直对齐方式')
-    align: Align5 | None = Field(None, description='水平对齐方式')
+    columns: list[dict[str, Any]] = Field(..., description='Component property')
+    gap: Gap | None = Field(None, description='Component property')
+    valign: Valign | None = Field(None, description='Component property')
+    align: Align5 | None = Field(None, description='Component property')
 
 
 class Mode10(Enum):
     """
-    配置子表单项默认的展示方式。
+    AMIS Mode10 component.
     """
 
     normal = 'normal'
@@ -7177,13 +7235,13 @@ class GridColumn(BaseModel):
     model_config = ConfigDict(
         extra='forbid',
     )
-    id: str | None = Field(None, description='组件唯一 id')
-    xs: float | str | None = Field(None, description='极小屏（<768px）时宽度占比')
-    sm: float | str | None = Field(None, description='小屏时（>=768px）宽度占比')
-    md: float | str | None = Field(None, description='中屏时(>=992px)宽度占比')
-    lg: float | str | None = Field(None, description='大屏时(>=1200px)宽度占比')
-    valign: Valign | None = Field(None, description='垂直对齐方式')
-    mode: Mode10 | None = Field(None, description='配置子表单项默认的展示方式。')
+    id: str | None = Field(None, description='Component property')
+    xs: float | str | None = Field(None, description='Component property')
+    sm: float | str | None = Field(None, description='Component property')
+    md: float | str | None = Field(None, description='Component property')
+    lg: float | str | None = Field(None, description='Component property')
+    valign: Valign | None = Field(None, description='Component property')
+    mode: Mode10 | None = Field(None, description='Component property')
     horizontal: Horizontal1 | None = None
     body: dict[str, Any] | None = None
     column_class_name: dict[str, Any] | None = Field(
@@ -7191,7 +7249,7 @@ class GridColumn(BaseModel):
         alias='columnClassName',
         description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
-    style: Any | None = Field(None, description='样式')
+    style: Any | None = Field(None, description='Component property')
     wrapper_custom_style: Any | None = Field(None, alias='wrapperCustomStyle')
     theme_css: Any | None = Field(None, alias='themeCss')
 
@@ -7205,7 +7263,7 @@ class Horizontal2(BaseModel):
     left_fixed: dict[str, Any] | None = Field(None, alias='leftFixed')
     justify: bool | None = None
     label_align: LabelAlign3 | None = Field(None, alias='labelAlign')
-    label_width: float | str | None = Field(None, alias='labelWidth', description='label自定义宽度，默认单位为px')
+    label_width: float | str | None = Field(None, alias='labelWidth', description='Component property')
     label_overflow: LabelOverflow2 | None = Field(None, alias='labelOverflow')
 
 
@@ -7213,13 +7271,13 @@ class GridColumnObject(BaseModel):
     model_config = ConfigDict(
         extra='forbid',
     )
-    id: str | None = Field(None, description='组件唯一 id')
-    xs: float | str | None = Field(None, description='极小屏（<768px）时宽度占比')
-    sm: float | str | None = Field(None, description='小屏时（>=768px）宽度占比')
-    md: float | str | None = Field(None, description='中屏时(>=992px)宽度占比')
-    lg: float | str | None = Field(None, description='大屏时(>=1200px)宽度占比')
-    valign: Valign | None = Field(None, description='垂直对齐方式')
-    mode: Mode10 | None = Field(None, description='配置子表单项默认的展示方式。')
+    id: str | None = Field(None, description='Component property')
+    xs: float | str | None = Field(None, description='Component property')
+    sm: float | str | None = Field(None, description='Component property')
+    md: float | str | None = Field(None, description='Component property')
+    lg: float | str | None = Field(None, description='Component property')
+    valign: Valign | None = Field(None, description='Component property')
+    mode: Mode10 | None = Field(None, description='Component property')
     horizontal: Horizontal2 | None = None
     body: dict[str, Any] | None = None
     column_class_name: str | dict[str, dict[str, Any]] | None = Field(
@@ -7227,14 +7285,14 @@ class GridColumnObject(BaseModel):
         alias='columnClassName',
         description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
-    style: Any | None = Field(None, description='样式')
+    style: Any | None = Field(None, description='Component property')
     wrapper_custom_style: Any | None = Field(None, alias='wrapperCustomStyle')
     theme_css: Any | None = Field(None, alias='themeCss')
 
 
 class Grid2DSchema(BaseModel):
     """
-    二维布局渲染器。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/grid-2d
+    AMIS Grid2DSchema component.
     """
 
     model_config = ConfigDict(
@@ -7263,17 +7321,17 @@ class Grid2DSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     type: Any
     testid: Any | None = None
-    cols: float | None = Field(None, description='列数量，默认是 12')
-    width: float | str | None = Field(None, description='grid 2d 容器宽度，默认是 auto')
-    gap: float | str | None = Field(None, description='格子间距，默认 0，包含行和列')
-    gap_row: float | str | None = Field(None, alias='gapRow', description='格子行级别的间距，如果不设置就和 gap 一样')
-    row_height: float | str | None = Field(None, alias='rowHeight', description='单位行高度，默认 50 px')
-    grids: list[dict[str, Any]] = Field(..., description='每个格子的配置')
+    cols: float | None = Field(None, description='Component property')
+    width: float | str | None = Field(None, description='Component property')
+    gap: float | str | None = Field(None, description='Component property')
+    gap_row: float | str | None = Field(None, alias='gapRow', description='Component property')
+    row_height: float | str | None = Field(None, alias='rowHeight', description='Component property')
+    grids: list[dict[str, Any]] = Field(..., description='Component property')
 
 
 class Align6(Enum):
     """
-    水平展示方式，用于内容宽度比 grid 小的情况，默认是 auto 自动撑满
+    AMIS Align6 component.
     """
 
     left = 'left'
@@ -7284,7 +7342,7 @@ class Align6(Enum):
 
 class Valign3(Enum):
     """
-    垂直展示方式，用于内容高度比 grid 小的情况，默认是 auto 自动撑满
+    AMIS Valign3 component.
     """
 
     top = 'top'
@@ -7294,35 +7352,43 @@ class Valign3(Enum):
 
 
 class Grid(BaseModel):
-    x: float = Field(..., description='起始横坐标位置，以 1 为起点')
-    y: float = Field(..., description='起始纵坐标位置，以 1 为起点')
-    w: float = Field(..., description='宽度，跨几列')
-    h: float = Field(..., description='高度，跨几行')
-    width: float | str | None = Field(None, description='宽度，会影响起始位置对应那一列的宽度')
-    height: float | str | None = Field(None, description='高度，会影响起始位置那一行的高度，设置为 auto 就会自适应')
-    align: Align6 | None = Field(None, description='水平展示方式，用于内容宽度比 grid 小的情况，默认是 auto 自动撑满')
-    valign: Valign3 | None = Field(None, description='垂直展示方式，用于内容高度比 grid 小的情况，默认是 auto 自动撑满')
-    grid_class_name: str | None = Field(None, alias='gridClassName', description='每个格子最外层容器的 className')
+    x: float = Field(..., description='Component property')
+    y: float = Field(..., description='Component property')
+    w: float = Field(..., description='Component property')
+    h: float = Field(..., description='Component property')
+    width: float | str | None = Field(None, description='Component property')
+    height: float | str | None = Field(None, description='Component property')
+    align: Align6 | None = Field(
+        None, description='Component property'
+    )
+    valign: Valign3 | None = Field(
+        None, description='Component property'
+    )
+    grid_class_name: str | None = Field(None, alias='gridClassName', description='Component property')
 
 
 class GridObject(BaseModel):
     model_config = ConfigDict(
         extra='forbid',
     )
-    x: float = Field(..., description='起始横坐标位置，以 1 为起点')
-    y: float = Field(..., description='起始纵坐标位置，以 1 为起点')
-    w: float = Field(..., description='宽度，跨几列')
-    h: float = Field(..., description='高度，跨几行')
-    width: float | str | None = Field(None, description='宽度，会影响起始位置对应那一列的宽度')
-    height: float | str | None = Field(None, description='高度，会影响起始位置那一行的高度，设置为 auto 就会自适应')
-    align: Align6 | None = Field(None, description='水平展示方式，用于内容宽度比 grid 小的情况，默认是 auto 自动撑满')
-    valign: Valign3 | None = Field(None, description='垂直展示方式，用于内容高度比 grid 小的情况，默认是 auto 自动撑满')
-    grid_class_name: str | None = Field(None, alias='gridClassName', description='每个格子最外层容器的 className')
+    x: float = Field(..., description='Component property')
+    y: float = Field(..., description='Component property')
+    w: float = Field(..., description='Component property')
+    h: float = Field(..., description='Component property')
+    width: float | str | None = Field(None, description='Component property')
+    height: float | str | None = Field(None, description='Component property')
+    align: Align6 | None = Field(
+        None, description='Component property'
+    )
+    valign: Valign3 | None = Field(
+        None, description='Component property'
+    )
+    grid_class_name: str | None = Field(None, alias='gridClassName', description='Component property')
 
 
 class SubFormMode(Enum):
     """
-    配置子表单项默认的展示方式。
+    AMIS SubFormMode component.
     """
 
     normal = 'normal'
@@ -7345,7 +7411,7 @@ class SubFormHorizontal(BaseModel):
 
 class Valign5(Enum):
     """
-    垂直对齐方式
+    AMIS Valign5 component.
     """
 
     top = 'top'
@@ -7356,7 +7422,7 @@ class Valign5(Enum):
 
 class Align8(Enum):
     """
-    水平对齐方式
+    AMIS Align8 component.
     """
 
     left = 'left'
@@ -7367,7 +7433,7 @@ class Align8(Enum):
 
 class HBoxSchema(BaseModel):
     """
-    Hbox 水平布局渲染器。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/hbox
+    AMIS HBoxSchema component.
     """
 
     model_config = ConfigDict(
@@ -7397,11 +7463,13 @@ class HBoxSchema(BaseModel):
     type: Any
     testid: Any | None = None
     columns: list[dict[str, Any]]
-    sub_form_mode: SubFormMode | None = Field(None, alias='subFormMode', description='配置子表单项默认的展示方式。')
+    sub_form_mode: SubFormMode | None = Field(
+        None, alias='subFormMode', description='Component property'
+    )
     sub_form_horizontal: SubFormHorizontal | None = Field(None, alias='subFormHorizontal')
-    gap: Gap | None = Field(None, description='水平间距')
-    valign: Valign5 | None = Field(None, description='垂直对齐方式')
-    align: Align8 | None = Field(None, description='水平对齐方式')
+    gap: Gap | None = Field(None, description='Component property')
+    valign: Valign5 | None = Field(None, description='Component property')
+    align: Align8 | None = Field(None, description='Component property')
 
 
 class Horizontal3(BaseModel):
@@ -7421,12 +7489,12 @@ class HBoxColumn(BaseModel):
     model_config = ConfigDict(
         extra='forbid',
     )
-    column_class_name: str | None = Field(None, alias='columnClassName', description='列上 CSS 类名')
-    valign: Valign5 | None = Field(None, description='垂直对齐方式')
-    width: float | str | None = Field(None, description='宽度')
-    height: float | str | None = Field(None, description='高度')
-    style: dict[str, Any] | None = Field(None, description='其他样式')
-    mode: Mode10 | None = Field(None, description='配置子表单项默认的展示方式。')
+    column_class_name: str | None = Field(None, alias='columnClassName', description='Component property')
+    valign: Valign5 | None = Field(None, description='Component property')
+    width: float | str | None = Field(None, description='Component property')
+    height: float | str | None = Field(None, description='Component property')
+    style: dict[str, Any] | None = Field(None, description='Component property')
+    mode: Mode10 | None = Field(None, description='Component property')
     horizontal: Horizontal3 | None = None
     body: dict[str, Any] | None = None
     visible: bool | None = Field(None, description='Whether visible')
@@ -7442,7 +7510,7 @@ class Horizontal4(BaseModel):
     left_fixed: dict[str, Any] | None = Field(None, alias='leftFixed')
     justify: bool | None = None
     label_align: LabelAlign3 | None = Field(None, alias='labelAlign')
-    label_width: float | str | None = Field(None, alias='labelWidth', description='label自定义宽度，默认单位为px')
+    label_width: float | str | None = Field(None, alias='labelWidth', description='Component property')
     label_overflow: LabelOverflow2 | None = Field(None, alias='labelOverflow')
 
 
@@ -7450,12 +7518,12 @@ class HBoxColumnObject(BaseModel):
     model_config = ConfigDict(
         extra='forbid',
     )
-    column_class_name: str | None = Field(None, alias='columnClassName', description='列上 CSS 类名')
-    valign: Valign5 | None = Field(None, description='垂直对齐方式')
-    width: float | str | None = Field(None, description='宽度')
-    height: float | str | None = Field(None, description='高度')
-    style: dict[str, Any] | None = Field(None, description='其他样式')
-    mode: Mode10 | None = Field(None, description='配置子表单项默认的展示方式。')
+    column_class_name: str | None = Field(None, alias='columnClassName', description='Component property')
+    valign: Valign5 | None = Field(None, description='Component property')
+    width: float | str | None = Field(None, description='Component property')
+    height: float | str | None = Field(None, description='Component property')
+    style: dict[str, Any] | None = Field(None, description='Component property')
+    mode: Mode10 | None = Field(None, description='Component property')
     horizontal: Horizontal4 | None = None
     body: dict[str, Any] | None = None
     visible: bool | None = Field(None, description='Whether visible')
@@ -7470,7 +7538,7 @@ class Vendor(Enum):
 
 class IconSchema(BaseModel):
     """
-    Icon 图标渲染器 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/icon
+    AMIS IconSchema component.
     """
 
     model_config = ConfigDict(
@@ -7499,10 +7567,10 @@ class IconSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     type: Any
     testid: Any | None = None
-    icon: dict[str, Any] = Field(..., description='按钮类型')
+    icon: dict[str, Any] = Field(..., description='Component property')
     vendor: Vendor | None = None
     badge: Badge | None = Field(
-        None, description='Badge 角标。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/badge'
+        None, description='Component property'
     )
 
 
@@ -7528,7 +7596,7 @@ class Referrerpolicy(Enum):
 
 class IFrameSchema(BaseModel):
     """
-    IFrame 渲染器 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/iframe
+    AMIS IFrameSchema component.
     """
 
     model_config = ConfigDict(
@@ -7568,7 +7636,7 @@ class IFrameSchema(BaseModel):
 
 class ImageMode(Enum):
     """
-    图片展示模式，默认为缩略图模式、可以配置成原图模式
+    AMIS ImageMode component.
     """
 
     thumb = 'thumb'
@@ -7577,7 +7645,7 @@ class ImageMode(Enum):
 
 class ThumbMode1(Enum):
     """
-    预览图模式
+    AMIS ThumbMode1 component.
     """
 
     w_full = 'w-full'
@@ -7588,7 +7656,7 @@ class ThumbMode1(Enum):
 
 class ThumbRatio(Enum):
     """
-    预览图比率
+    AMIS ThumbRatio component.
     """
 
     field_1_1 = '1:1'
@@ -7598,7 +7666,7 @@ class ThumbRatio(Enum):
 
 class HoverMode(Enum):
     """
-    鼠标悬浮时的展示状态（对应AIpage的文字6，9，10不存在）
+    AMIS HoverMode component.
     """
 
     hover_slide = 'hover-slide'
@@ -7616,7 +7684,7 @@ class HoverMode(Enum):
 
 class FontStyle(BaseModel):
     """
-    描述文字样式
+    AMIS FontStyle component.
     """
 
     model_config = ConfigDict(
@@ -7630,7 +7698,7 @@ class FontStyle(BaseModel):
 
 class ImageSchema(BaseModel):
     """
-    图片展示控件。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/image
+    AMIS ImageSchema component.
     """
 
     model_config = ConfigDict(
@@ -7662,23 +7730,23 @@ class ImageSchema(BaseModel):
     default_image: dict[str, Any] | None = Field(None, alias='defaultImage')
     title: str | None = Field(
         None,
-        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/en-US/docs/concepts/template',
     )
-    name: str | None = Field(None, description='关联字段名，也可以直接配置 src')
+    name: str | None = Field(None, description='Component property')
     image_caption: str | None = Field(
         None,
         alias='imageCaption',
-        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/en-US/docs/concepts/template',
     )
     src: dict[str, Any] | None = None
     original_src: dict[str, Any] | None = Field(None, alias='originalSrc')
-    enlarge_able: bool | None = Field(None, alias='enlargeAble', description='是否启动放大功能。')
+    enlarge_able: bool | None = Field(None, alias='enlargeAble', description='Component property')
     enlarge_with_gallary: bool | None = Field(
-        None, alias='enlargeWithGallary', description='放大时Whether visible图片集'
+        None, alias='enlargeWithGallary', description='Component property'
     )
-    alt: str | None = Field(None, description='图片无法显示时的替换文本')
-    height: float | None = Field(None, description='高度')
-    width: float | None = Field(None, description='宽度')
+    alt: str | None = Field(None, description='Component property')
+    height: float | None = Field(None, description='Component property')
+    width: float | None = Field(None, description='Component property')
     inner_class_name: dict[str, Any] | None = Field(
         None,
         alias='innerClassName',
@@ -7701,27 +7769,27 @@ class ImageSchema(BaseModel):
     )
     caption: str | None = Field(
         None,
-        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/en-US/docs/concepts/template',
     )
     image_mode: ImageMode | None = Field(
-        None, alias='imageMode', description='图片展示模式，默认为缩略图模式、可以配置成原图模式'
+        None, alias='imageMode', description='Component property'
     )
-    thumb_mode: ThumbMode1 | None = Field(None, alias='thumbMode', description='预览图模式')
-    thumb_ratio: ThumbRatio | None = Field(None, alias='thumbRatio', description='预览图比率')
+    thumb_mode: ThumbMode1 | None = Field(None, alias='thumbMode', description='Component property')
+    thumb_ratio: ThumbRatio | None = Field(None, alias='thumbRatio', description='Component property')
     href: str | None = Field(
         None,
-        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/en-US/docs/concepts/template',
     )
-    blank: bool | None = Field(None, description='是否新窗口打开')
-    html_target: str | None = Field(None, alias='htmlTarget', description='链接的 target')
-    show_toolbar: bool | None = Field(None, alias='showToolbar', description='是否展示图片工具栏')
-    toolbar_actions: list[dict[str, Any]] | None = Field(None, alias='toolbarActions', description='工具栏配置')
+    blank: bool | None = Field(None, description='Component property')
+    html_target: str | None = Field(None, alias='htmlTarget', description='Component property')
+    show_toolbar: bool | None = Field(None, alias='showToolbar', description='Component property')
+    toolbar_actions: list[dict[str, Any]] | None = Field(None, alias='toolbarActions', description='Component property')
     hover_mode: HoverMode | None = Field(
-        None, alias='hoverMode', description='鼠标悬浮时的展示状态（对应AIpage的文字6，9，10不存在）'
+        None, alias='hoverMode', description='Component property'
     )
-    sort_type: str | None = Field(None, alias='sortType', description='图集组件传入的排序方式')
-    font_style: FontStyle | None = Field(None, alias='fontStyle', description='描述文字样式')
-    mask_color: str | None = Field(None, alias='maskColor', description='蒙层颜色')
+    sort_type: str | None = Field(None, alias='sortType', description='Component property')
+    font_style: FontStyle | None = Field(None, alias='fontStyle', description='Component property')
+    mask_color: str | None = Field(None, alias='maskColor', description='Component property')
 
 
 class Key(Enum):
@@ -7745,7 +7813,7 @@ class ImageToolbarAction(BaseModel):
 
 class DisplayMode(Enum):
     """
-    展示模式，支持缩略图模式（thumb）和大图模式（full）
+    AMIS DisplayMode component.
     """
 
     thumb = 'thumb'
@@ -7754,7 +7822,7 @@ class DisplayMode(Enum):
 
 class FullThumbMode(Enum):
     """
-    大图模式下的缩放模式
+    AMIS FullThumbMode component.
     """
 
     cover = 'cover'
@@ -7763,7 +7831,7 @@ class FullThumbMode(Enum):
 
 class SortType(Enum):
     """
-    排列方式 类命名方式按照上右下左四个边命名，l=2m，m=2s，最小单位为s 每条边的顺序都是从上到下，从左到右。
+    AMIS SortType component.
     """
 
     sm_ss_sss_m = 'sm-ss-sss-m'
@@ -7779,7 +7847,7 @@ class SortType(Enum):
 
 class ImagesSchema(BaseModel):
     """
-    图片集展示控件。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/images
+    AMIS ImagesSchema component.
     """
 
     model_config = ConfigDict(
@@ -7809,23 +7877,25 @@ class ImagesSchema(BaseModel):
     type: Any
     testid: Any | None = None
     default_image: dict[str, Any] | None = Field(None, alias='defaultImage')
-    placeholder: str | None = Field(None, description='列表为空时显示')
-    delimiter: str | None = Field(',', description='配置值的连接符')
-    thumb_mode: ThumbMode1 | None = Field(None, alias='thumbMode', description='预览图模式')
-    thumb_ratio: ThumbRatio | None = Field(None, alias='thumbRatio', description='预览图比率')
-    name: str | None = Field(None, description='关联字段名，也可以直接配置 src')
+    placeholder: str | None = Field(None, description='Component property')
+    delimiter: str | None = Field(',', description='Component property')
+    thumb_mode: ThumbMode1 | None = Field(None, alias='thumbMode', description='Component property')
+    thumb_ratio: ThumbRatio | None = Field(None, alias='thumbRatio', description='Component property')
+    name: str | None = Field(None, description='Component property')
     value: Any | None = None
     source: str | None = None
     options: list[Any] | None = None
-    src: str | None = Field(None, description='图片地址，默认读取数据中的 image 属性，如果不是请配置 ,如  ${imageUrl}')
+    src: str | None = Field(
+        None, description='Component property'
+    )
     original_src: str | None = Field(
-        None, alias='originalSrc', description='大图地址，不设置用 src 属性，如果不是请配置，如：${imageOriginUrl}'
+        None, alias='originalSrc', description='Component property'
     )
-    enlarge_able: bool | None = Field(None, alias='enlargeAble', description='是否启动放大功能。')
+    enlarge_able: bool | None = Field(None, alias='enlargeAble', description='Component property')
     enlarget_with_images: bool | None = Field(
-        None, alias='enlargetWithImages', description='放大时Whether visible图片集'
+        None, alias='enlargetWithImages', description='Component property'
     )
-    show_dimensions: bool | None = Field(None, alias='showDimensions', description='Whether visible尺寸。')
+    show_dimensions: bool | None = Field(None, alias='showDimensions', description='Component property')
     list_class_name: dict[str, Any] | None = Field(
         None,
         alias='listClassName',
@@ -7836,30 +7906,30 @@ class ImagesSchema(BaseModel):
         alias='imageGallaryClassName',
         description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
-    show_toolbar: bool | None = Field(None, alias='showToolbar', description='是否展示图片工具栏')
-    toolbar_actions: list[dict[str, Any]] | None = Field(None, alias='toolbarActions', description='工具栏配置')
+    show_toolbar: bool | None = Field(None, alias='showToolbar', description='Component property')
+    toolbar_actions: list[dict[str, Any]] | None = Field(None, alias='toolbarActions', description='Component property')
     display_mode: DisplayMode | None = Field(
-        None, alias='displayMode', description='展示模式，支持缩略图模式（thumb）和大图模式（full）'
+        None, alias='displayMode', description='Component property'
     )
-    current_index: float | None = Field(None, alias='currentIndex', description='当前展示图片索引')
-    full_thumb_mode: FullThumbMode | None = Field(None, alias='fullThumbMode', description='大图模式下的缩放模式')
+    current_index: float | None = Field(None, alias='currentIndex', description='Component property')
+    full_thumb_mode: FullThumbMode | None = Field(None, alias='fullThumbMode', description='Component property')
     sort_type: SortType | None = Field(
         None,
         alias='sortType',
-        description='排列方式 类命名方式按照上右下左四个边命名，l=2m，m=2s，最小单位为s 每条边的顺序都是从上到下，从左到右。',
+        description='Component property',
     )
-    width: str | None = Field(None, description='宽度（有sortType时生效）')
-    height: str | None = Field(None, description='高度（有sortType时生效）')
+    width: str | None = Field(None, description='Component property')
+    height: str | None = Field(None, description='Component property')
     hover_mode: HoverMode | None = Field(
-        None, alias='hoverMode', description='鼠标悬浮时的展示状态（对应AIpage的文字6，9，10不存在）'
+        None, alias='hoverMode', description='Component property'
     )
-    font_style: FontStyle | None = Field(None, alias='fontStyle', description='描述文字样式')
-    mask_color: str | None = Field(None, alias='maskColor', description='蒙层颜色')
+    font_style: FontStyle | None = Field(None, alias='fontStyle', description='Component property')
+    mask_color: str | None = Field(None, alias='maskColor', description='Component property')
 
 
 class IconStyle(Enum):
     """
-    图标风格
+    AMIS IconStyle component.
     """
 
     square = 'square'
@@ -7869,7 +7939,7 @@ class IconStyle(Enum):
 
 class JsonSchema(BaseModel):
     """
-    JSON 数据展示控件。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/json
+    AMIS JsonSchema component.
     """
 
     model_config = ConfigDict(
@@ -7898,25 +7968,25 @@ class JsonSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     type: Any
     testid: Any | None = None
-    value: dict[str, Any] | list[dict[str, Any]] | None = Field(None, description='要展示的 JSON 数据')
-    level_expand: float | None = Field(None, alias='levelExpand', description='默认展开的级别')
-    source: str | None = Field(None, description='支持从数据链取值')
-    mutable: bool | None = Field(None, description='是否可修改')
-    display_data_types: bool | None = Field(None, alias='displayDataTypes', description='Whether visible数据类型')
-    enable_clipboard: bool | None = Field(None, alias='enableClipboard', description='是否可复制')
-    icon_style: IconStyle | None = Field(None, alias='iconStyle', description='图标风格')
-    quotes_on_keys: bool | None = Field(None, alias='quotesOnKeys', description='Whether visible键的引号')
-    sort_keys: bool | None = Field(None, alias='sortKeys', description='是否为键排序')
+    value: dict[str, Any] | list[dict[str, Any]] | None = Field(None, description='Component property')
+    level_expand: float | None = Field(None, alias='levelExpand', description='Component property')
+    source: str | None = Field(None, description='Component property')
+    mutable: bool | None = Field(None, description='Component property')
+    display_data_types: bool | None = Field(None, alias='displayDataTypes', description='Component property')
+    enable_clipboard: bool | None = Field(None, alias='enableClipboard', description='Component property')
+    icon_style: IconStyle | None = Field(None, alias='iconStyle', description='Component property')
+    quotes_on_keys: bool | None = Field(None, alias='quotesOnKeys', description='Component property')
+    sort_keys: bool | None = Field(None, alias='sortKeys', description='Component property')
     ellipsis_threshold: float | bool | None = Field(
         None,
         alias='ellipsisThreshold',
-        description='设置字符串的最大展示长度，超出长度阈值的字符串将被截断，点击value可切换字符串展示方式，默认为false',
+        description='Component property',
     )
 
 
 class LinkSchema(BaseModel):
     """
-    Link 链接展示控件。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/link
+    AMIS LinkSchema component.
     """
 
     model_config = ConfigDict(
@@ -7945,23 +8015,23 @@ class LinkSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     type: Any
     testid: Any | None = None
-    blank: bool | None = Field(None, description='是否新窗口打开。')
-    href: str | None = Field(None, description='链接地址')
+    blank: bool | None = Field(None, description='Component property')
+    href: str | None = Field(None, description='Component property')
     body: str | None = Field(
         None,
-        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/en-US/docs/concepts/template',
     )
     badge: Badge | None = Field(
-        None, description='Badge 角标。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/badge'
+        None, description='Component property'
     )
-    html_target: str | None = Field(None, alias='htmlTarget', description='a标签原生target属性')
-    icon: str | None = Field(None, description='图标')
-    right_icon: str | None = Field(None, alias='rightIcon', description='右侧图标')
+    html_target: str | None = Field(None, alias='htmlTarget', description='Component property')
+    icon: str | None = Field(None, description='Component property')
+    right_icon: str | None = Field(None, alias='rightIcon', description='Component property')
 
 
 class ListSchema(BaseModel):
     """
-    List 列表展示控件。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/card
+    AMIS ListSchema component.
     """
 
     model_config = ConfigDict(
@@ -8016,7 +8086,7 @@ class ListSchema(BaseModel):
 
 class MappingSchema(BaseModel):
     """
-    Mapping 映射展示控件。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/mapping
+    AMIS MappingSchema component.
     """
 
     model_config = ConfigDict(
@@ -8045,25 +8115,25 @@ class MappingSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     type: Any
     testid: Any | None = None
-    name: str | None = Field(None, description='关联字段名。')
+    name: str | None = Field(None, description='Component property')
     map: dict[str, dict[str, Any]] | None = Field(
         None,
-        description='配置映射规则，值可以使用模板语法。当 key 为 * 时表示 else，也就是说值没有映射到任何规则时用 * 对应的值展示。',
+        description='Component property',
     )
     value_field: str | None = Field(
-        None, alias='valueField', description='map或source为对象数组时，作为value值的字段名'
+        None, alias='valueField', description='Component property'
     )
     label_field: str | None = Field(
-        None, alias='labelField', description='map或source为对象数组时，作为label值的字段名'
+        None, alias='labelField', description='Component property'
     )
     item_schema: dict[str, Any] | None = Field(None, alias='itemSchema')
-    source: dict[str, Any] | None = Field(None, description='如果想远程拉取字典，请配置 source 为接口。')
-    placeholder: str | None = Field(None, description='占位符')
+    source: dict[str, Any] | None = Field(None, description='Component property')
+    placeholder: str | None = Field(None, description='Component property')
 
 
 class Stacked(Enum):
     """
-    true 为垂直排列，false 为水平排列类似如 tabs。
+    AMIS Stacked component.
     """
 
     boolean_true = True
@@ -8090,7 +8160,7 @@ class Overflow(BaseModel):
 
 class Mode14(Enum):
     """
-    垂直模式 非折叠状态下 控制菜单打开方式
+    AMIS Mode14 component.
     """
 
     panel = 'panel'
@@ -8100,7 +8170,7 @@ class Mode14(Enum):
 
 class ThemeColor(Enum):
     """
-    主题配色 默认light
+    AMIS ThemeColor component.
     """
 
     light = 'light'
@@ -8109,25 +8179,25 @@ class ThemeColor(Enum):
 
 class SearchConfig(BaseModel):
     """
-    搜索框相关配置
+    AMIS SearchConfig component.
     """
 
     model_config = ConfigDict(
         extra='forbid',
     )
-    class_name: str | None = Field(None, alias='className', description='搜索框外层CSS样式类')
-    match_func: dict[str, Any] | None = Field(None, alias='matchFunc', description='搜索匹配函数')
-    placeholder: str | None = Field(None, description='占位符')
-    mini: bool | None = Field(None, description='是否为 Mini 样式。')
-    enhance: bool | None = Field(None, description='是否为加强样式')
-    clearable: bool | None = Field(None, description='是否可清除')
-    search_imediately: bool | None = Field(None, alias='searchImediately', description='是否立马搜索。')
-    value_field: str | None = Field(None, alias='valueField', description='指定唯一标识字段')
+    class_name: str | None = Field(None, alias='className', description='Component property')
+    match_func: dict[str, Any] | None = Field(None, alias='matchFunc', description='Component property')
+    placeholder: str | None = Field(None, description='Component property')
+    mini: bool | None = Field(None, description='Component property')
+    enhance: bool | None = Field(None, description='Component property')
+    clearable: bool | None = Field(None, description='Component property')
+    search_imediately: bool | None = Field(None, alias='searchImediately', description='Component property')
+    value_field: str | None = Field(None, alias='valueField', description='Component property')
 
 
 class NavSchema(BaseModel):
     """
-    Nav 导航渲染器 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/nav
+    AMIS NavSchema component.
     """
 
     model_config = ConfigDict(
@@ -8156,40 +8226,40 @@ class NavSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     type: Any
     testid: Any | None = None
-    links: list[dict[str, Any]] | None = Field(None, description='链接地址集合')
+    links: list[dict[str, Any]] | None = Field(None, description='Component property')
     indent_size: float | None = Field(16, alias='indentSize')
     source: dict[str, Any] | None = None
     defer_api: dict[str, Any] | None = Field(None, alias='deferApi')
-    stacked: Stacked | None = Field(None, description='true 为垂直排列，false 为水平排列类似如 tabs。')
+    stacked: Stacked | None = Field(None, description='Component property')
     item_actions: dict[str, Any] | None = Field(None, alias='itemActions')
-    draggable: bool | None = Field(None, description='可拖拽')
+    draggable: bool | None = Field(None, description='Component property')
     save_order_api: dict[str, Any] | None = Field(None, alias='saveOrderApi')
     item_badge: ItemBadge | None = Field(
         None,
         alias='itemBadge',
-        description='Badge 角标。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/badge',
+        description='Component property',
     )
     badge: Badge | None = Field(
-        None, description='Badge 角标。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/badge'
+        None, description='Component property'
     )
-    drag_on_same_level: bool | None = Field(None, alias='dragOnSameLevel', description='仅允许同层级拖拽')
+    drag_on_same_level: bool | None = Field(None, alias='dragOnSameLevel', description='Component property')
     overflow: Overflow | None = None
-    level: float | None = Field(None, description='最多展示多少层级')
+    level: float | None = Field(None, description='Component property')
     default_open_level: float | None = Field(
-        None, alias='defaultOpenLevel', description='默认展开层级 小于等于该层数的节点默认全部打开'
+        None, alias='defaultOpenLevel', description='Component property'
     )
-    show_key: str | None = Field(None, alias='showKey', description='控制仅展示指定key菜单下的子菜单项')
-    collapsed: bool | None = Field(None, description='控制菜单缩起')
-    mode: Mode14 | None = Field(None, description='垂直模式 非折叠状态下 控制菜单打开方式')
-    expand_icon: str | dict[str, Any] | None = Field(None, alias='expandIcon', description='自定义展开图标')
+    show_key: str | None = Field(None, alias='showKey', description='Component property')
+    collapsed: bool | None = Field(None, description='Component property')
+    mode: Mode14 | None = Field(None, description='Component property')
+    expand_icon: str | dict[str, Any] | None = Field(None, alias='expandIcon', description='Component property')
     expand_position: str | None = Field(
-        None, alias='expandPosition', description='自定义展开图标位置 默认在前面 before after'
+        None, alias='expandPosition', description='Component property'
     )
-    theme_color: ThemeColor | None = Field(None, alias='themeColor', description='主题配色 默认light')
-    accordion: bool | None = Field(None, description='手风琴展开 仅垂直inline模式支持')
-    popup_class_name: str | None = Field(None, alias='popupClassName', description='子菜单项展开浮层样式')
-    searchable: bool | None = Field(None, description='是否开启搜索')
-    search_config: SearchConfig | None = Field(None, alias='searchConfig', description='搜索框相关配置')
+    theme_color: ThemeColor | None = Field(None, alias='themeColor', description='Component property')
+    accordion: bool | None = Field(None, description='Component property')
+    popup_class_name: str | None = Field(None, alias='popupClassName', description='Component property')
+    searchable: bool | None = Field(None, description='Component property')
+    search_config: SearchConfig | None = Field(None, alias='searchConfig', description='Component property')
 
 
 class NavItemSchema(BaseModel):
@@ -8199,7 +8269,7 @@ class NavItemSchema(BaseModel):
     field__id: str | None = Field(
         None, alias='$$id', description='Unique component ID, mainly used to locate JSON nodes in the page designer'
     )
-    class_name: dict[str, Any] | None = Field(None, alias='className', description='容器 css 类名')
+    class_name: dict[str, Any] | None = Field(None, alias='className', description='Container css Class name')
     field_ref: str | None = Field(
         None, alias='$ref', description='Used together with definitions, infinite loop renderers can be achieved.'
     )
@@ -8227,8 +8297,8 @@ class NavItemSchema(BaseModel):
     use_mobile_ui: bool | None = Field(
         None, alias='useMobileUI', description='Can be used at the component level to turn off mobile styles'
     )
-    label: str | dict[str, Any] | None = Field(None, description='文字说明')
-    icon: dict[str, Any] | list[dict[str, Any]] | None = Field(None, description='图标类名，参考 fontawesome 4。')
+    label: str | dict[str, Any] | None = Field(None, description='Component property')
+    icon: dict[str, Any] | list[dict[str, Any]] | None = Field(None, description='Component property')
     to: dict[str, Any] | None = None
     target: str | None = None
     unfolded: bool | None = None
@@ -8251,13 +8321,13 @@ class IconItemSchema(BaseModel):
 
 class OverflowLabel(BaseModel):
     """
-    菜单触发按钮的文字
+    AMIS OverflowLabel component.
     """
 
 
 class Mode15(Enum):
     """
-    导航超出后响应式收纳方案。
+    AMIS Mode15 component.
     """
 
     popup = 'popup'
@@ -8268,8 +8338,8 @@ class NavOverflow(BaseModel):
     model_config = ConfigDict(
         extra='forbid',
     )
-    enable: bool = Field(..., description='是否开启响应式收纳')
-    overflow_label: str | OverflowLabel | None = Field(None, alias='overflowLabel', description='菜单触发按钮的文字')
+    enable: bool = Field(..., description='Component property')
+    overflow_label: str | OverflowLabel | None = Field(None, alias='overflowLabel', description='Component property')
     overflow_indicator: str | None = Field(None, alias='overflowIndicator', description='Class name in iconfont.')
     overflow_class_name: str | dict[str, dict[str, Any]] | None = Field(
         None,
@@ -8289,23 +8359,23 @@ class NavOverflow(BaseModel):
     max_visible_count: float | None = Field(
         None,
         alias='maxVisibleCount',
-        description='导航横向布局时，开启开启响应式收纳后最大可显示数量，超出此数量的导航将被收纳到下拉菜单中',
+        description='Component property',
     )
     wrapper_component: str | None = Field(
-        'ul', alias='wrapperComponent', description='包裹导航的外层标签名，可以使用其他标签渲染'
+        'ul', alias='wrapperComponent', description='Component property'
     )
-    item_width: float | None = Field(160, alias='itemWidth', description='导航项目宽度')
+    item_width: float | None = Field(160, alias='itemWidth', description='Component property')
     overflow_suffix: dict[str, Any] | None = Field(None, alias='overflowSuffix')
-    style: Any | None = Field(None, description='自定义样式')
+    style: Any | None = Field(None, description='Component property')
     mode: Mode15 | None = Field(
-        '"popup"\npopup 导航被收纳到下拉菜单中\nswipe 导航展示在一个可左右滑动的菜单中，通过左右箭头滚动查看。只在横向布局有效',
-        description='导航超出后响应式收纳方案。',
+        '"popup"\npopup 导航被收纳到下拉菜单中\nswipe 导航Display在一个可左右滑动的菜单中，通过左右箭头滚动查看。只在横向布局有效',
+        description='Component property',
     )
 
 
 class OperationSchema(BaseModel):
     """
-    操作栏渲染器。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/operation
+    AMIS OperationSchema component.
     """
 
     model_config = ConfigDict(
@@ -8334,7 +8404,7 @@ class OperationSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     type: Any
     testid: Any | None = None
-    placeholder: str | None = Field(None, description='占位符')
+    placeholder: str | None = Field(None, description='Component property')
     buttons: list[dict[str, Any]]
 
 
@@ -8371,20 +8441,22 @@ class PaginationSchema(BaseModel):
     type: Any
     testid: Any | None = None
     layout: str | list[dict[str, Any]] | None = Field(
-        'pager', description='通过控制layout属性的顺序，调整分页结构 total,perPage,pager,go'
+        'pager', description='Component property'
     )
-    max_buttons: float | None = Field(5, alias='maxButtons', description='最多显示多少个分页按钮。')
+    max_buttons: float | None = Field(5, alias='maxButtons', description='Component property')
     mode: Mode16 | None = None
-    active_page: float = Field(..., alias='activePage', description='当前页数')
-    total: float | None = Field(None, description='总条数')
-    per_page: float | None = Field(10, alias='perPage', description='每页显示条数')
-    show_per_page: bool | None = Field(False, alias='showPerPage', description='是否展示分页切换，也同时受layout控制')
-    per_page_available: list[float] | None = Field(
-        [10, 20, 50, 100], alias='perPageAvailable', description='指定每页可以显示多少条'
+    active_page: float = Field(..., alias='activePage', description='Component property')
+    total: float | None = Field(None, description='Component property')
+    per_page: float | None = Field(10, alias='perPage', description='Component property')
+    show_per_page: bool | None = Field(
+        False, alias='showPerPage', description='Component property'
     )
-    show_page_input: bool | None = Field(False, alias='showPageInput', description='Whether visible快速跳转输入框')
+    per_page_available: list[float] | None = Field(
+        [10, 20, 50, 100], alias='perPageAvailable', description='Component property'
+    )
+    show_page_input: bool | None = Field(False, alias='showPageInput', description='Component property')
     has_next: bool | None = Field(None, alias='hasNext')
-    pop_over_container_selector: str | None = Field(False, alias='popOverContainerSelector', description='弹层挂载节点')
+    pop_over_container_selector: str | None = Field(False, alias='popOverContainerSelector', description='Component property')
 
 
 class MODETYPE(Enum):
@@ -8394,7 +8466,7 @@ class MODETYPE(Enum):
 
 class Position5(Enum):
     """
-    分页Display position，如果配置为 none 则需要自己在Content area配置 pagination 组件，否则不显示。
+    AMIS Position5 component.
     """
 
     top = 'top'
@@ -8404,7 +8476,7 @@ class Position5(Enum):
 
 class PaginationWrapperSchema(BaseModel):
     """
-    分页容器功能性渲染器。详情请见：https://aisuda.bce.baidu.com/amis/zh-CN/components/pagination-wrapper
+    AMIS PaginationWrapperSchema component.
     """
 
     model_config = ConfigDict(
@@ -8433,21 +8505,21 @@ class PaginationWrapperSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     type: Any
     testid: Any | None = None
-    show_page_input: bool | None = Field(None, alias='showPageInput', description='Whether visible快速跳转输入框')
-    max_buttons: float | None = Field(5, alias='maxButtons', description='最多显示多少个分页按钮。')
-    input_name: str | None = Field('items', alias='inputName', description='输入字段名')
-    output_name: str | None = Field('items', alias='outputName', description='输出字段名')
-    per_page: float | None = Field(10, alias='perPage', description='每页显示多条数据。')
+    show_page_input: bool | None = Field(None, alias='showPageInput', description='Component property')
+    max_buttons: float | None = Field(5, alias='maxButtons', description='Component property')
+    input_name: str | None = Field('items', alias='inputName', description='Component property')
+    output_name: str | None = Field('items', alias='outputName', description='Component property')
+    per_page: float | None = Field(10, alias='perPage', description='Component property')
     position: Position5 | None = Field(
         None,
-        description='分页Display position，如果配置为 none 则需要自己在Content area配置 pagination 组件，否则不显示。',
+        description='Component property',
     )
     body: dict[str, Any] | None = None
 
 
 class PanelSchema(BaseModel):
     """
-    Panel渲染器。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/panel
+    AMIS PanelSchema component.
     """
 
     model_config = ConfigDict(
@@ -8476,7 +8548,7 @@ class PanelSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     type: Any
     testid: Any | None = None
-    actions: list[dict[str, Any]] | None = Field(None, description='按钮集合')
+    actions: list[dict[str, Any]] | None = Field(None, description='Component property')
     actions_class_name: dict[str, Any] | None = Field(
         None,
         alias='actionsClassName',
@@ -8507,16 +8579,18 @@ class PanelSchema(BaseModel):
     )
     title: str | None = Field(
         None,
-        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/en-US/docs/concepts/template',
     )
     affix_footer: bool | str | None = Field(
-        None, alias='affixFooter', description='固定底部, 想要把按钮固定在底部的时候配置。'
+        None, alias='affixFooter', description='Component property'
     )
-    collapsible: bool | None = Field(None, description='\\ 可折叠。先简单实现一下')
-    sub_form_mode: SubFormMode | None = Field(None, alias='subFormMode', description='配置子表单项默认的展示方式。')
+    collapsible: bool | None = Field(None, description='Component property')
+    sub_form_mode: SubFormMode | None = Field(
+        None, alias='subFormMode', description='Component property'
+    )
     sub_form_horizontal: SubFormHorizontal | None = Field(None, alias='subFormHorizontal')
     header_control_class_name: str | None = Field(
-        None, alias='headerControlClassName', description='外观配置的classname'
+        None, alias='headerControlClassName', description='Component property'
     )
     body_control_class_name: str | None = Field(None, alias='bodyControlClassName')
     actions_control_class_name: str | None = Field(None, alias='actionsControlClassName')
@@ -8524,7 +8598,7 @@ class PanelSchema(BaseModel):
 
 class PlainSchema(BaseModel):
     """
-    Plain 纯文本渲染器 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/plain
+    AMIS PlainSchema component.
     """
 
     model_config = ConfigDict(
@@ -8555,19 +8629,19 @@ class PlainSchema(BaseModel):
     testid: Any | None = None
     tpl: str | None = Field(
         None,
-        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/en-US/docs/concepts/template',
     )
     text: str | None = Field(
         None,
-        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/en-US/docs/concepts/template',
     )
-    inline: bool | None = Field(None, description='是否内联显示？')
-    placeholder: str | None = Field(None, description='占位符')
+    inline: bool | None = Field(None, description='Component property')
+    placeholder: str | None = Field(None, description='Component property')
 
 
 class Mode17(Enum):
     """
-    进度条类型
+    AMIS Mode17 component.
     """
 
     line = 'line'
@@ -8577,7 +8651,7 @@ class Mode17(Enum):
 
 class GapPosition(Enum):
     """
-    仪表盘进度条缺口位置
+    AMIS GapPosition component.
     """
 
     top = 'top'
@@ -8588,7 +8662,7 @@ class GapPosition(Enum):
 
 class Threshold(BaseModel):
     """
-    阈值
+    AMIS Threshold component.
     """
 
     model_config = ConfigDict(
@@ -8600,7 +8674,7 @@ class Threshold(BaseModel):
 
 class ProgressSchema(BaseModel):
     """
-    进度展示控件。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/progress
+    AMIS ProgressSchema component.
     """
 
     model_config = ConfigDict(
@@ -8629,25 +8703,25 @@ class ProgressSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     type: Any
     testid: Any | None = None
-    name: str | None = Field(None, description='关联字段名')
-    value: float = Field(..., description='进度值')
-    mode: Mode17 = Field(..., description='进度条类型')
+    name: str | None = Field(None, description='Component property')
+    value: float = Field(..., description='Component property')
+    mode: Mode17 = Field(..., description='Component property')
     progress_class_name: dict[str, Any] | None = Field(
         None,
         alias='progressClassName',
         description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     map: dict[str, Any] | None = None
-    show_label: bool | None = Field(None, alias='showLabel', description='Whether visible值')
-    placeholder: str | None = Field(None, description='占位符')
-    stripe: bool | None = Field(None, description='Whether visible背景间隔')
-    animate: bool | None = Field(None, description='Whether visible动画（只有在开启的时候才能看出来）')
-    stroke_width: float | None = Field(None, alias='strokeWidth', description='进度条线的宽度')
-    gap_degree: float | None = Field(None, alias='gapDegree', description='仪表盘进度条缺口角度，可取值 0 ~ 295')
-    gap_position: GapPosition | None = Field(None, alias='gapPosition', description='仪表盘进度条缺口位置')
-    value_tpl: str | None = Field(None, alias='valueTpl', description='内容的模板函数')
-    threshold: Threshold | list[dict[str, Any]] | None = Field(None, description='阈值')
-    show_threshold_text: bool | None = Field(None, alias='showThresholdText', description='Whether visible阈值数值')
+    show_label: bool | None = Field(None, alias='showLabel', description='Component property')
+    placeholder: str | None = Field(None, description='Component property')
+    stripe: bool | None = Field(None, description='Component property')
+    animate: bool | None = Field(None, description='Component property')
+    stroke_width: float | None = Field(None, alias='strokeWidth', description='Component property')
+    gap_degree: float | None = Field(None, alias='gapDegree', description='Component property')
+    gap_position: GapPosition | None = Field(None, alias='gapPosition', description='Component property')
+    value_tpl: str | None = Field(None, alias='valueTpl', description='Component property')
+    threshold: Threshold | list[dict[str, Any]] | None = Field(None, description='Component property')
+    show_threshold_text: bool | None = Field(None, alias='showThresholdText', description='Component property')
 
 
 class ColorMapTypeItem(BaseModel):
@@ -8664,7 +8738,7 @@ class ColorMapType(RootModel[list[str] | list[ColorMapTypeItem]]):
 
 class Level3(Enum):
     """
-    二维码复杂级别
+    AMIS Level3 component.
     """
 
     l = 'L'
@@ -8687,7 +8761,7 @@ class ImageSettings(BaseModel):
 
 class Mode18(Enum):
     """
-    渲染模式
+    AMIS Mode18 component.
     """
 
     canvas = 'canvas'
@@ -8696,7 +8770,7 @@ class Mode18(Enum):
 
 class EyeType(Enum):
     """
-    码眼类型
+    AMIS EyeType component.
     """
 
     default = 'default'
@@ -8706,7 +8780,7 @@ class EyeType(Enum):
 
 class EyeBorderSize(Enum):
     """
-    码眼边框大小
+    AMIS EyeBorderSize component.
     """
 
     default = 'default'
@@ -8716,7 +8790,7 @@ class EyeBorderSize(Enum):
 
 class PointType(Enum):
     """
-    码点类型
+    AMIS PointType component.
     """
 
     default = 'default'
@@ -8725,7 +8799,7 @@ class PointType(Enum):
 
 class PointSize(Enum):
     """
-    码点大小
+    AMIS PointSize component.
     """
 
     default = 'default'
@@ -8735,7 +8809,7 @@ class PointSize(Enum):
 
 class QRCodeSchema(BaseModel):
     """
-    二维码展示控件。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/qrcode
+    AMIS QRCodeSchema component.
     """
 
     model_config = ConfigDict(
@@ -8764,26 +8838,26 @@ class QRCodeSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     type: Any
     testid: Any | None = None
-    name: str | None = Field(None, description='关联字段名。')
+    name: str | None = Field(None, description='Component property')
     qrcode_class_name: dict[str, Any] | None = Field(
         None,
         alias='qrcodeClassName',
         description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
-    code_size: float | None = Field(128, alias='codeSize', description='二维码的宽高大小，默认 128')
-    background_color: str | None = Field(None, alias='backgroundColor', description='背景色')
-    foreground_color: str | None = Field(None, alias='foregroundColor', description='前景色')
-    level: Level3 | None = Field(None, description='二维码复杂级别')
-    placeholder: str | None = Field(None, description='占位符')
+    code_size: float | None = Field(128, alias='codeSize', description='Component property')
+    background_color: str | None = Field(None, alias='backgroundColor', description='Component property')
+    foreground_color: str | None = Field(None, alias='foregroundColor', description='Component property')
+    level: Level3 | None = Field(None, description='Component property')
+    placeholder: str | None = Field(None, description='Component property')
     image_settings: ImageSettings | None = Field(None, alias='imageSettings')
-    mode: Mode18 | None = Field(None, description='渲染模式')
-    eye_type: EyeType | None = Field(None, alias='eyeType', description='码眼类型')
-    eye_border_color: str | None = Field('#000000', alias='eyeBorderColor', description='码眼边框颜色')
-    eye_border_size: EyeBorderSize | None = Field('default', alias='eyeBorderSize', description='码眼边框大小')
-    eye_inner_color: str | None = Field('#000000', alias='eyeInnerColor', description='码眼内部颜色')
-    point_type: PointType | None = Field(None, alias='pointType', description='码点类型')
-    point_size: PointSize | None = Field('default', alias='pointSize', description='码点大小')
-    point_size_random: bool | None = Field(False, alias='pointSizeRandom', description='码点大小随机')
+    mode: Mode18 | None = Field(None, description='Component property')
+    eye_type: EyeType | None = Field(None, alias='eyeType', description='Component property')
+    eye_border_color: str | None = Field('#000000', alias='eyeBorderColor', description='Component property')
+    eye_border_size: EyeBorderSize | None = Field('default', alias='eyeBorderSize', description='Component property')
+    eye_inner_color: str | None = Field('#000000', alias='eyeInnerColor', description='Component property')
+    point_type: PointType | None = Field(None, alias='pointType', description='Component property')
+    point_size: PointSize | None = Field('default', alias='pointSize', description='Component property')
+    point_size_random: bool | None = Field(False, alias='pointSizeRandom', description='Component property')
 
 
 class QRCodeImageSettings(BaseModel):
@@ -8800,7 +8874,7 @@ class QRCodeImageSettings(BaseModel):
 
 class SearchBoxSchema(BaseModel):
     """
-    搜索框渲染器
+    AMIS SearchBoxSchema component.
     """
 
     model_config = ConfigDict(
@@ -8829,14 +8903,16 @@ class SearchBoxSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     type: Any
     testid: Any | None = None
-    name: str | None = Field('keywords', description='关键字名字。')
-    placeholder: str | None = Field(None, description='占位符')
-    mini: bool | None = Field(None, description='是否为 Mini 样式。')
-    enhance: bool | None = Field(None, description='是否为加强样式')
-    clearable: bool | None = Field(None, description='是否可清除')
-    search_imediately: bool | None = Field(None, alias='searchImediately', description='是否立马搜索。')
-    clear_and_submit: bool | None = Field(None, alias='clearAndSubmit', description='是否开启清空内容后立即重新搜索')
-    loading: bool | None = Field(None, description='是否处于加载状态')
+    name: str | None = Field('keywords', description='Component property')
+    placeholder: str | None = Field(None, description='Component property')
+    mini: bool | None = Field(None, description='Component property')
+    enhance: bool | None = Field(None, description='Component property')
+    clearable: bool | None = Field(None, description='Component property')
+    search_imediately: bool | None = Field(None, alias='searchImediately', description='Component property')
+    clear_and_submit: bool | None = Field(
+        None, alias='clearAndSubmit', description='Component property'
+    )
+    loading: bool | None = Field(None, description='Component property')
 
 
 class Messages4(BaseModel):
@@ -8855,7 +8931,7 @@ class Messages4(BaseModel):
 
 class ServiceSchema(BaseModel):
     """
-    Service 服务类控件。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/service
+    AMIS ServiceSchema component.
     """
 
     model_config = ConfigDict(
@@ -8886,19 +8962,19 @@ class ServiceSchema(BaseModel):
     type: Any
     testid: Any | None = None
     api: dict[str, Any] | None = None
-    ws: str | None = Field(None, description='WebScocket 地址，用于实时获取数据')
+    ws: str | None = Field(None, description='Component property')
     data_provider: dict[str, Any] | None = Field(None, alias='dataProvider')
     body: dict[str, Any] | None = None
     fetch_on: str | None = Field(None, alias='fetchOn', description='Expression, syntax `${xxx > 5}`.')
     init_fetch: bool | None = Field(None, alias='initFetch', description='Whether to fetch by default?')
     init_fetch_on: str | None = Field(None, alias='initFetchOn', description='Expression, syntax `${xxx > 5}`.')
     schema_api: dict[str, Any] | None = Field(None, alias='schemaApi')
-    init_fetch_schema: bool | None = Field(None, alias='initFetchSchema', description='是否默认加载 schemaApi')
+    init_fetch_schema: bool | None = Field(None, alias='initFetchSchema', description='WhetherDefaultLoad schemaApi')
     init_fetch_schema_on: str | None = Field(
         None, alias='initFetchSchemaOn', description='Expression, syntax `${xxx > 5}`.'
     )
-    interval: float | None = Field(None, description='是否轮询拉取')
-    silent_polling: bool | None = Field(None, alias='silentPolling', description='是否静默拉取')
+    interval: float | None = Field(None, description='WhetherPollingFetch')
+    silent_polling: bool | None = Field(None, alias='silentPolling', description='Component property')
     stop_auto_refresh_when: str | None = Field(
         None, alias='stopAutoRefreshWhen', description='Expression, syntax `${xxx > 5}`.'
     )
@@ -8910,7 +8986,9 @@ class ServiceSchema(BaseModel):
         None, description='Component name, this name can be used for positioning and component communication'
     )
     show_error_msg: bool | None = Field(
-        None, alias='showErrorMsg', description='是否以Alert的形式显示api接口响应的错误信息，默认展示'
+        None,
+        alias='showErrorMsg',
+        description='Component property',
     )
 
 
@@ -8969,17 +9047,17 @@ class SparkLineSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     type: Any
     testid: Any | None = None
-    name: str | None = Field(None, description='关联数据变量。')
-    width: float | None = Field(100, description='宽度')
-    height: float | None = Field(50, description='高度')
+    name: str | None = Field(None, description='Component property')
+    width: float | None = Field(100, description='Component property')
+    height: float | None = Field(50, description='Component property')
     click_action: Any | None = Field(None, alias='clickAction')
-    placeholder: str | None = Field(None, description='空数据时显示的内容')
+    placeholder: str | None = Field(None, description='Component property')
     value: list[dict[str, Any]] | None = None
 
 
 class StatusSchema(BaseModel):
     """
-    状态展示控件。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/status
+    AMIS StatusSchema component.
     """
 
     model_config = ConfigDict(
@@ -9008,15 +9086,15 @@ class StatusSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     type: Any
     testid: Any | None = None
-    placeholder: str | None = Field('-', description='占位符')
+    placeholder: str | None = Field('-', description='Component property')
     map: dict[str, str] | None = Field(
         "{\n0: 'svg-fail',\n1: 'svg-success',\nsuccess: 'svg-success',\npending: 'rolling',\nfail: 'svg-fail',\nqueue: 'svg-warning',\nschedule: 'svg-schedule'\n}",
-        description='状态图标映射关系',
+        description='Component property',
     )
     label_map: dict[str, str] | None = Field(
         {'success': '成功', 'pending': '运行中', 'fail': '失败', 'queue': '排队中', 'schedule': '调度中'},
         alias='labelMap',
-        description='文字映射关系',
+        description='Component property',
     )
     source: dict[str, dict[str, Any]] | None = None
 
@@ -9037,7 +9115,7 @@ class StatusSource(RootModel[dict[str, StatusSource1]]):
 
 class Size9(Enum):
     """
-    spinner Icon 大小
+    AMIS Size9 component.
     """
 
     sm = 'sm'
@@ -9047,7 +9125,7 @@ class Size9(Enum):
 
 class TipPlacement(Enum):
     """
-    spinner文案位置
+    AMIS TipPlacement component.
     """
 
     top = 'top'
@@ -9084,26 +9162,26 @@ class SpinnerSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     type: Any
     testid: Any | None = None
-    show: bool = Field(..., description='控制Spinner显示与隐藏')
+    show: bool = Field(..., description='Component property')
     spinner_class_name: str | None = Field(
-        None, alias='spinnerClassName', description='spin图标位置包裹元素的自定义class'
+        None, alias='spinnerClassName', description='Component property'
     )
     spinner_wrap_class_name: str | None = Field(
-        None, alias='spinnerWrapClassName', description='作为容器使用时最外层元素的class'
+        None, alias='spinnerWrapClassName', description='Component property'
     )
     mode: str | None = None
-    size: Size9 | None = Field(None, description='spinner Icon 大小')
-    icon: str | None = Field(None, description='自定义icon')
-    tip: str | None = Field(None, description='spinner文案')
-    tip_placement: TipPlacement | None = Field(None, alias='tipPlacement', description='spinner文案位置')
-    delay: float | None = Field(None, description='延迟显示')
-    overlay: bool | None = Field(None, description='Whether visible遮罩层')
+    size: Size9 | None = Field(None, description='Component property')
+    icon: str | None = Field(None, description='Component property')
+    tip: str | None = Field(None, description='Component property')
+    tip_placement: TipPlacement | None = Field(None, alias='tipPlacement', description='Component property')
+    delay: float | None = Field(None, description='Component property')
+    overlay: bool | None = Field(None, description='Component property')
     body: dict[str, Any] | None = None
 
 
 class TableSchema(BaseModel):
     """
-    Table 表格渲染器。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/table
+    AMIS TableSchema component.
     """
 
     model_config = ConfigDict(
@@ -9267,74 +9345,74 @@ class BaseTableSchema2(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     type: Any
     testid: Any | None = None
-    title: str | dict[str, Any] | None = Field(None, description='表格标题')
+    title: str | dict[str, Any] | None = Field(None, description='Component property')
     source: str
-    columns_togglable: str | bool | None = Field(None, alias='columnsTogglable', description='表格可自定义列')
-    columns: list[dict[str, Any]] = Field(..., description='表格列配置')
-    row_selection: dict[str, Any] | bool | None = Field(None, alias='rowSelection', description='表格可选择配置')
+    columns_togglable: str | bool | None = Field(None, alias='columnsTogglable', description='Component property')
+    columns: list[dict[str, Any]] = Field(..., description='Component property')
+    row_selection: dict[str, Any] | bool | None = Field(None, alias='rowSelection', description='Component property')
     expandable: Expandable | None = None
-    sticky: bool | None = Field(None, description='粘性头部')
-    loading: bool | str | None = Field(None, description='加载中')
+    sticky: bool | None = Field(None, description='Component property')
+    loading: bool | str | None = Field(None, description='Component property')
     item_badge: ItemBadge | None = Field(
         None,
         alias='itemBadge',
-        description='Badge 角标。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/badge',
+        description='Component property',
     )
-    show_badge: bool | None = Field(None, alias='showBadge', description='是否展示行角标')
-    pop_over_container: Any | None = Field(None, alias='popOverContainer', description='指定挂载dom')
-    key_field: str | None = Field(None, alias='keyField', description='多选、嵌套展开记录的ID字段名 默认id')
-    children_column_name: str | None = Field(None, alias='childrenColumnName', description='数据源嵌套自定义字段名')
-    row_class_name_expr: str | None = Field(None, alias='rowClassNameExpr', description='自定义行样式')
-    line_height: str | None = Field(None, alias='lineHeight', description='是否固定内容行高度')
-    bordered: bool | None = Field(None, description='是否展示边框')
-    show_header: bool | None = Field(None, alias='showHeader', description='是否展示表头')
-    footer: str | dict[str, Any] | None = Field(None, description='指定表尾')
+    show_badge: bool | None = Field(None, alias='showBadge', description='Component property')
+    pop_over_container: Any | None = Field(None, alias='popOverContainer', description='Component property')
+    key_field: str | None = Field(None, alias='keyField', description='Component property')
+    children_column_name: str | None = Field(None, alias='childrenColumnName', description='Component property')
+    row_class_name_expr: str | None = Field(None, alias='rowClassNameExpr', description='Component property')
+    line_height: str | None = Field(None, alias='lineHeight', description='Component property')
+    bordered: bool | None = Field(None, description='Component property')
+    show_header: bool | None = Field(None, alias='showHeader', description='Component property')
+    footer: str | dict[str, Any] | None = Field(None, description='Component property')
     quick_save_api: dict[str, Any] | None = Field(None, alias='quickSaveApi')
     quick_save_item_api: dict[str, Any] | None = Field(None, alias='quickSaveItemApi')
     messages: Messages4 | None = Field(
         None,
         description='Message text configuration. Remember that this has the lowest priority. If your interface returns a msg, the interface return takes precedence.',
     )
-    reload: str | None = Field(None, description='重新加载的组件名称')
-    actions: list[dict[str, Any]] | None = Field(None, description='操作列配置')
+    reload: str | None = Field(None, description='Component property')
+    actions: list[dict[str, Any]] | None = Field(None, description='Component property')
     max_keep_item_selection_length: float | None = Field(
-        None, alias='maxKeepItemSelectionLength', description='批量操作最大限制数'
+        None, alias='maxKeepItemSelectionLength', description='Component property'
     )
     keep_item_selection_on_page_change: bool | None = Field(
-        None, alias='keepItemSelectionOnPageChange', description='翻页是否保存数据'
+        None, alias='keepItemSelectionOnPageChange', description='Component property'
     )
-    selectable: bool | None = Field(None, description='是否可选择 作用同rowSelection 兼容原CRUD属性 默认多选')
+    selectable: bool | None = Field(None, description='Component property')
     multiple: bool | None = Field(
-        None, description='是否可多选 作用同rowSelection.type 兼容原CRUD属性 不设置认为是多选 仅设置selectable才起作用'
+        None, description='Component property'
     )
     primary_field: str | None = Field(
-        None, alias='primaryField', description='设置ID字段名 作用同keyFiled 兼容原CURD属性'
+        None, alias='primaryField', description='Component property'
     )
     table_layout: TableLayout1 | None = Field(None, alias='tableLayout')
-    auto_fill_height: bool | dict[str, Any] | None = Field(None, alias='autoFillHeight', description='表格自动计算高度')
+    auto_fill_height: bool | dict[str, Any] | None = Field(None, alias='autoFillHeight', description='Component property')
     can_access_super_data: bool | None = Field(
-        None, alias='canAccessSuperData', description='表格是否可以获取父级数据域值，默认为false'
+        None, alias='canAccessSuperData', description='Component property'
     )
     lazy_render_after: float | None = Field(
-        100, alias='lazyRenderAfter', description='当一次性渲染太多列上有用，默认为 100，可以用来提升表格渲染性能'
+        100, alias='lazyRenderAfter', description='Component property'
     )
 
 
 class Title(BaseModel):
     """
-    指定列标题
+    AMIS Title component.
     """
 
 
 class Searchable1(BaseModel):
     """
-    快速搜索
+    AMIS Searchable1 component.
     """
 
 
 class Filterable1(BaseModel):
     """
-    兼容table列筛选
+    AMIS Filterable1 component.
     """
 
     model_config = ConfigDict(
@@ -9346,7 +9424,7 @@ class Filterable1(BaseModel):
 
 class HeaderAlign3(Enum):
     """
-    标题内容居左、居中、居右
+    AMIS HeaderAlign3 component.
     """
 
     left = 'left'
@@ -9358,32 +9436,32 @@ class ColumnSchema(BaseModel):
     model_config = ConfigDict(
         extra='forbid',
     )
-    name: str = Field(..., description='指定列唯一标识')
-    title: str | Title = Field(..., description='指定列标题')
-    type: str | None = Field(None, description='指定列内容渲染器')
-    row_span_expr: str | None = Field(None, alias='rowSpanExpr', description='指定行合并表达式')
-    col_span_expr: str | None = Field(None, alias='colSpanExpr', description='指定列合并表达式')
-    children: list[dict[str, Any]] | None = Field(None, description='表头分组')
-    copyable: bool | None = Field(None, description='可复制')
-    remark: str | None = Field(None, description='列表头提示')
-    searchable: bool | Searchable1 | None = Field(None, description='快速搜索')
-    sorter: bool | None = Field(None, description='快速排序')
-    sortable: bool | None = Field(None, description='兼容table快速排序')
-    filterable: Filterable1 | None = Field(None, description='兼容table列筛选')
-    align: str | None = Field(None, description='内容居左、居中、居右')
-    header_align: HeaderAlign3 | None = Field(None, alias='headerAlign', description='标题内容居左、居中、居右')
-    v_align: VAlign | None = Field(None, alias='vAlign', description='列垂直对齐方式')
-    fixed: bool | str | None = Field(None, description='是否固定在左侧/右侧')
-    toggled: bool | None = Field(None, description='当前列是否展示')
-    class_name: str | None = Field(None, alias='className', description='列样式')
-    title_class_name: str | None = Field(None, alias='titleClassName', description='表头单元格样式')
-    class_name_expr: str | None = Field(None, alias='classNameExpr', description='单元格样式')
+    name: str = Field(..., description='Component property')
+    title: str | Title = Field(..., description='Component property')
+    type: str | None = Field(None, description='Component property')
+    row_span_expr: str | None = Field(None, alias='rowSpanExpr', description='Component property')
+    col_span_expr: str | None = Field(None, alias='colSpanExpr', description='Component property')
+    children: list[dict[str, Any]] | None = Field(None, description='Component property')
+    copyable: bool | None = Field(None, description='Component property')
+    remark: str | None = Field(None, description='Component property')
+    searchable: bool | Searchable1 | None = Field(None, description='Component property')
+    sorter: bool | None = Field(None, description='Component property')
+    sortable: bool | None = Field(None, description='Component property')
+    filterable: Filterable1 | None = Field(None, description='Component property')
+    align: str | None = Field(None, description='Component property')
+    header_align: HeaderAlign3 | None = Field(None, alias='headerAlign', description='Component property')
+    v_align: VAlign | None = Field(None, alias='vAlign', description='Component property')
+    fixed: bool | str | None = Field(None, description='Component property')
+    toggled: bool | None = Field(None, description='Component property')
+    class_name: str | None = Field(None, alias='className', description='Component property')
+    title_class_name: str | None = Field(None, alias='titleClassName', description='Component property')
+    class_name_expr: str | None = Field(None, alias='classNameExpr', description='Component property')
     quick_edit: bool | dict[str, Any] | None = Field(None, alias='quickEdit')
     width: str | float | None = None
     can_access_super_data: bool | None = Field(
         None,
         alias='canAccessSuperData',
-        description='表格列单元格是否可以获取父级数据域值，默认为true，该配置对当前列内单元格生效',
+        description='Component property',
     )
 
 
@@ -9399,36 +9477,36 @@ class RowSelectionSchema(BaseModel):
     model_config = ConfigDict(
         extra='forbid',
     )
-    type: str = Field(..., description='选择类型 单选/多选')
-    key_field: str | None = Field(None, alias='keyField', description='对应数据源的key值')
-    disable_on: str | None = Field(None, alias='disableOn', description='行Whether disabled表达式')
-    selections: list[Selection] | None = Field(None, description='自定义选择菜单')
-    selected_row_keys: list[str | float] | None = Field(None, alias='selectedRowKeys', description='已选择的key值')
-    selected_row_keys_expr: str | None = Field(None, alias='selectedRowKeysExpr', description='已选择的key值表达式')
-    column_width: float | None = Field(None, alias='columnWidth', description='已选择的key值表达式')
-    row_click: bool | None = Field(None, alias='rowClick', description='是否点击行触发选中或取消选中')
+    type: str = Field(..., description='Component property')
+    key_field: str | None = Field(None, alias='keyField', description='Component property')
+    disable_on: str | None = Field(None, alias='disableOn', description='Component property')
+    selections: list[Selection] | None = Field(None, description='Component property')
+    selected_row_keys: list[str | float] | None = Field(None, alias='selectedRowKeys', description='Component property')
+    selected_row_keys_expr: str | None = Field(None, alias='selectedRowKeysExpr', description='Component property')
+    column_width: float | None = Field(None, alias='columnWidth', description='Component property')
+    row_click: bool | None = Field(None, alias='rowClick', description='Component property')
 
 
 class RowSelectionOptionsSchema(BaseModel):
     model_config = ConfigDict(
         extra='forbid',
     )
-    key: str = Field(..., description='选择类型 选择全部')
-    text: str = Field(..., description='选项显示文本')
+    key: str = Field(..., description='Component property')
+    text: str = Field(..., description='Component property')
 
 
 class ExpandableSchema(BaseModel):
     model_config = ConfigDict(
         extra='forbid',
     )
-    type: str = Field(..., description='对应渲染器类型')
-    key_field: str = Field(..., alias='keyField', description='对应数据源的key值')
-    expandable_on: str = Field(..., alias='expandableOn', description='行是否可展开表达式')
+    type: str = Field(..., description='Component property')
+    key_field: str = Field(..., alias='keyField', description='Component property')
+    expandable_on: str = Field(..., alias='expandableOn', description='Component property')
     expanded_row_class_name_expr: str = Field(
-        ..., alias='expandedRowClassNameExpr', description='展开行自定义样式表达式'
+        ..., alias='expandedRowClassNameExpr', description='Component property'
     )
-    expanded_row_keys: list[str | float] = Field(..., alias='expandedRowKeys', description='已展开的key值')
-    expanded_row_keys_expr: str = Field(..., alias='expandedRowKeysExpr', description='已展开的key值表达式')
+    expanded_row_keys: list[str | float] = Field(..., alias='expandedRowKeys', description='Component property')
+    expanded_row_keys_expr: str = Field(..., alias='expandedRowKeysExpr', description='Component property')
 
 
 class AutoFillHeightObject(BaseModel):
@@ -9454,7 +9532,7 @@ class TabsMode(Enum):
 
 class SidePosition(Enum):
     """
-    编辑器模式，侧边的位置
+    AMIS SidePosition component.
     """
 
     left = 'left'
@@ -9463,7 +9541,7 @@ class SidePosition(Enum):
 
 class TabsSchema(BaseModel):
     """
-    选项卡控件。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/tabs
+    AMIS TabsSchema component.
     """
 
     model_config = ConfigDict(
@@ -9493,9 +9571,9 @@ class TabsSchema(BaseModel):
     type: Any
     testid: Any | None = None
     tabs: list[dict[str, Any]] = Field(
-        ..., description='选项卡成员。当配置了 source 时，选项卡成员，将会根据目标数据进行重复。'
+        ..., description='Component property'
     )
-    source: str | None = Field(None, description='关联已有数据，选项卡直接根据目标数据重复。')
+    source: str | None = Field(None, description='Component property')
     tabs_mode: TabsMode | None = Field(None, alias='tabsMode')
     content_class_name: dict[str, Any] | None = Field(
         None,
@@ -9507,29 +9585,33 @@ class TabsSchema(BaseModel):
         alias='linksClassName',
         description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
-    mount_on_enter: bool | None = Field(None, alias='mountOnEnter', description='卡片是否只有在点开的时候加载？')
-    unmount_on_exit: bool | None = Field(None, alias='unmountOnExit', description='卡片隐藏的时候是否销毁卡片内容')
+    mount_on_enter: bool | None = Field(None, alias='mountOnEnter', description='Component property')
+    unmount_on_exit: bool | None = Field(
+        None, alias='unmountOnExit', description='Component property'
+    )
     toolbar: Any | None = None
-    sub_form_mode: SubFormMode | None = Field(None, alias='subFormMode', description='配置子表单项默认的展示方式。')
+    sub_form_mode: SubFormMode | None = Field(
+        None, alias='subFormMode', description='Component property'
+    )
     sub_form_horizontal: SubFormHorizontal | None = Field(None, alias='subFormHorizontal')
-    addable: bool | None = Field(None, description='是否支持新增')
-    closable: bool | None = Field(None, description='是否支持删除')
-    draggable: bool | None = Field(None, description='是否支持拖拽')
-    show_tip: bool | None = Field(None, alias='showTip', description='Whether visible提示')
-    show_tip_class_name: str | None = Field(None, alias='showTipClassName', description='tooltip 提示的类名')
-    editable: bool | None = Field(None, description='是否可编辑标签名')
-    scrollable: bool | None = Field(None, description='是否导航支持内容溢出滚动。属性废弃，为了兼容暂且保留')
-    side_position: SidePosition | None = Field(None, alias='sidePosition', description='编辑器模式，侧边的位置')
-    add_btn_text: str | None = Field(None, alias='addBtnText', description='自定义增加按钮文案')
+    addable: bool | None = Field(None, description='Component property')
+    closable: bool | None = Field(None, description='Component property')
+    draggable: bool | None = Field(None, description='Component property')
+    show_tip: bool | None = Field(None, alias='showTip', description='Whether visibleTooltip')
+    show_tip_class_name: str | None = Field(None, alias='showTipClassName', description='Component property')
+    editable: bool | None = Field(None, description='Component property')
+    scrollable: bool | None = Field(None, description='Component property')
+    side_position: SidePosition | None = Field(None, alias='sidePosition', description='Component property')
+    add_btn_text: str | None = Field(None, alias='addBtnText', description='Component property')
     default_key: dict[str, Any] | float | None = Field(
-        None, alias='defaultKey', description='初始化激活的选项卡，hash值或索引值，支持使用表达式'
+        None, alias='defaultKey', description='Component property'
     )
     active_key: dict[str, Any] | float | None = Field(
-        None, alias='activeKey', description='激活的选项卡，hash值或索引值，支持使用表达式'
+        None, alias='activeKey', description='Component property'
     )
-    collapse_on_exceed: float | None = Field(None, alias='collapseOnExceed', description='超过多少个时折叠按钮')
-    collapse_btn_label: str | None = Field(None, alias='collapseBtnLabel', description='折叠按钮文字')
-    swipeable: bool | None = Field(None, description='是否滑动切换只在移动端生效')
+    collapse_on_exceed: float | None = Field(None, alias='collapseOnExceed', description='Component property')
+    collapse_btn_label: str | None = Field(None, alias='collapseBtnLabel', description='Component property')
+    swipeable: bool | None = Field(None, description='Component property')
 
 
 class IconPosition(Enum):
@@ -9539,7 +9621,7 @@ class IconPosition(Enum):
 
 class Mode19(Enum):
     """
-    配置子表单项默认的展示方式。
+    AMIS Mode19 component.
     """
 
     normal = 'normal'
@@ -9595,19 +9677,19 @@ class TabSchema(BaseModel):
     use_mobile_ui: bool | None = Field(
         None, alias='useMobileUI', description='Can be used at the component level to turn off mobile styles'
     )
-    title: str | dict[str, Any] | None = Field(None, description='Tab 标题')
+    title: str | dict[str, Any] | None = Field(None, description='Tab Title')
     tab: dict[str, Any] | None = None
     body: dict[str, Any] | None = None
-    badge: float | None = Field(None, description='徽标')
-    hash: str | None = Field(None, description='设置以后将跟url的hash对应')
+    badge: float | None = Field(None, description='Component property')
+    hash: str | None = Field(None, description='Component property')
     icon: str | None = Field(None, description='Class name in iconfont.')
     icon_position: IconPosition | None = Field(None, alias='iconPosition')
-    reload: bool | None = Field(None, description='设置以后内容每次都会重新渲染')
-    mount_on_enter: bool | None = Field(None, alias='mountOnEnter', description='点开时才加载卡片内容')
-    unmount_on_exit: bool | None = Field(None, alias='unmountOnExit', description='卡片隐藏就销毁卡片节点。')
-    mode: Mode19 | None = Field(None, description='配置子表单项默认的展示方式。')
+    reload: bool | None = Field(None, description='Component property')
+    mount_on_enter: bool | None = Field(None, alias='mountOnEnter', description='Component property')
+    unmount_on_exit: bool | None = Field(None, alias='unmountOnExit', description='Component property')
+    mode: Mode19 | None = Field(None, description='Component property')
     horizontal: Horizontal5 | None = None
-    closable: bool | None = Field(None, description='是否可关闭，优先级高于 tabs 的 closable')
+    closable: bool | None = Field(None, description='Component property')
 
 
 class Item(BaseModel):
@@ -9622,7 +9704,7 @@ class Item(BaseModel):
 
 class TasksSchema(BaseModel):
     """
-    Tasks 渲染器，格式说明 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/tasks
+    AMIS TasksSchema component.
     """
 
     model_config = ConfigDict(
@@ -9657,34 +9739,34 @@ class TasksSchema(BaseModel):
         alias='btnClassName',
         description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
-    btn_text: str | None = Field('上线', alias='btnText', description='操作按钮文字')
+    btn_text: str | None = Field('上线', alias='btnText', description='Component property')
     check_api: dict[str, Any] | None = Field(None, alias='checkApi')
     interval: float | None = Field(
-        3000, description='当有任务进行中，会每隔一段时间再次检测，而时间间隔就是通过此项配置，默认 3s。'
+        3000, description='Component property'
     )
     items: list[Item] | None = None
     name: str | None = Field(
         None, description='Component name, this name can be used for positioning and component communication'
     )
-    operation_label: str | None = Field(None, alias='operationLabel', description='操作列说明')
+    operation_label: str | None = Field(None, alias='operationLabel', description='Component property')
     re_submit_api: dict[str, Any] | None = Field(None, alias='reSubmitApi')
-    remark_label: str | None = Field('备注', alias='remarkLabel', description='备注列说明')
+    remark_label: str | None = Field('备注', alias='remarkLabel', description='Component property')
     retry_btn_class_name: dict[str, Any] | None = Field(
         None,
         alias='retryBtnClassName',
         description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
-    retry_btn_text: str | None = Field('重试', alias='retryBtnText', description='重试操作按钮文字')
-    status_label: str | None = Field('状态', alias='statusLabel', description='状态列说明')
+    retry_btn_text: str | None = Field('重试', alias='retryBtnText', description='Component property')
+    status_label: str | None = Field('状态', alias='statusLabel', description='Component property')
     status_label_map: list[str] | None = Field(
         ['label-warning', 'label-info', 'label-success', 'label-danger', 'label-default', 'label-danger'],
         alias='statusLabelMap',
-        description='状态显示对应的类名配置。',
+        description='Component property',
     )
     status_text_map: list[str] | None = Field(
         '["未开始", "就绪", "进行中", "出错", "已完成", "出错"],',
         alias='statusTextMap',
-        description='状态显示对应的文字显示配置。',
+        description='Component property',
     )
     submit_api: dict[str, Any] | None = Field(None, alias='submitApi')
     table_class_name: dict[str, Any] | None = Field(
@@ -9692,7 +9774,7 @@ class TasksSchema(BaseModel):
         alias='tableClassName',
         description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
-    task_name_label: str | None = Field('任务名称', alias='taskNameLabel', description='任务名称列说明')
+    task_name_label: str | None = Field('任务名称', alias='taskNameLabel', description='Component property')
     initial_status_code: float | None = Field(None, alias='initialStatusCode')
     ready_status_code: float | None = Field(None, alias='readyStatusCode')
     loading_status_code: float | None = Field(None, alias='loadingStatusCode')
@@ -9703,7 +9785,7 @@ class TasksSchema(BaseModel):
 
 class VBoxSchema(BaseModel):
     """
-    垂直布局控件 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/vbox
+    AMIS VBoxSchema component.
     """
 
     model_config = ConfigDict(
@@ -9732,7 +9814,7 @@ class VBoxSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     type: Any
     testid: Any | None = None
-    rows: list[dict[str, Any]] | None = Field(None, description='行集合')
+    rows: list[dict[str, Any]] | None = Field(None, description='Component property')
 
 
 class HboxRow(BaseModel):
@@ -9742,7 +9824,7 @@ class HboxRow(BaseModel):
 
 class AspectRatio(Enum):
     """
-    视频比率
+    AMIS AspectRatio component.
     """
 
     auto = 'auto'
@@ -9752,7 +9834,7 @@ class AspectRatio(Enum):
 
 class VideoSchema(BaseModel):
     """
-    视频播放器 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/video
+    AMIS VideoSchema component.
     """
 
     model_config = ConfigDict(
@@ -9781,45 +9863,45 @@ class VideoSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     type: Any
     testid: Any | None = None
-    auto_play: bool | None = Field(None, alias='autoPlay', description='是否自动播放')
+    auto_play: bool | None = Field(None, alias='autoPlay', description='Component property')
     columns_count: float | None = Field(
-        None, alias='columnsCount', description='如果显示切帧，通过此配置项可以控制每行显示多少帧'
+        None, alias='columnsCount', description='Component property'
     )
     frames: dict[str, str] | None = Field(
         None,
-        description="设置后，可以显示切帧.点击帧的时候会将视频跳到对应时间。\n\nframes: {  '01:22': 'http://domain/xxx.jpg' }",
+        description="Component property'01:22': 'http://domain/xxx.jpg' }",
     )
     frames_class_name: dict[str, Any] | None = Field(
         None,
         alias='framesClassName',
         description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
-    is_live: bool | None = Field(None, alias='isLive', description='如果是实时的，请标记一下')
-    jump_frame: bool | None = Field(True, alias='jumpFrame', description='点击帧画面时是否跳转视频对应的点')
-    muted: bool | None = Field(None, description='是否初始静音')
-    loop: bool | None = Field(None, description='是否循环播放')
+    is_live: bool | None = Field(None, alias='isLive', description='Component property')
+    jump_frame: bool | None = Field(True, alias='jumpFrame', description='Component property')
+    muted: bool | None = Field(None, description='Component property')
+    loop: bool | None = Field(None, description='Component property')
     player_class_name: dict[str, Any] | None = Field(
         None,
         alias='playerClassName',
         description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     poster: dict[str, Any] | None = None
-    split_poster: bool | None = Field(None, alias='splitPoster', description='是否将视频和封面分开显示')
+    split_poster: bool | None = Field(None, alias='splitPoster', description='Component property')
     src: dict[str, Any] | None = None
-    video_type: str | None = Field(None, alias='videoType', description='视频类型如： video/x-flv')
-    aspect_ratio: AspectRatio | None = Field(None, alias='aspectRatio', description='视频比率')
-    rates: list[float] | None = Field(None, description='视频速率')
-    jump_buffer_duration: float | None = Field(None, alias='jumpBufferDuration', description='跳转到帧时，往前多少秒。')
+    video_type: str | None = Field(None, alias='videoType', description='Component property')
+    aspect_ratio: AspectRatio | None = Field(None, alias='aspectRatio', description='Component property')
+    rates: list[float] | None = Field(None, description='Component property')
+    jump_buffer_duration: float | None = Field(None, alias='jumpBufferDuration', description='Component property')
     stop_on_next_frame: bool | None = Field(
         None,
         alias='stopOnNextFrame',
-        description='默认播放的时候到了下一帧会继续播放，同时高亮下一帧。 如果配置这个则会停止播放，等待用户选择新的区间再播放。',
+        description='Component property',
     )
 
 
 class Mode20(Enum):
     """
-    展示模式
+    AMIS Mode20 component.
     """
 
     vertical = 'vertical'
@@ -9828,7 +9910,7 @@ class Mode20(Enum):
 
 class WizardSchema(BaseModel):
     """
-    表单向导 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/wizard
+    AMIS WizardSchema component.
     """
 
     model_config = ConfigDict(
@@ -9863,46 +9945,44 @@ class WizardSchema(BaseModel):
         alias='actionClassName',
         description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
-    action_finish_label: str | None = Field(None, alias='actionFinishLabel', description='完成按钮的文字描述')
-    action_next_label: str | None = Field(None, alias='actionNextLabel', description='下一步按钮的文字描述')
+    action_finish_label: str | None = Field(None, alias='actionFinishLabel', description='Component property')
+    action_next_label: str | None = Field(None, alias='actionNextLabel', description='Component property')
     action_next_save_label: str | None = Field(
-        None, alias='actionNextSaveLabel', description='下一步并且保存按钮的文字描述'
+        None, alias='actionNextSaveLabel', description='Component property'
     )
-    action_prev_label: str | None = Field(None, alias='actionPrevLabel', description='上一步按钮的文字描述')
+    action_prev_label: str | None = Field(None, alias='actionPrevLabel', description='Component property')
     api: dict[str, Any] | None = None
-    bulk_submit: bool | None = Field(None, alias='bulkSubmit', description='是否合并后再提交')
+    bulk_submit: bool | None = Field(None, alias='bulkSubmit', description='Component property')
     init_api: dict[str, Any] | None = Field(None, alias='initApi')
-    mode: Mode20 | None = Field('vertical', description='展示模式')
+    mode: Mode20 | None = Field('vertical', description='Component property')
     name: str | None = Field(
         None, description='Component name, this name can be used for positioning and component communication'
     )
-    read_only: bool | None = Field(None, alias='readOnly', description='是否为只读模式。')
+    read_only: bool | None = Field(None, alias='readOnly', description='Component property')
     redirect: str | None = Field(
-        None, description='保存完后，可以指定跳转地址，支持相对路径和组内绝对路径，同时可以通过 $xxx 使用变量'
+        None, description='Component property'
     )
     reload: str | None = Field(
         None,
-        description='配置刷新动作，这个动作通常在完成渲染器本省的固定动作后出发。\n\n一般用来配置目标组件的 name 属性。多个目标可以用逗号隔开。\n\n当目标是 windows 时表示刷新整个页面。\n\n刷新目标的同时还支持传递参数如： `foo?a=${a}&b=${b},boo?c=${c}`',
+        description='Component property',
     )
     target: str | None = Field(
         None,
-        description='默认表单提交自己会通过发送 api 保存数据，但是也可以设定另外一个 form 的 name 值，或者另外一个 `CRUD` 模型的 name 值。 如果 target 目标是一个 `Form` ，则目标 `Form` 会重新触发 `initApi` 和 `schemaApi`，api 可以拿到当前 form 数据。如果目标是一个 `CRUD` 模型，则目标模型会重新触发搜索，参数为当前 Form 数据。',
+        description='Component property',
     )
-    affix_footer: bool | str | None = Field(None, alias='affixFooter', description='是否将底部按钮固定在底部。')
+    affix_footer: bool | str | None = Field(None, alias='affixFooter', description='Component property')
     steps: list[dict[str, Any]]
     start_step: str | None = Field(None, alias='startStep')
-    steps_class_name: str | None = Field(None, alias='stepsClassName', description='步骤条区域css类')
-    body_class_name: str | None = Field(None, alias='bodyClassName', description='表单区域css类')
-    step_class_name: str | None = Field(None, alias='stepClassName', description='step + body区域css类')
-    footer_class_name: str | None = Field(None, alias='footerClassName', description='底部操作栏的css类')
-    wrap_with_panel: bool | None = Field(None, alias='wrapWithPanel', description='是否用panel包裹')
+    steps_class_name: str | None = Field(None, alias='stepsClassName', description='Component property')
+    body_class_name: str | None = Field(None, alias='bodyClassName', description='Component property')
+    step_class_name: str | None = Field(None, alias='stepClassName', description='Component property')
+    footer_class_name: str | None = Field(None, alias='footerClassName', description='Component property')
+    wrap_with_panel: bool | None = Field(None, alias='wrapWithPanel', description='Component property')
 
 
 class WizardStepSchema(BaseModel):
     """
-    Form 表单渲染器。
-
-    说明：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/index
+    AMIS WizardStepSchema component.
     """
 
     model_config = ConfigDict(
@@ -9982,14 +10062,14 @@ class WizardStepSchema(BaseModel):
     prevent_enter_submit: Any | None = Field(None, alias='preventEnterSubmit')
     label_align: Any | None = Field(None, alias='labelAlign')
     label_width: Any | None = Field(None, alias='labelWidth')
-    jumpable: bool | None = Field(None, description='是否可直接跳转到该步骤，一般编辑模式需要可直接跳转查看。')
+    jumpable: bool | None = Field(None, description='Component property')
     jumpable_on: str | None = Field(None, alias='jumpableOn', description='Expression, syntax `${xxx > 5}`.')
     label: str | None = None
 
 
 class DebugConfig(BaseModel):
     """
-    Debug面板配置
+    AMIS DebugConfig component.
     """
 
     model_config = ConfigDict(
@@ -10006,7 +10086,7 @@ class DebugConfig(BaseModel):
 
 class Mode21(Enum):
     """
-    配置表单项默认的展示方式。
+    AMIS Mode21 component.
     """
 
     normal = 'normal'
@@ -10028,9 +10108,7 @@ class Messages6(BaseModel):
 
 class BaseFormSchema(BaseModel):
     """
-    Form 表单渲染器。
-
-    说明：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/index
+    AMIS BaseFormSchema component.
     """
 
     model_config = ConfigDict(
@@ -10047,7 +10125,7 @@ class BaseFormSchema(BaseModel):
     visible_on: Any | None = Field(None, alias='visibleOn')
     id: Any | None = None
     on_event: Any | None = Field(None, alias='onEvent')
-    static: bool | None = Field(None, description='展示态时的className')
+    static: bool | None = Field(None, description='Component property')
     static_on: dict[str, Any] | None = Field(None, alias='staticOn')
     static_placeholder: Any | None = Field(None, alias='staticPlaceholder')
     static_class_name: dict[str, Any] | None = Field(None, alias='staticClassName')
@@ -10057,62 +10135,64 @@ class BaseFormSchema(BaseModel):
     style: Any | None = None
     editor_setting: Any | None = Field(None, alias='editorSetting')
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
-    title: str | None = Field(None, description='表单标题')
-    actions: list[dict[str, Any]] | None = Field(None, description='按钮集合，会固定在底部显示。')
-    body: dict[str, Any] | None = Field(None, description='表单项集合')
+    title: str | None = Field(None, description='Component property')
+    actions: list[dict[str, Any]] | None = Field(None, description='Component property')
+    body: dict[str, Any] | None = Field(None, description='Component property')
     tabs: Any | None = None
     field_set: Any | None = Field(None, alias='fieldSet')
     data: Any | None = None
-    debug: bool | None = Field(None, description='是否开启调试，开启后会在顶部实时显示表单项数据。')
-    debug_config: DebugConfig | None = Field(None, alias='debugConfig', description='Debug面板配置')
-    init_api: dict[str, Any] | None = Field(None, alias='initApi', description='用来初始化表单数据')
+    debug: bool | None = Field(None, description='Component property')
+    debug_config: DebugConfig | None = Field(None, alias='debugConfig', description='Component property')
+    init_api: dict[str, Any] | None = Field(None, alias='initApi', description='Component property')
     init_async_api: dict[str, Any] | None = Field(
         None,
         alias='initAsyncApi',
-        description='Form 用来获取初始数据的 api,与initApi不同的是，会一直轮询请求该接口，直到返回 finished 属性为 true 才 结束。',
+        description='Component property',
     )
     init_finished_field: str | None = Field(
         None,
         alias='initFinishedField',
-        description='设置了initAsyncApi后，默认会从返回数据的data.finished来判断是否完成，也可以设置成其他的xxx，就会从data.xxx中获取',
+        description='Component property',
     )
     init_check_interval: float | None = Field(
-        None, alias='initCheckInterval', description='设置了initAsyncApi以后，默认拉取的时间间隔'
+        None, alias='initCheckInterval', description='Component property'
     )
-    init_fetch: bool | None = Field(None, alias='initFetch', description='是否初始加载')
-    init_fetch_on: str | None = Field(None, alias='initFetchOn', description='建议改成 api 的 sendOn 属性。')
-    interval: float | None = Field(None, description='设置后将轮询调用 initApi')
-    silent_polling: bool | None = Field(None, alias='silentPolling', description='是否静默拉取')
-    stop_auto_refresh_when: str | None = Field(None, alias='stopAutoRefreshWhen', description='配置停止轮询的条件')
-    persist_data: str | None = Field(None, alias='persistData', description='是否开启本地缓存')
+    init_fetch: bool | None = Field(None, alias='initFetch', description='Component property')
+    init_fetch_on: str | None = Field(None, alias='initFetchOn', description='Component property')
+    interval: float | None = Field(None, description='Component property')
+    silent_polling: bool | None = Field(None, alias='silentPolling', description='Component property')
+    stop_auto_refresh_when: str | None = Field(
+        None, alias='stopAutoRefreshWhen', description='Component property'
+    )
+    persist_data: str | None = Field(None, alias='persistData', description='Component property')
     persist_data_keys: list[dict[str, Any]] | None = Field(
-        None, alias='persistDataKeys', description='开启本地缓存后限制保存哪些 key'
+        None, alias='persistDataKeys', description='Component property'
     )
     clear_persist_data_after_submit: bool | None = Field(
-        None, alias='clearPersistDataAfterSubmit', description='提交成功后清空本地缓存'
+        None, alias='clearPersistDataAfterSubmit', description='Component property'
     )
     api: dict[str, Any] | None = Field(
         None,
-        description='Form 用来保存数据的 api。\n\n详情：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/index#%E8%A1%A8%E5%8D%95%E6%8F%90%E4%BA%A4',
+        description='Component property',
     )
-    feedback: Any | None = Field(None, description='Form 也可以配置 feedback。')
+    feedback: Any | None = Field(None, description='Component property')
     async_api: dict[str, Any] | None = Field(
         None,
         alias='asyncApi',
-        description='设置此属性后，表单提交发送保存接口后，还会继续轮询请求该接口，直到返回 finished 属性为 true 才 结束。',
+        description='Component property',
     )
     check_interval: float | None = Field(
-        None, alias='checkInterval', description='轮询请求的时间间隔，默认为 3秒。设置 asyncApi 才有效'
+        None, alias='checkInterval', description='Component property'
     )
     finished_field: str | None = Field(
-        None, alias='finishedField', description='如果决定结束的字段名不是 `finished` 请设置此属性，比如 `is_success`'
+        None, alias='finishedField', description='Component property'
     )
-    reset_after_submit: bool | None = Field(None, alias='resetAfterSubmit', description='提交完后重置表单')
-    clear_after_submit: bool | None = Field(None, alias='clearAfterSubmit', description='提交后清空表单')
-    mode: Mode21 | None = Field(None, description='配置表单项默认的展示方式。')
-    column_count: float | None = Field(None, alias='columnCount', description='表单项显示为几列')
+    reset_after_submit: bool | None = Field(None, alias='resetAfterSubmit', description='Component property')
+    clear_after_submit: bool | None = Field(None, alias='clearAfterSubmit', description='Component property')
+    mode: Mode21 | None = Field(None, description='Component property')
+    column_count: float | None = Field(None, alias='columnCount', description='Component property')
     horizontal: dict[str, Any] | None = None
-    auto_focus: bool | None = Field(None, alias='autoFocus', description='是否自动将第一个表单元素聚焦。')
+    auto_focus: bool | None = Field(None, alias='autoFocus', description='Component property')
     messages: Messages6 | None = Field(
         None,
         description='Message text configuration. Remember that this has the lowest priority. If your interface returns a msg, the interface return takes precedence.',
@@ -10122,57 +10202,57 @@ class BaseFormSchema(BaseModel):
     primary_field: str | None = Field(
         'id',
         alias='primaryField',
-        description='设置主键 id, 当设置后，检测表单是否完成时（asyncApi），只会携带此数据。',
+        description='Component property',
     )
     redirect: str | None = None
     reload: str | None = None
-    submit_on_change: bool | None = Field(None, alias='submitOnChange', description='修改的时候是否直接提交表单。')
-    submit_on_init: bool | None = Field(None, alias='submitOnInit', description='表单初始先提交一次，联动的时候有用')
+    submit_on_change: bool | None = Field(None, alias='submitOnChange', description='Component property')
+    submit_on_init: bool | None = Field(None, alias='submitOnInit', description='Component property')
     submit_text: str | None = Field(
-        None, alias='submitText', description='默认的提交按钮名称，如果设置成空，则可以把默认按钮去掉。'
+        None, alias='submitText', description='Component property'
     )
     target: str | None = Field(
         None,
-        description='默认表单提交自己会通过发送 api 保存数据，但是也可以设定另外一个 form 的 name 值，或者另外一个 `CRUD` 模型的 name 值。 如果 target 目标是一个 `Form` ，则目标 `Form` 会重新触发 `initApi` 和 `schemaApi`，api 可以拿到当前 form 数据。如果目标是一个 `CRUD` 模型，则目标模型会重新触发搜索，参数为当前 Form 数据。',
+        description='Component property',
     )
-    wrap_with_panel: bool | None = Field(None, alias='wrapWithPanel', description='是否用 panel 包裹起来')
-    affix_footer: bool | None = Field(None, alias='affixFooter', description='是否固定底下的按钮在底部。')
+    wrap_with_panel: bool | None = Field(None, alias='wrapWithPanel', description='Component property')
+    affix_footer: bool | None = Field(None, alias='affixFooter', description='Component property')
     prompt_page_leave: bool | None = Field(
-        None, alias='promptPageLeave', description='页面离开提示，为了防止页面不小心跳转而导致表单没有保存。'
+        None, alias='promptPageLeave', description='Component property'
     )
     prompt_page_leave_message: str | None = Field(
-        None, alias='promptPageLeaveMessage', description='具体的提示信息，选填。'
+        None, alias='promptPageLeaveMessage', description='Component property'
     )
-    rules: list[dict[str, Any]] | None = Field(None, description='组合校验规则，选填')
-    prevent_enter_submit: bool | None = Field(None, alias='preventEnterSubmit', description='禁用回车提交')
+    rules: list[dict[str, Any]] | None = Field(None, description='Component property')
+    prevent_enter_submit: bool | None = Field(None, alias='preventEnterSubmit', description='Component property')
     label_align: dict[str, Any] | None = Field(None, alias='labelAlign')
-    label_width: float | str | None = Field(None, alias='labelWidth', description='label自定义宽度，默认单位为px')
+    label_width: float | str | None = Field(None, alias='labelWidth', description='Component property')
 
 
 class DebugConfig1(BaseModel):
     """
-    Debug面板配置
+    AMIS DebugConfig1 component.
     """
 
     model_config = ConfigDict(
         extra='forbid',
     )
-    level_expand: float | None = Field(None, alias='levelExpand', description='默认展开的级别')
-    enable_clipboard: bool | None = Field(None, alias='enableClipboard', description='是否可复制')
-    icon_style: IconStyle | None = Field(None, alias='iconStyle', description='图标风格')
-    quotes_on_keys: bool | None = Field(None, alias='quotesOnKeys', description='Whether visible键的引号')
-    sort_keys: bool | None = Field(None, alias='sortKeys', description='是否为键排序')
+    level_expand: float | None = Field(None, alias='levelExpand', description='Component property')
+    enable_clipboard: bool | None = Field(None, alias='enableClipboard', description='Component property')
+    icon_style: IconStyle | None = Field(None, alias='iconStyle', description='Component property')
+    quotes_on_keys: bool | None = Field(None, alias='quotesOnKeys', description='Component property')
+    sort_keys: bool | None = Field(None, alias='sortKeys', description='Component property')
     ellipsis_threshold: float | bool | None = Field(
         None,
         alias='ellipsisThreshold',
-        description='设置字符串的最大展示长度，超出长度阈值的字符串将被截断，点击value可切换字符串展示方式，默认为120',
+        description='Component property',
     )
     label_overflow: LabelOverflow2 | None = Field(None, alias='labelOverflow')
 
 
 class InitApi(BaseModel):
     """
-    用来初始化表单数据
+    AMIS InitApi component.
     """
 
     model_config = ConfigDict(
@@ -10201,7 +10281,7 @@ class InitApi(BaseModel):
 
 class InitAsyncApi(BaseModel):
     """
-    Form 用来获取初始数据的 api,与initApi不同的是，会一直轮询请求该接口，直到返回 finished 属性为 true 才 结束。
+    AMIS InitAsyncApi component.
     """
 
     model_config = ConfigDict(
@@ -10230,9 +10310,7 @@ class InitAsyncApi(BaseModel):
 
 class Api(BaseModel):
     """
-    Form 用来保存数据的 api。
-
-    详情：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/index#%E8%A1%A8%E5%8D%95%E6%8F%90%E4%BA%A4
+    AMIS Api component.
     """
 
     model_config = ConfigDict(
@@ -10261,7 +10339,7 @@ class Api(BaseModel):
 
 class AsyncApi(BaseModel):
     """
-    设置此属性后，表单提交发送保存接口后，还会继续轮询请求该接口，直到返回 finished 属性为 true 才 结束。
+    AMIS AsyncApi component.
     """
 
     model_config = ConfigDict(
@@ -10297,7 +10375,7 @@ class Horizontal6(BaseModel):
     left_fixed: dict[str, Any] | None = Field(None, alias='leftFixed')
     justify: bool | None = None
     label_align: LabelAlign3 | None = Field(None, alias='labelAlign')
-    label_width: float | str | None = Field(None, alias='labelWidth', description='label自定义宽度，默认单位为px')
+    label_width: float | str | None = Field(None, alias='labelWidth', description='Component property')
     label_overflow: LabelOverflow2 | None = Field(None, alias='labelOverflow')
 
 
@@ -10309,7 +10387,7 @@ class Messages7(BaseModel):
     model_config = ConfigDict(
         extra='forbid',
     )
-    validate_failed: str | None = Field(None, alias='validateFailed', description='表单验证失败时的提示')
+    validate_failed: str | None = Field(None, alias='validateFailed', description='Component property')
 
 
 class Rule(BaseModel):
@@ -10332,62 +10410,64 @@ class FormSchemaBase(BaseModel):
     model_config = ConfigDict(
         extra='forbid',
     )
-    title: str | None = Field(None, description='表单标题')
-    actions: list[Any] | None = Field(None, description='按钮集合，会固定在底部显示。')
-    body: Any | None = Field(None, description='表单项集合')
+    title: str | None = Field(None, description='Component property')
+    actions: list[Any] | None = Field(None, description='Component property')
+    body: Any | None = Field(None, description='Component property')
     tabs: Any | None = None
     field_set: Any | None = Field(None, alias='fieldSet')
     data: Any | None = None
-    debug: bool | None = Field(None, description='是否开启调试，开启后会在顶部实时显示表单项数据。')
-    debug_config: DebugConfig1 | None = Field(None, alias='debugConfig', description='Debug面板配置')
-    init_api: str | InitApi | None = Field(None, alias='initApi', description='用来初始化表单数据')
+    debug: bool | None = Field(None, description='Component property')
+    debug_config: DebugConfig1 | None = Field(None, alias='debugConfig', description='Component property')
+    init_api: str | InitApi | None = Field(None, alias='initApi', description='Component property')
     init_async_api: str | InitAsyncApi | None = Field(
         None,
         alias='initAsyncApi',
-        description='Form 用来获取初始数据的 api,与initApi不同的是，会一直轮询请求该接口，直到返回 finished 属性为 true 才 结束。',
+        description='Component property',
     )
     init_finished_field: str | None = Field(
         None,
         alias='initFinishedField',
-        description='设置了initAsyncApi后，默认会从返回数据的data.finished来判断是否完成，也可以设置成其他的xxx，就会从data.xxx中获取',
+        description='Component property',
     )
     init_check_interval: float | None = Field(
-        None, alias='initCheckInterval', description='设置了initAsyncApi以后，默认拉取的时间间隔'
+        None, alias='initCheckInterval', description='Component property'
     )
-    init_fetch: bool | None = Field(None, alias='initFetch', description='是否初始加载')
-    init_fetch_on: str | None = Field(None, alias='initFetchOn', description='建议改成 api 的 sendOn 属性。')
-    interval: float | None = Field(None, description='设置后将轮询调用 initApi')
-    silent_polling: bool | None = Field(None, alias='silentPolling', description='是否静默拉取')
-    stop_auto_refresh_when: str | None = Field(None, alias='stopAutoRefreshWhen', description='配置停止轮询的条件')
-    persist_data: str | None = Field(None, alias='persistData', description='是否开启本地缓存')
+    init_fetch: bool | None = Field(None, alias='initFetch', description='Component property')
+    init_fetch_on: str | None = Field(None, alias='initFetchOn', description='Component property')
+    interval: float | None = Field(None, description='Component property')
+    silent_polling: bool | None = Field(None, alias='silentPolling', description='Component property')
+    stop_auto_refresh_when: str | None = Field(
+        None, alias='stopAutoRefreshWhen', description='Component property'
+    )
+    persist_data: str | None = Field(None, alias='persistData', description='Component property')
     persist_data_keys: list[str] | None = Field(
-        None, alias='persistDataKeys', description='开启本地缓存后限制保存哪些 key'
+        None, alias='persistDataKeys', description='Component property'
     )
     clear_persist_data_after_submit: bool | None = Field(
-        None, alias='clearPersistDataAfterSubmit', description='提交成功后清空本地缓存'
+        None, alias='clearPersistDataAfterSubmit', description='Component property'
     )
     api: str | Api | None = Field(
         None,
-        description='Form 用来保存数据的 api。\n\n详情：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/index#%E8%A1%A8%E5%8D%95%E6%8F%90%E4%BA%A4',
+        description='Component property',
     )
-    feedback: Any | None = Field(None, description='Form 也可以配置 feedback。')
+    feedback: Any | None = Field(None, description='Component property')
     async_api: str | AsyncApi | None = Field(
         None,
         alias='asyncApi',
-        description='设置此属性后，表单提交发送保存接口后，还会继续轮询请求该接口，直到返回 finished 属性为 true 才 结束。',
+        description='Component property',
     )
     check_interval: float | None = Field(
-        None, alias='checkInterval', description='轮询请求的时间间隔，默认为 3秒。设置 asyncApi 才有效'
+        None, alias='checkInterval', description='Component property'
     )
     finished_field: str | None = Field(
-        None, alias='finishedField', description='如果决定结束的字段名不是 `finished` 请设置此属性，比如 `is_success`'
+        None, alias='finishedField', description='Component property'
     )
-    reset_after_submit: bool | None = Field(None, alias='resetAfterSubmit', description='提交完后重置表单')
-    clear_after_submit: bool | None = Field(None, alias='clearAfterSubmit', description='提交后清空表单')
-    mode: Mode21 | None = Field(None, description='配置表单项默认的展示方式。')
-    column_count: float | None = Field(None, alias='columnCount', description='表单项显示为几列')
+    reset_after_submit: bool | None = Field(None, alias='resetAfterSubmit', description='Component property')
+    clear_after_submit: bool | None = Field(None, alias='clearAfterSubmit', description='Component property')
+    mode: Mode21 | None = Field(None, description='Component property')
+    column_count: float | None = Field(None, alias='columnCount', description='Component property')
     horizontal: Horizontal6 | None = None
-    auto_focus: bool | None = Field(None, alias='autoFocus', description='是否自动将第一个表单元素聚焦。')
+    auto_focus: bool | None = Field(None, alias='autoFocus', description='Component property')
     messages: Messages7 | None = Field(
         None,
         description='Message text configuration. Remember that this has the lowest priority. If your interface returns a msg, the interface return takes precedence.',
@@ -10397,32 +10477,32 @@ class FormSchemaBase(BaseModel):
     primary_field: str | None = Field(
         'id',
         alias='primaryField',
-        description='设置主键 id, 当设置后，检测表单是否完成时（asyncApi），只会携带此数据。',
+        description='Component property',
     )
     redirect: str | None = None
     reload: str | None = None
-    submit_on_change: bool | None = Field(None, alias='submitOnChange', description='修改的时候是否直接提交表单。')
-    submit_on_init: bool | None = Field(None, alias='submitOnInit', description='表单初始先提交一次，联动的时候有用')
+    submit_on_change: bool | None = Field(None, alias='submitOnChange', description='Component property')
+    submit_on_init: bool | None = Field(None, alias='submitOnInit', description='Component property')
     submit_text: str | None = Field(
-        None, alias='submitText', description='默认的提交按钮名称，如果设置成空，则可以把默认按钮去掉。'
+        None, alias='submitText', description='Component property'
     )
     target: str | None = Field(
         None,
-        description='默认表单提交自己会通过发送 api 保存数据，但是也可以设定另外一个 form 的 name 值，或者另外一个 `CRUD` 模型的 name 值。 如果 target 目标是一个 `Form` ，则目标 `Form` 会重新触发 `initApi` 和 `schemaApi`，api 可以拿到当前 form 数据。如果目标是一个 `CRUD` 模型，则目标模型会重新触发搜索，参数为当前 Form 数据。',
+        description='Component property',
     )
-    wrap_with_panel: bool | None = Field(None, alias='wrapWithPanel', description='是否用 panel 包裹起来')
-    affix_footer: bool | None = Field(None, alias='affixFooter', description='是否固定底下的按钮在底部。')
+    wrap_with_panel: bool | None = Field(None, alias='wrapWithPanel', description='Component property')
+    affix_footer: bool | None = Field(None, alias='affixFooter', description='Component property')
     prompt_page_leave: bool | None = Field(
-        None, alias='promptPageLeave', description='页面离开提示，为了防止页面不小心跳转而导致表单没有保存。'
+        None, alias='promptPageLeave', description='Component property'
     )
     prompt_page_leave_message: str | None = Field(
-        None, alias='promptPageLeaveMessage', description='具体的提示信息，选填。'
+        None, alias='promptPageLeaveMessage', description='Component property'
     )
-    rules: list[Rule] | None = Field(None, description='组合校验规则，选填')
-    prevent_enter_submit: bool | None = Field(None, alias='preventEnterSubmit', description='禁用回车提交')
+    rules: list[Rule] | None = Field(None, description='Component property')
+    prevent_enter_submit: bool | None = Field(None, alias='preventEnterSubmit', description='Component property')
     label_align: LabelAlign7 | None = Field(None, alias='labelAlign')
-    label_width: float | str | None = Field(None, alias='labelWidth', description='label自定义宽度，默认单位为px')
-    static: bool | None = Field(None, description='展示态时的className')
+    label_width: float | str | None = Field(None, alias='labelWidth', description='Component property')
+    static: bool | None = Field(None, description='Component property')
     static_on: str | None = Field(None, alias='staticOn', description='Expression, syntax `${xxx > 5}`.')
     static_class_name: str | dict[str, dict[str, Any]] | None = Field(
         None,
@@ -10466,11 +10546,11 @@ class StepSchema(BaseModel):
     use_mobile_ui: bool | None = Field(
         None, alias='useMobileUI', description='Can be used at the component level to turn off mobile styles'
     )
-    title: str | dict[str, Any] | None = Field(None, description='标题')
-    sub_title: str | dict[str, Any] | None = Field(None, alias='subTitle', description='子标题')
-    icon: str | None = Field(None, description='图标')
+    title: str | dict[str, Any] | None = Field(None, description='Title')
+    sub_title: str | dict[str, Any] | None = Field(None, alias='subTitle', description='Component property')
+    icon: str | None = Field(None, description='Component property')
     value: str | float | None = None
-    description: str | dict[str, Any] | None = Field(None, description='描述')
+    description: str | dict[str, Any] | None = Field(None, description='Component property')
 
 
 class Size10(Enum):
@@ -10483,7 +10563,7 @@ class Size10(Enum):
 
 class WrapperSchema(BaseModel):
     """
-    Wrapper 容器渲染器。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/wrapper
+    AMIS WrapperSchema component.
     """
 
     model_config = ConfigDict(
@@ -10519,7 +10599,7 @@ class WrapperSchema(BaseModel):
 
 class Placement1(Enum):
     """
-    文字提示浮层出现位置，默认为top
+    AMIS Placement1 component.
     """
 
     top = 'top'
@@ -10530,7 +10610,7 @@ class Placement1(Enum):
 
 class TooltipTheme(Enum):
     """
-    主题样式， 默认为light
+    AMIS TooltipTheme component.
     """
 
     light = 'light'
@@ -10564,24 +10644,28 @@ class TooltipWrapperSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     type: Any
     testid: Any | None = None
-    title: str | None = Field(None, description='文字Tooltip title')
-    content: str | None = Field(None, description='文字提示内容，兼容 tooltip，但建议通过 content 来实现提示内容')
+    title: str | None = Field(None, description='Component property')
+    content: str | None = Field(
+        None, description='Component property'
+    )
     tooltip: str | None = None
-    placement: Placement1 | None = Field(None, description='文字提示浮层出现位置，默认为top')
-    offset: list[float] | None = Field(None, description='浮层位置相对偏移量', max_length=2, min_length=2)
-    show_arrow: bool | None = Field(None, alias='showArrow', description='是否展示浮层指向箭头')
-    trigger: dict[str, Any] | list[dict[str, Any]] | None = Field(None, description='浮层触发方式，默认为hover')
-    mouse_enter_delay: float | None = Field(None, alias='mouseEnterDelay', description='浮层延迟显示时间, 单位 ms')
-    mouse_leave_delay: float | None = Field(None, alias='mouseLeaveDelay', description='浮层延迟隐藏时间, 单位 ms')
-    root_close: bool | None = Field(None, alias='rootClose', description='是否点击非Content area关闭提示，默认为true')
+    placement: Placement1 | None = Field(None, description='Component property')
+    offset: list[float] | None = Field(None, description='Component property', max_length=2, min_length=2)
+    show_arrow: bool | None = Field(None, alias='showArrow', description='Component property')
+    trigger: dict[str, Any] | list[dict[str, Any]] | None = Field(None, description='Component property')
+    mouse_enter_delay: float | None = Field(None, alias='mouseEnterDelay', description='Component property')
+    mouse_leave_delay: float | None = Field(None, alias='mouseLeaveDelay', description='Component property')
+    root_close: bool | None = Field(
+        None, alias='rootClose', description='Component property'
+    )
     body: dict[str, Any] | None = None
-    wrapper_component: str = Field(..., alias='wrapperComponent', description='内容区包裹标签')
-    inline: bool | None = Field(None, description='内容区是否内联显示，默认为false')
-    tooltip_theme: TooltipTheme | None = Field(None, alias='tooltipTheme', description='主题样式， 默认为light')
-    enterable: bool | None = Field(None, description='是否可以移入浮层中, 默认true')
-    tooltip_style: dict[str, Any] | None = Field(None, alias='tooltipStyle', description='自定义提示浮层样式')
-    tooltip_arrow_class_name: str | None = Field(None, alias='tooltipArrowClassName', description='箭头CSS类名')
-    tooltip_class_name: str | None = Field(None, alias='tooltipClassName', description='文字提示浮层CSS类名')
+    wrapper_component: str = Field(..., alias='wrapperComponent', description='Component property')
+    inline: bool | None = Field(None, description='Component property')
+    tooltip_theme: TooltipTheme | None = Field(None, alias='tooltipTheme', description='Component property')
+    enterable: bool | None = Field(None, description='Component property')
+    tooltip_style: dict[str, Any] | None = Field(None, alias='tooltipStyle', description='Component property')
+    tooltip_arrow_class_name: str | None = Field(None, alias='tooltipArrowClassName', description='Component property')
+    tooltip_class_name: str | None = Field(None, alias='tooltipClassName', description='Component property')
 
 
 class Trigger4(Enum):
@@ -10592,7 +10676,7 @@ class Trigger4(Enum):
 
 class DebugConfig2(BaseModel):
     """
-    Debug面板配置
+    AMIS DebugConfig2 component.
     """
 
     model_config = ConfigDict(
@@ -10633,7 +10717,7 @@ class FormSchema(BaseModel):
     visible_on: Any | None = Field(None, alias='visibleOn')
     id: Any | None = None
     on_event: Any | None = Field(None, alias='onEvent')
-    static: bool | None = Field(None, description='展示态时的className')
+    static: bool | None = Field(None, description='Component property')
     static_on: dict[str, Any] | None = Field(None, alias='staticOn')
     static_placeholder: Any | None = Field(None, alias='staticPlaceholder')
     static_class_name: dict[str, Any] | None = Field(None, alias='staticClassName')
@@ -10643,62 +10727,64 @@ class FormSchema(BaseModel):
     style: Any | None = None
     editor_setting: Any | None = Field(None, alias='editorSetting')
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
-    title: str | None = Field(None, description='表单标题')
-    actions: list[dict[str, Any]] | None = Field(None, description='按钮集合，会固定在底部显示。')
-    body: dict[str, Any] | None = Field(None, description='表单项集合')
+    title: str | None = Field(None, description='Component property')
+    actions: list[dict[str, Any]] | None = Field(None, description='Component property')
+    body: dict[str, Any] | None = Field(None, description='Component property')
     tabs: Any | None = None
     field_set: Any | None = Field(None, alias='fieldSet')
     data: Any | None = None
-    debug: bool | None = Field(None, description='是否开启调试，开启后会在顶部实时显示表单项数据。')
-    debug_config: DebugConfig2 | None = Field(None, alias='debugConfig', description='Debug面板配置')
-    init_api: dict[str, Any] | None = Field(None, alias='initApi', description='用来初始化表单数据')
+    debug: bool | None = Field(None, description='Component property')
+    debug_config: DebugConfig2 | None = Field(None, alias='debugConfig', description='Component property')
+    init_api: dict[str, Any] | None = Field(None, alias='initApi', description='Component property')
     init_async_api: dict[str, Any] | None = Field(
         None,
         alias='initAsyncApi',
-        description='Form 用来获取初始数据的 api,与initApi不同的是，会一直轮询请求该接口，直到返回 finished 属性为 true 才 结束。',
+        description='Component property',
     )
     init_finished_field: str | None = Field(
         None,
         alias='initFinishedField',
-        description='设置了initAsyncApi后，默认会从返回数据的data.finished来判断是否完成，也可以设置成其他的xxx，就会从data.xxx中获取',
+        description='Component property',
     )
     init_check_interval: float | None = Field(
-        None, alias='initCheckInterval', description='设置了initAsyncApi以后，默认拉取的时间间隔'
+        None, alias='initCheckInterval', description='Component property'
     )
-    init_fetch: bool | None = Field(None, alias='initFetch', description='是否初始加载')
-    init_fetch_on: str | None = Field(None, alias='initFetchOn', description='建议改成 api 的 sendOn 属性。')
-    interval: float | None = Field(None, description='设置后将轮询调用 initApi')
-    silent_polling: bool | None = Field(None, alias='silentPolling', description='是否静默拉取')
-    stop_auto_refresh_when: str | None = Field(None, alias='stopAutoRefreshWhen', description='配置停止轮询的条件')
-    persist_data: str | None = Field(None, alias='persistData', description='是否开启本地缓存')
+    init_fetch: bool | None = Field(None, alias='initFetch', description='Component property')
+    init_fetch_on: str | None = Field(None, alias='initFetchOn', description='Component property')
+    interval: float | None = Field(None, description='Component property')
+    silent_polling: bool | None = Field(None, alias='silentPolling', description='Component property')
+    stop_auto_refresh_when: str | None = Field(
+        None, alias='stopAutoRefreshWhen', description='Component property'
+    )
+    persist_data: str | None = Field(None, alias='persistData', description='Component property')
     persist_data_keys: list[dict[str, Any]] | None = Field(
-        None, alias='persistDataKeys', description='开启本地缓存后限制保存哪些 key'
+        None, alias='persistDataKeys', description='Component property'
     )
     clear_persist_data_after_submit: bool | None = Field(
-        None, alias='clearPersistDataAfterSubmit', description='提交成功后清空本地缓存'
+        None, alias='clearPersistDataAfterSubmit', description='Component property'
     )
     api: dict[str, Any] | None = Field(
         None,
-        description='Form 用来保存数据的 api。\n\n详情：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/index#%E8%A1%A8%E5%8D%95%E6%8F%90%E4%BA%A4',
+        description='Component property',
     )
-    feedback: Any | None = Field(None, description='Form 也可以配置 feedback。')
+    feedback: Any | None = Field(None, description='Component property')
     async_api: dict[str, Any] | None = Field(
         None,
         alias='asyncApi',
-        description='设置此属性后，表单提交发送保存接口后，还会继续轮询请求该接口，直到返回 finished 属性为 true 才 结束。',
+        description='Component property',
     )
     check_interval: float | None = Field(
-        None, alias='checkInterval', description='轮询请求的时间间隔，默认为 3秒。设置 asyncApi 才有效'
+        None, alias='checkInterval', description='Component property'
     )
     finished_field: str | None = Field(
-        None, alias='finishedField', description='如果决定结束的字段名不是 `finished` 请设置此属性，比如 `is_success`'
+        None, alias='finishedField', description='Component property'
     )
-    reset_after_submit: bool | None = Field(None, alias='resetAfterSubmit', description='提交完后重置表单')
-    clear_after_submit: bool | None = Field(None, alias='clearAfterSubmit', description='提交后清空表单')
-    mode: Mode21 | None = Field(None, description='配置表单项默认的展示方式。')
-    column_count: float | None = Field(None, alias='columnCount', description='表单项显示为几列')
+    reset_after_submit: bool | None = Field(None, alias='resetAfterSubmit', description='Component property')
+    clear_after_submit: bool | None = Field(None, alias='clearAfterSubmit', description='Component property')
+    mode: Mode21 | None = Field(None, description='Component property')
+    column_count: float | None = Field(None, alias='columnCount', description='Component property')
     horizontal: dict[str, Any] | None = None
-    auto_focus: bool | None = Field(None, alias='autoFocus', description='是否自动将第一个表单元素聚焦。')
+    auto_focus: bool | None = Field(None, alias='autoFocus', description='Component property')
     messages: Messages8 | None = Field(
         None,
         description='Message text configuration. Remember that this has the lowest priority. If your interface returns a msg, the interface return takes precedence.',
@@ -10708,31 +10794,31 @@ class FormSchema(BaseModel):
     primary_field: str | None = Field(
         'id',
         alias='primaryField',
-        description='设置主键 id, 当设置后，检测表单是否完成时（asyncApi），只会携带此数据。',
+        description='Component property',
     )
     redirect: str | None = None
     reload: str | None = None
-    submit_on_change: bool | None = Field(None, alias='submitOnChange', description='修改的时候是否直接提交表单。')
-    submit_on_init: bool | None = Field(None, alias='submitOnInit', description='表单初始先提交一次，联动的时候有用')
+    submit_on_change: bool | None = Field(None, alias='submitOnChange', description='Component property')
+    submit_on_init: bool | None = Field(None, alias='submitOnInit', description='Component property')
     submit_text: str | None = Field(
-        None, alias='submitText', description='默认的提交按钮名称，如果设置成空，则可以把默认按钮去掉。'
+        None, alias='submitText', description='Component property'
     )
     target: str | None = Field(
         None,
-        description='默认表单提交自己会通过发送 api 保存数据，但是也可以设定另外一个 form 的 name 值，或者另外一个 `CRUD` 模型的 name 值。 如果 target 目标是一个 `Form` ，则目标 `Form` 会重新触发 `initApi` 和 `schemaApi`，api 可以拿到当前 form 数据。如果目标是一个 `CRUD` 模型，则目标模型会重新触发搜索，参数为当前 Form 数据。',
+        description='Component property',
     )
-    wrap_with_panel: bool | None = Field(None, alias='wrapWithPanel', description='是否用 panel 包裹起来')
-    affix_footer: bool | None = Field(None, alias='affixFooter', description='是否固定底下的按钮在底部。')
+    wrap_with_panel: bool | None = Field(None, alias='wrapWithPanel', description='Component property')
+    affix_footer: bool | None = Field(None, alias='affixFooter', description='Component property')
     prompt_page_leave: bool | None = Field(
-        None, alias='promptPageLeave', description='页面离开提示，为了防止页面不小心跳转而导致表单没有保存。'
+        None, alias='promptPageLeave', description='Component property'
     )
     prompt_page_leave_message: str | None = Field(
-        None, alias='promptPageLeaveMessage', description='具体的提示信息，选填。'
+        None, alias='promptPageLeaveMessage', description='Component property'
     )
-    rules: list[dict[str, Any]] | None = Field(None, description='组合校验规则，选填')
-    prevent_enter_submit: bool | None = Field(None, alias='preventEnterSubmit', description='禁用回车提交')
+    rules: list[dict[str, Any]] | None = Field(None, description='Component property')
+    prevent_enter_submit: bool | None = Field(None, alias='preventEnterSubmit', description='Component property')
     label_align: dict[str, Any] | None = Field(None, alias='labelAlign')
-    label_width: float | str | None = Field(None, alias='labelWidth', description='label自定义宽度，默认单位为px')
+    label_width: float | str | None = Field(None, alias='labelWidth', description='Component property')
     type: Literal['form']
 
 
@@ -10743,7 +10829,7 @@ class Direction3(Enum):
 
 class AnchorNavSchema(BaseModel):
     """
-    AnchorNav 锚点导航渲染器 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/anchor-nav
+    AMIS AnchorNavSchema component.
     """
 
     model_config = ConfigDict(
@@ -10772,8 +10858,8 @@ class AnchorNavSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     type: Any
     testid: Any | None = None
-    links: list[dict[str, Any]] = Field(..., description='楼层集合')
-    active: str | float | None = Field(None, description='被激活（定位）的楼层')
+    links: list[dict[str, Any]] = Field(..., description='Component property')
+    active: str | float | None = Field(None, description='Component property')
     link_class_name: dict[str, Any] | None = Field(
         None,
         alias='linkClassName',
@@ -10789,7 +10875,7 @@ class AnchorNavSchema(BaseModel):
 
 class AnchorNavSectionSchema(BaseModel):
     """
-    AnchorNavSection 锚点区域渲染器 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/anchor-nav
+    AMIS AnchorNavSectionSchema component.
     """
 
     model_config = ConfigDict(
@@ -10826,15 +10912,15 @@ class AnchorNavSectionSchema(BaseModel):
     use_mobile_ui: bool | None = Field(
         None, alias='useMobileUI', description='Can be used at the component level to turn off mobile styles'
     )
-    title: str = Field(..., description='导航文字说明')
-    href: str | None = Field(None, description='锚点链接')
+    title: str = Field(..., description='Component property')
+    href: str | None = Field(None, description='Component property')
     body: dict[str, Any] | None = None
-    children: list[dict[str, Any]] | None = Field(None, description='子节点')
+    children: list[dict[str, Any]] | None = Field(None, description='Component property')
 
 
 class Mode24(Enum):
     """
-    展示模式
+    AMIS Mode24 component.
     """
 
     horizontal = 'horizontal'
@@ -10843,7 +10929,7 @@ class Mode24(Enum):
 
 class LabelPlacement(Enum):
     """
-    标签放置位置
+    AMIS LabelPlacement component.
     """
 
     horizontal = 'horizontal'
@@ -10877,15 +10963,15 @@ class StepsSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     type: Any
     testid: Any | None = None
-    steps: list[dict[str, Any]] | None = Field(None, description='步骤')
-    source: str | None = Field(None, description='API 或 数据映射')
-    value: float | str | None = Field(None, description='指定当前步骤')
-    name: str | None = Field(None, description='变量映射')
+    steps: list[dict[str, Any]] | None = Field(None, description='Component property')
+    source: str | None = Field(None, description='Component property')
+    value: float | str | None = Field(None, description='Component property')
+    name: str | None = Field(None, description='Component property')
     status: dict[str, Any] | dict[str, dict[str, Any]] | None = None
-    mode: Mode24 | None = Field(None, description='展示模式')
-    label_placement: LabelPlacement | None = Field(None, alias='labelPlacement', description='标签放置位置')
-    progress_dot: bool | None = Field(None, alias='progressDot', description='点状步骤条')
-    icon_position: Literal[False] = Field(..., alias='iconPosition', description='切换图标位置')
+    mode: Mode24 | None = Field(None, description='Component property')
+    label_placement: LabelPlacement | None = Field(None, alias='labelPlacement', description='Component property')
+    progress_dot: bool | None = Field(None, alias='progressDot', description='Component property')
+    icon_position: Literal[False] = Field(..., alias='iconPosition', description='Component property')
 
 
 class StepStatus(Enum):
@@ -10897,7 +10983,7 @@ class StepStatus(Enum):
 
 class TabsMode2(Enum):
     """
-    展示形式
+    AMIS TabsMode2 component.
     """
 
     field_ = ''
@@ -10943,15 +11029,15 @@ class PortletSchema(BaseModel):
     use_mobile_ui: bool | None = Field(
         None, alias='useMobileUI', description='Can be used at the component level to turn off mobile styles'
     )
-    type: Literal['portlet'] = Field(..., description='指定为 portlet 类型')
+    type: Literal['portlet'] = Field(..., description='Component property')
     tabs: list[dict[str, Any]]
-    source: str | None = Field(None, description='关联已有数据，选项卡直接根据目标数据重复。')
+    source: str | None = Field(None, description='Component property')
     tabs_class_name: dict[str, Any] | None = Field(
         None,
         alias='tabsClassName',
         description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
-    tabs_mode: TabsMode2 | None = Field(None, alias='tabsMode', description='展示形式')
+    tabs_mode: TabsMode2 | None = Field(None, alias='tabsMode', description='Component property')
     content_class_name: dict[str, Any] | None = Field(
         None,
         alias='contentClassName',
@@ -10962,21 +11048,23 @@ class PortletSchema(BaseModel):
         alias='linksClassName',
         description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
-    mount_on_enter: bool | None = Field(None, alias='mountOnEnter', description='卡片是否只有在点开的时候加载？')
-    unmount_on_exit: bool | None = Field(None, alias='unmountOnExit', description='卡片隐藏的时候是否销毁卡片内容')
-    toolbar: list[dict[str, Any]] | None = Field(None, description='可以在右侧配置点其他功能按钮。不会随着tab切换')
-    scrollable: bool | None = Field(None, description='是否支持溢出滚动')
-    divider: bool | None = Field(None, description='header和内容是否展示分割线')
+    mount_on_enter: bool | None = Field(None, alias='mountOnEnter', description='Component property')
+    unmount_on_exit: bool | None = Field(
+        None, alias='unmountOnExit', description='Component property'
+    )
+    toolbar: list[dict[str, Any]] | None = Field(None, description='Component property')
+    scrollable: bool | None = Field(None, description='Component property')
+    divider: bool | None = Field(None, description='Component property')
     description: str | None = Field(
         None,
-        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/en-US/docs/concepts/template',
     )
-    hide_header: bool | None = Field(None, alias='hideHeader', description='隐藏头部')
+    hide_header: bool | None = Field(None, alias='hideHeader', description='Component property')
 
 
 class PortletTabSchema(BaseModel):
     """
-    栏目容器渲染器。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/portlet
+    AMIS PortletTabSchema component.
     """
 
     model_config = ConfigDict(
@@ -11013,20 +11101,22 @@ class PortletTabSchema(BaseModel):
     use_mobile_ui: bool | None = Field(
         None, alias='useMobileUI', description='Can be used at the component level to turn off mobile styles'
     )
-    title: str | None = Field(None, description='Tab 标题')
+    title: str | None = Field(None, description='Tab Title')
     tab: dict[str, Any] | None = None
-    toolbar: list[dict[str, Any]] | None = Field(None, description='可以在右侧配置点其他功能按钮，随着tab切换而切换')
+    toolbar: list[dict[str, Any]] | None = Field(
+        None, description='Component property'
+    )
     body: dict[str, Any] | None = None
     icon: str | None = Field(None, description='Class name in iconfont.')
     icon_position: IconPosition | None = Field(None, alias='iconPosition')
-    reload: bool | None = Field(None, description='设置以后内容每次都会重新渲染')
-    mount_on_enter: bool | None = Field(None, alias='mountOnEnter', description='点开时才加载卡片内容')
-    unmount_on_exit: bool | None = Field(None, alias='unmountOnExit', description='卡片隐藏就销毁卡片节点。')
+    reload: bool | None = Field(None, description='Component property')
+    mount_on_enter: bool | None = Field(None, alias='mountOnEnter', description='Component property')
+    unmount_on_exit: bool | None = Field(None, alias='unmountOnExit', description='Component property')
 
 
 class Mode25(Enum):
     """
-    文字相对于时间轴展示方向
+    AMIS Mode25 component.
     """
 
     left = 'left'
@@ -11038,7 +11128,7 @@ class Mode25(Enum):
 
 class Direction4(Enum):
     """
-    展示方向
+    AMIS Direction4 component.
     """
 
     horizontal = 'horizontal'
@@ -11047,7 +11137,7 @@ class Direction4(Enum):
 
 class CardSchema1(BaseModel):
     """
-    Card 卡片渲染器。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/card
+    AMIS CardSchema1 component.
     """
 
     model_config = ConfigDict(
@@ -11112,20 +11202,20 @@ class TimelineSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     type: Any
     testid: Any | None = None
-    items: list[dict[str, Any]] | None = Field(None, description='节点数据')
-    source: dict[str, Any] | None = Field(None, description='API 或 数据映射')
-    mode: Mode25 | None = Field(None, description='文字相对于时间轴展示方向')
-    direction: Direction4 | None = Field(None, description='展示方向')
-    reverse: bool | None = Field(None, description='节点倒序')
+    items: list[dict[str, Any]] | None = Field(None, description='Component property')
+    source: dict[str, Any] | None = Field(None, description='Component property')
+    mode: Mode25 | None = Field(None, description='Component property')
+    direction: Direction4 | None = Field(None, description='Component property')
+    reverse: bool | None = Field(None, description='Component property')
     item_title_schema: dict[str, Any] | None = Field(None, alias='itemTitleSchema')
-    icon_class_name: str | None = Field(None, alias='iconClassName', description='图标的CSS类名')
-    time_class_name: str | None = Field(None, alias='timeClassName', description='节点时间的CSS类名')
-    title_class_name: str | None = Field(None, alias='titleClassName', description='节点标题的CSS类名')
-    detail_class_name: str | None = Field(None, alias='detailClassName', description='节点详情的CSS类名')
+    icon_class_name: str | None = Field(None, alias='iconClassName', description='Component property')
+    time_class_name: str | None = Field(None, alias='timeClassName', description='Component property')
+    title_class_name: str | None = Field(None, alias='titleClassName', description='Component property')
+    detail_class_name: str | None = Field(None, alias='detailClassName', description='Component property')
     card_schema: CardSchema1 | None = Field(
         None,
         alias='cardSchema',
-        description='Card 卡片渲染器。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/card',
+        description='Component property',
     )
 
 
@@ -11171,22 +11261,26 @@ class TimelineItemSchema(BaseModel):
     use_mobile_ui: bool | None = Field(
         None, alias='useMobileUI', description='Can be used at the component level to turn off mobile styles'
     )
-    time: str = Field(..., description='时间点')
+    time: str = Field(..., description='Component property')
     title: dict[str, Any] | None = None
-    detail: str | None = Field(None, description='详细内容')
-    detail_collapsed_text: str | None = Field(None, alias='detailCollapsedText', description='detail折叠时文案')
-    detail_expanded_text: str | None = Field(None, alias='detailExpandedText', description='detail展开时文案')
-    color: str | None = Field(None, description='时间点圆圈颜色')
-    icon: str | dict[str, Any] | None = Field(None, description='图标')
-    icon_class_name: str | None = Field(None, alias='iconClassName', description='图标的CSS类名')
+    detail: str | None = Field(None, description='Component property')
+    detail_collapsed_text: str | None = Field(None, alias='detailCollapsedText', description='Component property')
+    detail_expanded_text: str | None = Field(None, alias='detailExpandedText', description='Component property')
+    color: str | None = Field(None, description='Component property')
+    icon: str | dict[str, Any] | None = Field(None, description='Component property')
+    icon_class_name: str | None = Field(None, alias='iconClassName', description='Component property')
     time_class_name: str | None = Field(
-        None, alias='timeClassName', description='节点时间的CSS类名（优先级高于统一配置的timeClassName）'
+        None, alias='timeClassName', description='Component property'
     )
     title_class_name: str | None = Field(
-        None, alias='titleClassName', description='节点标题的CSS类名（优先级高于统一配置的titleClassName）'
+        None,
+        alias='titleClassName',
+        description='Component property',
     )
     detail_class_name: str | None = Field(
-        None, alias='detailClassName', description='节点详情的CSS类名（优先级高于统一配置的detailClassName）'
+        None,
+        alias='detailClassName',
+        description='Component property',
     )
     dot_size: DotSize | None = Field(None, alias='dotSize')
     line_color: str | None = Field(None, alias='lineColor')
@@ -11194,13 +11288,13 @@ class TimelineItemSchema(BaseModel):
     card_schema: CardSchema1 | None = Field(
         None,
         alias='cardSchema',
-        description='Card 卡片渲染器。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/card',
+        description='Component property',
     )
 
 
 class FormControlSchema(BaseModel):
     """
-    Control 表单项包裹 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/control
+    AMIS FormControlSchema component.
     """
 
     model_config = ConfigDict(
@@ -11552,7 +11646,7 @@ class FormBaseControlSchema(BaseModel):
 
 class Size11(Enum):
     """
-    表单项大小
+    AMIS Size11 component.
     """
 
     xs = 'xs'
@@ -11628,12 +11722,12 @@ class FormBaseControl(BaseModel):
     use_mobile_ui: bool | None = Field(
         None, alias='useMobileUI', description='Can be used at the component level to turn off mobile styles'
     )
-    size: Size11 | None = Field(None, description='表单项大小')
+    size: Size11 | None = Field(None, description='Component property')
 
 
 class ArrayControlSchema(BaseModel):
     """
-    Combo 组合输入框类型 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/combo
+    AMIS ArrayControlSchema component.
     """
 
     model_config = ConfigDict(
@@ -11733,7 +11827,7 @@ class ArrayControlSchema(BaseModel):
 
 class SubFormMode3(Enum):
     """
-    子表单的模式。
+    AMIS SubFormMode3 component.
     """
 
     normal = 'normal'
@@ -11743,7 +11837,7 @@ class SubFormMode3(Enum):
 
 class TabsStyle(Enum):
     """
-    Tabs 的展示模式。
+    AMIS TabsStyle component.
     """
 
     field_ = ''
@@ -11754,18 +11848,18 @@ class TabsStyle(Enum):
 
 class Messages9(BaseModel):
     """
-    提示信息
+    AMIS Messages9 component.
     """
 
     model_config = ConfigDict(
         extra='forbid',
     )
-    validate_failed: str | None = Field(None, alias='validateFailed', description='验证错误提示')
+    validate_failed: str | None = Field(None, alias='validateFailed', description='Component property')
     min_length_validate_failed: str | None = Field(
-        None, alias='minLengthValidateFailed', description='最小值验证错误提示'
+        None, alias='minLengthValidateFailed', description='Component property'
     )
     max_length_validate_failed: str | None = Field(
-        None, alias='maxLengthValidateFailed', description='最大值验证错误提示'
+        None, alias='maxLengthValidateFailed', description='Component property'
     )
 
 
@@ -11778,7 +11872,7 @@ class TestIdBuilder1(BaseModel):
 
 class BaseComboControlSchema(BaseModel):
     """
-    Combo 组合输入框类型 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/combo
+    AMIS BaseComboControlSchema component.
     """
 
     model_config = ConfigDict(
@@ -11838,14 +11932,14 @@ class BaseComboControlSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     size: Any | None = None
     type: Any
-    scaffold: Any | None = Field({}, description='单组表单项初始值。默认为 `{}`')
-    no_border: bool | None = Field(None, alias='noBorder', description='是否含有边框')
-    delete_confirm_text: str | None = Field(None, alias='deleteConfirmText', description='确认删除时的提示')
+    scaffold: Any | None = Field({}, description='Component property')
+    no_border: bool | None = Field(None, alias='noBorder', description='Component property')
+    delete_confirm_text: str | None = Field(None, alias='deleteConfirmText', description='Component property')
     delete_api: dict[str, Any] | None = Field(None, alias='deleteApi')
     type_switchable: bool | None = Field(
-        None, alias='typeSwitchable', description='是否可切换条件，配合`conditions`使用'
+        None, alias='typeSwitchable', description='Component property'
     )
-    conditions: list[dict[str, Any]] | None = Field(None, description='符合某类条件后才渲染的schema')
+    conditions: list[dict[str, Any]] | None = Field(None, description='Component property')
     form_class_name: dict[str, Any] | None = Field(
         None,
         alias='formClassName',
@@ -11856,50 +11950,50 @@ class BaseComboControlSchema(BaseModel):
         alias='addButtonClassName',
         description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
-    add_button_text: str | None = Field('新增', alias='addButtonText', description='新增按钮文字')
-    addable: bool | None = Field(None, description='是否可新增')
+    add_button_text: str | None = Field('新增', alias='addButtonText', description='Component property')
+    addable: bool | None = Field(None, description='Component property')
     addattop: bool | None = Field(None, description='Add at top')
-    items: list[dict[str, Any]] | None = Field(None, description='数组输入框的子项')
-    draggable: bool | None = Field(None, description='是否可拖拽排序')
-    draggable_tip: str | None = Field('可拖拽排序', alias='draggableTip', description='可拖拽排序的提示信息。')
+    items: list[dict[str, Any]] | None = Field(None, description='Component property')
+    draggable: bool | None = Field(None, description='Component property')
+    draggable_tip: str | None = Field('可拖拽排序', alias='draggableTip', description='Component property')
     flat: bool | None = Field(
-        None, description='是否将结果扁平化(去掉name),只有当controls的length为1且multiple为true的时候才有效'
+        None, description='Component property'
     )
-    delimiter: str | None = Field(None, description='当扁平化开启并且joinValues为true时，用什么分隔符')
+    delimiter: str | None = Field(None, description='Component property')
     join_values: bool | None = Field(
-        None, alias='joinValues', description='当扁平化开启的时候，是否用分隔符的形式发送给后端，否则采用array的方式'
+        None, alias='joinValues', description='Component property'
     )
-    max_length: float | dict[str, Any] | None = Field(None, alias='maxLength', description='限制最大个数')
-    min_length: float | dict[str, Any] | None = Field(None, alias='minLength', description='限制最小个数')
-    multi_line: bool | None = Field(None, alias='multiLine', description='是否多行模式，默认一行展示完')
-    multiple: bool | None = Field(None, description='是否可多选')
-    removable: bool | None = Field(None, description='是否可删除')
-    sub_form_mode: SubFormMode3 | None = Field(None, alias='subFormMode', description='子表单的模式。')
+    max_length: float | dict[str, Any] | None = Field(None, alias='maxLength', description='Component property')
+    min_length: float | dict[str, Any] | None = Field(None, alias='minLength', description='Component property')
+    multi_line: bool | None = Field(None, alias='multiLine', description='Component property')
+    multiple: bool | None = Field(None, description='Component property')
+    removable: bool | None = Field(None, description='Component property')
+    sub_form_mode: SubFormMode3 | None = Field(None, alias='subFormMode', description='Component property')
     sub_form_horizontal: SubFormHorizontal | None = Field(None, alias='subFormHorizontal')
     can_access_super_data: bool | None = Field(
         None,
         alias='canAccessSuperData',
-        description='是否可以访问父级数据，正常 combo 已经关联到数组成员，是不能访问父级数据的。',
+        description='Component property',
     )
-    tabs_mode: bool | None = Field(None, alias='tabsMode', description='采用 Tabs 展示方式？')
-    tabs_style: TabsStyle | None = Field(None, alias='tabsStyle', description='Tabs 的展示模式。')
+    tabs_mode: bool | None = Field(None, alias='tabsMode', description='Component property')
+    tabs_style: TabsStyle | None = Field(None, alias='tabsStyle', description='Component property')
     tabs_label_tpl: str | None = Field(
         None,
         alias='tabsLabelTpl',
-        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/en-US/docs/concepts/template',
     )
-    lazy_load: bool | None = Field(None, alias='lazyLoad', description='数据比较多，比较卡时，可以试试开启。')
-    per_page: float | None = Field(None, alias='perPage', description='分页个数，默认不分页')
-    strict_mode: bool | None = Field(None, alias='strictMode', description='严格模式，为了性能默认不开的。')
+    lazy_load: bool | None = Field(None, alias='lazyLoad', description='Component property')
+    per_page: float | None = Field(None, alias='perPage', description='Component property')
+    strict_mode: bool | None = Field(None, alias='strictMode', description='Component property')
     sync_fields: list[str] | None = Field(
         None,
         alias='syncFields',
-        description='配置同步字段。只有 `strictMode` 为 `false` 时有效。 如果 Combo 层级比较深，底层的获取外层的数据可能不同步。 但是给 combo 配置这个属性就能同步下来。输入格式：`["os"]`',
+        description='Component property"os"]`',
     )
     nullable: bool | None = Field(
-        None, description='允许为空，如果子表单项里面配置验证器，且又是单条模式。可以允许用户选择清空（不填）。'
+        None, description='Component property'
     )
-    messages: Messages9 | None = Field(None, description='提示信息')
+    messages: Messages9 | None = Field(None, description='Component property')
     update_pristine_after_store_data_re_init: bool | None = Field(None, alias='updatePristineAfterStoreDataReInit')
     test_id_builder: TestIdBuilder1 | None = Field(None, alias='testIdBuilder')
 
@@ -11920,7 +12014,7 @@ class ComboCondition(BaseModel):
 
 
 class ComboSubControl(BaseModel):
-    unique: bool | None = Field(None, description='是否唯一, 只有在 combo 里面才有用')
+    unique: bool | None = Field(None, description='Component property')
     column_class_name: dict[str, Any] | None = Field(
         None,
         alias='columnClassName',
@@ -11931,7 +12025,7 @@ class ComboSubControl(BaseModel):
 
 class LabelOverflow8(Enum):
     """
-    label展示形式
+    AMIS LabelOverflow8 component.
     """
 
     default = 'default'
@@ -11940,7 +12034,7 @@ class LabelOverflow8(Enum):
 
 class Mode26(Enum):
     """
-    配置当前表单项展示模式
+    AMIS Mode26 component.
     """
 
     normal = 'normal'
@@ -11950,7 +12044,7 @@ class Mode26(Enum):
 
 class ValidationErrors2(BaseModel):
     """
-    验证失败的提示信息
+    AMIS ValidationErrors2 component.
     """
 
     is_alpha: dict[str, Any] | None = Field(None, alias='isAlpha')
@@ -11988,7 +12082,7 @@ class ValidationErrors2(BaseModel):
 
 class ButtonGroupControlSchema(BaseModel):
     """
-    按钮组控件。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/button-group
+    AMIS ButtonGroupControlSchema component.
     """
 
     model_config = ConfigDict(
@@ -12025,92 +12119,98 @@ class ButtonGroupControlSchema(BaseModel):
     vertical: Any | None = None
     tiled: Any | None = None
     size: Any | None = None
-    label: dict[str, Any] | None = Field(None, description='描述标题, 当值为 false 时不展示')
+    label: dict[str, Any] | None = Field(None, description='Component property')
     label_align: dict[str, Any] | None = Field(None, alias='labelAlign')
-    label_width: float | str | None = Field(None, alias='labelWidth', description='label自定义宽度，默认单位为px')
-    label_overflow: LabelOverflow8 | None = Field(None, alias='labelOverflow', description='label展示形式')
-    label_class_name: str | None = Field(None, alias='labelClassName', description='配置 label className')
-    name: str | None = Field(None, description='字段名，表单提交时的 key，支持多层级，用.连接，如： a.b.c')
+    label_width: float | str | None = Field(None, alias='labelWidth', description='Component property')
+    label_overflow: LabelOverflow8 | None = Field(None, alias='labelOverflow', description='Component property')
+    label_class_name: str | None = Field(None, alias='labelClassName', description='Configure label className')
+    name: str | None = Field(None, description='Component property')
     extra_name: str | None = Field(
-        None, alias='extraName', description='额外的字段名，当为范围组件时可以用来将另外一个值打平出来'
+        None, alias='extraName', description='Component property'
     )
-    remark: Any | None = Field(None, description='显示一个小图标, 鼠标放上去的时候显示提示内容')
+    remark: Any | None = Field(None, description='Component property')
     label_remark: Any | None = Field(
-        None, alias='labelRemark', description='显示一个小图标, 鼠标放上去的时候显示提示内容, 这个小图标跟 label 在一起'
+        None,
+        alias='labelRemark',
+        description='Component property',
     )
-    hint: str | None = Field(None, description='输入提示，聚焦的时候显示')
-    submit_on_change: bool | None = Field(None, alias='submitOnChange', description='当修改完的时候是否提交表单。')
-    read_only: bool | None = Field(None, alias='readOnly', description='是否只读')
-    read_only_on: str | None = Field(None, alias='readOnlyOn', description='只读条件')
+    hint: str | None = Field(None, description='Component property')
+    submit_on_change: bool | None = Field(None, alias='submitOnChange', description='Component property')
+    read_only: bool | None = Field(None, alias='readOnly', description='Component property')
+    read_only_on: str | None = Field(None, alias='readOnlyOn', description='Component property')
     validate_on_change: bool | None = Field(
         None,
         alias='validateOnChange',
-        description='不设置时，当表单提交过后表单项每次修改都会触发重新验证， 如果设置了，则由此配置项来决定要不要每次修改都触发验证。',
+        description='Component property',
     )
-    description: str | None = Field(None, description='描述内容，支持 Html 片段。')
+    description: str | None = Field(None, description='Component property')
     desc: str | None = None
     description_class_name: dict[str, Any] | None = Field(None, alias='descriptionClassName')
-    mode: Mode26 | None = Field(None, description='配置当前表单项展示模式')
+    mode: Mode26 | None = Field(None, description='Component property')
     horizontal: dict[str, Any] | None = None
-    inline: bool | None = Field(None, description='表单 control 是否为 inline 模式。')
+    inline: bool | None = Field(None, description='Component property')
     input_class_name: dict[str, Any] | None = Field(None, alias='inputClassName')
-    placeholder: dict[str, Any] | None = Field(None, description='占位符')
-    required: bool | None = Field(None, description='是否为必填')
+    placeholder: dict[str, Any] | None = Field(None, description='Component property')
+    required: bool | None = Field(None, description='Component property')
     validation_errors: ValidationErrors2 | None = Field(
-        None, alias='validationErrors', description='验证失败的提示信息'
+        None, alias='validationErrors', description='Component property'
     )
     validations: dict[str, Any] | None = None
     value: Any | None = Field(
-        None, description='默认值，切记只能是静态值，不支持取变量，跟数据关联是通过设置 name 属性来实现的。'
+        None, description='Component property'
     )
     clear_value_on_hidden: bool | None = Field(
         None,
         alias='clearValueOnHidden',
-        description='表单项隐藏时，是否在当前 Form 中删除掉该表单项值。注意同名的未隐藏的表单项值也会删掉',
+        description='Component property',
     )
-    validate_api: dict[str, Any] | None = Field(None, alias='validateApi', description='远端校验表单项接口')
+    validate_api: dict[str, Any] | None = Field(None, alias='validateApi', description='Component property')
     auto_fill: dict[str, Any] | None = Field(
-        None, alias='autoFill', description='自动填充，当选项被选择的时候，将选项中的其他值同步设置到表单内。'
+        None, alias='autoFill', description='Component property'
     )
     init_auto_fill: dict[str, Any] | None = Field(
-        'fillIfNotSet\n初始化时是否把其他字段同步到表单内部。', alias='initAutoFill'
+        'fillIfNotSet\n初始化时Whether把其他字段同步到表单Internal。', alias='initAutoFill'
     )
     row: float | None = None
-    options: dict[str, Any] | None = Field(None, description='选项集合')
+    options: dict[str, Any] | None = Field(None, description='Component property')
     source: dict[str, Any] | None = None
-    select_first: bool | None = Field(None, alias='selectFirst', description='默认选择选项第一个值。')
-    init_fetch_on: str | None = Field(None, alias='initFetchOn', description='用表达式来配置 source 接口初始要不要拉取')
-    init_fetch: bool | None = Field(None, alias='initFetch', description='配置 source 接口初始拉不拉取。')
-    multiple: bool | None = Field(None, description='是否为多选模式')
-    check_all: bool | None = Field(None, alias='checkAll', description='是否默认全选')
+    select_first: bool | None = Field(None, alias='selectFirst', description='Component property')
+    init_fetch_on: str | None = Field(
+        None, alias='initFetchOn', description='Component property'
+    )
+    init_fetch: bool | None = Field(None, alias='initFetch', description='Component property')
+    multiple: bool | None = Field(None, description='Component property')
+    check_all: bool | None = Field(None, alias='checkAll', description='Component property')
     join_values: bool | None = Field(
         None,
         alias='joinValues',
-        description='单选模式：当用户选中某个选项时，选项中的 value 将被作为该表单项的值提交，否则，整个选项对象都会作为该表单项的值提交。 多选模式：选中的多个选项的 `value` 会通过 `delimiter` 连接起来，否则直接将以数组的形式提交值。',
+        description='Component property',
     )
-    delimiter: str | None = Field(None, description='分割符')
-    values_no_wrap: bool | None = Field(None, alias='valuesNoWrap', description='多选模式，值太多时是否避免折行')
+    delimiter: str | None = Field(None, description='Component property')
+    values_no_wrap: bool | None = Field(None, alias='valuesNoWrap', description='Component property')
     extract_value: bool | None = Field(
-        None, alias='extractValue', description='开启后将选中的选项 value 的值封装为数组，作为当前表单项的值。'
+        None, alias='extractValue', description='Component property'
     )
-    clearable: bool | None = Field(None, description='是否可清除。')
-    reset_value: str | None = Field('', alias='resetValue', description='点清除按钮时，将表单项设置成当前配置的值。')
-    defer_field: str | None = Field(None, alias='deferField', description='懒加载字段')
+    clearable: bool | None = Field(None, description='Component property')
+    reset_value: str | None = Field(
+        '', alias='resetValue', description='Component property'
+    )
+    defer_field: str | None = Field(None, alias='deferField', description='Component property')
     defer_api: dict[str, Any] | None = Field(None, alias='deferApi')
     add_api: dict[str, Any] | None = Field(None, alias='addApi')
-    add_controls: list[dict[str, Any]] | None = Field(None, alias='addControls', description='新增时的表单项。')
+    add_controls: list[dict[str, Any]] | None = Field(None, alias='addControls', description='Component property')
     add_dialog: dict[str, Any] | None = Field(None, alias='addDialog')
-    creatable: bool | None = Field(None, description='是否可以新增')
-    create_btn_label: str | None = Field(None, alias='createBtnLabel', description='新增文字')
-    editable: bool | None = Field(None, description='是否可以编辑')
+    creatable: bool | None = Field(None, description='Component property')
+    create_btn_label: str | None = Field(None, alias='createBtnLabel', description='Component property')
+    editable: bool | None = Field(None, description='Component property')
     edit_api: dict[str, Any] | None = Field(None, alias='editApi')
-    edit_controls: list[dict[str, Any]] | None = Field(None, alias='editControls', description='选项修改的表单项')
+    edit_controls: list[dict[str, Any]] | None = Field(None, alias='editControls', description='Component property')
     edit_dialog: dict[str, Any] | None = Field(None, alias='editDialog')
-    removable: bool | None = Field(None, description='是否可删除')
+    removable: bool | None = Field(None, description='Component property')
     delete_api: dict[str, Any] | None = Field(None, alias='deleteApi')
-    delete_confirm_text: str | None = Field(None, alias='deleteConfirmText', description='选项删除提示文字。')
+    delete_confirm_text: str | None = Field(None, alias='deleteConfirmText', description='Component property')
     clear_value_on_source_change: bool | None = Field(
-        None, alias='clearValueOnSourceChange', description='source从数据域取值时，数据域值变化后是否自动清空'
+        None, alias='clearValueOnSourceChange', description='Component property'
     )
 
 
@@ -12118,82 +12218,90 @@ class FormOptionsControlSelf(BaseModel):
     model_config = ConfigDict(
         extra='forbid',
     )
-    options: list[dict[str, Any]] | list[str] | None = Field(None, description='选项集合')
+    options: list[dict[str, Any]] | list[str] | None = Field(None, description='Component property')
     source: dict[str, Any] | str | None = None
-    select_first: bool | None = Field(None, alias='selectFirst', description='默认选择选项第一个值。')
-    init_fetch_on: str | None = Field(None, alias='initFetchOn', description='用表达式来配置 source 接口初始要不要拉取')
-    init_fetch: bool | None = Field(None, alias='initFetch', description='配置 source 接口初始拉不拉取。')
-    multiple: bool | None = Field(None, description='是否为多选模式')
-    check_all: bool | None = Field(None, alias='checkAll', description='是否默认全选')
+    select_first: bool | None = Field(None, alias='selectFirst', description='Component property')
+    init_fetch_on: str | None = Field(
+        None, alias='initFetchOn', description='Component property'
+    )
+    init_fetch: bool | None = Field(None, alias='initFetch', description='Component property')
+    multiple: bool | None = Field(None, description='Component property')
+    check_all: bool | None = Field(None, alias='checkAll', description='Component property')
     join_values: bool | None = Field(
         None,
         alias='joinValues',
-        description='单选模式：当用户选中某个选项时，选项中的 value 将被作为该表单项的值提交，否则，整个选项对象都会作为该表单项的值提交。 多选模式：选中的多个选项的 `value` 会通过 `delimiter` 连接起来，否则直接将以数组的形式提交值。',
+        description='Component property',
     )
-    delimiter: str | None = Field(None, description='分割符')
-    values_no_wrap: bool | None = Field(None, alias='valuesNoWrap', description='多选模式，值太多时是否避免折行')
+    delimiter: str | None = Field(None, description='Component property')
+    values_no_wrap: bool | None = Field(None, alias='valuesNoWrap', description='Component property')
     extract_value: bool | None = Field(
-        None, alias='extractValue', description='开启后将选中的选项 value 的值封装为数组，作为当前表单项的值。'
+        None, alias='extractValue', description='Component property'
     )
-    clearable: bool | None = Field(None, description='是否可清除。')
-    reset_value: str | None = Field('', alias='resetValue', description='点清除按钮时，将表单项设置成当前配置的值。')
-    defer_field: str | None = Field(None, alias='deferField', description='懒加载字段')
+    clearable: bool | None = Field(None, description='Component property')
+    reset_value: str | None = Field(
+        '', alias='resetValue', description='Component property'
+    )
+    defer_field: str | None = Field(None, alias='deferField', description='Component property')
     defer_api: dict[str, Any] | str | None = Field(None, alias='deferApi')
     add_api: dict[str, Any] | str | None = Field(None, alias='addApi')
-    add_controls: list[dict[str, Any]] | None = Field(None, alias='addControls', description='新增时的表单项。')
+    add_controls: list[dict[str, Any]] | None = Field(None, alias='addControls', description='Component property')
     add_dialog: dict[str, Any] | None = Field(None, alias='addDialog')
-    creatable: bool | None = Field(None, description='是否可以新增')
-    create_btn_label: str | None = Field(None, alias='createBtnLabel', description='新增文字')
-    editable: bool | None = Field(None, description='是否可以编辑')
+    creatable: bool | None = Field(None, description='Component property')
+    create_btn_label: str | None = Field(None, alias='createBtnLabel', description='Component property')
+    editable: bool | None = Field(None, description='Component property')
     edit_api: dict[str, Any] | str | None = Field(None, alias='editApi')
-    edit_controls: list[dict[str, Any]] | None = Field(None, alias='editControls', description='选项修改的表单项')
+    edit_controls: list[dict[str, Any]] | None = Field(None, alias='editControls', description='Component property')
     edit_dialog: dict[str, Any] | None = Field(None, alias='editDialog')
-    removable: bool | None = Field(None, description='是否可删除')
+    removable: bool | None = Field(None, description='Component property')
     delete_api: dict[str, Any] | str | None = Field(None, alias='deleteApi')
-    delete_confirm_text: str | None = Field(None, alias='deleteConfirmText', description='选项删除提示文字。')
+    delete_confirm_text: str | None = Field(None, alias='deleteConfirmText', description='Component property')
     clear_value_on_source_change: bool | None = Field(
-        None, alias='clearValueOnSourceChange', description='source从数据域取值时，数据域值变化后是否自动清空'
+        None, alias='clearValueOnSourceChange', description='Component property'
     )
 
 
 class Option(BaseModel):
-    label: str | None = Field(None, description='用来显示的文字')
+    label: str | None = Field(None, description='Component property')
     scope_label: str | None = Field(
         None,
         alias='scopeLabel',
-        description='可以用来给 Option 标记个范围，让数据展示更清晰。\n\n这个只有在数值展示的时候显示。',
+        description='Component property',
     )
-    value: Any | None = Field(None, description='请保证数值唯一，多个选项值一致会认为是同一个选项。')
+    value: Any | None = Field(None, description='Component property')
     disabled: bool | None = Field(None, description='Whether disabled')
-    disabled_tip: str | None = Field(None, alias='disabledTip', description='禁用提示')
+    disabled_tip: str | None = Field(None, alias='disabledTip', description='DisabledTooltip')
     children: list[dict[str, Any]] | None = None
-    visible: bool | None = Field(None, description='是否可见')
-    hidden: bool | None = Field(None, description='最好不要用！因为有 visible 就够了。')
-    description: str | None = Field(None, description='描述，部分控件支持')
-    defer: bool | None = Field(None, description='标记后数据延时加载')
+    visible: bool | None = Field(None, description='Component property')
+    hidden: bool | None = Field(None, description='Component property')
+    description: str | None = Field(None, description='Component property')
+    defer: bool | None = Field(None, description='Component property')
     defer_api: dict[str, Any] | str | None = Field(None, alias='deferApi')
-    loading: bool | None = Field(None, description='标记正在加载。只有 defer 为 true 时有意义。内部字段不可以外部设置')
-    loaded: bool | None = Field(None, description='只有设置了 defer 才有意义，内部字段不可以外部设置')
+    loading: bool | None = Field(
+        None, description='Component property'
+    )
+    loaded: bool | None = Field(None, description='Component property')
 
 
 class Option1(BaseModel):
-    label: str | None = Field(None, description='用来显示的文字')
+    label: str | None = Field(None, description='Component property')
     scope_label: str | None = Field(
         None,
         alias='scopeLabel',
-        description='可以用来给 Option 标记个范围，让数据展示更清晰。\n\n这个只有在数值展示的时候显示。',
+        description='Component property',
     )
-    value: Any | None = Field(None, description='请保证数值唯一，多个选项值一致会认为是同一个选项。')
+    value: Any | None = Field(None, description='Component property')
     disabled: bool | None = Field(None, description='Whether disabled')
-    disabled_tip: str | None = Field(None, alias='disabledTip', description='禁用提示')
+    disabled_tip: str | None = Field(None, alias='disabledTip', description='DisabledTooltip')
     children: dict[str, Any] | None = None
-    visible: bool | None = Field(None, description='是否可见')
-    hidden: bool | None = Field(None, description='最好不要用！因为有 visible 就够了。')
-    description: str | None = Field(None, description='描述，部分控件支持')
-    defer: bool | None = Field(None, description='标记后数据延时加载')
+    visible: bool | None = Field(None, description='Component property')
+    hidden: bool | None = Field(None, description='Component property')
+    description: str | None = Field(None, description='Component property')
+    defer: bool | None = Field(None, description='Component property')
     defer_api: dict[str, Any] | None = Field(None, alias='deferApi')
-    loading: bool | None = Field(None, description='标记正在加载。只有 defer 为 true 时有意义。内部字段不可以外部设置')
-    loaded: bool | None = Field(None, description='只有设置了 defer 才有意义，内部字段不可以外部设置')
+    loading: bool | None = Field(
+        None, description='Component property'
+    )
+    loaded: bool | None = Field(None, description='Component property')
 
 
 class Options(RootModel[list[Option1]]):
@@ -12202,7 +12310,7 @@ class Options(RootModel[list[Option1]]):
 
 class ChainedSelectControlSchema(BaseModel):
     """
-    链式下拉框 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/chain-select
+    AMIS ChainedSelectControlSchema component.
     """
 
     model_config = ConfigDict(
@@ -12387,7 +12495,7 @@ class OptionType(Enum):
 
 class CheckboxControlSchema(BaseModel):
     """
-    Checkbox 勾选框。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/checkbox
+    AMIS CheckboxControlSchema component.
     """
 
     model_config = ConfigDict(
@@ -12447,11 +12555,11 @@ class CheckboxControlSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     size: Any | None = None
     type: Any
-    true_value: bool | str | float | None = Field(None, alias='trueValue', description='勾选值')
-    false_value: bool | str | float | None = Field(None, alias='falseValue', description='未勾选值')
-    option: str | None = Field(None, description='选项说明')
+    true_value: bool | str | float | None = Field(None, alias='trueValue', description='Component property')
+    false_value: bool | str | float | None = Field(None, alias='falseValue', description='Component property')
+    option: str | None = Field(None, description='Component property')
     badge: Badge | None = Field(
-        None, description='Badge 角标。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/badge'
+        None, description='Component property'
     )
     partial: bool | None = None
     option_type: OptionType | None = Field(None, alias='optionType')
@@ -12461,7 +12569,7 @@ class CheckboxControlSchema(BaseModel):
 
 class CheckboxesControlSchema(BaseModel):
     """
-    复选框 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/checkboxes
+    AMIS CheckboxesControlSchema component.
     """
 
     model_config = ConfigDict(
@@ -12549,16 +12657,18 @@ class CheckboxesControlSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     size: Any | None = None
     type: Any
-    default_check_all: bool | None = Field(None, alias='defaultCheckAll', description='是否默认全选')
-    check_all_text: str | None = Field(None, alias='checkAllText', description='全选/不选文案')
-    columns_count: float | list[dict[str, Any]] | None = Field(None, alias='columnsCount', description='每行显示多少个')
-    menu_tpl: str | None = Field(None, alias='menuTpl', description='自定义选项展示')
+    default_check_all: bool | None = Field(None, alias='defaultCheckAll', description='Component property')
+    check_all_text: str | None = Field(None, alias='checkAllText', description='Component property')
+    columns_count: float | list[dict[str, Any]] | None = Field(
+        None, alias='columnsCount', description='Component property'
+    )
+    menu_tpl: str | None = Field(None, alias='menuTpl', description='Component property')
     test_id_builder: TestIdBuilder1 | None = Field(None, alias='testIdBuilder')
 
 
 class InputCityControlSchema(BaseModel):
     """
-    City 城市选择框。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/city
+    AMIS InputCityControlSchema component.
     """
 
     model_config = ConfigDict(
@@ -12619,19 +12729,19 @@ class InputCityControlSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     size: Any | None = None
     type: Any
-    extract_value: bool | None = Field(None, alias='extractValue', description='开启后只会存城市的 code 信息')
-    join_values: bool | None = Field(None, alias='joinValues', description='是否将各个信息拼接成字符串。')
-    delimiter: str | None = Field(None, description='拼接的符号是啥？')
-    allow_city: bool | None = Field(None, alias='allowCity', description='允许选择城市？')
-    allow_district: bool | None = Field(None, alias='allowDistrict', description='允许选择地区？')
-    allow_street: bool | None = Field(None, alias='allowStreet', description='允许选择街道？')
-    searchable: bool | None = Field(None, description='Whether visible搜索框')
-    item_class_name: str | None = Field(None, alias='itemClassName', description='下拉框className')
+    extract_value: bool | None = Field(None, alias='extractValue', description='Component property')
+    join_values: bool | None = Field(None, alias='joinValues', description='Component property')
+    delimiter: str | None = Field(None, description='Component property')
+    allow_city: bool | None = Field(None, alias='allowCity', description='Component property')
+    allow_district: bool | None = Field(None, alias='allowDistrict', description='Component property')
+    allow_street: bool | None = Field(None, alias='allowStreet', description='Component property')
+    searchable: bool | None = Field(None, description='Component property')
+    item_class_name: str | None = Field(None, alias='itemClassName', description='Component property')
 
 
 class Format(Enum):
     """
-    颜色格式
+    AMIS Format component.
     """
 
     hex_ = 'hex'
@@ -12643,7 +12753,7 @@ class Format(Enum):
 
 class InputColorControlSchema(BaseModel):
     """
-    Color 颜色选择框 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/color
+    AMIS InputColorControlSchema component.
     """
 
     model_config = ConfigDict(
@@ -12703,15 +12813,15 @@ class InputColorControlSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     size: Any | None = None
     type: Any
-    clearable: bool | None = Field(None, description='Whether visible清除按钮')
-    format: Format | None = Field(None, description='颜色格式')
-    close_on_select: bool | None = Field(None, alias='closeOnSelect', description='选中颜色后是否关闭弹出层。')
+    clearable: bool | None = Field(None, description='Component property')
+    format: Format | None = Field(None, description='Component property')
+    close_on_select: bool | None = Field(None, alias='closeOnSelect', description='Component property')
     preset_colors: list[dict[str, Any]] | None = Field(
-        None, alias='presetColors', description='预设颜色，用户可以直接从预设中选。'
+        None, alias='presetColors', description='Component property'
     )
-    allow_custom_color: bool | None = Field(None, alias='allowCustomColor', description='是否允许用户输入颜色。')
+    allow_custom_color: bool | None = Field(None, alias='allowCustomColor', description='Component property')
     pop_over_container_selector: str | None = Field(
-        None, alias='popOverContainerSelector', description='弹窗容器选择器'
+        None, alias='popOverContainerSelector', description='Component property'
     )
 
 
@@ -12729,7 +12839,7 @@ class PresetColor(RootModel[PresetColor1 | str]):
 
 class ComboControlSchema(BaseModel):
     """
-    Combo 组合输入框类型 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/combo
+    AMIS ComboControlSchema component.
     """
 
     model_config = ConfigDict(
@@ -12829,7 +12939,7 @@ class ComboControlSchema(BaseModel):
 
 class PickerIcon(BaseModel):
     """
-    Icon 图标渲染器 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/icon
+    AMIS PickerIcon component.
     """
 
     model_config = ConfigDict(
@@ -12876,7 +12986,7 @@ class Config(BaseModel):
 
 class BuilderMode(Enum):
     """
-    展现模式
+    AMIS BuilderMode component.
     """
 
     simple = 'simple'
@@ -12885,7 +12995,7 @@ class BuilderMode(Enum):
 
 class Formula(BaseModel):
     """
-    InputFormula 公式编辑器 文档：https://baidu.gitee.io/amis/zh-CN/components/form/input-formula
+    AMIS Formula component.
     """
 
     model_config = ConfigDict(
@@ -12967,7 +13077,7 @@ class Formula(BaseModel):
 
 class ConditionBuilderControlSchema(BaseModel):
     """
-    条件组合控件 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/condition-builder
+    AMIS ConditionBuilderControlSchema component.
     """
 
     model_config = ConfigDict(
@@ -13027,30 +13137,30 @@ class ConditionBuilderControlSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     size: Any | None = None
     type: Any
-    embed: bool | None = Field(None, description='内嵌模式，默认为 true')
+    embed: bool | None = Field(None, description='Component property')
     picker_icon: PickerIcon | None = Field(
         None,
         alias='pickerIcon',
-        description='Icon 图标渲染器 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/icon',
+        description='Component property',
     )
     funcs: list[dict[str, Any]] | None = None
     fields: list[dict[str, Any]]
     config: Config | None = None
-    source: dict[str, Any] | None = Field(None, description='通过远程拉取配置项')
-    builder_mode: BuilderMode | None = Field(None, alias='builderMode', description='展现模式')
+    source: dict[str, Any] | None = Field(None, description='Component property')
+    builder_mode: BuilderMode | None = Field(None, alias='builderMode', description='Component property')
     show_andor: bool | None = Field(
-        None, alias='showANDOR', description='Whether visible并或切换键按钮，只在简单模式下有用'
+        None, alias='showANDOR', description='Component property'
     )
-    draggable: bool | None = Field(None, description='是否可拖拽，默认为 true')
+    draggable: bool | None = Field(None, description='Component property')
     add_btn_visible_on: str | None = Field(None, alias='addBtnVisibleOn')
     add_group_btn_visible_on: str | None = Field(
-        None, alias='addGroupBtnVisibleOn', description='表达式：控制按钮“添加条件组”的显示'
+        None, alias='addGroupBtnVisibleOn', description='Component property'
     )
     formula: Formula | None = Field(
         None,
-        description='InputFormula 公式编辑器 文档：https://baidu.gitee.io/amis/zh-CN/components/form/input-formula',
+        description='Component property',
     )
-    formula_for_if: Any | None = Field(None, alias='formulaForIf', description='if 里面公式编辑器配置')
+    formula_for_if: Any | None = Field(None, alias='formulaForIf', description='Component property')
 
 
 class ConditionBuilderFuncs1(BaseModel):
@@ -13308,7 +13418,7 @@ class ConditionBuilderType(BaseModel):
 
 class VariableMode(Enum):
     """
-    变量展现模式，可选值：'tabs' ｜ 'tree'
+    AMIS VariableMode component.
     """
 
     tabs = 'tabs'
@@ -13317,7 +13427,7 @@ class VariableMode(Enum):
 
 class InputMode(Enum):
     """
-    控件模式
+    AMIS InputMode component.
     """
 
     button = 'button'
@@ -13327,7 +13437,7 @@ class InputMode(Enum):
 
 class Level4(Enum):
     """
-    按钮样式
+    AMIS Level4 component.
     """
 
     info = 'info'
@@ -13342,7 +13452,7 @@ class Level4(Enum):
 
 class BtnSize(Enum):
     """
-    按钮大小
+    AMIS BtnSize component.
     """
 
     xs = 'xs'
@@ -13353,7 +13463,7 @@ class BtnSize(Enum):
 
 class BorderMode(Enum):
     """
-    边框模式，全边框，还是半边框，或者没边框。
+    AMIS BorderMode component.
     """
 
     full = 'full'
@@ -13367,7 +13477,7 @@ class InputSettings(BaseModel):
 
 class BaseInputFormulaControlSchema(BaseModel):
     """
-    InputFormula 公式编辑器 文档：https://baidu.gitee.io/amis/zh-CN/components/form/input-formula
+    AMIS BaseInputFormulaControlSchema component.
     """
 
     model_config = ConfigDict(
@@ -13428,37 +13538,41 @@ class BaseInputFormulaControlSchema(BaseModel):
     size: Any | None = None
     type: Any
     eval_mode: bool | None = Field(
-        None, alias='evalMode', description='evalMode 即直接就是表达式，否则 需要 ${这里面才是表达式} 默认为 true'
+        None,
+        alias='evalMode',
+        description='Component property',
     )
     mixed_mode: bool | None = Field(
         None,
         alias='mixedMode',
-        description='混合模式，意味着这个输入框既可以输入不同文本 也可以输入公式。 当输入公式时，值格式为 ${公式内容} 其他内容当字符串。',
+        description='Component property',
     )
-    variables: list[dict[str, Any]] = Field(..., description='用于提示的变量集合，默认为空')
+    variables: list[dict[str, Any]] = Field(..., description='Component property')
     variable_mode: VariableMode | None = Field(
-        None, alias='variableMode', description="变量展现模式，可选值：'tabs' ｜ 'tree'"
+        None, alias='variableMode', description="Component property'tabs' ｜ 'tree'"
     )
     functions: list[dict[str, Any]] = Field(
-        ..., description='函数集合，默认不需要传，即  amis-formula 里面那个函数 如果有扩充，则需要传。'
+        ..., description='Component property'
     )
-    title: str | None = Field(None, description='编辑器标题')
-    header: str = Field(..., description='顶部标题，默认为表达式')
-    input_mode: InputMode | None = Field(None, alias='inputMode', description='控件模式')
+    title: str | None = Field(None, description='Component property')
+    header: str = Field(..., description='Component property')
+    input_mode: InputMode | None = Field(None, alias='inputMode', description='Component property')
     allow_input: bool | None = Field(
-        None, alias='allowInput', description='外层input是否允许输入，否需要点击fx在弹窗中输入'
+        None, alias='allowInput', description='Component property'
     )
     icon: str | None = Field(None, description='Class name in iconfont.')
-    btn_label: str | None = Field(None, alias='btnLabel', description='按钮Label，inputMode为button时生效')
-    level: Level4 | None = Field(None, description='按钮样式')
-    btn_size: BtnSize | None = Field(None, alias='btnSize', description='按钮大小')
+    btn_label: str | None = Field(None, alias='btnLabel', description='Component property')
+    level: Level4 | None = Field(None, description='Component property')
+    btn_size: BtnSize | None = Field(None, alias='btnSize', description='Component property')
     border_mode: BorderMode | None = Field(
-        None, alias='borderMode', description='边框模式，全边框，还是半边框，或者没边框。'
+        None, alias='borderMode', description='Component property'
     )
-    variable_class_name: str | None = Field(None, alias='variableClassName', description='变量面板CSS样式类名')
-    function_class_name: str | None = Field(None, alias='functionClassName', description='函数面板CSS样式类名')
+    variable_class_name: str | None = Field(
+        None, alias='variableClassName', description='Component property'
+    )
+    function_class_name: str | None = Field(None, alias='functionClassName', description='Component property')
     self_variable_name: str | None = Field(
-        None, alias='selfVariableName', description='当前输入项字段 name: 用于避免循环绑定自身导致无限渲染'
+        None, alias='selfVariableName', description='Component property'
     )
     input_settings: InputSettings | None = Field(None, alias='inputSettings')
 
@@ -13519,7 +13633,7 @@ class FormulaPickerInputSettingType(Enum):
 
 class Type17(Enum):
     """
-    指定为日期选择控件
+    AMIS Type17 component.
     """
 
     input_date = 'input-date'
@@ -13532,7 +13646,7 @@ class Type17(Enum):
 
 class DateControlSchema(BaseModel):
     """
-    Date日期选择控件 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/date
+    AMIS DateControlSchema component.
     """
 
     model_config = ConfigDict(
@@ -13591,7 +13705,7 @@ class DateControlSchema(BaseModel):
     editor_setting: Any | None = Field(None, alias='editorSetting')
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     size: Any | None = None
-    type: Literal['input-date'] = Field(..., description='指定为日期选择控件')
+    type: Literal['input-date'] = Field(..., description='Component property')
     clearable: Any | None = None
     format: Any | None = None
     value_format: Any | None = Field(None, alias='valueFormat')
@@ -13603,11 +13717,11 @@ class DateControlSchema(BaseModel):
     shortcuts: Any | None = None
     disabled_date: Any | None = Field(None, alias='disabledDate')
     input_forbid: Any | None = Field(None, alias='inputForbid')
-    close_on_select: bool | None = Field(None, alias='closeOnSelect', description='点选日期后是否关闭弹窗')
-    min_date: str | None = Field(None, alias='minDate', description='限制最小日期')
-    max_date: str | None = Field(None, alias='maxDate', description='限制最大日期')
+    close_on_select: bool | None = Field(None, alias='closeOnSelect', description='Component property')
+    min_date: str | None = Field(None, alias='minDate', description='Component property')
+    max_date: str | None = Field(None, alias='maxDate', description='Component property')
     pop_over_container_selector: str | None = Field(
-        None, alias='popOverContainerSelector', description='弹窗容器选择器'
+        None, alias='popOverContainerSelector', description='Component property'
     )
 
 
@@ -13669,21 +13783,21 @@ class InputDateBaseControlSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     size: Any | None = None
     type: Any
-    clearable: bool | None = Field(None, description='Whether visible清除按钮')
-    format: str | None = Field(None, description='日期存储格式')
-    value_format: str | None = Field(None, alias='valueFormat', description='替代format')
-    input_format: str | None = Field(None, alias='inputFormat', description='日期展示格式')
-    display_format: str | None = Field(None, alias='displayFormat', description='日期展示格式(新：替代inputFormat)')
-    utc: bool | None = Field(None, description='设定是否存储 utc 时间。')
-    emebed: bool | None = Field(None, description='是否为内联模式？')
+    clearable: bool | None = Field(None, description='Component property')
+    format: str | None = Field(None, description='Component property')
+    value_format: str | None = Field(None, alias='valueFormat', description='Component property')
+    input_format: str | None = Field(None, alias='inputFormat', description='Component property')
+    display_format: str | None = Field(None, alias='displayFormat', description='Component property')
+    utc: bool | None = Field(None, description='Component property')
+    emebed: bool | None = Field(None, description='Component property')
     border_mode: BorderMode | None = Field(
-        None, alias='borderMode', description='边框模式，全边框，还是半边框，或者没边框。'
+        None, alias='borderMode', description='Component property'
     )
-    shortcuts: str | list[dict[str, Any]] | None = Field(None, description='日期快捷键')
+    shortcuts: str | list[dict[str, Any]] | None = Field(None, description='Component property')
     disabled_date: str | None = Field(
         None,
         alias='disabledDate',
-        description='字符串函数，用来决定Whether disabled某个日期。\n\n(currentDate: moment.Moment, props: any) => boolean;',
+        description='Component property',
     )
     input_forbid: bool | None = Field(None, alias='inputForbid')
 
@@ -13701,7 +13815,7 @@ class ShortCuts2(BaseModel):
         extra='forbid',
     )
     label: str
-    date: str = Field(..., description='支持表达式')
+    date: str = Field(..., description='Component property')
 
 
 class ShortCuts(RootModel[ShortCuts1 | ShortCuts2]):
@@ -13713,7 +13827,7 @@ class ShortCutDate(BaseModel):
         extra='forbid',
     )
     label: str
-    date: str = Field(..., description='支持表达式')
+    date: str = Field(..., description='Component property')
 
 
 class ShortCutDateRange(BaseModel):
@@ -13727,7 +13841,7 @@ class ShortCutDateRange(BaseModel):
 
 class Type18(Enum):
     """
-    指定为日期时间选择控件
+    AMIS Type18 component.
     """
 
     input_date = 'input-date'
@@ -13740,7 +13854,7 @@ class Type18(Enum):
 
 class DateTimeControlSchema(BaseModel):
     """
-    Datetime日期时间选择控件 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/datetime
+    AMIS DateTimeControlSchema component.
     """
 
     model_config = ConfigDict(
@@ -13799,7 +13913,7 @@ class DateTimeControlSchema(BaseModel):
     editor_setting: Any | None = Field(None, alias='editorSetting')
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     size: Any | None = None
-    type: Literal['input-datetime'] = Field(..., description='指定为日期时间选择控件')
+    type: Literal['input-datetime'] = Field(..., description='Component property')
     clearable: Any | None = None
     format: Any | None = None
     value_format: Any | None = Field(None, alias='valueFormat')
@@ -13811,18 +13925,18 @@ class DateTimeControlSchema(BaseModel):
     shortcuts: Any | None = None
     disabled_date: Any | None = Field(None, alias='disabledDate')
     input_forbid: Any | None = Field(None, alias='inputForbid')
-    time_format: str | None = Field('HH:mm', alias='timeFormat', description='时间的格式。')
-    min_date: str | None = Field(None, alias='minDate', description='限制最小日期')
-    max_date: str | None = Field(None, alias='maxDate', description='限制最大日期')
-    time_constraints: Any | None = Field(None, alias='timeConstraints', description='时间输入范围限制')
+    time_format: str | None = Field('HH:mm', alias='timeFormat', description='Component property')
+    min_date: str | None = Field(None, alias='minDate', description='Component property')
+    max_date: str | None = Field(None, alias='maxDate', description='Component property')
+    time_constraints: Any | None = Field(None, alias='timeConstraints', description='Component property')
     is_end_date: bool | None = Field(
-        None, alias='isEndDate', description='是否为结束时间，如果是，那么会自动加上 23:59:59'
+        None, alias='isEndDate', description='Component property'
     )
 
 
 class TimeControlSchema(BaseModel):
     """
-    Time 时间选择控件 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/time
+    AMIS TimeControlSchema component.
     """
 
     model_config = ConfigDict(
@@ -13881,7 +13995,7 @@ class TimeControlSchema(BaseModel):
     editor_setting: Any | None = Field(None, alias='editorSetting')
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     size: Any | None = None
-    type: Literal['input-time'] = Field(..., description='指定为日期时间选择控件')
+    type: Literal['input-time'] = Field(..., description='Component property')
     clearable: Any | None = None
     format: Any | None = None
     value_format: Any | None = Field(None, alias='valueFormat')
@@ -13893,13 +14007,13 @@ class TimeControlSchema(BaseModel):
     shortcuts: Any | None = None
     disabled_date: Any | None = Field(None, alias='disabledDate')
     input_forbid: Any | None = Field(None, alias='inputForbid')
-    time_format: str | None = Field('HH:mm', alias='timeFormat', description='时间的格式。')
-    time_constraints: Any | None = Field(None, alias='timeConstraints', description='时间输入范围限制')
+    time_format: str | None = Field('HH:mm', alias='timeFormat', description='Component property')
+    time_constraints: Any | None = Field(None, alias='timeConstraints', description='Component property')
 
 
 class Type20(Enum):
     """
-    指定为月份时间选择控件
+    AMIS Type20 component.
     """
 
     input_date = 'input-date'
@@ -13912,7 +14026,7 @@ class Type20(Enum):
 
 class MonthControlSchema(BaseModel):
     """
-    Month 月份选择控件 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/Month
+    AMIS MonthControlSchema component.
     """
 
     model_config = ConfigDict(
@@ -13971,7 +14085,7 @@ class MonthControlSchema(BaseModel):
     editor_setting: Any | None = Field(None, alias='editorSetting')
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     size: Any | None = None
-    type: Literal['input-month'] = Field(..., description='指定为月份时间选择控件')
+    type: Literal['input-month'] = Field(..., description='Component property')
     clearable: Any | None = None
     format: Any | None = None
     value_format: Any | None = Field(None, alias='valueFormat')
@@ -13987,7 +14101,7 @@ class MonthControlSchema(BaseModel):
 
 class QuarterControlSchema(BaseModel):
     """
-    季度选择控件
+    AMIS QuarterControlSchema component.
     """
 
     model_config = ConfigDict(
@@ -14046,7 +14160,7 @@ class QuarterControlSchema(BaseModel):
     editor_setting: Any | None = Field(None, alias='editorSetting')
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     size: Any | None = None
-    type: Literal['input-quarter'] = Field(..., description='指定为月份时间选择控件')
+    type: Literal['input-quarter'] = Field(..., description='Component property')
     clearable: Any | None = None
     format: Any | None = None
     value_format: Any | None = Field(None, alias='valueFormat')
@@ -14062,7 +14176,7 @@ class QuarterControlSchema(BaseModel):
 
 class YearControlSchema(BaseModel):
     """
-    年份选择控件
+    AMIS YearControlSchema component.
     """
 
     model_config = ConfigDict(
@@ -14121,7 +14235,7 @@ class YearControlSchema(BaseModel):
     editor_setting: Any | None = Field(None, alias='editorSetting')
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     size: Any | None = None
-    type: Literal['input-year'] = Field(..., description='指定为月份时间选择控件')
+    type: Literal['input-year'] = Field(..., description='Component property')
     clearable: Any | None = None
     format: Any | None = None
     value_format: Any | None = Field(None, alias='valueFormat')
@@ -14137,7 +14251,7 @@ class YearControlSchema(BaseModel):
 
 class DateRangeControlSchema(BaseModel):
     """
-    DateRange 日期范围控件 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/date-range
+    AMIS DateRangeControlSchema component.
     """
 
     model_config = ConfigDict(
@@ -14277,58 +14391,58 @@ class BaseDateRangeControlSchema(BaseModel):
     size: Any | None = None
     type: Any
     delimiter: str | None = Field(
-        None, description='分割符, 因为有两个值，开始时间和结束时间，所以要有连接符。默认为英文逗号。'
+        None, description='Component property'
     )
     format: str | None = Field(
-        None, description='默认 `X` 即时间戳格式，用来提交的时间格式。更多格式类型请参考 moment.'
+        None, description='Component property'
     )
     value_format: str | None = Field(
-        None, alias='valueFormat', description='用来提交的时间格式。更多格式类型请参考 moment.（新：同format）'
+        None, alias='valueFormat', description='Component property'
     )
     input_format: str | None = Field(
-        None, alias='inputFormat', description='默认 `YYYY-MM-DD` 用来配置显示的时间格式。'
+        None, alias='inputFormat', description='Component property'
     )
     display_format: str | None = Field(
-        None, alias='displayFormat', description='用来配置显示的时间格式（新：同inputFormat）'
+        None, alias='displayFormat', description='Component property'
     )
     join_values: bool | None = Field(
         None,
         alias='joinValues',
-        description='开启后将选中的选项 value 的值用连接符拼接起来，作为当前表单项的值。如： `value1,value2` 否则为 `[value1, value2]`',
+        description='Component property',
     )
     max_date: str | None = Field(
         None,
         alias='maxDate',
-        description='最大日期限制，支持变量 $xxx 来取值，或者用相对值如：* `-2mins` 2分钟前\\n * `+2days` 2天后\\n* `-10week` 十周前\\n可用单位： `min`、`hour`、`day`、`week`、`month`、`year`。所有单位支持复数形式。',
+        description='Component property',
     )
     min_date: str | None = Field(
         None,
         alias='minDate',
-        description='最小日期限制，支持变量 $xxx 来取值，或者用相对值如：* `-2mins` 2分钟前\\n * `+2days` 2天后\\n* `-10week` 十周前\\n可用单位： `min`、`hour`、`day`、`week`、`month`、`year`。所有单位支持复数形式。',
+        description='Component property',
     )
-    max_duration: str | None = Field(None, alias='maxDuration', description='最大跨度，比如 2days')
-    min_duration: str | None = Field(None, alias='minDuration', description='最小跨度，比如 2days')
+    max_duration: str | None = Field(None, alias='maxDuration', description='Component property')
+    min_duration: str | None = Field(None, alias='minDuration', description='Component property')
     border_mode: BorderMode | None = Field(
-        None, alias='borderMode', description='边框模式，全边框，还是半边框，或者没边框。'
+        None, alias='borderMode', description='Component property'
     )
-    embed: bool | None = Field(None, description='开启后变成非弹出模式，即内联模式。')
-    ranges: str | list[dict[str, Any]] | None = Field(None, description='日期范围快捷键')
-    shortcuts: str | list[dict[str, Any]] | None = Field(None, description='日期范围快捷键')
-    start_placeholder: str | None = Field(None, alias='startPlaceholder', description='日期范围开始时间-占位符')
-    end_placeholder: str | None = Field(None, alias='endPlaceholder', description='日期范围结束时间-占位符')
-    animation: bool | None = Field(None, description='是否启用游标动画，默认开启')
+    embed: bool | None = Field(None, description='Component property')
+    ranges: str | list[dict[str, Any]] | None = Field(None, description='Component property')
+    shortcuts: str | list[dict[str, Any]] | None = Field(None, description='Component property')
+    start_placeholder: str | None = Field(None, alias='startPlaceholder', description='Component property')
+    end_placeholder: str | None = Field(None, alias='endPlaceholder', description='Component property')
+    animation: bool | None = Field(None, description='Component property')
     transform: str | None = Field(
         None,
-        description="日期数据处理函数，用来处理选择日期之后的的值\n\n(value: moment.Moment, config: {type: 'start' | 'end'; originValue: moment.Moment, timeFormat: string}, props: any, data: any, moment: moment) => moment.Moment;",
+        description="Component property'start' | 'end'; originValue: moment.Moment, timeFormat: string}, props: any, data: any, moment: moment) => moment.Moment;",
     )
     pop_over_container_selector: str | None = Field(
-        None, alias='popOverContainerSelector', description='弹窗容器选择器'
+        None, alias='popOverContainerSelector', description='Component property'
     )
 
 
 class DiffControlSchema(BaseModel):
     """
-    Diff 编辑器 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/diff
+    AMIS DiffControlSchema component.
     """
 
     model_config = ConfigDict(
@@ -14389,8 +14503,8 @@ class DiffControlSchema(BaseModel):
     size: Any | None = None
     type: Any
     diff_value: str | None = Field(None, alias='diffValue')
-    language: str | None = Field(None, description='语言，参考 monaco-editor')
-    options: Any | None = Field(None, description='编辑器配置')
+    language: str | None = Field(None, description='Component property')
+    options: Any | None = Field(None, description='Editor configuration')
 
 
 class Type23(Enum):
@@ -14476,7 +14590,7 @@ class Type23(Enum):
 
 class Language(Enum):
     """
-    语言类型
+    AMIS Language component.
     """
 
     bat = 'bat'
@@ -14522,7 +14636,7 @@ class Language(Enum):
 
 class Size12(Enum):
     """
-    编辑器大小
+    AMIS Size12 component.
     """
 
     sm = 'sm'
@@ -14534,7 +14648,7 @@ class Size12(Enum):
 
 class EditorControlSchema(BaseModel):
     """
-    Editor 代码编辑器 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/editor
+    AMIS EditorControlSchema component.
     """
 
     model_config = ConfigDict(
@@ -14603,15 +14717,15 @@ class EditorControlSchema(BaseModel):
         None, alias='useMobileUI', description='Can be used at the component level to turn off mobile styles'
     )
     type: Type23
-    language: Language | None = Field(None, description='语言类型')
-    size: Size12 | None = Field(None, description='编辑器大小')
-    allow_fullscreen: bool | None = Field(None, alias='allowFullscreen', description='是否展示全屏模式开关')
-    editor_did_mount: str | None = Field(None, alias='editorDidMount', description='获取编辑器底层实例')
+    language: Language | None = Field(None, description='Component property')
+    size: Size12 | None = Field(None, description='Component property')
+    allow_fullscreen: bool | None = Field(None, alias='allowFullscreen', description='Component property')
+    editor_did_mount: str | None = Field(None, alias='editorDidMount', description='Component property')
 
 
 class Type24(Enum):
     """
-    指定为表单项集合
+    AMIS Type24 component.
     """
 
     fieldset = 'fieldset'
@@ -14622,7 +14736,7 @@ class Type24(Enum):
 
 class TitlePosition1(Enum):
     """
-    标题展示位置
+    TitleDisplayPosition
     """
 
     top = 'top'
@@ -14631,7 +14745,7 @@ class TitlePosition1(Enum):
 
 class SubFormMode4(Enum):
     """
-    配置子表单项默认的展示方式。
+    AMIS SubFormMode4 component.
     """
 
     normal = 'normal'
@@ -14641,7 +14755,7 @@ class SubFormMode4(Enum):
 
 class FieldSetControlSchema(BaseModel):
     """
-    FieldSet 表单项集合 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/fieldset
+    AMIS FieldSetControlSchema component.
     """
 
     model_config = ConfigDict(
@@ -14668,91 +14782,95 @@ class FieldSetControlSchema(BaseModel):
     style: Any | None = None
     editor_setting: Any | None = Field(None, alias='editorSetting')
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
-    type: Type24 = Field(..., description='指定为表单项集合')
+    type: Type24 = Field(..., description='Component property')
     testid: Any | None = None
     key: Any | None = None
     header_position: Any | None = Field(None, alias='headerPosition')
     header: Any | None = None
     body_class_name: Any | None = Field(None, alias='bodyClassName')
-    collapsable: bool | None = Field(None, description='是否可折叠')
-    collapsed: bool | None = Field(None, description='默认是否折叠')
+    collapsable: bool | None = Field(None, description='Component property')
+    collapsed: bool | None = Field(None, description='Component property')
     show_arrow: Any | None = Field(None, alias='showArrow')
     expand_icon: Any | None = Field(None, alias='expandIcon')
     heading_class_name: Any | None = Field(None, alias='headingClassName')
     collapse_header: Any | None = Field(None, alias='collapseHeader')
     size: Any | None = None
-    mount_on_enter: bool | None = Field(None, alias='mountOnEnter', description='点开时才加载内容')
-    unmount_on_exit: bool | None = Field(None, alias='unmountOnExit', description='卡片隐藏就销毁内容。')
+    mount_on_enter: bool | None = Field(None, alias='mountOnEnter', description='Component property')
+    unmount_on_exit: bool | None = Field(None, alias='unmountOnExit', description='Component property')
     divide_line: Any | None = Field(None, alias='divideLine')
-    label: dict[str, Any] | None = Field(None, description='描述标题, 当值为 false 时不展示')
+    label: dict[str, Any] | None = Field(None, description='Component property')
     label_align: dict[str, Any] | None = Field(None, alias='labelAlign')
-    label_width: float | str | None = Field(None, alias='labelWidth', description='label自定义宽度，默认单位为px')
-    label_overflow: LabelOverflow8 | None = Field(None, alias='labelOverflow', description='label展示形式')
-    label_class_name: str | None = Field(None, alias='labelClassName', description='配置 label className')
-    name: str | None = Field(None, description='字段名，表单提交时的 key，支持多层级，用.连接，如： a.b.c')
+    label_width: float | str | None = Field(None, alias='labelWidth', description='Component property')
+    label_overflow: LabelOverflow8 | None = Field(None, alias='labelOverflow', description='Component property')
+    label_class_name: str | None = Field(None, alias='labelClassName', description='Configure label className')
+    name: str | None = Field(None, description='Component property')
     extra_name: str | None = Field(
-        None, alias='extraName', description='额外的字段名，当为范围组件时可以用来将另外一个值打平出来'
+        None, alias='extraName', description='Component property'
     )
-    remark: Any | None = Field(None, description='显示一个小图标, 鼠标放上去的时候显示提示内容')
+    remark: Any | None = Field(None, description='Component property')
     label_remark: Any | None = Field(
-        None, alias='labelRemark', description='显示一个小图标, 鼠标放上去的时候显示提示内容, 这个小图标跟 label 在一起'
+        None,
+        alias='labelRemark',
+        description='Component property',
     )
-    hint: str | None = Field(None, description='输入提示，聚焦的时候显示')
-    submit_on_change: bool | None = Field(None, alias='submitOnChange', description='当修改完的时候是否提交表单。')
-    read_only: bool | None = Field(None, alias='readOnly', description='是否只读')
-    read_only_on: str | None = Field(None, alias='readOnlyOn', description='只读条件')
+    hint: str | None = Field(None, description='Component property')
+    submit_on_change: bool | None = Field(None, alias='submitOnChange', description='Component property')
+    read_only: bool | None = Field(None, alias='readOnly', description='Component property')
+    read_only_on: str | None = Field(None, alias='readOnlyOn', description='Component property')
     validate_on_change: bool | None = Field(
         None,
         alias='validateOnChange',
-        description='不设置时，当表单提交过后表单项每次修改都会触发重新验证， 如果设置了，则由此配置项来决定要不要每次修改都触发验证。',
+        description='Component property',
     )
-    description: str | None = Field(None, description='描述内容，支持 Html 片段。')
+    description: str | None = Field(None, description='Component property')
     desc: str | None = None
     description_class_name: dict[str, Any] | None = Field(None, alias='descriptionClassName')
-    mode: Mode26 | None = Field(None, description='配置当前表单项展示模式')
+    mode: Mode26 | None = Field(None, description='Component property')
     horizontal: dict[str, Any] | None = None
-    inline: bool | None = Field(None, description='表单 control 是否为 inline 模式。')
+    inline: bool | None = Field(None, description='Component property')
     input_class_name: dict[str, Any] | None = Field(None, alias='inputClassName')
-    placeholder: dict[str, Any] | None = Field(None, description='占位符')
-    required: bool | None = Field(None, description='是否为必填')
+    placeholder: dict[str, Any] | None = Field(None, description='Component property')
+    required: bool | None = Field(None, description='Component property')
     validation_errors: ValidationErrors2 | None = Field(
-        None, alias='validationErrors', description='验证失败的提示信息'
+        None, alias='validationErrors', description='Component property'
     )
     validations: dict[str, Any] | None = None
     value: Any | None = Field(
-        None, description='默认值，切记只能是静态值，不支持取变量，跟数据关联是通过设置 name 属性来实现的。'
+        None, description='Component property'
     )
     clear_value_on_hidden: bool | None = Field(
         None,
         alias='clearValueOnHidden',
-        description='表单项隐藏时，是否在当前 Form 中删除掉该表单项值。注意同名的未隐藏的表单项值也会删掉',
+        description='Component property',
     )
-    validate_api: dict[str, Any] | None = Field(None, alias='validateApi', description='远端校验表单项接口')
+    validate_api: dict[str, Any] | None = Field(None, alias='validateApi', description='Component property')
     auto_fill: dict[str, Any] | None = Field(
-        None, alias='autoFill', description='自动填充，当选项被选择的时候，将选项中的其他值同步设置到表单内。'
+        None, alias='autoFill', description='Component property'
     )
     init_auto_fill: dict[str, Any] | None = Field(
-        'fillIfNotSet\n初始化时是否把其他字段同步到表单内部。', alias='initAutoFill'
+        'fillIfNotSet\n初始化时Whether把其他字段同步到表单Internal。', alias='initAutoFill'
     )
     row: float | None = None
-    title_position: TitlePosition1 = Field(..., alias='titlePosition', description='标题展示位置')
+    title_position: TitlePosition1 = Field(..., alias='titlePosition', description='TitleDisplayPosition')
     body: dict[str, Any] | None = None
     title: str | None = Field(
         None,
-        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/en-US/docs/concepts/template',
     )
     collapse_title: str | None = Field(
         None,
         alias='collapseTitle',
-        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/en-US/docs/concepts/template',
     )
-    sub_form_mode: SubFormMode4 | None = Field(None, alias='subFormMode', description='配置子表单项默认的展示方式。')
+    sub_form_mode: SubFormMode4 | None = Field(
+        None, alias='subFormMode', description='Component property'
+    )
     sub_form_horizontal: SubFormHorizontal | None = Field(None, alias='subFormHorizontal')
 
 
 class StateTextMap(BaseModel):
     """
-    按钮状态文案配置。
+    AMIS StateTextMap component.
     """
 
     model_config = ConfigDict(
@@ -14768,7 +14886,7 @@ class StateTextMap(BaseModel):
 
 class FileControlSchema(BaseModel):
     """
-    File 文件上传控件 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/file
+    AMIS FileControlSchema component.
     """
 
     model_config = ConfigDict(
@@ -14828,48 +14946,48 @@ class FileControlSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     size: Any | None = None
     type: Any
-    btn_label: str | None = Field('请选择文件', alias='btnLabel', description='上传文件按钮说明')
+    btn_label: str | None = Field('请选择文件', alias='btnLabel', description='Component property')
     accept: str | None = Field(
         'text/plain',
-        description='默认只支持纯文本，要支持其他类型，请配置此属性。建议直接填写文件后缀 如：.txt,.csv\n\n多个类型用逗号隔开。',
+        description='Component property',
     )
-    capture: str | None = Field(None, description='控制 input 标签的 capture 属性，用于移动端拍照或录像。')
+    capture: str | None = Field(None, description='Component property')
     as_base64: bool | None = Field(
         None,
         alias='asBase64',
-        description='如果上传的文件比较小可以设置此选项来简单的把文件 base64 的值给 form 一起提交，目前不支持多选。',
+        description='Component property',
     )
     as_blob: bool | None = Field(
         None,
         alias='asBlob',
-        description='如果不希望 File 组件上传，可以配置 `asBlob` 或者 `asBase64`，采用这种方式后，组件不再自己上传了，而是直接把文件数据作为表单项的值，文件内容会在 Form 表单提交的接口里面一起带上。',
+        description='Component property',
     )
-    auto_upload: bool | None = Field(None, alias='autoUpload', description='是否自动开始上传')
+    auto_upload: bool | None = Field(None, alias='autoUpload', description='Component property')
     chunk_api: dict[str, Any] | None = Field(None, alias='chunkApi')
-    chunk_size: float | None = Field(5242880, alias='chunkSize', description='分块大小，默认为 5M.')
-    concurrency: float | None = Field(None, description='分块上传的并发数')
-    delimiter: str | None = Field(None, description='分割符')
+    chunk_size: float | None = Field(5242880, alias='chunkSize', description='Component property')
+    concurrency: float | None = Field(None, description='Component property')
+    delimiter: str | None = Field(None, description='Component property')
     download_url: dict[str, Any] | None = Field(None, alias='downloadUrl')
     template_url: dict[str, Any] | None = Field(None, alias='templateUrl')
     file_field: str | None = Field(
-        'file', alias='fileField', description='默认 `file`, 如果你不想自己存储，则可以忽略此属性。'
+        'file', alias='fileField', description='Component property'
     )
     finish_chunk_api: dict[str, Any] | None = Field(None, alias='finishChunkApi')
-    hide_upload_button: bool | None = Field(None, alias='hideUploadButton', description='Whether hidden上传按钮')
-    max_length: float | None = Field(None, alias='maxLength', description='最多的个数')
+    hide_upload_button: bool | None = Field(None, alias='hideUploadButton', description='Component property')
+    max_length: float | None = Field(None, alias='maxLength', description='Component property')
     max_size: float | None = Field(
-        None, alias='maxSize', description='默认没有限制，当设置后，文件大小大于此值将不允许上传。'
+        None, alias='maxSize', description='Component property'
     )
     receiver: dict[str, Any] | None = None
     start_chunk_api: str | None = Field(
         '/api/upload/startChunk',
         alias='startChunkApi',
-        description='默认 `/api/upload/startChunk` 想自己存储时才需要关注。',
+        description='Component property',
     )
     use_chunk: str | bool | None = Field(
         None,
         alias='useChunk',
-        description="默认为 'auto' amis 所在服务器，限制了文件上传大小不得超出10M，所以 amis 在用户选择大文件的时候，自动会改成分块上传模式。",
+        description="Component property'auto' amis 所在服务器，限制了文件上传大小不得超出10M，所以 amis 在用户选择大文件的when，自动会改成分块上传模式。",
     )
     btn_class_name: dict[str, Any] | None = Field(
         None,
@@ -14881,34 +14999,36 @@ class FileControlSchema(BaseModel):
         alias='btnUploadClassName',
         description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
-    multiple: bool | None = Field(None, description='是否为多选')
+    multiple: bool | None = Field(None, description='Component property')
     join_values: bool | None = Field(
         None,
         alias='joinValues',
-        description='1. 单选模式：当用户选中某个选项时，选项中的 value 将被作为该表单项的值提交， 否则，整个选项对象都会作为该表单项的值提交。 2. 多选模式：选中的多个选项的 `value` 会通过 `delimiter` 连接起来， 否则直接将以数组的形式提交值。',
+        description='Component property',
     )
     extract_value: bool | None = Field(
-        None, alias='extractValue', description='开启后将选中的选项 value 的值封装为数组，作为当前表单项的值。'
+        None, alias='extractValue', description='Component property'
     )
-    reset_value: Any | None = Field(None, alias='resetValue', description='清除时设置的值')
-    value_field: str | None = Field(None, alias='valueField', description='接口返回的数据中，哪个用来当做值')
-    name_field: str | None = Field(None, alias='nameField', description='接口返回的数据中，哪个用来展示文件名')
-    url_field: str | None = Field(None, alias='urlField', description='接口返回的数据中哪个用来作为下载地址。')
-    state_text_map: StateTextMap | None = Field(None, alias='stateTextMap', description='按钮状态文案配置。')
-    documentation: str | None = Field(None, description='说明文档内容配置')
-    document_link: str | None = Field(None, alias='documentLink', description='说明文档链接配置')
-    drag: bool | None = Field(None, description='是否为拖拽上传')
+    reset_value: Any | None = Field(None, alias='resetValue', description='Component property')
+    value_field: str | None = Field(None, alias='valueField', description='Component property')
+    name_field: str | None = Field(
+        None, alias='nameField', description='Component property'
+    )
+    url_field: str | None = Field(None, alias='urlField', description='Component property')
+    state_text_map: StateTextMap | None = Field(None, alias='stateTextMap', description='Component property')
+    documentation: str | None = Field(None, description='Component property')
+    document_link: str | None = Field(None, alias='documentLink', description='Component property')
+    drag: bool | None = Field(None, description='Component property')
     invalid_type_message: str | None = Field(
-        None, alias='invalidTypeMessage', description='校验格式失败时显示的文字信息'
+        None, alias='invalidTypeMessage', description='Component property'
     )
     invalid_size_message: str | None = Field(
-        None, alias='invalidSizeMessage', description='校验文件大小失败时显示的文字信息'
+        None, alias='invalidSizeMessage', description='Component property'
     )
 
 
 class FormulaControlSchema(BaseModel):
     """
-    公式功能控件。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/formula
+    AMIS FormulaControlSchema component.
     """
 
     model_config = ConfigDict(
@@ -14968,15 +15088,15 @@ class FormulaControlSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     size: Any | None = None
     type: Any
-    condition: str | None = Field(None, description='触发公式的作用条件，如 data.xxx == \\"a\\" 或者 ${xx}')
-    auto_set: bool | None = Field(None, alias='autoSet', description='是否自动应用')
-    formula: str | None = Field(None, description='公式')
-    init_set: bool | None = Field(None, alias='initSet', description='是否初始应用')
+    condition: str | None = Field(None, description='Component property"a\\" or ${xx}')
+    auto_set: bool | None = Field(None, alias='autoSet', description='Component property')
+    formula: str | None = Field(None, description='Component property')
+    init_set: bool | None = Field(None, alias='initSet', description='Component property')
 
 
 class Gap2(Enum):
     """
-    间隔
+    Interval
     """
 
     xs = 'xs'
@@ -14986,7 +15106,7 @@ class Gap2(Enum):
 
 class Direction5(Enum):
     """
-    配置时垂直摆放还是左右摆放。
+    AMIS Direction5 component.
     """
 
     horizontal = 'horizontal'
@@ -14995,7 +15115,7 @@ class Direction5(Enum):
 
 class GroupControlSchema(BaseModel):
     """
-    Group 表单集合渲染器，能让多个表单在一行显示 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/group
+    AMIS GroupControlSchema component.
     """
 
     model_config = ConfigDict(
@@ -15055,10 +15175,12 @@ class GroupControlSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     size: Any | None = None
     type: Any
-    body: list[dict[str, Any]] = Field(..., description='FormItem 集合')
-    gap: Gap2 | None = Field(None, description='间隔')
-    direction: Direction5 | None = Field(None, description='配置时垂直摆放还是左右摆放。')
-    sub_form_mode: SubFormMode4 | None = Field(None, alias='subFormMode', description='配置子表单项默认的展示方式。')
+    body: list[dict[str, Any]] = Field(..., description='Component property')
+    gap: Gap2 | None = Field(None, description='Interval')
+    direction: Direction5 | None = Field(None, description='Component property')
+    sub_form_mode: SubFormMode4 | None = Field(
+        None, alias='subFormMode', description='Component property'
+    )
     sub_form_horizontal: SubFormHorizontal | None = Field(None, alias='subFormHorizontal')
 
 
@@ -15069,14 +15191,14 @@ class GroupSubControl(BaseModel):
         description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     column_ratio: float | str | None = Field(
-        None, alias='columnRatio', description='宽度占用比率。在某些容器里面有用比如 group'
+        None, alias='columnRatio', description='Component property'
     )
-    name: str | None = Field(None, description='列名称')
+    name: str | None = Field(None, description='Component property')
 
 
 class HiddenControlSchema(BaseModel):
     """
-    Hidden 隐藏域。功能性组件 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/hidden
+    AMIS HiddenControlSchema component.
     """
 
     model_config = ConfigDict(
@@ -15140,7 +15262,7 @@ class HiddenControlSchema(BaseModel):
 
 class IconPickerControlSchema(BaseModel):
     """
-    图标选择器 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/icon-picker
+    AMIS IconPickerControlSchema component.
     """
 
     model_config = ConfigDict(
@@ -15224,25 +15346,25 @@ class Crop(BaseModel):
 
 class Limit(BaseModel):
     """
-    限制图片大小，超出不让上传。
+    AMIS Limit component.
     """
 
     model_config = ConfigDict(
         extra='forbid',
     )
-    aspect_ratio_label: str | None = Field(None, alias='aspectRatioLabel', description='比率不对时的提示文字')
-    aspect_ratio: float | None = Field(None, alias='aspectRatio', description='限制比率')
-    height: float | None = Field(None, description='限制图片高度')
-    width: float | None = Field(None, description='限制图片宽度')
-    max_height: float | None = Field(None, alias='maxHeight', description='限制图片最大高度')
-    max_width: float | None = Field(None, alias='maxWidth', description='限制图片最大宽度')
-    min_height: float | None = Field(None, alias='minHeight', description='限制图片最小高度')
-    min_width: float | None = Field(None, alias='minWidth', description='限制图片最小宽度')
+    aspect_ratio_label: str | None = Field(None, alias='aspectRatioLabel', description='Component property')
+    aspect_ratio: float | None = Field(None, alias='aspectRatio', description='Component property')
+    height: float | None = Field(None, description='Component property')
+    width: float | None = Field(None, description='Component property')
+    max_height: float | None = Field(None, alias='maxHeight', description='Component property')
+    max_width: float | None = Field(None, alias='maxWidth', description='Component property')
+    min_height: float | None = Field(None, alias='minHeight', description='Component property')
+    min_width: float | None = Field(None, alias='minWidth', description='Component property')
 
 
 class ThumbMode3(Enum):
     """
-    缩路图展示模式
+    AMIS ThumbMode3 component.
     """
 
     w_full = 'w-full'
@@ -15253,7 +15375,7 @@ class ThumbMode3(Enum):
 
 class ThumbRatio2(Enum):
     """
-    缩路图展示比率。
+    AMIS ThumbRatio2 component.
     """
 
     field_1_1 = '1:1'
@@ -15263,7 +15385,7 @@ class ThumbRatio2(Enum):
 
 class ImageControlSchema(BaseModel):
     """
-    Image 图片上传控件 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/image
+    AMIS ImageControlSchema component.
     """
 
     model_config = ConfigDict(
@@ -15323,25 +15445,25 @@ class ImageControlSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     size: Any | None = None
     type: Any
-    show_error_modal: bool | None = Field(None, alias='showErrorModal', description='格式校验失败Whether visible弹窗')
+    show_error_modal: bool | None = Field(None, alias='showErrorModal', description='Component property')
     invalid_type_message: str | None = Field(
-        None, alias='invalidTypeMessage', description='校验格式失败时显示的文字信息'
+        None, alias='invalidTypeMessage', description='Component property'
     )
     invalid_size_message: str | None = Field(
-        None, alias='invalidSizeMessage', description='校验文件大小失败时显示的文字信息'
+        None, alias='invalidSizeMessage', description='Component property'
     )
     src: dict[str, Any] | None = None
-    image_class_name: str | None = Field(None, alias='imageClassName', description='默认展示图片的类名')
+    image_class_name: str | None = Field(None, alias='imageClassName', description='Component property')
     accept: str | None = Field(
-        None, description='配置接收的图片类型\n\n建议直接填写文件后缀 如：.txt,.csv\n\n多个类型用逗号隔开。'
+        None, description='Component property'
     )
     allow_input: bool | None = Field(
         None,
         alias='allowInput',
-        description='默认都是通过用户选择图片后上传返回图片地址，如果开启此选项，则可以允许用户图片地址。',
+        description='Component property',
     )
-    auto_upload: bool | None = Field(None, alias='autoUpload', description='是否自动开始上传')
-    upload_btn_text: str | dict[str, Any] | None = Field(None, alias='uploadBtnText', description='上传按钮文案')
+    auto_upload: bool | None = Field(None, alias='autoUpload', description='Component property')
+    upload_btn_text: str | dict[str, Any] | None = Field(None, alias='uploadBtnText', description='Component property')
     btn_class_name: dict[str, Any] | None = Field(
         None,
         alias='btnClassName',
@@ -15355,49 +15477,51 @@ class ImageControlSchema(BaseModel):
     compress: bool | None = None
     compress_options: CompressOptions | None = Field(None, alias='compressOptions')
     crop: bool | Crop | None = None
-    crop_format: str | None = Field(None, alias='cropFormat', description='裁剪后的图片类型')
-    crop_quality: float | None = Field(None, alias='cropQuality', description='裁剪后的质量')
-    re_cropable: bool | None = Field(None, alias='reCropable', description='是否允许二次裁剪。')
-    hide_upload_button: bool | None = Field(None, alias='hideUploadButton', description='Whether hidden上传按钮')
-    limit: Limit | None = Field(None, description='限制图片大小，超出不让上传。')
-    max_length: float | None = Field(None, alias='maxLength', description='最多的个数')
+    crop_format: str | None = Field(None, alias='cropFormat', description='Component property')
+    crop_quality: float | None = Field(None, alias='cropQuality', description='Component property')
+    re_cropable: bool | None = Field(None, alias='reCropable', description='Component property')
+    hide_upload_button: bool | None = Field(None, alias='hideUploadButton', description='Component property')
+    limit: Limit | None = Field(None, description='Component property')
+    max_length: float | None = Field(None, alias='maxLength', description='Component property')
     max_size: float | None = Field(
-        None, alias='maxSize', description='默认没有限制，当设置后，文件大小大于此值将不允许上传。'
+        None, alias='maxSize', description='Component property'
     )
     receiver: dict[str, Any] | None = None
     show_compress_options: bool | None = Field(
-        None, alias='showCompressOptions', description='默认为 false, 开启后，允许用户输入压缩选项。'
+        None, alias='showCompressOptions', description='Component property'
     )
-    multiple: bool | None = Field(None, description='是否为多选')
-    capture: str | None = Field(None, description='可配置移动端的拍照功能，比如配置 `camera` 移动端只能拍照，等')
+    multiple: bool | None = Field(None, description='Component property')
+    capture: str | None = Field(
+        None, description='Component property'
+    )
     join_values: bool | None = Field(
         None,
         alias='joinValues',
-        description='单选模式：当用户选中某个选项时，选项中的 value 将被作为该表单项的值提交，否则，整个选项对象都会作为该表单项的值提交。 多选模式：选中的多个选项的 `value` 会通过 `delimiter` 连接起来，否则直接将以数组的形式提交值。',
+        description='Component property',
     )
-    delimiter: str | None = Field(None, description='分割符')
+    delimiter: str | None = Field(None, description='Component property')
     extract_value: bool | None = Field(
-        None, alias='extractValue', description='开启后将选中的选项 value 的值封装为数组，作为当前表单项的值。'
+        None, alias='extractValue', description='Component property'
     )
-    reset_value: Any | None = Field(None, alias='resetValue', description='清除时设置的值')
-    thumb_mode: ThumbMode3 | None = Field(None, alias='thumbMode', description='缩路图展示模式')
-    thumb_ratio: ThumbRatio2 | None = Field(None, alias='thumbRatio', description='缩路图展示比率。')
-    init_crop: bool | None = Field(None, alias='initCrop', description='初始化时是否打开裁剪模式')
-    drop_crop: bool | None = Field(None, alias='dropCrop', description='图片上传完毕是否进入裁剪模式')
+    reset_value: Any | None = Field(None, alias='resetValue', description='Component property')
+    thumb_mode: ThumbMode3 | None = Field(None, alias='thumbMode', description='Component property')
+    thumb_ratio: ThumbRatio2 | None = Field(None, alias='thumbRatio', description='Component property')
+    init_crop: bool | None = Field(None, alias='initCrop', description='Component property')
+    drop_crop: bool | None = Field(None, alias='dropCrop', description='Component property')
     frame_image: dict[str, Any] | None = Field(None, alias='frameImage')
-    fixed_size: bool | None = Field(None, alias='fixedSize', description='是否开启固定尺寸')
+    fixed_size: bool | None = Field(None, alias='fixedSize', description='Component property')
     fixed_size_class_name: dict[str, Any] | None = Field(
         None,
         alias='fixedSizeClassName',
         description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
-    draggable: bool | None = Field(None, description='是否可拖拽排序')
-    draggable_tip: str | None = Field('可拖拽排序', alias='draggableTip', description='可拖拽排序的提示信息。')
+    draggable: bool | None = Field(None, description='Component property')
+    draggable_tip: str | None = Field('可拖拽排序', alias='draggableTip', description='Component property')
 
 
 class ErrorMode(Enum):
     """
-    错误提示的展示模式, full为整体飘红, highlight为仅错误项飘红, 默认为full
+    AMIS ErrorMode component.
     """
 
     full = 'full'
@@ -15406,21 +15530,23 @@ class ErrorMode(Enum):
 
 class ValidationConfig(BaseModel):
     """
-    校验提示信息配置
+    AMIS ValidationConfig component.
     """
 
     model_config = ConfigDict(
         extra='forbid',
     )
     error_mode: ErrorMode | None = Field(
-        None, alias='errorMode', description='错误提示的展示模式, full为整体飘红, highlight为仅错误项飘红, 默认为full'
+        None,
+        alias='errorMode',
+        description='Component property',
     )
-    delimiter: str | None = Field(None, description='单个子元素多条校验信息的分隔符')
+    delimiter: str | None = Field(None, description='Component property')
 
 
 class InputGroupControlSchema(BaseModel):
     """
-    InputGroup 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/input-group
+    AMIS InputGroupControlSchema component.
     """
 
     model_config = ConfigDict(
@@ -15481,12 +15607,14 @@ class InputGroupControlSchema(BaseModel):
     size: Any | None = None
     type: Any
     body: dict[str, Any]
-    validation_config: ValidationConfig | None = Field(None, alias='validationConfig', description='校验提示信息配置')
+    validation_config: ValidationConfig | None = Field(
+        None, alias='validationConfig', description='Component property'
+    )
 
 
 class ListControlSchema(BaseModel):
     """
-    List 复选框 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/list-select
+    AMIS ListControlSchema component.
     """
 
     model_config = ConfigDict(
@@ -15574,8 +15702,8 @@ class ListControlSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     size: Any | None = None
     type: Any
-    submit_on_db_click: bool | None = Field(None, alias='submitOnDBClick', description='开启双击点选并提交。')
-    image_class_name: str | None = Field(None, alias='imageClassName', description='图片div类名')
+    submit_on_db_click: bool | None = Field(None, alias='submitOnDBClick', description='Component property')
+    image_class_name: str | None = Field(None, alias='imageClassName', description='Component property')
     item_schema: dict[str, Any] | None = Field(None, alias='itemSchema')
     active_item_schema: dict[str, Any] | None = Field(None, alias='activeItemSchema')
     list_class_name: dict[str, Any] | None = Field(
@@ -15592,7 +15720,7 @@ class Definitions(BaseModel):
 
 class JSONSchemaEditorControlSchema(BaseModel):
     """
-    JSON Schema Editor 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/json-schema-editor
+    AMIS JSONSchemaEditorControlSchema component.
     """
 
     model_config = ConfigDict(
@@ -15652,17 +15780,19 @@ class JSONSchemaEditorControlSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     size: Any | None = None
     type: Any
-    definitions: dict[str, Definitions] | None = Field(None, description='可以理解为类型模板，方便快速定义复杂类型')
-    root_type_mutable: bool | None = Field(None, alias='rootTypeMutable', description='顶层是否允许修改类型')
-    show_root_info: bool | None = Field(None, alias='showRootInfo', description='顶层类型信息Whether hidden')
-    disabled_types: list[str] | None = Field(None, alias='disabledTypes', description='禁用类型，默认禁用了 null 类型')
-    enable_advanced_setting: bool | None = Field(None, alias='enableAdvancedSetting', description='开启详情配置')
+    definitions: dict[str, Definitions] | None = Field(None, description='Component property')
+    root_type_mutable: bool | None = Field(None, alias='rootTypeMutable', description='Component property')
+    show_root_info: bool | None = Field(None, alias='showRootInfo', description='Component property')
+    disabled_types: list[str] | None = Field(
+        None, alias='disabledTypes', description='Component property'
+    )
+    enable_advanced_setting: bool | None = Field(None, alias='enableAdvancedSetting', description='Component property')
     advanced_settings: dict[str, Any] | None = Field(
         None,
         alias='advancedSettings',
-        description='自定义详情配置面板如：\n\n{   boolean: [      {type: "input-text", name: "aa", label: "AA" }   ] }\n\n当配置布尔字段详情时，就会出现以上配置',
+        description='Component property"input-text", name: "aa", label: "AA" }   ] }\n\n当Configure布尔字段详情时，就会出现以上Configure',
     )
-    mini: bool | None = Field(None, description='是否为迷你模式，会隐藏一些不必要的元素')
+    mini: bool | None = Field(None, description='Component property')
 
 
 class SchemaEditorItemPlaceholder(BaseModel):
@@ -15734,29 +15864,29 @@ class InputSignatureSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     size: Any | None = None
     type: Any
-    width: float | None = Field(None, description='组件宽度，默认占满父容器')
-    height: float | None = Field(None, description='组件高度，默认占满父容器')
-    color: str | None = Field('#000', description='组件字段颜色')
-    bg_color: str | None = Field('#efefef', alias='bgColor', description='组件背景颜色')
-    clear_btn_label: str | None = Field('清空', alias='clearBtnLabel', description='清空按钮名称')
-    clear_btn_icon: str | None = Field('清空', alias='clearBtnIcon', description='清空按钮图标')
-    undo_btn_label: str | None = Field('撤销', alias='undoBtnLabel', description='撤销按钮名称')
-    undo_btn_icon: str | None = Field('清空', alias='undoBtnIcon', description='清空按钮图标')
-    confirm_btn_label: str | None = Field('确认', alias='confirmBtnLabel', description='确认按钮名称')
-    confirm_btn_icon: str | None = Field('确认', alias='confirmBtnIcon', description='确认按钮图标')
-    embed: bool | None = Field(None, description='是否内嵌')
-    embed_confirm_label: str | None = Field(None, alias='embedConfirmLabel', description='弹窗确认按钮名称')
-    embed_confirm_icon: str | None = Field(None, alias='embedConfirmIcon', description='弹窗确认按钮图标')
-    ebmed_cancel_label: str | None = Field(None, alias='ebmedCancelLabel', description='弹窗取消按钮名称')
-    ebmed_cancel_icon: str | None = Field(None, alias='ebmedCancelIcon', description='弹窗取消按钮图标')
-    embed_btn_icon: str | None = Field(None, alias='embedBtnIcon', description='弹窗按钮图标')
-    embed_btn_label: str | None = Field(None, alias='embedBtnLabel', description='弹窗按钮文案')
+    width: float | None = Field(None, description='Component property')
+    height: float | None = Field(None, description='Component property')
+    color: str | None = Field('#000', description='Component property')
+    bg_color: str | None = Field('#efefef', alias='bgColor', description='Component property')
+    clear_btn_label: str | None = Field('清空', alias='clearBtnLabel', description='Component property')
+    clear_btn_icon: str | None = Field('清空', alias='clearBtnIcon', description='Component property')
+    undo_btn_label: str | None = Field('撤销', alias='undoBtnLabel', description='Component property')
+    undo_btn_icon: str | None = Field('清空', alias='undoBtnIcon', description='Component property')
+    confirm_btn_label: str | None = Field('确认', alias='confirmBtnLabel', description='Component property')
+    confirm_btn_icon: str | None = Field('确认', alias='confirmBtnIcon', description='Component property')
+    embed: bool | None = Field(None, description='Component property')
+    embed_confirm_label: str | None = Field(None, alias='embedConfirmLabel', description='Component property')
+    embed_confirm_icon: str | None = Field(None, alias='embedConfirmIcon', description='Component property')
+    ebmed_cancel_label: str | None = Field(None, alias='ebmedCancelLabel', description='Component property')
+    ebmed_cancel_icon: str | None = Field(None, alias='ebmedCancelIcon', description='Component property')
+    embed_btn_icon: str | None = Field(None, alias='embedBtnIcon', description='Component property')
+    embed_btn_label: str | None = Field(None, alias='embedBtnLabel', description='Component property')
     upload_api: dict[str, Any] | None = Field(None, alias='uploadApi')
 
 
 class Vendor1(Enum):
     """
-    选择地图类型
+    AMIS Vendor1 component.
     """
 
     baidu = 'baidu'
@@ -15766,7 +15896,7 @@ class Vendor1(Enum):
 
 class LocationControlSchema(BaseModel):
     """
-    Location 选点组件 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/location
+    AMIS LocationControlSchema component.
     """
 
     model_config = ConfigDict(
@@ -15826,29 +15956,29 @@ class LocationControlSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     size: Any | None = None
     type: Any
-    vendor: Vendor1 | None = Field(None, description='选择地图类型')
-    ak: str | None = Field(None, description='有的地图需要设置 ak 信息')
+    vendor: Vendor1 | None = Field(None, description='Component property')
+    ak: str | None = Field(None, description='Component property')
     auto_select_current_loc: bool | None = Field(
-        None, alias='autoSelectCurrentLoc', description='是否自动选中当前地理位置'
+        None, alias='autoSelectCurrentLoc', description='Component property'
     )
     only_select_current_loc: bool | None = Field(
         None,
         alias='onlySelectCurrentLoc',
-        description='是否限制只能选中当前地理位置 备注：可用于充当定位组件，只允许选择当前位置',
+        description='Component property',
     )
     get_location_placeholder: str | None = Field(
         None,
         alias='getLocationPlaceholder',
-        description='开启只读模式后的占位提示，默认为“点击获取位置信息” 备注：区分下现有的placeholder（“请选择位置”）',
+        description='Component property',
     )
     hide_view_control: bool | None = Field(
-        None, alias='hideViewControl', description='Whether hidden地图控制组件，默认为false'
+        None, alias='hideViewControl', description='Component property'
     )
 
 
 class UUIDControlSchema(BaseModel):
     """
-    UUID 功能性组件 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/uuid
+    AMIS UUIDControlSchema component.
     """
 
     model_config = ConfigDict(
@@ -15908,7 +16038,7 @@ class UUIDControlSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     size: Any | None = None
     type: Any
-    length: float | None = Field(None, description='长度，默认 uuid 的长度是 36，如果不需要那么长，可以设置这个来缩短')
+    length: float | None = Field(None, description='Component property')
 
 
 class Column(BaseModel):
@@ -15921,7 +16051,7 @@ class Row(BaseModel):
 
 class MatrixControlSchema(BaseModel):
     """
-    Matrix 选择控件。适合做权限勾选。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/matrix
+    AMIS MatrixControlSchema component.
     """
 
     model_config = ConfigDict(
@@ -15981,19 +16111,19 @@ class MatrixControlSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     size: Any | None = None
     type: Any
-    multiple: bool | None = Field(None, description='配置singleSelectMode时设置为false')
+    multiple: bool | None = Field(None, description='Component property')
     single_select_mode: bool | None = Field(
-        None, alias='singleSelectMode', description='设置单选模式，multiple为false时有效'
+        None, alias='singleSelectMode', description='Component property'
     )
     source: dict[str, Any] | None = None
     columns: list[Column] | None = None
     rows: list[Row] | None = None
-    row_label: str | None = Field(None, alias='rowLabel', description='行标题说明')
+    row_label: str | None = Field(None, alias='rowLabel', description='Component property')
 
 
 class MonthRangeControlSchema(BaseModel):
     """
-    MonthRange 月范围控件 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/month-range
+    AMIS MonthRangeControlSchema component.
     """
 
     model_config = ConfigDict(
@@ -16076,7 +16206,7 @@ class MonthRangeControlSchema(BaseModel):
 
 class QuarterRangeControlSchema(BaseModel):
     """
-    QuarterRange 季度范围控件 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/input-quarter-range
+    AMIS QuarterRangeControlSchema component.
     """
 
     model_config = ConfigDict(
@@ -16159,7 +16289,7 @@ class QuarterRangeControlSchema(BaseModel):
 
 class NestedSelectControlSchema(BaseModel):
     """
-    Nested Select 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/nested-select
+    AMIS NestedSelectControlSchema component.
     """
 
     model_config = ConfigDict(
@@ -16248,33 +16378,33 @@ class NestedSelectControlSchema(BaseModel):
     size: Any | None = None
     type: Any
     border_mode: BorderMode | None = Field(
-        None, alias='borderMode', description='边框模式，全边框，还是半边框，或者没边框。'
+        None, alias='borderMode', description='Component property'
     )
-    menu_class_name: str | None = Field(None, alias='menuClassName', description='弹框的 css 类')
-    cascade: bool | None = Field(None, description='父子之间是否完全独立。')
+    menu_class_name: str | None = Field(None, alias='menuClassName', description='Component property')
+    cascade: bool | None = Field(None, description='Component property')
     with_children: bool | None = Field(
-        None, alias='withChildren', description='选父级的时候是否把子节点的值也包含在内。'
+        None, alias='withChildren', description='Component property'
     )
     only_children: bool | None = Field(
-        None, alias='onlyChildren', description='选父级的时候，是否只把子节点的值包含在内'
+        None, alias='onlyChildren', description='Component property'
     )
-    only_leaf: bool | None = Field(None, alias='onlyLeaf', description='只允许选择叶子节点')
+    only_leaf: bool | None = Field(None, alias='onlyLeaf', description='Component property')
     hide_node_path_label: bool | None = Field(
-        None, alias='hideNodePathLabel', description='Whether hidden选择框中已选中节点的祖先节点的文本信息'
+        None, alias='hideNodePathLabel', description='Component property'
     )
     max_tag_count: float | None = Field(
         None,
         alias='maxTagCount',
-        description='标签的最大展示数量，超出数量后以收纳浮层的方式展示，仅在多选模式开启后生效',
+        description='Component property',
     )
     overflow_tag_popover: dict[str, Any] | None = Field(
-        None, alias='overflowTagPopover', description='收纳标签的Popover配置'
+        None, alias='overflowTagPopover', description='Component property'
     )
 
 
 class DisplayMode1(Enum):
     """
-    输入框为基础输入框还是加强输入框
+    AMIS DisplayMode1 component.
     """
 
     base = 'base'
@@ -16283,7 +16413,7 @@ class DisplayMode1(Enum):
 
 class NumberControlSchema(BaseModel):
     """
-    数字输入框 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/input-number
+    AMIS NumberControlSchema component.
     """
 
     model_config = ConfigDict(
@@ -16343,27 +16473,27 @@ class NumberControlSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     size: Any | None = None
     type: Any
-    max: float | None = Field(None, description='最大值')
-    min: float | None = Field(None, description='最小值')
-    step: float | None = Field(None, description='步长')
-    precision: float | None = Field(None, description='精度')
-    show_steps: bool | None = Field(None, alias='showSteps', description='Whether visible上下点击按钮')
+    max: float | None = Field(None, description='Component property')
+    min: float | None = Field(None, description='Component property')
+    step: float | None = Field(None, description='Component property')
+    precision: float | None = Field(None, description='Component property')
+    show_steps: bool | None = Field(None, alias='showSteps', description='Component property')
     border_mode: BorderMode | None = Field(
-        None, alias='borderMode', description='边框模式，全边框，还是半边框，或者没边框。'
+        None, alias='borderMode', description='Component property'
     )
-    prefix: str | None = Field(None, description='前缀')
-    suffix: str | None = Field(None, description='后缀')
-    unit_options: str | list[dict[str, Any]] | None = Field(None, alias='unitOptions', description='单位列表')
-    big: bool | None = Field(None, description='是否是大数，如果是的话输入输出都将是字符串')
-    kilobit_separator: bool | None = Field(None, alias='kilobitSeparator', description='是否千分分隔')
-    keyboard: bool | None = Field(None, description='是否启用键盘行为')
-    display_mode: DisplayMode1 | None = Field(None, alias='displayMode', description='输入框为基础输入框还是加强输入框')
-    show_as_percent: bool | None = Field(None, alias='showAsPercent', description='用来开启百分号的展示形式')
+    prefix: str | None = Field(None, description='Component property')
+    suffix: str | None = Field(None, description='Component property')
+    unit_options: str | list[dict[str, Any]] | None = Field(None, alias='unitOptions', description='Component property')
+    big: bool | None = Field(None, description='Component property')
+    kilobit_separator: bool | None = Field(None, alias='kilobitSeparator', description='Component property')
+    keyboard: bool | None = Field(None, description='Component property')
+    display_mode: DisplayMode1 | None = Field(None, alias='displayMode', description='Component property')
+    show_as_percent: bool | None = Field(None, alias='showAsPercent', description='Component property')
 
 
 class ModalMode(Enum):
     """
-    弹窗模式，dialog 或者 drawer
+    AMIS ModalMode component.
     """
 
     dialog = 'dialog'
@@ -16372,7 +16502,7 @@ class ModalMode(Enum):
 
 class ModalSize(Enum):
     """
-    弹窗的尺寸，可选值为 'sm'、'md'、'lg'、'xl'
+    AMIS ModalSize component.
     """
 
     xs = 'xs'
@@ -16385,7 +16515,7 @@ class ModalSize(Enum):
 
 class OverflowConfig(BaseModel):
     """
-    开启最大标签展示数量的相关配置
+    AMIS OverflowConfig component.
     """
 
     model_config = ConfigDict(
@@ -16394,12 +16524,12 @@ class OverflowConfig(BaseModel):
     max_tag_count: float | None = Field(
         None,
         alias='maxTagCount',
-        description='标签的最大展示数量，超出数量后以收纳浮层的方式展示，仅在多选模式开启后生效',
+        description='Component property',
     )
     display_position: list[dict[str, Any]] | None = Field(
         None,
         alias='displayPosition',
-        description="开启最大标签展示数量后，收纳标签生效的位置，未开启内嵌模式默认为选择器, 开启后默认为选择器 + 模态框，可选值为'select'(选择器)、'crud'(增删改查)",
+        description="Component property'select'(选择器)、'crud'(增删改查)",
     )
     overflow_tag_popover: dict[str, Any] | None = Field(None, alias='overflowTagPopover')
     overflow_tag_popover_in_crud: dict[str, Any] | None = Field(None, alias='overflowTagPopoverInCRUD')
@@ -16407,7 +16537,7 @@ class OverflowConfig(BaseModel):
 
 class PickerControlSchema(BaseModel):
     """
-    Picker 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/picker
+    AMIS PickerControlSchema component.
     """
 
     model_config = ConfigDict(
@@ -16498,26 +16628,28 @@ class PickerControlSchema(BaseModel):
     label_tpl: str | None = Field(
         None,
         alias='labelTpl',
-        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/en-US/docs/concepts/template',
     )
     label_field: str | None = Field(
-        None, alias='labelField', description='建议用 labelTpl 选中一个字段名用来作为值的描述文字'
+        None, alias='labelField', description='Component property'
     )
-    value_field: str | None = Field(None, alias='valueField', description='选一个可以用来作为值的字段。')
-    picker_schema: Any | None = Field(None, alias='pickerSchema', description='弹窗选择框详情。')
-    modal_mode: ModalMode | None = Field(None, alias='modalMode', description='弹窗模式，dialog 或者 drawer')
+    value_field: str | None = Field(None, alias='valueField', description='Component property')
+    picker_schema: Any | None = Field(None, alias='pickerSchema', description='Component property')
+    modal_mode: ModalMode | None = Field(None, alias='modalMode', description='Component property')
     modal_size: ModalSize | None = Field(
-        None, alias='modalSize', description="弹窗的尺寸，可选值为 'sm'、'md'、'lg'、'xl'"
+        None, alias='modalSize', description="Component property'sm'、'md'、'lg'、'xl'"
     )
-    modal_title: str | None = Field(None, alias='modalTitle', description='弹窗的标题，默认为情选择')
-    embed: bool | None = Field(None, description='内嵌模式，也就是说不弹框了。')
-    overflow_config: OverflowConfig = Field(..., alias='overflowConfig', description='开启最大标签展示数量的相关配置')
-    item_clearable: bool | None = Field(None, alias='itemClearable', description='选中项可删除，默认为true')
+    modal_title: str | None = Field(None, alias='modalTitle', description='Component property')
+    embed: bool | None = Field(None, description='Component property')
+    overflow_config: OverflowConfig = Field(
+        ..., alias='overflowConfig', description='Component property'
+    )
+    item_clearable: bool | None = Field(None, alias='itemClearable', description='Component property')
 
 
 class RadiosControlSchema(BaseModel):
     """
-    Radio 单选框。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/radios
+    AMIS RadiosControlSchema component.
     """
 
     model_config = ConfigDict(
@@ -16605,12 +16737,12 @@ class RadiosControlSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     size: Any | None = None
     type: Any
-    columns_count: float | None = Field(None, alias='columnsCount', description='每行显示多少个')
+    columns_count: float | None = Field(None, alias='columnsCount', description='Component property')
 
 
 class RadioControlSchema(BaseModel):
     """
-    Radio 单选框。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/radios
+    AMIS RadioControlSchema component.
     """
 
     model_config = ConfigDict(
@@ -16670,11 +16802,11 @@ class RadioControlSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     size: Any | None = None
     type: Any
-    true_value: bool | str | float | None = Field(None, alias='trueValue', description='勾选值')
-    false_value: bool | str | float | None = Field(None, alias='falseValue', description='未勾选值')
-    option: str | None = Field(None, description='选项说明')
+    true_value: bool | str | float | None = Field(None, alias='trueValue', description='Component property')
+    false_value: bool | str | float | None = Field(None, alias='falseValue', description='Component property')
+    option: str | None = Field(None, description='Component property')
     badge: Badge | None = Field(
-        None, description='Badge 角标。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/badge'
+        None, description='Component property'
     )
     partial: bool | None = None
     option_type: OptionType | None = Field(None, alias='optionType')
@@ -16746,25 +16878,25 @@ class RangeControlSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     size: Any | None = None
     type: Any
-    max: float | dict[str, Any] | None = Field(None, description='最大值')
-    min: float | dict[str, Any] | None = Field(None, description='最小值')
-    step: float | dict[str, Any] | None = Field(None, description='步长')
-    unit: str | None = Field(None, description='单位')
-    show_steps: bool | None = Field(None, alias='showSteps', description='是否展示步长')
-    parts: float | list[dict[str, Any]] | None = Field(None, description='分割块数')
-    marks: list[Any] | None = Field(None, description='刻度')
-    tooltip_visible: bool | None = Field(None, alias='tooltipVisible', description='是否展示标签')
+    max: float | dict[str, Any] | None = Field(None, description='Component property')
+    min: float | dict[str, Any] | None = Field(None, description='Component property')
+    step: float | dict[str, Any] | None = Field(None, description='Component property')
+    unit: str | None = Field(None, description='Component property')
+    show_steps: bool | None = Field(None, alias='showSteps', description='Component property')
+    parts: float | list[dict[str, Any]] | None = Field(None, description='Component property')
+    marks: list[Any] | None = Field(None, description='Component property')
+    tooltip_visible: bool | None = Field(None, alias='tooltipVisible', description='Component property')
     tooltip_placement: TooltipPlacement1 | None = Field(None, alias='tooltipPlacement')
-    multiple: bool | None = Field(None, description='是否为双滑块')
-    join_values: bool | None = Field(None, alias='joinValues', description='是否通过分隔符连接')
-    delimiter: str | None = Field(None, description='分隔符')
-    show_input: bool | None = Field(None, alias='showInput', description='是否展示输入框')
-    clearable: bool | None = Field(None, description='输入框是否可清除')
+    multiple: bool | None = Field(None, description='Component property')
+    join_values: bool | None = Field(None, alias='joinValues', description='Component property')
+    delimiter: str | None = Field(None, description='Component property')
+    show_input: bool | None = Field(None, alias='showInput', description='Component property')
+    clearable: bool | None = Field(None, description='Component property')
 
 
 class Value1(BaseModel):
     """
-    Range 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/range
+    AMIS Value1 component.
     """
 
     model_config = ConfigDict(
@@ -16776,7 +16908,7 @@ class Value1(BaseModel):
 
 class Value(RootModel[str | Value1]):
     root: str | Value1 = Field(
-        ..., description='Range 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/range'
+        ..., description='Component property'
     )
 
 
@@ -16803,7 +16935,7 @@ class TextPosition(Enum):
 
 class RatingControlSchema(BaseModel):
     """
-    Rating 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/rating
+    AMIS RatingControlSchema component.
     """
 
     model_config = ConfigDict(
@@ -16863,17 +16995,17 @@ class RatingControlSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     size: Any | None = None
     type: Any
-    count: float | None = Field(None, description='分数')
-    half: bool | None = Field(None, description='允许半颗星')
-    allow_clear: bool | None = Field(None, alias='allowClear', description='是否允许再次点击后清除')
-    readonly: bool | None = Field(None, description='是否只读')
-    colors: str | dict[str, dict[str, Any]] | None = Field(None, description='星星被选中的颜色')
-    inactive_color: str | None = Field(None, alias='inactiveColor', description='未被选中的星星的颜色')
-    texts: dict[str, str] | None = Field(None, description='星星被选中时的提示文字')
+    count: float | None = Field(None, description='Component property')
+    half: bool | None = Field(None, description='Component property')
+    allow_clear: bool | None = Field(None, alias='allowClear', description='Component property')
+    readonly: bool | None = Field(None, description='Component property')
+    colors: str | dict[str, dict[str, Any]] | None = Field(None, description='Component property')
+    inactive_color: str | None = Field(None, alias='inactiveColor', description='Component property')
+    texts: dict[str, str] | None = Field(None, description='Component property')
     text_position: TextPosition | None = Field(None, alias='textPosition')
-    char: str | None = Field(None, description='自定义字符')
-    char_class_name: str | None = Field(None, alias='charClassName', description='自定义字符类名')
-    text_class_name: str | None = Field(None, alias='textClassName', description='自定义文字类名')
+    char: str | None = Field(None, description='Component property')
+    char_class_name: str | None = Field(None, alias='charClassName', description='Component property')
+    text_class_name: str | None = Field(None, alias='textClassName', description='Component property')
 
 
 class TextPositionType(Enum):
@@ -16883,7 +17015,7 @@ class TextPositionType(Enum):
 
 class Vendor2(Enum):
     """
-    编辑器类型
+    AMIS Vendor2 component.
     """
 
     froala = 'froala'
@@ -16892,7 +17024,7 @@ class Vendor2(Enum):
 
 class RichTextControlSchema(BaseModel):
     """
-    RichText 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/input-rich-text
+    AMIS RichTextControlSchema component.
     """
 
     model_config = ConfigDict(
@@ -16952,19 +17084,19 @@ class RichTextControlSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     size: Any | None = None
     type: Any
-    vendor: Vendor2 | None = Field(None, description='编辑器类型')
+    vendor: Vendor2 | None = Field(None, description='Component property')
     receiver: dict[str, Any] | None = None
     video_receiver: dict[str, Any] | None = Field(None, alias='videoReceiver')
-    file_field: str | None = Field(None, alias='fileField', description='接收器的字段名')
+    file_field: str | None = Field(None, alias='fileField', description='Component property')
     border_mode: BorderMode | None = Field(
-        None, alias='borderMode', description='边框模式，全边框，还是半边框，或者没边框。'
+        None, alias='borderMode', description='Component property'
     )
-    options: Any | None = Field(None, description='tinymce 或 froala 的配置')
+    options: Any | None = Field(None, description='Component property')
 
 
 class RepeatControlSchema(BaseModel):
     """
-    Repeat 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/repeat
+    AMIS RepeatControlSchema component.
     """
 
     model_config = ConfigDict(
@@ -17029,7 +17161,7 @@ class RepeatControlSchema(BaseModel):
 
 class SelectMode1(Enum):
     """
-    勾选展示模式
+    AMIS SelectMode1 component.
     """
 
     table = 'table'
@@ -17041,7 +17173,7 @@ class SelectMode1(Enum):
 
 class LeftMode(Enum):
     """
-    当 selectMode 为 associated 时用来定义左侧的选择模式
+    AMIS LeftMode component.
     """
 
     tree = 'tree'
@@ -17050,7 +17182,7 @@ class LeftMode(Enum):
 
 class RightMode(Enum):
     """
-    当 selectMode 为 associated 时用来定义右侧的选择模式
+    AMIS RightMode component.
     """
 
     table = 'table'
@@ -17061,7 +17193,7 @@ class RightMode(Enum):
 
 class SearchResultMode(Enum):
     """
-    搜索结果展示模式
+    AMIS SearchResultMode component.
     """
 
     table = 'table'
@@ -17072,7 +17204,7 @@ class SearchResultMode(Enum):
 
 class Align9(Enum):
     """
-    下拉框 Popover 的对齐方式
+    AMIS Align9 component.
     """
 
     left = 'left'
@@ -17082,22 +17214,22 @@ class Align9(Enum):
 
 class Overlay(BaseModel):
     """
-    下拉框 Popover 设置
+    AMIS Overlay component.
     """
 
     model_config = ConfigDict(
         extra='forbid',
     )
     width: float | str | None = Field(
-        None, description="下拉框 Popover 的宽度设置，支持单位 '%'、'px'、'rem'、'em'、'vw', 支持相对写法如 '+20px'"
+        None, description="Component property'%'、'px'、'rem'、'em'、'vw', 支持相对写法如 '+20px'"
     )
-    align: Align9 | None = Field(None, description='下拉框 Popover 的对齐方式')
-    filter_option: Literal['string'] = Field('string', alias='filterOption', description='检索函数')
+    align: Align9 | None = Field(None, description='Component property')
+    filter_option: Literal['string'] = Field('string', alias='filterOption', description='Component property')
 
 
 class SelectControlSchema(BaseModel):
     """
-    Select 下拉选择框。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/select
+    AMIS SelectControlSchema component.
     """
 
     model_config = ConfigDict(
@@ -17187,64 +17319,64 @@ class SelectControlSchema(BaseModel):
     size: Any | None = None
     type: Any
     auto_complete: dict[str, Any] | None = Field(None, alias='autoComplete')
-    menu_tpl: str | None = Field(None, alias='menuTpl', description='可以自定义菜单展示。')
+    menu_tpl: str | None = Field(None, alias='menuTpl', description='Component property')
     show_invalid_match: bool | None = Field(
         None,
         alias='showInvalidMatch',
-        description='当在value值未匹配到当前options中的选项时，是否value值对应文本飘红显示',
+        description='Component property',
     )
     border_mode: BorderMode | None = Field(
-        None, alias='borderMode', description='边框模式，全边框，还是半边框，或者没边框。'
+        None, alias='borderMode', description='Component property'
     )
-    select_mode: SelectMode1 | None = Field(None, alias='selectMode', description='勾选展示模式')
+    select_mode: SelectMode1 | None = Field(None, alias='selectMode', description='Component property')
     left_options: list[dict[str, Any]] | None = Field(
-        None, alias='leftOptions', description='当 selectMode 为 associated 时用来定义左侧的选项'
+        None, alias='leftOptions', description='Component property'
     )
     left_mode: LeftMode | None = Field(
-        None, alias='leftMode', description='当 selectMode 为 associated 时用来定义左侧的选择模式'
+        None, alias='leftMode', description='Component property'
     )
     right_mode: RightMode | None = Field(
-        None, alias='rightMode', description='当 selectMode 为 associated 时用来定义右侧的选择模式'
+        None, alias='rightMode', description='Component property'
     )
-    search_result_mode: SearchResultMode | None = Field(None, alias='searchResultMode', description='搜索结果展示模式')
-    columns: list[Any] | None = Field(None, description='当 selectMode 为 table 时定义表格列信息。')
+    search_result_mode: SearchResultMode | None = Field(
+        None, alias='searchResultMode', description='Component property'
+    )
+    columns: list[Any] | None = Field(None, description='Component property')
     search_result_columns: list[Any] | None = Field(
-        None, alias='searchResultColumns', description='当 searchResultMode 为 table 时定义表格列信息。'
+        None, alias='searchResultColumns', description='Component property'
     )
-    searchable: bool | None = Field(None, description='可搜索？')
+    searchable: bool | None = Field(None, description='Component property')
     search_api: dict[str, Any] | None = Field(None, alias='searchApi')
-    item_height: float | None = Field(None, alias='itemHeight', description='单个选项的高度，主要用于虚拟渲染')
+    item_height: float | None = Field(None, alias='itemHeight', description='Component property')
     virtual_threshold: float | None = Field(
-        None, alias='virtualThreshold', description='在选项数量达到多少时开启虚拟渲染'
+        None, alias='virtualThreshold', description='Component property'
     )
     default_check_all: bool | None = Field(
-        None, alias='defaultCheckAll', description='可多选条件下，是否默认全选中所有值'
+        None, alias='defaultCheckAll', description='Component property'
     )
     check_all_label: str | None = Field(
-        None, alias='checkAllLabel', description='可多选条件下，全选项文案，默认 ”全选“'
+        None, alias='checkAllLabel', description='Component property'
     )
     max_tag_count: float | None = Field(
         None,
         alias='maxTagCount',
-        description='标签的最大展示数量，超出数量后以收纳浮层的方式展示，仅在多选模式开启后生效',
+        description='Component property',
     )
     overflow_tag_popover: dict[str, Any] | None = Field(
-        None, alias='overflowTagPopover', description='收纳标签的Popover配置'
+        None, alias='overflowTagPopover', description='Component property'
     )
     option_class_name: dict[str, Any] | None = Field(
         None,
         alias='optionClassName',
         description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
-    overlay: Overlay | None = Field(None, description='下拉框 Popover 设置')
+    overlay: Overlay | None = Field(None, description='Component property')
     test_id_builder: TestIdBuilder1 | None = Field(None, alias='testIdBuilder')
 
 
 class Form(BaseModel):
     """
-    Form 表单渲染器。
-
-    说明：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/index
+    AMIS Form component.
     """
 
     model_config = ConfigDict(
@@ -17324,7 +17456,7 @@ class Form(BaseModel):
 
 class SubFormControlSchema(BaseModel):
     """
-    SubForm 子表单 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/subform
+    AMIS SubFormControlSchema component.
     """
 
     model_config = ConfigDict(
@@ -17384,18 +17516,18 @@ class SubFormControlSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     size: Any | None = None
     type: Any
-    multiple: bool | None = Field(None, description='是否多选')
-    draggable: bool | None = Field(None, description='是否可拖拽排序')
-    draggable_tip: str | None = Field(None, alias='draggableTip', description='拖拽提示信息')
-    addable: bool | None = Field(None, description='是否可新增')
-    removable: bool | None = Field(None, description='是否可删除')
-    min_length: float | None = Field(None, alias='minLength', description='最少个数')
-    max_length: float | None = Field(None, alias='maxLength', description='最多个数')
+    multiple: bool | None = Field(None, description='Component property')
+    draggable: bool | None = Field(None, description='Component property')
+    draggable_tip: str | None = Field(None, alias='draggableTip', description='Component property')
+    addable: bool | None = Field(None, description='Component property')
+    removable: bool | None = Field(None, description='Component property')
+    min_length: float | None = Field(None, alias='minLength', description='Component property')
+    max_length: float | None = Field(None, alias='maxLength', description='Component property')
     label_field: str | None = Field(
-        None, alias='labelField', description='当值中存在这个字段，则按钮名称将使用此字段的值来展示。'
+        None, alias='labelField', description='Component property'
     )
-    btn_label: str | None = Field('设置', alias='btnLabel', description='按钮默认名称')
-    add_button_text: str | None = Field(None, alias='addButtonText', description='新增按钮文字')
+    btn_label: str | None = Field('Set', alias='btnLabel', description='Component property')
+    add_button_text: str | None = Field(None, alias='addButtonText', description='Component property')
     add_button_class_name: dict[str, Any] | None = Field(
         None,
         alias='addButtonClassName',
@@ -17411,16 +17543,16 @@ class SubFormControlSchema(BaseModel):
         alias='itemsClassName',
         description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
-    show_error_msg: bool | None = Field(None, alias='showErrorMsg', description='是否在左下角显示报错信息')
+    show_error_msg: bool | None = Field(None, alias='showErrorMsg', description='Component property')
     form: Form | None = Field(
-        None, description='Form 表单渲染器。\n\n说明：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/index'
+        None, description='Component property'
     )
     scaffold: Any | None = None
 
 
 class SwitchControlSchema(BaseModel):
     """
-    Switch 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/switch
+    AMIS SwitchControlSchema component.
     """
 
     model_config = ConfigDict(
@@ -17480,17 +17612,17 @@ class SwitchControlSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     size: Any | None = None
     type: Any
-    true_value: bool | str | float | None = Field(None, alias='trueValue', description='勾选值')
-    false_value: bool | str | float | None = Field(None, alias='falseValue', description='未勾选值')
-    option: str | None = Field(None, description='选项说明')
-    on_text: str | dict[str, Any] | None = Field(None, alias='onText', description='开启时显示的内容')
-    off_text: str | dict[str, Any] | None = Field(None, alias='offText', description='关闭时显示的内容')
-    loading: bool | None = Field(None, description='是否处于加载状态')
+    true_value: bool | str | float | None = Field(None, alias='trueValue', description='Component property')
+    false_value: bool | str | float | None = Field(None, alias='falseValue', description='Component property')
+    option: str | None = Field(None, description='Component property')
+    on_text: str | dict[str, Any] | None = Field(None, alias='onText', description='Component property')
+    off_text: str | dict[str, Any] | None = Field(None, alias='offText', description='Component property')
+    loading: bool | None = Field(None, description='Component property')
 
 
 class BorderMode7(Enum):
     """
-    边框模式，默认是无边框的
+    AMIS BorderMode7 component.
     """
 
     full = 'full'
@@ -17500,7 +17632,7 @@ class BorderMode7(Enum):
 
 class StaticExactControlSchema(BaseModel):
     """
-    Static 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/static
+    AMIS StaticExactControlSchema component.
     """
 
     model_config = ConfigDict(
@@ -17562,16 +17694,16 @@ class StaticExactControlSchema(BaseModel):
     type: Any
     tpl: str | None = Field(
         None,
-        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/en-US/docs/concepts/template',
     )
     text: str | None = Field(
         None,
-        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/en-US/docs/concepts/template',
     )
     pop_over: dict[str, Any] | None = Field(None, alias='popOver')
     quick_edit: dict[str, Any] | None = Field(None, alias='quickEdit')
     copyable: dict[str, Any] | None = None
-    border_mode: BorderMode7 | None = Field(None, alias='borderMode', description='边框模式，默认是无边框的')
+    border_mode: BorderMode7 | None = Field(None, alias='borderMode', description='Component property')
 
 
 class TableControlSchema(BaseModel):
@@ -17609,7 +17741,7 @@ class TableControlSchema(BaseModel):
     footer_class_name: Any | None = Field(None, alias='footerClassName')
     header_class_name: Any | None = Field(None, alias='headerClassName')
     placeholder: Any | None = None
-    show_index: bool | None = Field(None, alias='showIndex', description='Whether visible序号')
+    show_index: bool | None = Field(None, alias='showIndex', description='Component property')
     show_footer: Any | None = Field(None, alias='showFooter')
     show_header: Any | None = Field(None, alias='showHeader')
     source: Any | None = None
@@ -17631,7 +17763,7 @@ class TableControlSchema(BaseModel):
     can_access_super_data: bool | None = Field(
         None,
         alias='canAccessSuperData',
-        description='是否可以访问父级数据，正常 combo 已经关联到数组成员，是不能访问父级数据的。',
+        description='Component property',
     )
     auto_fill_height: Any | None = Field(None, alias='autoFillHeight')
     table_layout: Any | None = Field(None, alias='tableLayout')
@@ -17668,54 +17800,54 @@ class TableControlSchema(BaseModel):
     init_auto_fill: Any | None = Field(None, alias='initAutoFill')
     row: Any | None = None
     size: Any | None = None
-    addable: bool | None = Field(None, description='可新增')
-    children_addable: bool | None = Field(None, alias='childrenAddable', description='是否可以新增子项')
-    copyable: bool | None = Field(None, description='可复制新增')
-    copy_btn_label: str | None = Field(None, alias='copyBtnLabel', description='复制按钮文字')
-    copy_btn_icon: str | None = Field(None, alias='copyBtnIcon', description='复制按钮图标')
-    copy_add_btn: bool | None = Field(None, alias='copyAddBtn', description='Whether visible复制按钮')
+    addable: bool | None = Field(None, description='Component property')
+    children_addable: bool | None = Field(None, alias='childrenAddable', description='Component property')
+    copyable: bool | None = Field(None, description='Component property')
+    copy_btn_label: str | None = Field(None, alias='copyBtnLabel', description='Component property')
+    copy_btn_icon: str | None = Field(None, alias='copyBtnIcon', description='Component property')
+    copy_add_btn: bool | None = Field(None, alias='copyAddBtn', description='Component property')
     copy_data: dict[str, Any] | None = Field(
         None,
         alias='copyData',
-        description='复制的时候用来配置复制映射的数据。默认值是 {&:$$}，相当与复制整个行数据 通常有时候需要用来标记是复制过来的，也可能需要删掉一下主键字段。',
+        description='Component property',
     )
-    draggable: bool | None = Field(None, description='是否可以拖拽排序')
+    draggable: bool | None = Field(None, description='Component property')
     add_api: dict[str, Any] | None = Field(None, alias='addApi')
-    add_btn_label: str | None = Field(None, alias='addBtnLabel', description='新增按钮文字')
-    add_btn_icon: str | None = Field(None, alias='addBtnIcon', description='新增按钮图标')
-    sub_add_btn_label: str | None = Field(None, alias='subAddBtnLabel', description='孩子新增按钮文字')
-    sub_add_btn_icon: str | None = Field(None, alias='subAddBtnIcon', description='孩子新增按钮图标')
-    removable: bool | None = Field(None, description='可否删除')
+    add_btn_label: str | None = Field(None, alias='addBtnLabel', description='Component property')
+    add_btn_icon: str | None = Field(None, alias='addBtnIcon', description='Component property')
+    sub_add_btn_label: str | None = Field(None, alias='subAddBtnLabel', description='Component property')
+    sub_add_btn_icon: str | None = Field(None, alias='subAddBtnIcon', description='Component property')
+    removable: bool | None = Field(None, description='Component property')
     delete_api: dict[str, Any] | None = Field(None, alias='deleteApi')
-    editable: bool | None = Field(None, description='可否编辑')
-    edit_btn_label: str | None = Field(None, alias='editBtnLabel', description='更新按钮名称')
-    edit_btn_icon: str | None = Field(None, alias='editBtnIcon', description='更新按钮图标')
-    confirm_btn_label: str | None = Field(None, alias='confirmBtnLabel', description='确认按钮文字')
-    confirm_btn_icon: str | None = Field(None, alias='confirmBtnIcon', description='确认按钮图标')
-    cancel_btn_label: str | None = Field(None, alias='cancelBtnLabel', description='取消按钮文字')
-    cancel_btn_icon: str | None = Field(None, alias='cancelBtnIcon', description='取消按钮图标')
-    delete_btn_label: str | None = Field(None, alias='deleteBtnLabel', description='删除按钮文字')
-    delete_btn_icon: str | None = Field(None, alias='deleteBtnIcon', description='删除按钮图标')
+    editable: bool | None = Field(None, description='Component property')
+    edit_btn_label: str | None = Field(None, alias='editBtnLabel', description='Component property')
+    edit_btn_icon: str | None = Field(None, alias='editBtnIcon', description='Component property')
+    confirm_btn_label: str | None = Field(None, alias='confirmBtnLabel', description='Component property')
+    confirm_btn_icon: str | None = Field(None, alias='confirmBtnIcon', description='Component property')
+    cancel_btn_label: str | None = Field(None, alias='cancelBtnLabel', description='Component property')
+    cancel_btn_icon: str | None = Field(None, alias='cancelBtnIcon', description='Component property')
+    delete_btn_label: str | None = Field(None, alias='deleteBtnLabel', description='Component property')
+    delete_btn_icon: str | None = Field(None, alias='deleteBtnIcon', description='Component property')
     update_api: dict[str, Any] | None = Field(None, alias='updateApi')
-    scaffold: Any | None = Field(None, description='初始值，新增的时候')
-    delete_confirm_text: str | None = Field(None, alias='deleteConfirmText', description='删除确认文字')
-    value_field: str | None = Field(None, alias='valueField', description='值字段')
-    need_confirm: bool | None = Field(None, alias='needConfirm', description='是否为确认的编辑模式。')
-    per_page: float | None = Field(None, alias='perPage', description='分页个数，默认不分页')
-    max_length: float | dict[str, Any] | None = Field(None, alias='maxLength', description='限制最大个数')
-    min_length: float | dict[str, Any] | None = Field(None, alias='minLength', description='限制最小个数')
-    show_footer_add_btn: bool | None = Field(None, alias='showFooterAddBtn', description='Whether visible底部新增按钮')
+    scaffold: Any | None = Field(None, description='Component property')
+    delete_confirm_text: str | None = Field(None, alias='deleteConfirmText', description='Component property')
+    value_field: str | None = Field(None, alias='valueField', description='Component property')
+    need_confirm: bool | None = Field(None, alias='needConfirm', description='Component property')
+    per_page: float | None = Field(None, alias='perPage', description='Component property')
+    max_length: float | dict[str, Any] | None = Field(None, alias='maxLength', description='Component property')
+    min_length: float | dict[str, Any] | None = Field(None, alias='minLength', description='Component property')
+    show_footer_add_btn: bool | None = Field(None, alias='showFooterAddBtn', description='Component property')
     show_table_add_btn: bool | None = Field(
-        None, alias='showTableAddBtn', description='Whether visible表格操作栏新增按钮'
+        None, alias='showTableAddBtn', description='Component property'
     )
     footer_add_btn: dict[str, Any] | None = Field(None, alias='footerAddBtn')
     enable_static_transform: bool | None = Field(
-        None, alias='enableStaticTransform', description='是否开启 static 状态切换'
+        None, alias='enableStaticTransform', description='Component property'
     )
     match_func: str | Any | None = Field(
         None,
         alias='matchFunc',
-        description='自定义搜索匹配函数，当存在列的 searchable 为 true 时，会基于该函数计算的匹配结果进行过滤，主要用于处理列字段类型较为复杂或者字段值格式和后端返回不一致的场景\n\n参数说明\n\n * `items` 当前表格数据  * `itemsRaw` 当前表格数据（未处理）  * `options` 配置  * `options.query` 查询条件  * `options.columns` 列配置  * `options.matchSorter` 系统默认的排序方法',
+        description='Component property',
     )
 
 
@@ -17729,7 +17861,7 @@ class LoadingConfig1(BaseModel):
 
 class TabsTransferControlSchema(BaseModel):
     """
-    TabsTransfer 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/tabs-transfer
+    AMIS TabsTransferControlSchema component.
     """
 
     model_config = ConfigDict(
@@ -17849,7 +17981,7 @@ class TabsTransferControlSchema(BaseModel):
 
 class SelectMode2(Enum):
     """
-    勾选展示模式
+    AMIS SelectMode2 component.
     """
 
     table = 'table'
@@ -17869,23 +18001,23 @@ class ValueTpl(BaseModel):
 
 class Pagination(BaseModel):
     """
-    分页配置，selectMode为默认和table才会生效
+    AMIS Pagination component.
     """
 
     model_config = ConfigDict(
         extra='forbid',
     )
     layout: dict[str, Any] | None = Field(
-        'pager', description='通过控制layout属性的顺序，调整分页结构 total,perPage,pager,go'
+        'pager', description='Component property'
     )
-    max_buttons: float | None = Field(5, alias='maxButtons', description='最多显示多少个分页按钮。')
+    max_buttons: float | None = Field(5, alias='maxButtons', description='Component property')
     per_page_available: list[dict[str, Any]] | None = Field(
-        [10, 20, 50, 100], alias='perPageAvailable', description='指定每页可以显示多少条'
+        [10, 20, 50, 100], alias='perPageAvailable', description='Component property'
     )
-    pop_over_container_selector: str | None = Field(False, alias='popOverContainerSelector', description='弹层挂载节点')
+    pop_over_container_selector: str | None = Field(False, alias='popOverContainerSelector', description='Component property')
     enable: dict[str, Any]
     class_name: dict[str, Any] | None = Field(None, alias='className')
-    load_data_once: bool | None = Field(None, alias='loadDataOnce', description='是否开启前端分页')
+    load_data_once: bool | None = Field(None, alias='loadDataOnce', description='Component property')
 
 
 class BaseTransferControlSchema(BaseModel):
@@ -17975,57 +18107,59 @@ class BaseTransferControlSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     size: Any | None = None
     type: Any | None = None
-    show_arrow: bool | None = Field(None, alias='showArrow', description='Whether visible剪头')
-    sortable: bool | None = Field(None, description='可排序？')
-    select_mode: SelectMode2 | None = Field(None, alias='selectMode', description='勾选展示模式')
+    show_arrow: bool | None = Field(None, alias='showArrow', description='Component property')
+    sortable: bool | None = Field(None, description='Component property')
+    select_mode: SelectMode2 | None = Field(None, alias='selectMode', description='Component property')
     result_list_mode_follow_select: bool | None = Field(
-        None, alias='resultListModeFollowSelect', description='结果面板是否追踪显示'
+        None, alias='resultListModeFollowSelect', description='Component property'
     )
     left_options: list[dict[str, Any]] | None = Field(
-        None, alias='leftOptions', description='当 selectMode 为 associated 时用来定义左侧的选项'
+        None, alias='leftOptions', description='Component property'
     )
     left_mode: LeftMode | None = Field(
-        None, alias='leftMode', description='当 selectMode 为 associated 时用来定义左侧的选择模式'
+        None, alias='leftMode', description='Component property'
     )
     right_mode: RightMode | None = Field(
-        None, alias='rightMode', description='当 selectMode 为 associated 时用来定义右侧的选择模式'
+        None, alias='rightMode', description='Component property'
     )
-    search_result_mode: SearchResultMode | None = Field(None, alias='searchResultMode', description='搜索结果展示模式')
-    columns: list[Any] | None = Field(None, description='当 selectMode 为 table 时定义表格列信息。')
+    search_result_mode: SearchResultMode | None = Field(
+        None, alias='searchResultMode', description='Component property'
+    )
+    columns: list[Any] | None = Field(None, description='Component property')
     search_result_columns: list[Any] | None = Field(
-        None, alias='searchResultColumns', description='当 searchResultMode 为 table 时定义表格列信息。'
+        None, alias='searchResultColumns', description='Component property'
     )
-    searchable: bool | None = Field(None, description='可搜索？')
+    searchable: bool | None = Field(None, description='Component property')
     result_searchable: bool | None = Field(
         None,
         alias='resultSearchable',
-        description='结果（右则）列表的检索功能，当设置为true时，可以通过输入检索模糊匹配检索内容',
+        description='Component property',
     )
     search_api: dict[str, Any] | None = Field(None, alias='searchApi')
-    select_title: str | None = Field(None, alias='selectTitle', description='左侧的标题文字')
-    result_title: str | None = Field(None, alias='resultTitle', description='右侧结果的标题文字')
+    select_title: str | None = Field(None, alias='selectTitle', description='Component property')
+    result_title: str | None = Field(None, alias='resultTitle', description='Component property')
     menu_tpl: MenuTpl | None = Field(None, alias='menuTpl')
     value_tpl: ValueTpl | None = Field(None, alias='valueTpl')
-    search_placeholder: str | None = Field(None, alias='searchPlaceholder', description='左侧列表搜索框提示')
+    search_placeholder: str | None = Field(None, alias='searchPlaceholder', description='Component property')
     result_search_placeholder: str | None = Field(
-        None, alias='resultSearchPlaceholder', description='右侧列表搜索框提示'
+        None, alias='resultSearchPlaceholder', description='Component property'
     )
-    statistics: bool | None = Field(None, description='统计数字')
-    item_height: float | None = Field(None, alias='itemHeight', description='单个选项的高度，主要用于虚拟渲染')
+    statistics: bool | None = Field(None, description='Component property')
+    item_height: float | None = Field(None, alias='itemHeight', description='Component property')
     virtual_threshold: float | None = Field(
-        None, alias='virtualThreshold', description='在选项数量达到多少时开启虚拟渲染'
+        None, alias='virtualThreshold', description='Component property'
     )
     show_invalid_match: bool | None = Field(
         None,
         alias='showInvalidMatch',
-        description='当在value值未匹配到当前options中的选项时，是否value值对应文本飘红显示',
+        description='Component property',
     )
-    only_children: bool | None = Field(None, alias='onlyChildren', description='树形模式下，仅选中子节点')
-    initially_open: bool | None = Field(None, alias='initiallyOpen', description='是否默认都展开')
+    only_children: bool | None = Field(None, alias='onlyChildren', description='Component property')
+    initially_open: bool | None = Field(None, alias='initiallyOpen', description='Component property')
     auto_check_children: bool | None = Field(
-        None, alias='autoCheckChildren', description='ui级联关系，true代表级联选中，false代表不级联，默认为true'
+        None, alias='autoCheckChildren', description='Component property'
     )
-    pagination: Pagination | None = Field(None, description='分页配置，selectMode为默认和table才会生效')
+    pagination: Pagination | None = Field(None, description='Component property')
 
 
 class OverflowTagPopover(BaseModel):
@@ -18077,7 +18211,7 @@ class OverflowTagPopover(BaseModel):
 
 class TagControlSchema(BaseModel):
     """
-    Tag 输入框 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/tag
+    AMIS TagControlSchema component.
     """
 
     model_config = ConfigDict(
@@ -18165,18 +18299,20 @@ class TagControlSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     size: Any | None = None
     type: Any
-    options_tip: str | None = Field(None, alias='optionsTip', description='选项提示信息')
-    dropdown: bool | None = Field(None, description='是否为下拉模式')
-    max: float | None = Field(None, description='允许添加的标签的最大数量')
-    max_tag_length: float | None = Field(None, alias='maxTagLength', description='单个标签的最大文本长度')
+    options_tip: str | None = Field(None, alias='optionsTip', description='Component property')
+    dropdown: bool | None = Field(None, description='Component property')
+    max: float | None = Field(None, description='Component property')
+    max_tag_length: float | None = Field(None, alias='maxTagLength', description='Component property')
     max_tag_count: float | None = Field(
         None,
         alias='maxTagCount',
-        description='标签的最大展示数量，超出数量后以收纳浮层的方式展示，仅在多选模式开启后生效',
+        description='Component property',
     )
     overflow_tag_popover: OverflowTagPopover | None = Field(None, alias='overflowTagPopover')
-    enable_batch_add: bool | None = Field(None, alias='enableBatchAdd', description='是否开启批量添加模式')
-    separator: str | None = Field('-', description='开启批量添加后，输入多个标签的分隔符，支持传入多个符号，默认为"-"')
+    enable_batch_add: bool | None = Field(None, alias='enableBatchAdd', description='Component property')
+    separator: str | None = Field(
+        '-', description='Component property"-"'
+    )
 
 
 class AddOn(BaseModel):
@@ -18185,7 +18321,7 @@ class AddOn(BaseModel):
 
 class BorderMode8(Enum):
     """
-    边框模式，全边框，还是半边框，或者没边框。
+    AMIS BorderMode8 component.
     """
 
     full = 'full'
@@ -18195,19 +18331,19 @@ class BorderMode8(Enum):
 
 class Transform(BaseModel):
     """
-    自动转换值
+    AMIS Transform component.
     """
 
     model_config = ConfigDict(
         extra='forbid',
     )
-    lower_case: bool | None = Field(None, alias='lowerCase', description='用户输入的字符自动转小写')
-    upper_case: bool | None = Field(None, alias='upperCase', description='用户输入的字符自动转大写')
+    lower_case: bool | None = Field(None, alias='lowerCase', description='Component property')
+    upper_case: bool | None = Field(None, alias='upperCase', description='Component property')
 
 
 class TextControlSchema(BaseModel):
     """
-    Text 文本输入框。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/input-text
+    AMIS TextControlSchema component.
     """
 
     model_config = ConfigDict(
@@ -18296,32 +18432,32 @@ class TextControlSchema(BaseModel):
     size: Any | None = None
     type: Any
     add_on: AddOn | None = Field(None, alias='addOn')
-    trim_contents: bool | None = Field(None, alias='trimContents', description='是否去除首尾空白文本。')
+    trim_contents: bool | None = Field(None, alias='trimContents', description='Component property')
     auto_complete: dict[str, Any] | None = Field(None, alias='autoComplete')
     native_auto_complete: str | None = Field(
-        'off', alias='nativeAutoComplete', description='配置原生 input 的 autoComplete 属性'
+        'off', alias='nativeAutoComplete', description='Component property'
     )
     border_mode: BorderMode8 | None = Field(
-        None, alias='borderMode', description='边框模式，全边框，还是半边框，或者没边框。'
+        None, alias='borderMode', description='Component property'
     )
-    min_length: float | None = Field(None, alias='minLength', description='限制文字最小输入个数')
-    max_length: float | None = Field(None, alias='maxLength', description='限制文字最大输入个数')
-    show_counter: bool | None = Field(None, alias='showCounter', description='Whether visible计数')
-    prefix: str | None = Field(None, description='前缀')
-    suffix: str | None = Field(None, description='后缀')
-    transform: Transform | None = Field(None, description='自动转换值')
+    min_length: float | None = Field(None, alias='minLength', description='Component property')
+    max_length: float | None = Field(None, alias='maxLength', description='Component property')
+    show_counter: bool | None = Field(None, alias='showCounter', description='Component property')
+    prefix: str | None = Field(None, description='Component property')
+    suffix: str | None = Field(None, description='Component property')
+    transform: Transform | None = Field(None, description='Component property')
     input_control_class_name: str | None = Field(
-        None, alias='inputControlClassName', description='control节点的CSS类名'
+        None, alias='inputControlClassName', description='Component property'
     )
     native_input_class_name: str | None = Field(
-        None, alias='nativeInputClassName', description='原生input标签的CSS类名'
+        None, alias='nativeInputClassName', description='Component property'
     )
-    clear_value_on_empty: bool | None = Field(None, alias='clearValueOnEmpty', description='在内容为空的时候清除值')
+    clear_value_on_empty: bool | None = Field(None, alias='clearValueOnEmpty', description='Component property')
 
 
 class Position6(Enum):
     """
-    操作按钮位置
+    AMIS Position6 component.
     """
 
     left = 'left'
@@ -18329,16 +18465,16 @@ class Position6(Enum):
 
 
 class InputTextAddOn(BaseModel):
-    position: Position6 | None = Field(None, description='操作按钮位置')
+    position: Position6 | None = Field(None, description='Component property')
 
 
 class InputTextAddOnObject(BaseModel):
-    position: Position6 | None = Field(None, description='操作按钮位置')
+    position: Position6 | None = Field(None, description='Component property')
 
 
 class TextareaControlSchema(BaseModel):
     """
-    TextArea 多行文本输入框。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/textarea
+    AMIS TextareaControlSchema component.
     """
 
     model_config = ConfigDict(
@@ -18398,20 +18534,20 @@ class TextareaControlSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     size: Any | None = None
     type: Any
-    max_rows: float | None = Field(None, alias='maxRows', description='最大行数')
-    min_rows: float | None = Field(None, alias='minRows', description='最小行数')
+    max_rows: float | None = Field(None, alias='maxRows', description='Component property')
+    min_rows: float | None = Field(None, alias='minRows', description='Component property')
     border_mode: BorderMode8 | None = Field(
-        None, alias='borderMode', description='边框模式，全边框，还是半边框，或者没边框。'
+        None, alias='borderMode', description='Component property'
     )
-    max_length: float | None = Field(None, alias='maxLength', description='限制文字个数')
-    show_counter: bool | None = Field(None, alias='showCounter', description='Whether visible计数')
-    clearable: bool | None = Field(None, description='输入内容是否可清除')
-    reset_value: str | None = Field(None, alias='resetValue', description='重置值')
+    max_length: float | None = Field(None, alias='maxLength', description='Component property')
+    show_counter: bool | None = Field(None, alias='showCounter', description='Component property')
+    clearable: bool | None = Field(None, description='Component property')
+    reset_value: str | None = Field(None, alias='resetValue', description='Component property')
 
 
 class TransferControlSchema(BaseModel):
     """
-    Transfer 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/transfer
+    AMIS TransferControlSchema component.
     """
 
     model_config = ConfigDict(
@@ -18531,7 +18667,7 @@ class TransferControlSchema(BaseModel):
 
 class PickerSize(Enum):
     """
-    弹窗大小
+    AMIS PickerSize component.
     """
 
     xs = 'xs'
@@ -18544,7 +18680,7 @@ class PickerSize(Enum):
 
 class TransferPickerControlSchema(BaseModel):
     """
-    TransferPicker 穿梭器的弹框形态 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/transfer-picker
+    AMIS TransferPickerControlSchema component.
     """
 
     model_config = ConfigDict(
@@ -18661,14 +18797,14 @@ class TransferPickerControlSchema(BaseModel):
     auto_check_children: Any | None = Field(None, alias='autoCheckChildren')
     pagination: Any | None = None
     border_mode: BorderMode8 | None = Field(
-        None, alias='borderMode', description='边框模式，全边框，还是半边框，或者没边框。'
+        None, alias='borderMode', description='Component property'
     )
-    picker_size: PickerSize | None = Field(None, alias='pickerSize', description='弹窗大小')
+    picker_size: PickerSize | None = Field(None, alias='pickerSize', description='Component property')
 
 
 class TabsTransferPickerControlSchema(BaseModel):
     """
-    TabsTransferPicker 穿梭器的弹框形态 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/tabs-transfer-picker
+    AMIS TabsTransferPickerControlSchema component.
     """
 
     model_config = ConfigDict(
@@ -18793,24 +18929,24 @@ class NodeBehaviorEnum(Enum):
 
 class SearchConfig1(BaseModel):
     """
-    搜索框的配置
+    AMIS SearchConfig1 component.
     """
 
     model_config = ConfigDict(
         extra='forbid',
     )
-    class_name: str | None = Field(None, alias='className', description='搜索框外层CSS样式类')
-    placeholder: str | None = Field(None, description='占位符')
-    mini: bool | None = Field(None, description='是否为 Mini 样式。')
-    enhance: bool | None = Field(None, description='是否为加强样式')
-    clearable: bool | None = Field(None, description='是否可清除')
-    search_imediately: bool | None = Field(None, alias='searchImediately', description='是否立马搜索。')
-    sticky: bool | None = Field(None, description='搜索框是否吸顶')
+    class_name: str | None = Field(None, alias='className', description='Component property')
+    placeholder: str | None = Field(None, description='Component property')
+    mini: bool | None = Field(None, description='Component property')
+    enhance: bool | None = Field(None, description='Component property')
+    clearable: bool | None = Field(None, description='Component property')
+    search_imediately: bool | None = Field(None, alias='searchImediately', description='Component property')
+    sticky: bool | None = Field(None, description='Component property')
 
 
 class TreeControlSchema(BaseModel):
     """
-    Tree 下拉选择框。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/tree
+    AMIS TreeControlSchema component.
     """
 
     model_config = ConfigDict(
@@ -18898,50 +19034,50 @@ class TreeControlSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     size: Any | None = None
     type: Any
-    hide_root: bool | None = Field(None, alias='hideRoot', description='Whether hidden顶级')
-    root_label: str | None = Field(None, alias='rootLabel', description='顶级选项的名称')
-    root_value: Any | None = Field(None, alias='rootValue', description='顶级选项的值')
-    show_icon: bool | None = Field(None, alias='showIcon', description='显示图标')
+    hide_root: bool | None = Field(None, alias='hideRoot', description='Component property')
+    root_label: str | None = Field(None, alias='rootLabel', description='Component property')
+    root_value: Any | None = Field(None, alias='rootValue', description='Component property')
+    show_icon: bool | None = Field(None, alias='showIcon', description='Component property')
     auto_check_children: bool | None = Field(
-        None, alias='autoCheckChildren', description='ui级联关系，true代表级联选中，false代表不级联，默认为true'
+        None, alias='autoCheckChildren', description='Component property'
     )
     cascade: bool | None = Field(
         None,
-        description='该属性代表数据级联关系，autoCheckChildren为true时生效，默认为false，具体数据级联关系如下： 1.casacde为false，ui行为为级联选中子节点，子节点禁用；值只包含父节点的值 2.cascade为false，withChildren为true，ui行为为级联选中子节点，子节点禁用；值包含父子节点的值 3.cascade为true，ui行为级联选中子节点，子节点可反选，值包含父子节点的值，此时withChildren属性失效 4.cascade不论为true还是false，onlyChildren为true，ui行为级联选中子节点，子节点可反选，值只包含子节点的值',
+        description='Component property',
     )
     node_behavior: list[NodeBehaviorEnum] | None = Field(
-        None, alias='nodeBehavior', description='节点行为配置，默认为选中'
+        None, alias='nodeBehavior', description='Component property'
     )
     auto_cancel_parent: bool | None = Field(
-        None, alias='autoCancelParent', description='子节点取消时自动取消父节点的值，默认为false'
+        None, alias='autoCancelParent', description='Component property'
     )
     with_children: bool | None = Field(
-        None, alias='withChildren', description='选父级的时候是否把子节点的值也包含在内。'
+        None, alias='withChildren', description='Component property'
     )
     only_children: bool | None = Field(
-        None, alias='onlyChildren', description='选父级的时候，是否只把子节点的值包含在内'
+        None, alias='onlyChildren', description='Component property'
     )
-    only_leaf: bool | None = Field(None, alias='onlyLeaf', description='单选时，只运行选择叶子节点')
-    root_creatable: bool | None = Field(None, alias='rootCreatable', description='顶级节点是否可以创建子节点')
-    enable_node_path: bool | None = Field(None, alias='enableNodePath', description='是否开启节点路径模式')
-    path_separator: str | None = Field(None, alias='pathSeparator', description='开启节点路径模式后，节点路径的分隔符')
-    show_outline: bool | None = Field(None, alias='showOutline', description='Whether visible展开线')
-    highlight_txt: str | None = Field(None, alias='highlightTxt', description='需要高亮的字符串')
+    only_leaf: bool | None = Field(None, alias='onlyLeaf', description='Component property')
+    root_creatable: bool | None = Field(None, alias='rootCreatable', description='Component property')
+    enable_node_path: bool | None = Field(None, alias='enableNodePath', description='Component property')
+    path_separator: str | None = Field(None, alias='pathSeparator', description='Component property')
+    show_outline: bool | None = Field(None, alias='showOutline', description='Component property')
+    highlight_txt: str | None = Field(None, alias='highlightTxt', description='Component property')
     enable_default_icon: bool | None = Field(
-        None, alias='enableDefaultIcon', description='是否为选项添加默认的Icon，默认值为true'
+        None, alias='enableDefaultIcon', description='Component property'
     )
-    searchable: bool | None = Field(None, description='是否开启搜索')
+    searchable: bool | None = Field(None, description='Component property')
     search_api: dict[str, Any] | None = Field(None, alias='searchApi')
     item_actions: dict[str, Any] | None = Field(None, alias='itemActions')
-    search_config: SearchConfig1 | None = Field(None, alias='searchConfig', description='搜索框的配置')
-    tree_class_name: str | None = Field(None, alias='treeClassName', description='tree 组件层类名')
-    height_auto: bool | None = Field(None, alias='heightAuto', description='高度自动增长？')
-    icon_field: str | None = Field(None, alias='iconField', description='设置 icon 字段名')
+    search_config: SearchConfig1 | None = Field(None, alias='searchConfig', description='Component property')
+    tree_class_name: str | None = Field(None, alias='treeClassName', description='Component property')
+    height_auto: bool | None = Field(None, alias='heightAuto', description='Component property')
+    icon_field: str | None = Field(None, alias='iconField', description='Component property')
 
 
 class TreeSelectControlSchema(BaseModel):
     """
-    Tree 下拉选择框。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/tree
+    AMIS TreeSelectControlSchema component.
     """
 
     model_config = ConfigDict(
@@ -19029,48 +19165,48 @@ class TreeSelectControlSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     size: Any | None = None
     type: Any
-    hide_root: bool | None = Field(None, alias='hideRoot', description='Whether hidden顶级')
-    root_label: str | None = Field(None, alias='rootLabel', description='顶级选项的名称')
-    root_value: Any | None = Field(None, alias='rootValue', description='顶级选项的值')
-    show_icon: bool | None = Field(None, alias='showIcon', description='显示图标')
-    cascade: bool | None = Field(None, description='父子之间是否完全独立。')
+    hide_root: bool | None = Field(None, alias='hideRoot', description='Component property')
+    root_label: str | None = Field(None, alias='rootLabel', description='Component property')
+    root_value: Any | None = Field(None, alias='rootValue', description='Component property')
+    show_icon: bool | None = Field(None, alias='showIcon', description='Component property')
+    cascade: bool | None = Field(None, description='Component property')
     node_behavior: list[NodeBehaviorEnum] | None = Field(
-        None, alias='nodeBehavior', description='节点行为配置，默认为选中'
+        None, alias='nodeBehavior', description='Component property'
     )
     with_children: bool | None = Field(
-        None, alias='withChildren', description='选父级的时候是否把子节点的值也包含在内。'
+        None, alias='withChildren', description='Component property'
     )
     only_children: bool | None = Field(
-        None, alias='onlyChildren', description='选父级的时候，是否只把子节点的值包含在内'
+        None, alias='onlyChildren', description='Component property'
     )
-    only_leaf: bool | None = Field(None, alias='onlyLeaf', description='单选时，只运行选择叶子节点')
-    root_creatable: bool | None = Field(None, alias='rootCreatable', description='顶级节点是否可以创建子节点')
+    only_leaf: bool | None = Field(None, alias='onlyLeaf', description='Component property')
+    root_creatable: bool | None = Field(None, alias='rootCreatable', description='Component property')
     hide_node_path_label: bool | None = Field(
-        None, alias='hideNodePathLabel', description='Whether hidden选择框中已选中节点的祖先节点的文本信息'
+        None, alias='hideNodePathLabel', description='Component property'
     )
-    enable_node_path: bool | None = Field(None, alias='enableNodePath', description='是否开启节点路径模式')
-    path_separator: str | None = Field(None, alias='pathSeparator', description='开启节点路径模式后，节点路径的分隔符')
-    show_outline: bool | None = Field(None, alias='showOutline', description='Whether visible展开线')
+    enable_node_path: bool | None = Field(None, alias='enableNodePath', description='Component property')
+    path_separator: str | None = Field(None, alias='pathSeparator', description='Component property')
+    show_outline: bool | None = Field(None, alias='showOutline', description='Component property')
     max_tag_count: float | None = Field(
         None,
         alias='maxTagCount',
-        description='标签的最大展示数量，超出数量后以收纳浮层的方式展示，仅在多选模式开启后生效',
+        description='Component property',
     )
     overflow_tag_popover: OverflowTagPopover | None = Field(None, alias='overflowTagPopover')
-    menu_tpl: str | None = Field(None, alias='menuTpl', description='自定义选项')
+    menu_tpl: str | None = Field(None, alias='menuTpl', description='Component property')
     auto_cancel_parent: bool | None = Field(
-        None, alias='autoCancelParent', description='子节点取消时自动取消父节点的值，默认为false'
+        None, alias='autoCancelParent', description='Component property'
     )
     item_actions: dict[str, Any] | None = Field(None, alias='itemActions')
     enable_default_icon: bool | None = Field(
-        None, alias='enableDefaultIcon', description='是否为选项添加默认的Icon，默认值为true'
+        None, alias='enableDefaultIcon', description='Component property'
     )
     test_id_builder: TestIdBuilder1 | None = Field(None, alias='testIdBuilder')
 
 
 class UserSelectControlSchema(BaseModel):
     """
-    UserSelect 移动端人员选择。
+    AMIS UserSelectControlSchema component.
     """
 
     model_config = ConfigDict(
@@ -19162,7 +19298,7 @@ class UserSelectControlSchema(BaseModel):
 
 class DateRangeSchema(BaseModel):
     """
-    DateRange 展示渲染器。
+    DateRange Displayrenderer。
     """
 
     model_config = ConfigDict(
@@ -19191,13 +19327,13 @@ class DateRangeSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     type: Any
     testid: Any | None = None
-    value_format: str | None = Field(None, alias='valueFormat', description='值的时间格式，参考 moment 中的格式说明。')
-    format: str | None = Field(None, description='展示的时间格式，参考 moment 中的格式说明。')
+    value_format: str | None = Field(None, alias='valueFormat', description='Component property')
+    format: str | None = Field(None, description='Component property')
     display_format: str | None = Field(
-        None, alias='displayFormat', description='展示的时间格式，参考 moment 中的格式说明。（新：同format）'
+        None, alias='displayFormat', description='Component property'
     )
-    delimiter: str | None = Field(None, description='分割符')
-    connector: str | None = Field(None, description='连接符')
+    delimiter: str | None = Field(None, description='Component property')
+    connector: str | None = Field(None, description='Component property')
 
 
 class MultilineTextSchema(BaseModel):
@@ -19231,10 +19367,10 @@ class MultilineTextSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     type: Any
     testid: Any | None = None
-    text: str | None = Field(None, description='文本')
-    max_rows: float | None = Field(None, alias='maxRows', description='最大行数')
-    expend_button_text: str | None = Field(None, alias='expendButtonText', description='展开按钮文本')
-    collapse_button_text: str | None = Field(None, alias='collapseButtonText', description='收起按钮文本')
+    text: str | None = Field(None, description='Component property')
+    max_rows: float | None = Field(None, alias='maxRows', description='Component property')
+    expend_button_text: str | None = Field(None, alias='expendButtonText', description='Component property')
+    collapse_button_text: str | None = Field(None, alias='collapseButtonText', description='Component property')
 
 
 class PasswordSchema(BaseModel):
@@ -19268,7 +19404,7 @@ class PasswordSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     type: Any
     testid: Any | None = None
-    mosaic_text: str | None = Field(None, alias='mosaicText', description='打码模式的文本')
+    mosaic_text: str | None = Field(None, alias='mosaicText', description='Component property')
 
 
 class ExpendButton(BaseModel):
@@ -19310,22 +19446,22 @@ class WordsSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     type: Any
     testid: Any | None = None
-    limit: float | None = Field(None, description='展示限制, 为0时也无限制')
-    expend_button_text: str | None = Field(None, alias='expendButtonText', description='展示文字')
+    limit: float | None = Field(None, description='Component property')
+    expend_button_text: str | None = Field(None, alias='expendButtonText', description='Component property')
     expend_button: ExpendButton | None = Field(None, alias='expendButton')
-    collapse_button_text: str | None = Field(None, alias='collapseButtonText', description='收起文字')
+    collapse_button_text: str | None = Field(None, alias='collapseButtonText', description='Component property')
     collapse_button: CollapseButton | None = Field(None, alias='collapseButton')
-    words: str | list[dict[str, Any]] = Field(..., description='tags数据')
+    words: str | list[dict[str, Any]] = Field(..., description='tagsdata')
     in_tag: bool | dict[str, Any] | None = Field(
-        None, alias='inTag', description='useTag 当数据是数组时，是否使用tag的方式展示'
+        None, alias='inTag', description='Component property'
     )
-    delimiter: str | None = Field(None, description='分割符')
-    label_tpl: str | None = Field(None, alias='labelTpl', description='标签模板')
+    delimiter: str | None = Field(None, description='Component property')
+    label_tpl: str | None = Field(None, alias='labelTpl', description='Component property')
 
 
 class DisplayMode2(Enum):
     """
-    normal: 面性标签，对应color的背景色 rounded: 线性标签， 对应color的边框 status: 带图标的标签， 图标可以自定义
+    AMIS DisplayMode2 component.
     """
 
     normal = 'normal'
@@ -19364,18 +19500,18 @@ class TagSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     type: Any
     testid: Any | None = None
-    color: str | None = Field(None, description='标签颜色')
-    label: str = Field(..., description='标签文本内容')
+    color: str | None = Field(None, description='Component property')
+    label: str = Field(..., description='Component property')
     display_mode: DisplayMode2 | None = Field(
         None,
         alias='displayMode',
-        description='normal: 面性标签，对应color的背景色 rounded: 线性标签， 对应color的边框 status: 带图标的标签， 图标可以自定义',
+        description='Component property',
     )
     icon: str | None = Field(None, description='Class name in iconfont.')
-    closable: bool | None = Field(None, description='是否展示关闭按钮')
+    closable: bool | None = Field(None, description='Component property')
     close_icon: str = Field(..., alias='closeIcon', description='Class name in iconfont.')
-    checkable: bool | None = Field(None, description='是否是可选的标签')
-    checked: bool | None = Field(None, description='是否选中')
+    checkable: bool | None = Field(None, description='Component property')
+    checked: bool | None = Field(None, description='Component property')
 
 
 class Body(BaseModel):

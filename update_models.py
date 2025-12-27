@@ -23,6 +23,7 @@ import download_schema
 import translate_schema
 import simplify_schema
 import generate_models
+import clean_chinese
 
 # Configure logging
 logging.basicConfig(
@@ -75,6 +76,14 @@ def main() -> int:
         exit_code = generate_models.main()
         if exit_code != 0:
             logger.error("❌ Model generation failed!")
+            return exit_code
+
+        # Step 5: Clean remaining Chinese
+        logger.info("\n🧹 Step 5: Removing any remaining Chinese text...")
+        logger.info("-" * 70)
+        exit_code = clean_chinese.main()
+        if exit_code != 0:
+            logger.error("❌ Chinese cleanup failed!")
             return exit_code
 
         # Success!
