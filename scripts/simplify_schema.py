@@ -16,7 +16,7 @@ from typing import Any, Dict, Set
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-SCHEMA_PATH = Path(__file__).parent.parent / "schema" / "schema.json"
+SCHEMA_PATH = Path(__file__).parent.parent / "schema" / "schema_translated.json"
 OUTPUT_PATH = Path(__file__).parent.parent / "schema" / "schema_simplified.json"
 
 

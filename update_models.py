@@ -20,6 +20,7 @@ SCRIPTS_DIR = Path(__file__).parent / "scripts"
 sys.path.insert(0, str(SCRIPTS_DIR))
 
 import download_schema
+import translate_schema
 import simplify_schema
 import generate_models
 
@@ -52,16 +53,24 @@ def main() -> int:
             logger.error("❌ Schema download failed!")
             return exit_code
 
-        # Step 2: Simplify schema
-        logger.info("\n🔧 Step 2: Simplifying schema...")
+        # Step 2: Translate Chinese to English
+        logger.info("\n🌐 Step 2: Translating Chinese descriptions to English...")
+        logger.info("-" * 70)
+        exit_code = translate_schema.main()
+        if exit_code != 0:
+            logger.error("❌ Schema translation failed!")
+            return exit_code
+
+        # Step 3: Simplify schema
+        logger.info("\n🔧 Step 3: Simplifying schema...")
         logger.info("-" * 70)
         exit_code = simplify_schema.main()
         if exit_code != 0:
             logger.error("❌ Schema simplification failed!")
             return exit_code
 
-        # Step 3: Generate models
-        logger.info("\n🔨 Step 3: Generating Pydantic models...")
+        # Step 4: Generate models
+        logger.info("\n🔨 Step 4: Generating Pydantic models...")
         logger.info("-" * 70)
         exit_code = generate_models.main()
         if exit_code != 0:

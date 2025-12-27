@@ -9,15 +9,15 @@
             "type": {
               "type": "string",
               "const": "page",
-              "description": "指定为 page 渲染器。"
+              "description": "Specifies the page renderer."
             },
             "title": {
               "type": "string",
-              "description": "页面标题"
+              "description": "Page title"
             },
             "subTitle": {
               "type": "string",
-              "description": "页面副标题"
+              "description": "Page subtitle"
             },
             "remark": {
               "anyOf": [
@@ -54,7 +54,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "aside": {
               "anyOf": [
@@ -70,11 +70,11 @@
             },
             "asideResizor": {
               "type": "boolean",
-              "description": "边栏是否允许拖动"
+              "description": "Whether the sidebar allows dragging"
             },
             "asideSticky": {
               "type": "boolean",
-              "description": "边栏内容是否粘住，即不跟随滚动。",
+              "description": "Whether the sidebar content is sticky, i.e. does not scroll with the page.",
               "default": true
             },
             "asidePosition": {
@@ -83,16 +83,16 @@
                 "left",
                 "right"
               ],
-              "description": "边栏位置",
+              "description": "Sidebar position",
               "default": "left"
             },
             "asideMinWidth": {
               "type": "number",
-              "description": "边栏最小宽度"
+              "description": "Minimum sidebar width"
             },
             "asideMaxWidth": {
               "type": "number",
-              "description": "边栏最小宽度"
+              "description": "Minimum sidebar width"
             },
             "asideClassName": {
               "anyOf": [
@@ -105,7 +105,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "className": {
               "anyOf": [
@@ -118,25 +118,25 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "css": {
               "type": "object",
               "additionalProperties": {
                 "type": "object"
               },
-              "description": "自定义页面级别样式表"
+              "description": "Custom page-level stylesheet"
             },
             "mobileCSS": {
               "type": "object",
               "additionalProperties": {
                 "type": "object"
               },
-              "description": "移动端下的样式表"
+              "description": "Stylesheet for mobile devices"
             },
             "data": {
               "type": "object",
-              "description": "初始数据，设置得值可用于组件内部模板使用。"
+              "description": "Initial data, the set value can be used in component internal templates."
             },
             "headerClassName": {
               "anyOf": [
@@ -149,7 +149,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "initApi": {
               "anyOf": [
@@ -165,11 +165,11 @@
             },
             "initFetch": {
               "type": "boolean",
-              "description": "是否默认就拉取？"
+              "description": "Whether to fetch by default?"
             },
             "initFetchOn": {
               "type": "string",
-              "description": "表达式，语法 `${xxx > 5}`。"
+              "description": "Expression, syntax `${xxx > 5}`."
             },
             "messages": {
               "type": "object",
@@ -192,11 +192,11 @@
                 }
               },
               "additionalProperties": false,
-              "description": "消息文案配置，记住这个优先级是最低的，如果你的接口返回了 msg，接口返回的优先。"
+              "description": "Message text configuration. Remember that this has the lowest priority. If your interface returns a msg, the interface return takes precedence."
             },
             "name": {
               "type": "string",
-              "description": "组件名字，这个名字可以用来定位，用于组件通信"
+              "description": "Component name, this name can be used for positioning and component communication"
             },
             "toolbar": {
               "anyOf": [
@@ -221,27 +221,27 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "definitions": {},
             "interval": {
               "type": "number",
-              "description": "配置轮询间隔，配置后 initApi 将轮询加载。"
+              "description": "Configure polling interval. After configuration, initApi will load by polling."
             },
             "silentPolling": {
               "type": "boolean",
-              "description": "是否要静默加载，也就是说不显示进度"
+              "description": "Whether to load silently, i.e. without showing progress"
             },
             "stopAutoRefreshWhen": {
               "type": "string",
-              "description": "表达式，语法 `${xxx > 5}`。"
+              "description": "Expression, syntax `${xxx > 5}`."
             },
             "showErrorMsg": {
               "type": "boolean",
-              "description": "是否显示错误信息，默认是显示的。"
+              "description": "Whether to display error messages. By default, they are displayed."
             },
             "cssVars": {
-              "description": "css 变量"
+              "description": "CSS variables"
             },
             "regions": {
               "type": "array",
@@ -254,7 +254,7 @@
                   "header"
                 ]
               },
-              "description": "默认不设置自动感觉内容来决定要不要展示这些区域 如果配置了，以配置为主。"
+              "description": "By default, it automatically senses the content to decide whether to display these areas. If configured, the configuration takes precedence."
             },
             "style": {
               "type": "object",
@@ -274,7 +274,7 @@
                 }
               },
               "additionalProperties": false,
-              "description": "下拉刷新配置"
+              "description": "Pull-to-refresh configuration"
             }
           },
           "required": [
@@ -509,7 +509,7 @@
             },
             "icon": {
               "type": "string",
-              "description": "iconfont 里面的类名。"
+              "description": "Class name in iconfont."
             },
             "tooltipClassName": {
               "anyOf": [
@@ -522,7 +522,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "trigger": {
               "type": "array",
@@ -534,15 +534,15 @@
                   "focus"
                 ]
               },
-              "description": "触发规则"
+              "description": "Trigger rules"
             },
             "title": {
               "type": "string",
-              "description": "提示标题"
+              "description": "Tooltip title"
             },
             "content": {
               "type": "string",
-              "description": "支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
+              "description": "Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
             },
             "placement": {
               "type": "string",
@@ -552,11 +552,11 @@
                 "bottom",
                 "left"
               ],
-              "description": "显示位置"
+              "description": "Display position"
             },
             "rootClose": {
               "type": "boolean",
-              "description": "点击其他内容时是否关闭弹框信息"
+              "description": "Whether to close the popup when clicking elsewhere"
             },
             "shape": {
               "type": "string",
@@ -564,7 +564,7 @@
                 "circle",
                 "square"
               ],
-              "description": "icon的形状"
+              "description": "Icon shape"
             }
           },
           "required": [
@@ -667,7 +667,7 @@
     },
     "SchemaIcon": {
       "type": "string",
-      "description": "iconfont 里面的类名。"
+      "description": "Class name in iconfont."
     },
     "SchemaClassName": {
       "anyOf": [
@@ -688,15 +688,15 @@
           }
         }
       ],
-      "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+      "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
     },
     "SchemaExpression": {
       "type": "string",
-      "description": "表达式，语法 `${xxx > 5}`。"
+      "description": "Expression, syntax `${xxx > 5}`."
     },
     "SchemaTpl": {
       "type": "string",
-      "description": "支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
+      "description": "Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
     },
     "BaseSchema": {
       "allOf": [
@@ -945,7 +945,7 @@
           "properties": {
             "$$id": {
               "type": "string",
-              "description": "组件唯一 id，主要用于页面设计器中定位 json 节点"
+              "description": "Unique component ID, mainly used to locate JSON nodes in the page designer"
             },
             "className": {
               "type": "object",
@@ -953,11 +953,11 @@
             },
             "$ref": {
               "type": "string",
-              "description": "配合 definitions 一起使用，可以实现无限循环的渲染器。"
+              "description": "Used together with definitions, infinite loop renderers can be achieved."
             },
             "disabled": {
               "type": "boolean",
-              "description": "是否禁用"
+              "description": "Whether disabled"
             },
             "disabledOn": {
               "type": "object",
@@ -965,7 +965,7 @@
             },
             "hidden": {
               "type": "boolean",
-              "description": "是否隐藏",
+              "description": "Whether hidden",
               "deprecated": "推荐用 visible"
             },
             "hiddenOn": {
@@ -974,7 +974,7 @@
             },
             "visible": {
               "type": "boolean",
-              "description": "是否显示"
+              "description": "Whether visible"
             },
             "visibleOn": {
               "type": "object",
@@ -982,7 +982,7 @@
             },
             "id": {
               "type": "string",
-              "description": "组件唯一 id，主要用于日志采集"
+              "description": "Unique component ID, mainly used for log collection"
             },
             "onEvent": {
               "type": "object",
@@ -990,11 +990,11 @@
                 "type": "object",
                 "additionalProperties": true
               },
-              "description": "事件动作配置"
+              "description": "Event action configuration"
             },
             "static": {
               "type": "boolean",
-              "description": "是否静态展示"
+              "description": "Whether to display statically"
             },
             "staticOn": {
               "type": "object",
@@ -1002,7 +1002,7 @@
             },
             "staticPlaceholder": {
               "type": "string",
-              "description": "静态展示空值占位"
+              "description": "Static display empty value placeholder"
             },
             "staticClassName": {
               "type": "object",
@@ -1019,7 +1019,7 @@
             "staticSchema": {},
             "style": {
               "type": "object",
-              "description": "组件样式"
+              "description": "Component style"
             },
             "editorSetting": {
               "type": "object",
@@ -1037,11 +1037,11 @@
                   "additionalProperties": true
                 }
               },
-              "description": "编辑器配置，运行时可以忽略"
+              "description": "Editor configuration, can be ignored at runtime"
             },
             "useMobileUI": {
               "type": "boolean",
-              "description": "可以组件级别用来关闭移动端样式"
+              "description": "Can be used at the component level to turn off mobile styles"
             }
           },
           "additionalProperties": false
@@ -1311,7 +1311,7 @@
       "properties": {
         "$$id": {
           "type": "string",
-          "description": "组件唯一 id，主要用于页面设计器中定位 json 节点"
+          "description": "Unique component ID, mainly used to locate JSON nodes in the page designer"
         },
         "className": {
           "anyOf": [
@@ -1326,40 +1326,40 @@
               }
             }
           ],
-          "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+          "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
         },
         "$ref": {
           "type": "string",
-          "description": "配合 definitions 一起使用，可以实现无限循环的渲染器。"
+          "description": "Used together with definitions, infinite loop renderers can be achieved."
         },
         "disabled": {
           "type": "boolean",
-          "description": "是否禁用"
+          "description": "Whether disabled"
         },
         "disabledOn": {
           "type": "string",
-          "description": "表达式，语法 `${xxx > 5}`。"
+          "description": "Expression, syntax `${xxx > 5}`."
         },
         "hidden": {
           "type": "boolean",
-          "description": "是否隐藏",
+          "description": "Whether hidden",
           "deprecated": "推荐用 visible"
         },
         "hiddenOn": {
           "type": "string",
-          "description": "表达式，语法 `${xxx > 5}`。"
+          "description": "Expression, syntax `${xxx > 5}`."
         },
         "visible": {
           "type": "boolean",
-          "description": "是否显示"
+          "description": "Whether visible"
         },
         "visibleOn": {
           "type": "string",
-          "description": "表达式，语法 `${xxx > 5}`。"
+          "description": "Expression, syntax `${xxx > 5}`."
         },
         "id": {
           "type": "string",
-          "description": "组件唯一 id，主要用于日志采集"
+          "description": "Unique component ID, mainly used for log collection"
         },
         "onEvent": {
           "type": "object",
@@ -1390,19 +1390,19 @@
             ],
             "additionalProperties": false
           },
-          "description": "事件动作配置"
+          "description": "Event action configuration"
         },
         "static": {
           "type": "boolean",
-          "description": "是否静态展示"
+          "description": "Whether to display statically"
         },
         "staticOn": {
           "type": "string",
-          "description": "表达式，语法 `${xxx > 5}`。"
+          "description": "Expression, syntax `${xxx > 5}`."
         },
         "staticPlaceholder": {
           "type": "string",
-          "description": "静态展示空值占位"
+          "description": "Static display empty value placeholder"
         },
         "staticClassName": {
           "anyOf": [
@@ -1417,7 +1417,7 @@
               }
             }
           ],
-          "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+          "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
         },
         "staticLabelClassName": {
           "anyOf": [
@@ -1432,7 +1432,7 @@
               }
             }
           ],
-          "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+          "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
         },
         "staticInputClassName": {
           "anyOf": [
@@ -1447,12 +1447,12 @@
               }
             }
           ],
-          "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+          "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
         },
         "staticSchema": {},
         "style": {
           "type": "object",
-          "description": "组件样式"
+          "description": "Component style"
         },
         "editorSetting": {
           "type": "object",
@@ -1469,11 +1469,11 @@
               "description": "编辑器假数据，方便展示"
             }
           },
-          "description": "编辑器配置，运行时可以忽略"
+          "description": "Editor configuration, can be ignored at runtime"
         },
         "useMobileUI": {
           "type": "boolean",
-          "description": "可以组件级别用来关闭移动端样式"
+          "description": "Can be used at the component level to turn off mobile styles"
         }
       },
       "additionalProperties": false
@@ -1925,7 +1925,7 @@
         },
         {
           "type": "string",
-          "description": "支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
+          "description": "Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
         }
       ]
     },
@@ -2157,15 +2157,15 @@
             },
             "tpl": {
               "type": "string",
-              "description": "支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
+              "description": "Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
             },
             "html": {
               "type": "string",
-              "description": "支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
+              "description": "Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
             },
             "text": {
               "type": "string",
-              "description": "支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
+              "description": "Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
             },
             "raw": {
               "type": "string"
@@ -2400,11 +2400,11 @@
         },
         "visibleOn": {
           "type": "string",
-          "description": "动态控制是否显示"
+          "description": "动态控制Whether visible"
         },
         "animation": {
           "type": "boolean",
-          "description": "是否显示动画"
+          "description": "Whether visible动画"
         },
         "style": {
           "type": "object",
@@ -3402,7 +3402,7 @@
             },
             "silent": {
               "type": "boolean",
-              "description": "autoFill 是否显示自动填充错误提示"
+              "description": "autoFill Whether visible自动填充错误提示"
             },
             "downloadFileName": {
               "type": "string",
@@ -3477,7 +3477,7 @@
         },
         "sendOn": {
           "type": "string",
-          "description": "表达式，语法 `${xxx > 5}`。"
+          "description": "Expression, syntax `${xxx > 5}`."
         },
         "replaceData": {
           "type": "boolean",
@@ -3524,7 +3524,7 @@
         },
         "silent": {
           "type": "boolean",
-          "description": "autoFill 是否显示自动填充错误提示"
+          "description": "autoFill Whether visible自动填充错误提示"
         },
         "downloadFileName": {
           "type": "string",
@@ -3834,7 +3834,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "closeOnEsc": {
               "type": "boolean",
@@ -3846,7 +3846,7 @@
             },
             "name": {
               "type": "string",
-              "description": "组件名字，这个名字可以用来定位，用于组件通信"
+              "description": "Component name, this name can be used for positioning and component communication"
             },
             "size": {
               "type": "string",
@@ -3903,7 +3903,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "footer": {
               "anyOf": [
@@ -3923,19 +3923,19 @@
             },
             "showCloseButton": {
               "type": "boolean",
-              "description": "是否显示关闭按钮"
+              "description": "Whether visible关闭按钮"
             },
             "showErrorMsg": {
               "type": "boolean",
-              "description": "是否显示错误信息"
+              "description": "Whether visible错误信息"
             },
             "showLoading": {
               "type": "boolean",
-              "description": "是否显示 spinner"
+              "description": "Whether visible spinner"
             },
             "overlay": {
               "type": "boolean",
-              "description": "是否显示蒙层"
+              "description": "Whether visible蒙层"
             },
             "dialogType": {
               "type": "string",
@@ -4075,7 +4075,7 @@
     },
     "SchemaName": {
       "type": "string",
-      "description": "组件名字，这个名字可以用来定位，用于组件通信"
+      "description": "Component name, this name can be used for positioning and component communication"
     },
     "SchemaReload": {
       "type": "string",
@@ -4100,7 +4100,7 @@
             },
             "icon": {
               "type": "string",
-              "description": "iconfont 里面的类名。"
+              "description": "Class name in iconfont."
             },
             "iconClassName": {
               "anyOf": [
@@ -4113,11 +4113,11 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "rightIcon": {
               "type": "string",
-              "description": "iconfont 里面的类名。"
+              "description": "Class name in iconfont."
             },
             "rightIconClassName": {
               "anyOf": [
@@ -4130,7 +4130,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "loadingClassName": {
               "anyOf": [
@@ -4143,7 +4143,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "label": {
               "type": "string",
@@ -4312,7 +4312,7 @@
             },
             "loadingOn": {
               "type": "string",
-              "description": "是否显示loading效果"
+              "description": "Whether visibleloading效果"
             },
             "disabledOnAction": {
               "type": "boolean",
@@ -5324,7 +5324,7 @@
             },
             "nextCondition": {
               "type": "string",
-              "description": "表达式，语法 `${xxx > 5}`。"
+              "description": "Expression, syntax `${xxx > 5}`."
             },
             "reload": {
               "type": "string",
@@ -5846,7 +5846,7 @@
             },
             "nextCondition": {
               "type": "string",
-              "description": "表达式，语法 `${xxx > 5}`。"
+              "description": "Expression, syntax `${xxx > 5}`."
             },
             "reload": {
               "type": "string",
@@ -6199,7 +6199,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "bodyClassName": {
               "anyOf": [
@@ -6212,7 +6212,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "headerClassName": {
               "anyOf": [
@@ -6225,7 +6225,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "footerClassName": {
               "anyOf": [
@@ -6238,7 +6238,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "closeOnEsc": {
               "type": "boolean",
@@ -6246,7 +6246,7 @@
             },
             "name": {
               "type": "string",
-              "description": "组件名字，这个名字可以用来定位，用于组件通信"
+              "description": "Component name, this name can be used for positioning and component communication"
             },
             "size": {
               "type": "string",
@@ -6333,7 +6333,7 @@
             },
             "overlay": {
               "type": "boolean",
-              "description": "是否显示蒙层"
+              "description": "Whether visible蒙层"
             },
             "closeOnOutside": {
               "type": "boolean",
@@ -6341,7 +6341,7 @@
             },
             "showErrorMsg": {
               "type": "boolean",
-              "description": "是否显示错误信息"
+              "description": "Whether visible错误信息"
             },
             "data": {
               "type": "object",
@@ -8252,7 +8252,7 @@
             },
             "showCloseButton": {
               "type": "boolean",
-              "description": "是否显示关闭按钮"
+              "description": "Whether visible关闭按钮"
             },
             "closeButtonClassName": {
               "type": "string",
@@ -8260,11 +8260,11 @@
             },
             "showIcon": {
               "type": "boolean",
-              "description": "是否显示ICON"
+              "description": "Whether visibleICON"
             },
             "icon": {
               "type": "string",
-              "description": "iconfont 里面的类名。"
+              "description": "Class name in iconfont."
             },
             "iconClassName": {
               "type": "string",
@@ -8552,7 +8552,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "style": {
               "type": "object",
@@ -8945,7 +8945,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "btnActiveClassName": {
               "type": "string",
@@ -8981,15 +8981,15 @@
             },
             "disabledOn": {
               "type": "string",
-              "description": "表达式，语法 `${xxx > 5}`。"
+              "description": "Expression, syntax `${xxx > 5}`."
             },
             "visible": {
               "type": "boolean",
-              "description": "是否显示"
+              "description": "Whether visible"
             },
             "visibleOn": {
               "type": "string",
-              "description": "表达式，语法 `${xxx > 5}`。"
+              "description": "Expression, syntax `${xxx > 5}`."
             },
             "size": {
               "type": "string",
@@ -10464,7 +10464,7 @@
         },
         "silent": {
           "type": "boolean",
-          "description": "autoFill 是否显示自动填充错误提示"
+          "description": "autoFill Whether visible自动填充错误提示"
         },
         "messages": {
           "type": "object",
@@ -10604,7 +10604,7 @@
             },
             "silent": {
               "type": "boolean",
-              "description": "autoFill 是否显示自动填充错误提示"
+              "description": "autoFill Whether visible自动填充错误提示"
             },
             "messages": {
               "type": "object",
@@ -10887,7 +10887,7 @@
                 "type": "object",
                 "additionalProperties": true
               },
-              "description": "内容区域"
+              "description": "Content area"
             },
             "media": {
               "type": "object",
@@ -11063,11 +11063,11 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "title": {
               "type": "string",
-              "description": "支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
+              "description": "Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
             },
             "titleClassName": {
               "anyOf": [
@@ -11080,7 +11080,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "subTitle": {
               "anyOf": [
@@ -11105,14 +11105,14 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "subTitlePlaceholder": {
               "type": "string"
             },
             "description": {
               "type": "string",
-              "description": "支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
+              "description": "Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
             },
             "descriptionPlaceholder": {
               "type": "string",
@@ -11129,15 +11129,15 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "desc": {
               "type": "string",
-              "description": "支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
+              "description": "Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
             },
             "descPlaceholder": {
               "type": "string",
-              "description": "支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
+              "description": "Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
             },
             "descClassName": {
               "anyOf": [
@@ -11150,7 +11150,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "avatar": {
               "type": "object",
@@ -11158,7 +11158,7 @@
             },
             "avatarText": {
               "type": "string",
-              "description": "支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
+              "description": "Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
             },
             "avatarTextBackground": {
               "type": "array",
@@ -11190,7 +11190,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "avatarClassName": {
               "anyOf": [
@@ -11203,7 +11203,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "imageClassName": {
               "anyOf": [
@@ -11216,11 +11216,11 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "highlight": {
               "type": "string",
-              "description": "表达式，语法 `${xxx > 5}`。"
+              "description": "Expression, syntax `${xxx > 5}`."
             },
             "highlightClassName": {
               "anyOf": [
@@ -11233,11 +11233,11 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "href": {
               "type": "string",
-              "description": "支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
+              "description": "Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
             },
             "blank": {
               "type": "boolean",
@@ -11261,7 +11261,7 @@
               }
             ]
           },
-          "description": "内容区域"
+          "description": "Content area"
         },
         "media": {
           "type": "object",
@@ -11277,7 +11277,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "type": {
               "type": "string",
@@ -11695,7 +11695,7 @@
         },
         "secondary": {
           "type": "string",
-          "description": "支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
+          "description": "Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
         },
         "useCardLabel": {
           "type": "boolean",
@@ -11762,7 +11762,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "name": {
               "type": "string",
@@ -11913,7 +11913,7 @@
             },
             "showIcon": {
               "type": "boolean",
-              "description": "是否显示查看更多的 icon，通常是放大图标。"
+              "description": "Whether visible查看更多的 icon，通常是放大图标。"
             },
             "offset": {
               "type": "object",
@@ -11956,7 +11956,7 @@
         },
         "popOverEnableOn": {
           "type": "string",
-          "description": "表达式，语法 `${xxx > 5}`。"
+          "description": "Expression, syntax `${xxx > 5}`."
         },
         "mode": {
           "type": "string",
@@ -12039,7 +12039,7 @@
         },
         "showIcon": {
           "type": "boolean",
-          "description": "是否显示查看更多的 icon，通常是放大图标。"
+          "description": "Whether visible查看更多的 icon，通常是放大图标。"
         },
         "offset": {
           "type": "object",
@@ -12248,11 +12248,11 @@
       "properties": {
         "icon": {
           "type": "string",
-          "description": "iconfont 里面的类名。"
+          "description": "Class name in iconfont."
         },
         "content": {
           "type": "string",
-          "description": "支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
+          "description": "Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
         },
         "tooltip": {
           "type": "string",
@@ -12481,7 +12481,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "footerClassName": {
               "anyOf": [
@@ -12494,7 +12494,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "itemClassName": {
               "anyOf": [
@@ -12507,30 +12507,30 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "placeholder": {
               "type": "string",
-              "description": "支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
+              "description": "Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
             },
             "showFooter": {
               "type": "boolean",
-              "description": "是否显示底部"
+              "description": "Whether visible底部"
             },
             "showHeader": {
               "type": "boolean",
-              "description": "是否显示头部"
+              "description": "Whether visible头部"
             },
             "source": {
               "type": "string"
             },
             "title": {
               "type": "string",
-              "description": "支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
+              "description": "Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
             },
             "hideCheckToggler": {
               "type": "boolean",
-              "description": "是否隐藏勾选框"
+              "description": "Whether hidden勾选框"
             },
             "affixHeader": {
               "type": "boolean",
@@ -12566,11 +12566,11 @@
             },
             "itemCheckableOn": {
               "type": "string",
-              "description": "表达式，语法 `${xxx > 5}`。"
+              "description": "Expression, syntax `${xxx > 5}`."
             },
             "itemDraggableOn": {
               "type": "string",
-              "description": "表达式，语法 `${xxx > 5}`。"
+              "description": "Expression, syntax `${xxx > 5}`."
             },
             "checkOnItemClick": {
               "type": "boolean",
@@ -12721,7 +12721,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "style": {
               "type": "object",
@@ -12959,7 +12959,7 @@
             },
             "name": {
               "type": "string",
-              "description": "组件名字，这个名字可以用来定位，用于组件通信"
+              "description": "Component name, this name can be used for positioning and component communication"
             },
             "thumbMode": {
               "type": "string",
@@ -13150,7 +13150,7 @@
             },
             "initFetchOn": {
               "type": "string",
-              "description": "表达式，语法 `${xxx > 5}`。"
+              "description": "Expression, syntax `${xxx > 5}`."
             },
             "config": {
               "description": "配置echart的config，支持数据映射。如果用了数据映射，为了同步更新，请设置 trackExpression"
@@ -13179,7 +13179,7 @@
             },
             "name": {
               "type": "string",
-              "description": "组件名字，这个名字可以用来定位，用于组件通信"
+              "description": "Component name, this name can be used for positioning and component communication"
             },
             "style": {
               "type": "object",
@@ -13723,7 +13723,7 @@
             },
             "disabled": {
               "type": "boolean",
-              "description": "是否禁用"
+              "description": "Whether disabled"
             },
             "collapsable": {
               "type": "boolean",
@@ -13755,7 +13755,7 @@
             },
             "collapseHeader": {
               "type": "string",
-              "description": "支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
+              "description": "Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
             },
             "size": {
               "type": "string",
@@ -13940,7 +13940,7 @@
             },
             "enableFieldSetStyle": {
               "type": "boolean",
-              "description": "当Collapse作为Form组件的子元素时，开启该属性后组件样式设置为FieldSet组件的样式，默认开启"
+              "description": "当Collapse作为Form组件的子元素时，开启该属性后Component style设置为FieldSet组件的样式，默认开启"
             }
           },
           "required": [
@@ -14187,7 +14187,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "style": {
               "type": "object",
@@ -14557,7 +14557,7 @@
           "properties": {
             "$$id": {
               "type": "string",
-              "description": "组件唯一 id，主要用于页面设计器中定位 json 节点"
+              "description": "Unique component ID, mainly used to locate JSON nodes in the page designer"
             },
             "className": {
               "type": "object",
@@ -14565,11 +14565,11 @@
             },
             "$ref": {
               "type": "string",
-              "description": "配合 definitions 一起使用，可以实现无限循环的渲染器。"
+              "description": "Used together with definitions, infinite loop renderers can be achieved."
             },
             "disabled": {
               "type": "boolean",
-              "description": "是否禁用"
+              "description": "Whether disabled"
             },
             "disabledOn": {
               "type": "object",
@@ -14577,7 +14577,7 @@
             },
             "hidden": {
               "type": "boolean",
-              "description": "是否隐藏",
+              "description": "Whether hidden",
               "deprecated": "推荐用 visible"
             },
             "hiddenOn": {
@@ -14586,7 +14586,7 @@
             },
             "visible": {
               "type": "boolean",
-              "description": "是否显示"
+              "description": "Whether visible"
             },
             "visibleOn": {
               "type": "object",
@@ -14594,7 +14594,7 @@
             },
             "id": {
               "type": "string",
-              "description": "组件唯一 id，主要用于日志采集"
+              "description": "Unique component ID, mainly used for log collection"
             },
             "onEvent": {
               "type": "object",
@@ -14602,11 +14602,11 @@
                 "type": "object",
                 "additionalProperties": true
               },
-              "description": "事件动作配置"
+              "description": "Event action configuration"
             },
             "static": {
               "type": "boolean",
-              "description": "是否静态展示"
+              "description": "Whether to display statically"
             },
             "staticOn": {
               "type": "object",
@@ -14614,7 +14614,7 @@
             },
             "staticPlaceholder": {
               "type": "string",
-              "description": "静态展示空值占位"
+              "description": "Static display empty value placeholder"
             },
             "staticClassName": {
               "type": "object",
@@ -14631,7 +14631,7 @@
             "staticSchema": {},
             "style": {
               "type": "object",
-              "description": "组件样式"
+              "description": "Component style"
             },
             "editorSetting": {
               "type": "object",
@@ -14649,11 +14649,11 @@
                   "additionalProperties": true
                 }
               },
-              "description": "编辑器配置，运行时可以忽略"
+              "description": "Editor configuration, can be ignored at runtime"
             },
             "useMobileUI": {
               "type": "boolean",
-              "description": "可以组件级别用来关闭移动端样式"
+              "description": "Can be used at the component level to turn off mobile styles"
             }
           },
           "additionalProperties": false
@@ -14918,7 +14918,7 @@
             },
             "hideQuickSaveBtn": {
               "type": "boolean",
-              "description": "是否隐藏快速编辑的按钮。"
+              "description": "Whether hidden快速编辑的按钮。"
             },
             "autoJumpToTopOnPagerChange": {
               "type": "boolean",
@@ -15038,7 +15038,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "内容区域占满屏幕剩余空间"
+              "description": "Content area占满屏幕剩余空间"
             },
             "parsePrimitiveQuery": {
               "anyOf": [
@@ -15784,11 +15784,11 @@
         },
         "draggableOn": {
           "type": "string",
-          "description": "表达式，语法 `${xxx > 5}`。"
+          "description": "Expression, syntax `${xxx > 5}`."
         },
         "name": {
           "type": "string",
-          "description": "组件名字，这个名字可以用来定位，用于组件通信"
+          "description": "Component name, this name can be used for positioning and component communication"
         },
         "filter": {
           "description": "过滤器表单"
@@ -15800,7 +15800,7 @@
         },
         "initFetchOn": {
           "type": "string",
-          "description": "表达式，语法 `${xxx > 5}`。"
+          "description": "Expression, syntax `${xxx > 5}`."
         },
         "innerClassName": {
           "anyOf": [
@@ -15815,7 +15815,7 @@
               }
             }
           ],
-          "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+          "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
         },
         "interval": {
           "type": "number",
@@ -16168,11 +16168,11 @@
             }
           },
           "additionalProperties": false,
-          "description": "消息文案配置，记住这个优先级是最低的，如果你的接口返回了 msg，接口返回的优先。"
+          "description": "Message text configuration. Remember that this has the lowest priority. If your interface returns a msg, the interface return takes precedence."
         },
         "hideQuickSaveBtn": {
           "type": "boolean",
-          "description": "是否隐藏快速编辑的按钮。"
+          "description": "Whether hidden快速编辑的按钮。"
         },
         "autoJumpToTopOnPagerChange": {
           "type": "boolean",
@@ -16184,7 +16184,7 @@
         },
         "stopAutoRefreshWhen": {
           "type": "string",
-          "description": "表达式，语法 `${xxx > 5}`。"
+          "description": "Expression, syntax `${xxx > 5}`."
         },
         "stopAutoRefreshWhenModalIsOpen": {
           "type": "boolean"
@@ -16231,7 +16231,7 @@
         },
         "labelTpl": {
           "type": "string",
-          "description": "支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
+          "description": "Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
         },
         "loadDataOnce": {
           "type": "boolean",
@@ -16267,7 +16267,7 @@
             },
             "expandAll": {
               "type": "boolean",
-              "description": "是否显示全部切换按钮"
+              "description": "Whether visible全部切换按钮"
             },
             "accordion": {
               "type": "boolean",
@@ -16337,7 +16337,7 @@
               "additionalProperties": false
             }
           ],
-          "description": "内容区域占满屏幕剩余空间"
+          "description": "Content area占满屏幕剩余空间"
         },
         "parsePrimitiveQuery": {
           "anyOf": [
@@ -16480,7 +16480,7 @@
         }
       },
       "additionalProperties": false,
-      "description": "消息文案配置，记住这个优先级是最低的，如果你的接口返回了 msg，接口返回的优先。"
+      "description": "Message text configuration. Remember that this has the lowest priority. If your interface returns a msg, the interface return takes precedence."
     },
     "AutoGenerateFilterObject": {
       "type": "object",
@@ -16491,7 +16491,7 @@
         },
         "showBtnToolbar": {
           "type": "boolean",
-          "description": "是否显示设置查询字段"
+          "description": "Whether visible设置查询字段"
         },
         "defaultCollapsed": {
           "type": "boolean",
@@ -16504,7 +16504,7 @@
         },
         "enableBulkActionsOn": {
           "type": "string",
-          "description": "表达式，语法 `${xxx > 5}`。"
+          "description": "Expression, syntax `${xxx > 5}`."
         }
       },
       "additionalProperties": false
@@ -16679,7 +16679,7 @@
             },
             "hideQuickSaveBtn": {
               "type": "boolean",
-              "description": "是否隐藏快速编辑的按钮。"
+              "description": "Whether hidden快速编辑的按钮。"
             },
             "autoJumpToTopOnPagerChange": {
               "type": "boolean",
@@ -16799,7 +16799,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "内容区域占满屏幕剩余空间"
+              "description": "Content area占满屏幕剩余空间"
             },
             "parsePrimitiveQuery": {
               "anyOf": [
@@ -17131,7 +17131,7 @@
           "properties": {
             "title": {
               "type": "string",
-              "description": "支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
+              "description": "Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
             },
             "footer": {
               "anyOf": [
@@ -17156,7 +17156,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "header": {
               "anyOf": [
@@ -17181,7 +17181,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "listItem": {
               "allOf": [
@@ -17319,19 +17319,19 @@
             },
             "showFooter": {
               "type": "boolean",
-              "description": "是否显示底部"
+              "description": "Whether visible底部"
             },
             "showHeader": {
               "type": "boolean",
-              "description": "是否显示头部"
+              "description": "Whether visible头部"
             },
             "placeholder": {
               "type": "string",
-              "description": "支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
+              "description": "Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
             },
             "hideCheckToggler": {
               "type": "boolean",
-              "description": "是否隐藏勾选框"
+              "description": "Whether hidden勾选框"
             },
             "affixHeader": {
               "type": "boolean",
@@ -17343,11 +17343,11 @@
             },
             "itemCheckableOn": {
               "type": "string",
-              "description": "表达式，语法 `${xxx > 5}`。"
+              "description": "Expression, syntax `${xxx > 5}`."
             },
             "itemDraggableOn": {
               "type": "string",
-              "description": "表达式，语法 `${xxx > 5}`。"
+              "description": "Expression, syntax `${xxx > 5}`."
             },
             "checkOnItemClick": {
               "type": "boolean",
@@ -17551,7 +17551,7 @@
             },
             "showIndexBar": {
               "type": "boolean",
-              "description": "是否显示右侧字母索引条"
+              "description": "Whether visible右侧字母索引条"
             },
             "indexField": {
               "type": "string",
@@ -17705,11 +17705,11 @@
                   }
                 ]
               },
-              "description": "内容区域"
+              "description": "Content area"
             },
             "desc": {
               "type": "string",
-              "description": "支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
+              "description": "Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
             },
             "remark": {
               "anyOf": [
@@ -17725,11 +17725,11 @@
             },
             "title": {
               "type": "string",
-              "description": "支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
+              "description": "Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
             },
             "subTitle": {
               "type": "string",
-              "description": "支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
+              "description": "Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
             }
           }
         },
@@ -17738,7 +17738,7 @@
           "properties": {
             "$$id": {
               "type": "string",
-              "description": "组件唯一 id，主要用于页面设计器中定位 json 节点"
+              "description": "Unique component ID, mainly used to locate JSON nodes in the page designer"
             },
             "className": {
               "type": "object",
@@ -17746,11 +17746,11 @@
             },
             "$ref": {
               "type": "string",
-              "description": "配合 definitions 一起使用，可以实现无限循环的渲染器。"
+              "description": "Used together with definitions, infinite loop renderers can be achieved."
             },
             "disabled": {
               "type": "boolean",
-              "description": "是否禁用"
+              "description": "Whether disabled"
             },
             "disabledOn": {
               "type": "object",
@@ -17758,7 +17758,7 @@
             },
             "hidden": {
               "type": "boolean",
-              "description": "是否隐藏",
+              "description": "Whether hidden",
               "deprecated": "推荐用 visible"
             },
             "hiddenOn": {
@@ -17767,7 +17767,7 @@
             },
             "visible": {
               "type": "boolean",
-              "description": "是否显示"
+              "description": "Whether visible"
             },
             "visibleOn": {
               "type": "object",
@@ -17775,7 +17775,7 @@
             },
             "id": {
               "type": "string",
-              "description": "组件唯一 id，主要用于日志采集"
+              "description": "Unique component ID, mainly used for log collection"
             },
             "onEvent": {
               "type": "object",
@@ -17783,11 +17783,11 @@
                 "type": "object",
                 "additionalProperties": true
               },
-              "description": "事件动作配置"
+              "description": "Event action configuration"
             },
             "static": {
               "type": "boolean",
-              "description": "是否静态展示"
+              "description": "Whether to display statically"
             },
             "staticOn": {
               "type": "object",
@@ -17795,7 +17795,7 @@
             },
             "staticPlaceholder": {
               "type": "string",
-              "description": "静态展示空值占位"
+              "description": "Static display empty value placeholder"
             },
             "staticClassName": {
               "type": "object",
@@ -17812,7 +17812,7 @@
             "staticSchema": {},
             "style": {
               "type": "object",
-              "description": "组件样式"
+              "description": "Component style"
             },
             "editorSetting": {
               "type": "object",
@@ -17830,11 +17830,11 @@
                   "additionalProperties": true
                 }
               },
-              "description": "编辑器配置，运行时可以忽略"
+              "description": "Editor configuration, can be ignored at runtime"
             },
             "useMobileUI": {
               "type": "boolean",
-              "description": "可以组件级别用来关闭移动端样式"
+              "description": "Can be used at the component level to turn off mobile styles"
             }
           },
           "additionalProperties": false
@@ -17970,7 +17970,7 @@
               }
             }
           ],
-          "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+          "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
         },
         "innerClassName": {
           "anyOf": [
@@ -17985,7 +17985,7 @@
               }
             }
           ],
-          "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+          "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
         },
         "name": {
           "type": "string",
@@ -18215,7 +18215,7 @@
             },
             "hideQuickSaveBtn": {
               "type": "boolean",
-              "description": "是否隐藏快速编辑的按钮。"
+              "description": "Whether hidden快速编辑的按钮。"
             },
             "autoJumpToTopOnPagerChange": {
               "type": "boolean",
@@ -18335,7 +18335,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "内容区域占满屏幕剩余空间"
+              "description": "Content area占满屏幕剩余空间"
             },
             "parsePrimitiveQuery": {
               "anyOf": [
@@ -18578,7 +18578,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "headerClassName": {
               "anyOf": [
@@ -18591,7 +18591,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "placeholder": {
               "anyOf": [
@@ -18610,15 +18610,15 @@
             },
             "showIndex": {
               "type": "boolean",
-              "description": "是否显示序号"
+              "description": "Whether visible序号"
             },
             "showFooter": {
               "type": "boolean",
-              "description": "是否显示底部"
+              "description": "Whether visible底部"
             },
             "showHeader": {
               "type": "boolean",
-              "description": "是否显示头部"
+              "description": "Whether visible头部"
             },
             "source": {
               "type": "string"
@@ -18634,7 +18634,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "title": {
               "type": "string",
@@ -18651,7 +18651,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "combineNum": {
               "anyOf": [
@@ -20568,7 +20568,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "buttons": {
               "type": "array",
@@ -20638,7 +20638,7 @@
             },
             "rightIcon": {
               "type": "string",
-              "description": "iconfont 里面的类名。"
+              "description": "Class name in iconfont."
             },
             "trigger": {
               "type": "string",
@@ -20650,7 +20650,7 @@
             },
             "hideCaret": {
               "type": "boolean",
-              "description": "是否显示下拉按钮"
+              "description": "Whether visible下拉按钮"
             },
             "popOverContainerSelector": {
               "type": "string",
@@ -21459,7 +21459,7 @@
               "additionalProperties": true
             }
           ],
-          "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+          "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
         },
         "style": {
           "description": "样式"
@@ -21616,7 +21616,7 @@
               }
             }
           ],
-          "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+          "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
         },
         "style": {
           "description": "样式"
@@ -22240,11 +22240,11 @@
         },
         "visible": {
           "type": "boolean",
-          "description": "是否显示"
+          "description": "Whether visible"
         },
         "visibleOn": {
           "type": "string",
-          "description": "表达式，语法 `${xxx > 5}`。"
+          "description": "Expression, syntax `${xxx > 5}`."
         }
       },
       "additionalProperties": false
@@ -22355,11 +22355,11 @@
         },
         "visible": {
           "type": "boolean",
-          "description": "是否显示"
+          "description": "Whether visible"
         },
         "visibleOn": {
           "type": "string",
-          "description": "表达式，语法 `${xxx > 5}`。"
+          "description": "Expression, syntax `${xxx > 5}`."
         }
       },
       "additionalProperties": false
@@ -22729,7 +22729,7 @@
             },
             "title": {
               "type": "string",
-              "description": "支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
+              "description": "Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
             },
             "name": {
               "type": "string",
@@ -22737,7 +22737,7 @@
             },
             "imageCaption": {
               "type": "string",
-              "description": "支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
+              "description": "Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
             },
             "src": {
               "type": "object",
@@ -22753,7 +22753,7 @@
             },
             "enlargeWithGallary": {
               "type": "boolean",
-              "description": "放大时是否显示图片集"
+              "description": "放大时Whether visible图片集"
             },
             "alt": {
               "type": "string",
@@ -22778,7 +22778,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "innerClassName": {
               "anyOf": [
@@ -22791,7 +22791,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "imageClassName": {
               "anyOf": [
@@ -22804,7 +22804,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "thumbClassName": {
               "anyOf": [
@@ -22817,7 +22817,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "imageGallaryClassName": {
               "anyOf": [
@@ -22830,11 +22830,11 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "caption": {
               "type": "string",
-              "description": "支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
+              "description": "Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
             },
             "imageMode": {
               "type": "string",
@@ -22865,7 +22865,7 @@
             },
             "href": {
               "type": "string",
-              "description": "支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
+              "description": "Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
             },
             "blank": {
               "type": "boolean",
@@ -23157,11 +23157,11 @@
             },
             "enlargetWithImages": {
               "type": "boolean",
-              "description": "放大时是否显示图片集"
+              "description": "放大时Whether visible图片集"
             },
             "showDimensions": {
               "type": "boolean",
-              "description": "是否显示尺寸。"
+              "description": "Whether visible尺寸。"
             },
             "className": {
               "anyOf": [
@@ -23174,7 +23174,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "listClassName": {
               "anyOf": [
@@ -23187,7 +23187,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "imageGallaryClassName": {
               "anyOf": [
@@ -23200,7 +23200,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "showToolbar": {
               "type": "boolean",
@@ -23462,7 +23462,7 @@
             },
             "displayDataTypes": {
               "type": "boolean",
-              "description": "是否显示数据类型"
+              "description": "Whether visible数据类型"
             },
             "enableClipboard": {
               "type": "boolean",
@@ -23479,7 +23479,7 @@
             },
             "quotesOnKeys": {
               "type": "boolean",
-              "description": "是否显示键的引号"
+              "description": "Whether visible键的引号"
             },
             "sortKeys": {
               "type": "boolean",
@@ -23623,7 +23623,7 @@
             },
             "body": {
               "type": "string",
-              "description": "支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
+              "description": "Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
             },
             "badge": {
               "type": "object",
@@ -24710,7 +24710,7 @@
             },
             "disabled": {
               "type": "boolean",
-              "description": "是否禁用"
+              "description": "Whether disabled"
             },
             "disabledTip": {
               "type": "string"
@@ -24729,7 +24729,7 @@
           "properties": {
             "$$id": {
               "type": "string",
-              "description": "组件唯一 id，主要用于页面设计器中定位 json 节点"
+              "description": "Unique component ID, mainly used to locate JSON nodes in the page designer"
             },
             "className": {
               "type": "object",
@@ -24737,11 +24737,11 @@
             },
             "$ref": {
               "type": "string",
-              "description": "配合 definitions 一起使用，可以实现无限循环的渲染器。"
+              "description": "Used together with definitions, infinite loop renderers can be achieved."
             },
             "disabled": {
               "type": "boolean",
-              "description": "是否禁用"
+              "description": "Whether disabled"
             },
             "disabledOn": {
               "type": "object",
@@ -24749,7 +24749,7 @@
             },
             "hidden": {
               "type": "boolean",
-              "description": "是否隐藏",
+              "description": "Whether hidden",
               "deprecated": "推荐用 visible"
             },
             "hiddenOn": {
@@ -24758,7 +24758,7 @@
             },
             "visible": {
               "type": "boolean",
-              "description": "是否显示"
+              "description": "Whether visible"
             },
             "visibleOn": {
               "type": "object",
@@ -24766,7 +24766,7 @@
             },
             "id": {
               "type": "string",
-              "description": "组件唯一 id，主要用于日志采集"
+              "description": "Unique component ID, mainly used for log collection"
             },
             "onEvent": {
               "type": "object",
@@ -24774,11 +24774,11 @@
                 "type": "object",
                 "additionalProperties": true
               },
-              "description": "事件动作配置"
+              "description": "Event action configuration"
             },
             "static": {
               "type": "boolean",
-              "description": "是否静态展示"
+              "description": "Whether to display statically"
             },
             "staticOn": {
               "type": "object",
@@ -24786,7 +24786,7 @@
             },
             "staticPlaceholder": {
               "type": "string",
-              "description": "静态展示空值占位"
+              "description": "Static display empty value placeholder"
             },
             "staticClassName": {
               "type": "object",
@@ -24803,7 +24803,7 @@
             "staticSchema": {},
             "style": {
               "type": "object",
-              "description": "组件样式"
+              "description": "Component style"
             },
             "editorSetting": {
               "type": "object",
@@ -24821,11 +24821,11 @@
                   "additionalProperties": true
                 }
               },
-              "description": "编辑器配置，运行时可以忽略"
+              "description": "Editor configuration, can be ignored at runtime"
             },
             "useMobileUI": {
               "type": "boolean",
-              "description": "可以组件级别用来关闭移动端样式"
+              "description": "Can be used at the component level to turn off mobile styles"
             }
           },
           "additionalProperties": false
@@ -24873,7 +24873,7 @@
       "properties": {
         "icon": {
           "type": "string",
-          "description": "iconfont 里面的类名。"
+          "description": "Class name in iconfont."
         },
         "position": {
           "type": "string"
@@ -24913,7 +24913,7 @@
         },
         "overflowIndicator": {
           "type": "string",
-          "description": "iconfont 里面的类名。"
+          "description": "Class name in iconfont."
         },
         "overflowClassName": {
           "anyOf": [
@@ -24928,7 +24928,7 @@
               }
             }
           ],
-          "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+          "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
         },
         "overflowPopoverClassName": {
           "anyOf": [
@@ -24943,7 +24943,7 @@
               }
             }
           ],
-          "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+          "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
         },
         "overflowListClassName": {
           "anyOf": [
@@ -24958,7 +24958,7 @@
               }
             }
           ],
-          "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+          "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
         },
         "maxVisibleCount": {
           "type": "number",
@@ -25192,12 +25192,12 @@
             },
             "showPageInput": {
               "type": "boolean",
-              "description": "是否显示快速跳转输入框",
+              "description": "Whether visible快速跳转输入框",
               "default": false
             },
             "disabled": {
               "type": "boolean",
-              "description": "是否禁用",
+              "description": "Whether disabled",
               "default": false
             },
             "hasNext": {
@@ -25332,7 +25332,7 @@
             },
             "showPageInput": {
               "type": "boolean",
-              "description": "是否显示快速跳转输入框"
+              "description": "Whether visible快速跳转输入框"
             },
             "maxButtons": {
               "type": "number",
@@ -25361,7 +25361,7 @@
                 "bottom",
                 "none"
               ],
-              "description": "分页显示位置，如果配置为 none 则需要自己在内容区域配置 pagination 组件，否则不显示。"
+              "description": "分页Display position，如果配置为 none 则需要自己在Content area配置 pagination 组件，否则不显示。"
             },
             "body": {
               "anyOf": [
@@ -25504,7 +25504,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "body": {
               "anyOf": [
@@ -25529,7 +25529,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "footer": {
               "anyOf": [
@@ -25554,7 +25554,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "footerWrapClassName": {
               "anyOf": [
@@ -25567,7 +25567,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "header": {
               "anyOf": [
@@ -25592,11 +25592,11 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "title": {
               "type": "string",
-              "description": "支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
+              "description": "Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
             },
             "affixFooter": {
               "anyOf": [
@@ -25792,11 +25792,11 @@
             },
             "tpl": {
               "type": "string",
-              "description": "支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
+              "description": "Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
             },
             "text": {
               "type": "string",
-              "description": "支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
+              "description": "Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
             },
             "inline": {
               "type": "boolean",
@@ -25944,7 +25944,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "map": {
               "anyOf": [
@@ -25960,7 +25960,7 @@
             },
             "showLabel": {
               "type": "boolean",
-              "description": "是否显示值"
+              "description": "Whether visible值"
             },
             "placeholder": {
               "type": "string",
@@ -25968,11 +25968,11 @@
             },
             "stripe": {
               "type": "boolean",
-              "description": "是否显示背景间隔"
+              "description": "Whether visible背景间隔"
             },
             "animate": {
               "type": "boolean",
-              "description": "是否显示动画（只有在开启的时候才能看出来）"
+              "description": "Whether visible动画（只有在开启的时候才能看出来）"
             },
             "strokeWidth": {
               "type": "number",
@@ -26027,7 +26027,7 @@
             },
             "showThresholdText": {
               "type": "boolean",
-              "description": "是否显示阈值数值"
+              "description": "Whether visible阈值数值"
             }
           },
           "required": [
@@ -26197,7 +26197,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "codeSize": {
               "type": "number",
@@ -26485,7 +26485,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "name": {
               "type": "string",
@@ -26673,15 +26673,15 @@
             },
             "fetchOn": {
               "type": "string",
-              "description": "表达式，语法 `${xxx > 5}`。"
+              "description": "Expression, syntax `${xxx > 5}`."
             },
             "initFetch": {
               "type": "boolean",
-              "description": "是否默认就拉取？"
+              "description": "Whether to fetch by default?"
             },
             "initFetchOn": {
               "type": "string",
-              "description": "表达式，语法 `${xxx > 5}`。"
+              "description": "Expression, syntax `${xxx > 5}`."
             },
             "schemaApi": {
               "anyOf": [
@@ -26701,7 +26701,7 @@
             },
             "initFetchSchemaOn": {
               "type": "string",
-              "description": "表达式，语法 `${xxx > 5}`。"
+              "description": "Expression, syntax `${xxx > 5}`."
             },
             "interval": {
               "type": "number",
@@ -26713,7 +26713,7 @@
             },
             "stopAutoRefreshWhen": {
               "type": "string",
-              "description": "表达式，语法 `${xxx > 5}`。"
+              "description": "Expression, syntax `${xxx > 5}`."
             },
             "messages": {
               "type": "object",
@@ -26736,11 +26736,11 @@
                 }
               },
               "additionalProperties": false,
-              "description": "消息文案配置，记住这个优先级是最低的，如果你的接口返回了 msg，接口返回的优先。"
+              "description": "Message text configuration. Remember that this has the lowest priority. If your interface returns a msg, the interface return takes precedence."
             },
             "name": {
               "type": "string",
-              "description": "组件名字，这个名字可以用来定位，用于组件通信"
+              "description": "Component name, this name can be used for positioning and component communication"
             },
             "showErrorMsg": {
               "type": "boolean",
@@ -26926,7 +26926,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "name": {
               "type": "string",
@@ -27470,7 +27470,7 @@
             },
             "overlay": {
               "type": "boolean",
-              "description": "是否显示遮罩层"
+              "description": "Whether visible遮罩层"
             },
             "body": {
               "anyOf": [
@@ -28356,7 +28356,7 @@
                 }
               },
               "additionalProperties": false,
-              "description": "消息文案配置，记住这个优先级是最低的，如果你的接口返回了 msg，接口返回的优先。"
+              "description": "Message text configuration. Remember that this has the lowest priority. If your interface returns a msg, the interface return takes precedence."
             },
             "reload": {
               "type": "string",
@@ -28724,7 +28724,7 @@
         },
         "disableOn": {
           "type": "string",
-          "description": "行是否禁用表达式"
+          "description": "行Whether disabled表达式"
         },
         "selections": {
           "type": "array",
@@ -28901,7 +28901,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "linksClassName": {
               "anyOf": [
@@ -28914,7 +28914,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "mountOnEnter": {
               "type": "boolean",
@@ -29165,7 +29165,7 @@
             },
             "showTip": {
               "type": "boolean",
-              "description": "是否显示提示"
+              "description": "Whether visible提示"
             },
             "showTipClassName": {
               "type": "string",
@@ -29397,7 +29397,7 @@
             },
             "icon": {
               "type": "string",
-              "description": "iconfont 里面的类名。"
+              "description": "Class name in iconfont."
             },
             "iconPosition": {
               "type": "string",
@@ -29467,7 +29467,7 @@
             },
             "disabled": {
               "type": "boolean",
-              "description": "是否禁用"
+              "description": "Whether disabled"
             }
           }
         },
@@ -29476,7 +29476,7 @@
           "properties": {
             "$$id": {
               "type": "string",
-              "description": "组件唯一 id，主要用于页面设计器中定位 json 节点"
+              "description": "Unique component ID, mainly used to locate JSON nodes in the page designer"
             },
             "className": {
               "type": "object",
@@ -29484,11 +29484,11 @@
             },
             "$ref": {
               "type": "string",
-              "description": "配合 definitions 一起使用，可以实现无限循环的渲染器。"
+              "description": "Used together with definitions, infinite loop renderers can be achieved."
             },
             "disabled": {
               "type": "boolean",
-              "description": "是否禁用"
+              "description": "Whether disabled"
             },
             "disabledOn": {
               "type": "object",
@@ -29496,7 +29496,7 @@
             },
             "hidden": {
               "type": "boolean",
-              "description": "是否隐藏",
+              "description": "Whether hidden",
               "deprecated": "推荐用 visible"
             },
             "hiddenOn": {
@@ -29505,7 +29505,7 @@
             },
             "visible": {
               "type": "boolean",
-              "description": "是否显示"
+              "description": "Whether visible"
             },
             "visibleOn": {
               "type": "object",
@@ -29513,7 +29513,7 @@
             },
             "id": {
               "type": "string",
-              "description": "组件唯一 id，主要用于日志采集"
+              "description": "Unique component ID, mainly used for log collection"
             },
             "onEvent": {
               "type": "object",
@@ -29521,11 +29521,11 @@
                 "type": "object",
                 "additionalProperties": true
               },
-              "description": "事件动作配置"
+              "description": "Event action configuration"
             },
             "static": {
               "type": "boolean",
-              "description": "是否静态展示"
+              "description": "Whether to display statically"
             },
             "staticOn": {
               "type": "object",
@@ -29533,7 +29533,7 @@
             },
             "staticPlaceholder": {
               "type": "string",
-              "description": "静态展示空值占位"
+              "description": "Static display empty value placeholder"
             },
             "staticClassName": {
               "type": "object",
@@ -29550,7 +29550,7 @@
             "staticSchema": {},
             "style": {
               "type": "object",
-              "description": "组件样式"
+              "description": "Component style"
             },
             "editorSetting": {
               "type": "object",
@@ -29568,11 +29568,11 @@
                   "additionalProperties": true
                 }
               },
-              "description": "编辑器配置，运行时可以忽略"
+              "description": "Editor configuration, can be ignored at runtime"
             },
             "useMobileUI": {
               "type": "boolean",
-              "description": "可以组件级别用来关闭移动端样式"
+              "description": "Can be used at the component level to turn off mobile styles"
             }
           },
           "additionalProperties": false
@@ -29652,7 +29652,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "btnText": {
               "type": "string",
@@ -29703,7 +29703,7 @@
             },
             "name": {
               "type": "string",
-              "description": "组件名字，这个名字可以用来定位，用于组件通信"
+              "description": "Component name, this name can be used for positioning and component communication"
             },
             "operationLabel": {
               "type": "string",
@@ -29737,7 +29737,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "retryBtnText": {
               "type": "string",
@@ -29795,7 +29795,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "taskNameLabel": {
               "type": "string",
@@ -30138,11 +30138,11 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "style": {
               "type": "object",
-              "description": "组件样式"
+              "description": "Component style"
             },
             "isLive": {
               "type": "boolean",
@@ -30172,7 +30172,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "poster": {
               "type": "object",
@@ -30345,7 +30345,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "actionFinishLabel": {
               "type": "string",
@@ -30402,7 +30402,7 @@
             },
             "name": {
               "type": "string",
-              "description": "组件名字，这个名字可以用来定位，用于组件通信"
+              "description": "Component name, this name can be used for positioning and component communication"
             },
             "readOnly": {
               "type": "boolean",
@@ -30627,7 +30627,7 @@
             },
             "jumpableOn": {
               "type": "string",
-              "description": "表达式，语法 `${xxx > 5}`。"
+              "description": "Expression, syntax `${xxx > 5}`."
             },
             "title": {
               "type": "string",
@@ -31072,7 +31072,7 @@
                 }
               },
               "additionalProperties": false,
-              "description": "消息文案配置，记住这个优先级是最低的，如果你的接口返回了 msg，接口返回的优先。"
+              "description": "Message text configuration. Remember that this has the lowest priority. If your interface returns a msg, the interface return takes precedence."
             },
             "name": {
               "type": "string"
@@ -31286,7 +31286,7 @@
             },
             "quotesOnKeys": {
               "type": "boolean",
-              "description": "是否显示键的引号"
+              "description": "Whether visible键的引号"
             },
             "sortKeys": {
               "type": "boolean",
@@ -31824,7 +31824,7 @@
             }
           },
           "additionalProperties": false,
-          "description": "消息文案配置，记住这个优先级是最低的，如果你的接口返回了 msg，接口返回的优先。"
+          "description": "Message text configuration. Remember that this has the lowest priority. If your interface returns a msg, the interface return takes precedence."
         },
         "name": {
           "type": "string"
@@ -31944,7 +31944,7 @@
         },
         "staticOn": {
           "type": "string",
-          "description": "表达式，语法 `${xxx > 5}`。"
+          "description": "Expression, syntax `${xxx > 5}`."
         },
         "staticClassName": {
           "anyOf": [
@@ -31959,7 +31959,7 @@
               }
             }
           ],
-          "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+          "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
         }
       },
       "additionalProperties": false
@@ -32022,7 +32022,7 @@
           "properties": {
             "$$id": {
               "type": "string",
-              "description": "组件唯一 id，主要用于页面设计器中定位 json 节点"
+              "description": "Unique component ID, mainly used to locate JSON nodes in the page designer"
             },
             "className": {
               "type": "object",
@@ -32030,11 +32030,11 @@
             },
             "$ref": {
               "type": "string",
-              "description": "配合 definitions 一起使用，可以实现无限循环的渲染器。"
+              "description": "Used together with definitions, infinite loop renderers can be achieved."
             },
             "disabled": {
               "type": "boolean",
-              "description": "是否禁用"
+              "description": "Whether disabled"
             },
             "disabledOn": {
               "type": "object",
@@ -32042,7 +32042,7 @@
             },
             "hidden": {
               "type": "boolean",
-              "description": "是否隐藏",
+              "description": "Whether hidden",
               "deprecated": "推荐用 visible"
             },
             "hiddenOn": {
@@ -32051,7 +32051,7 @@
             },
             "visible": {
               "type": "boolean",
-              "description": "是否显示"
+              "description": "Whether visible"
             },
             "visibleOn": {
               "type": "object",
@@ -32059,7 +32059,7 @@
             },
             "id": {
               "type": "string",
-              "description": "组件唯一 id，主要用于日志采集"
+              "description": "Unique component ID, mainly used for log collection"
             },
             "onEvent": {
               "type": "object",
@@ -32067,11 +32067,11 @@
                 "type": "object",
                 "additionalProperties": true
               },
-              "description": "事件动作配置"
+              "description": "Event action configuration"
             },
             "static": {
               "type": "boolean",
-              "description": "是否静态展示"
+              "description": "Whether to display statically"
             },
             "staticOn": {
               "type": "object",
@@ -32079,7 +32079,7 @@
             },
             "staticPlaceholder": {
               "type": "string",
-              "description": "静态展示空值占位"
+              "description": "Static display empty value placeholder"
             },
             "staticClassName": {
               "type": "object",
@@ -32096,7 +32096,7 @@
             "staticSchema": {},
             "style": {
               "type": "object",
-              "description": "组件样式"
+              "description": "Component style"
             },
             "editorSetting": {
               "type": "object",
@@ -32114,11 +32114,11 @@
                   "additionalProperties": true
                 }
               },
-              "description": "编辑器配置，运行时可以忽略"
+              "description": "Editor configuration, can be ignored at runtime"
             },
             "useMobileUI": {
               "type": "boolean",
-              "description": "可以组件级别用来关闭移动端样式"
+              "description": "Can be used at the component level to turn off mobile styles"
             }
           },
           "additionalProperties": false
@@ -32303,7 +32303,7 @@
             },
             "title": {
               "type": "string",
-              "description": "文字提示标题"
+              "description": "文字Tooltip title"
             },
             "content": {
               "type": "string",
@@ -32338,7 +32338,7 @@
             },
             "disabled": {
               "type": "boolean",
-              "description": "是否禁用提示"
+              "description": "Whether disabled提示"
             },
             "trigger": {
               "anyOf": [
@@ -32366,7 +32366,7 @@
             },
             "rootClose": {
               "type": "boolean",
-              "description": "是否点击非内容区域关闭提示，默认为true"
+              "description": "是否点击非Content area关闭提示，默认为true"
             },
             "body": {
               "anyOf": [
@@ -32777,7 +32777,7 @@
                 }
               },
               "additionalProperties": false,
-              "description": "消息文案配置，记住这个优先级是最低的，如果你的接口返回了 msg，接口返回的优先。"
+              "description": "Message text configuration. Remember that this has the lowest priority. If your interface returns a msg, the interface return takes precedence."
             },
             "name": {
               "type": "string"
@@ -32985,7 +32985,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "linkClassName": {
               "anyOf": [
@@ -32998,7 +32998,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "sectionClassName": {
               "anyOf": [
@@ -33011,7 +33011,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "direction": {
               "type": "string",
@@ -33163,7 +33163,7 @@
           "properties": {
             "$$id": {
               "type": "string",
-              "description": "组件唯一 id，主要用于页面设计器中定位 json 节点"
+              "description": "Unique component ID, mainly used to locate JSON nodes in the page designer"
             },
             "className": {
               "type": "object",
@@ -33171,11 +33171,11 @@
             },
             "$ref": {
               "type": "string",
-              "description": "配合 definitions 一起使用，可以实现无限循环的渲染器。"
+              "description": "Used together with definitions, infinite loop renderers can be achieved."
             },
             "disabled": {
               "type": "boolean",
-              "description": "是否禁用"
+              "description": "Whether disabled"
             },
             "disabledOn": {
               "type": "object",
@@ -33183,7 +33183,7 @@
             },
             "hidden": {
               "type": "boolean",
-              "description": "是否隐藏",
+              "description": "Whether hidden",
               "deprecated": "推荐用 visible"
             },
             "hiddenOn": {
@@ -33192,7 +33192,7 @@
             },
             "visible": {
               "type": "boolean",
-              "description": "是否显示"
+              "description": "Whether visible"
             },
             "visibleOn": {
               "type": "object",
@@ -33200,7 +33200,7 @@
             },
             "id": {
               "type": "string",
-              "description": "组件唯一 id，主要用于日志采集"
+              "description": "Unique component ID, mainly used for log collection"
             },
             "onEvent": {
               "type": "object",
@@ -33208,11 +33208,11 @@
                 "type": "object",
                 "additionalProperties": true
               },
-              "description": "事件动作配置"
+              "description": "Event action configuration"
             },
             "static": {
               "type": "boolean",
-              "description": "是否静态展示"
+              "description": "Whether to display statically"
             },
             "staticOn": {
               "type": "object",
@@ -33220,7 +33220,7 @@
             },
             "staticPlaceholder": {
               "type": "string",
-              "description": "静态展示空值占位"
+              "description": "Static display empty value placeholder"
             },
             "staticClassName": {
               "type": "object",
@@ -33237,7 +33237,7 @@
             "staticSchema": {},
             "style": {
               "type": "object",
-              "description": "组件样式"
+              "description": "Component style"
             },
             "editorSetting": {
               "type": "object",
@@ -33255,11 +33255,11 @@
                   "additionalProperties": true
                 }
               },
-              "description": "编辑器配置，运行时可以忽略"
+              "description": "Editor configuration, can be ignored at runtime"
             },
             "useMobileUI": {
               "type": "boolean",
-              "description": "可以组件级别用来关闭移动端样式"
+              "description": "Can be used at the component level to turn off mobile styles"
             }
           },
           "additionalProperties": false
@@ -33515,7 +33515,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "tabsMode": {
               "type": "string",
@@ -33540,7 +33540,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "linksClassName": {
               "anyOf": [
@@ -33553,7 +33553,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "mountOnEnter": {
               "type": "boolean",
@@ -33581,7 +33581,7 @@
             },
             "description": {
               "type": "string",
-              "description": "支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
+              "description": "Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
             },
             "hideHeader": {
               "type": "boolean",
@@ -33602,7 +33602,7 @@
           "properties": {
             "$$id": {
               "type": "string",
-              "description": "组件唯一 id，主要用于页面设计器中定位 json 节点"
+              "description": "Unique component ID, mainly used to locate JSON nodes in the page designer"
             },
             "className": {
               "type": "object",
@@ -33610,11 +33610,11 @@
             },
             "$ref": {
               "type": "string",
-              "description": "配合 definitions 一起使用，可以实现无限循环的渲染器。"
+              "description": "Used together with definitions, infinite loop renderers can be achieved."
             },
             "disabled": {
               "type": "boolean",
-              "description": "是否禁用"
+              "description": "Whether disabled"
             },
             "disabledOn": {
               "type": "object",
@@ -33622,7 +33622,7 @@
             },
             "hidden": {
               "type": "boolean",
-              "description": "是否隐藏",
+              "description": "Whether hidden",
               "deprecated": "推荐用 visible"
             },
             "hiddenOn": {
@@ -33631,7 +33631,7 @@
             },
             "visible": {
               "type": "boolean",
-              "description": "是否显示"
+              "description": "Whether visible"
             },
             "visibleOn": {
               "type": "object",
@@ -33639,7 +33639,7 @@
             },
             "id": {
               "type": "string",
-              "description": "组件唯一 id，主要用于日志采集"
+              "description": "Unique component ID, mainly used for log collection"
             },
             "onEvent": {
               "type": "object",
@@ -33647,11 +33647,11 @@
                 "type": "object",
                 "additionalProperties": true
               },
-              "description": "事件动作配置"
+              "description": "Event action configuration"
             },
             "static": {
               "type": "boolean",
-              "description": "是否静态展示"
+              "description": "Whether to display statically"
             },
             "staticOn": {
               "type": "object",
@@ -33659,7 +33659,7 @@
             },
             "staticPlaceholder": {
               "type": "string",
-              "description": "静态展示空值占位"
+              "description": "Static display empty value placeholder"
             },
             "staticClassName": {
               "type": "object",
@@ -33676,7 +33676,7 @@
             "staticSchema": {},
             "style": {
               "type": "object",
-              "description": "组件样式"
+              "description": "Component style"
             },
             "editorSetting": {
               "type": "object",
@@ -33694,11 +33694,11 @@
                   "additionalProperties": true
                 }
               },
-              "description": "编辑器配置，运行时可以忽略"
+              "description": "Editor configuration, can be ignored at runtime"
             },
             "useMobileUI": {
               "type": "boolean",
-              "description": "可以组件级别用来关闭移动端样式"
+              "description": "Can be used at the component level to turn off mobile styles"
             }
           },
           "additionalProperties": false
@@ -33793,7 +33793,7 @@
             },
             "icon": {
               "type": "string",
-              "description": "iconfont 里面的类名。"
+              "description": "Class name in iconfont."
             },
             "iconPosition": {
               "type": "string",
@@ -33821,7 +33821,7 @@
           "properties": {
             "$$id": {
               "type": "string",
-              "description": "组件唯一 id，主要用于页面设计器中定位 json 节点"
+              "description": "Unique component ID, mainly used to locate JSON nodes in the page designer"
             },
             "className": {
               "type": "object",
@@ -33829,11 +33829,11 @@
             },
             "$ref": {
               "type": "string",
-              "description": "配合 definitions 一起使用，可以实现无限循环的渲染器。"
+              "description": "Used together with definitions, infinite loop renderers can be achieved."
             },
             "disabled": {
               "type": "boolean",
-              "description": "是否禁用"
+              "description": "Whether disabled"
             },
             "disabledOn": {
               "type": "object",
@@ -33841,7 +33841,7 @@
             },
             "hidden": {
               "type": "boolean",
-              "description": "是否隐藏",
+              "description": "Whether hidden",
               "deprecated": "推荐用 visible"
             },
             "hiddenOn": {
@@ -33850,7 +33850,7 @@
             },
             "visible": {
               "type": "boolean",
-              "description": "是否显示"
+              "description": "Whether visible"
             },
             "visibleOn": {
               "type": "object",
@@ -33858,7 +33858,7 @@
             },
             "id": {
               "type": "string",
-              "description": "组件唯一 id，主要用于日志采集"
+              "description": "Unique component ID, mainly used for log collection"
             },
             "onEvent": {
               "type": "object",
@@ -33866,11 +33866,11 @@
                 "type": "object",
                 "additionalProperties": true
               },
-              "description": "事件动作配置"
+              "description": "Event action configuration"
             },
             "static": {
               "type": "boolean",
-              "description": "是否静态展示"
+              "description": "Whether to display statically"
             },
             "staticOn": {
               "type": "object",
@@ -33878,7 +33878,7 @@
             },
             "staticPlaceholder": {
               "type": "string",
-              "description": "静态展示空值占位"
+              "description": "Static display empty value placeholder"
             },
             "staticClassName": {
               "type": "object",
@@ -33895,7 +33895,7 @@
             "staticSchema": {},
             "style": {
               "type": "object",
-              "description": "组件样式"
+              "description": "Component style"
             },
             "editorSetting": {
               "type": "object",
@@ -33913,11 +33913,11 @@
                   "additionalProperties": true
                 }
               },
-              "description": "编辑器配置，运行时可以忽略"
+              "description": "Editor configuration, can be ignored at runtime"
             },
             "useMobileUI": {
               "type": "boolean",
-              "description": "可以组件级别用来关闭移动端样式"
+              "description": "Can be used at the component level to turn off mobile styles"
             }
           },
           "additionalProperties": false
@@ -34511,7 +34511,7 @@
           "properties": {
             "$$id": {
               "type": "string",
-              "description": "组件唯一 id，主要用于页面设计器中定位 json 节点"
+              "description": "Unique component ID, mainly used to locate JSON nodes in the page designer"
             },
             "className": {
               "type": "object",
@@ -34519,11 +34519,11 @@
             },
             "$ref": {
               "type": "string",
-              "description": "配合 definitions 一起使用，可以实现无限循环的渲染器。"
+              "description": "Used together with definitions, infinite loop renderers can be achieved."
             },
             "disabled": {
               "type": "boolean",
-              "description": "是否禁用"
+              "description": "Whether disabled"
             },
             "disabledOn": {
               "type": "object",
@@ -34531,7 +34531,7 @@
             },
             "hidden": {
               "type": "boolean",
-              "description": "是否隐藏",
+              "description": "Whether hidden",
               "deprecated": "推荐用 visible"
             },
             "hiddenOn": {
@@ -34540,7 +34540,7 @@
             },
             "visible": {
               "type": "boolean",
-              "description": "是否显示"
+              "description": "Whether visible"
             },
             "visibleOn": {
               "type": "object",
@@ -34548,7 +34548,7 @@
             },
             "id": {
               "type": "string",
-              "description": "组件唯一 id，主要用于日志采集"
+              "description": "Unique component ID, mainly used for log collection"
             },
             "onEvent": {
               "type": "object",
@@ -34556,11 +34556,11 @@
                 "type": "object",
                 "additionalProperties": true
               },
-              "description": "事件动作配置"
+              "description": "Event action configuration"
             },
             "static": {
               "type": "boolean",
-              "description": "是否静态展示"
+              "description": "Whether to display statically"
             },
             "staticOn": {
               "type": "object",
@@ -34568,7 +34568,7 @@
             },
             "staticPlaceholder": {
               "type": "string",
-              "description": "静态展示空值占位"
+              "description": "Static display empty value placeholder"
             },
             "staticClassName": {
               "type": "object",
@@ -34585,7 +34585,7 @@
             "staticSchema": {},
             "style": {
               "type": "object",
-              "description": "组件样式"
+              "description": "Component style"
             },
             "editorSetting": {
               "type": "object",
@@ -34603,11 +34603,11 @@
                   "additionalProperties": true
                 }
               },
-              "description": "编辑器配置，运行时可以忽略"
+              "description": "Editor configuration, can be ignored at runtime"
             },
             "useMobileUI": {
               "type": "boolean",
-              "description": "可以组件级别用来关闭移动端样式"
+              "description": "Can be used at the component level to turn off mobile styles"
             }
           },
           "additionalProperties": false
@@ -35235,7 +35235,7 @@
           "properties": {
             "$$id": {
               "type": "string",
-              "description": "组件唯一 id，主要用于页面设计器中定位 json 节点"
+              "description": "Unique component ID, mainly used to locate JSON nodes in the page designer"
             },
             "className": {
               "type": "object",
@@ -35243,11 +35243,11 @@
             },
             "$ref": {
               "type": "string",
-              "description": "配合 definitions 一起使用，可以实现无限循环的渲染器。"
+              "description": "Used together with definitions, infinite loop renderers can be achieved."
             },
             "disabled": {
               "type": "boolean",
-              "description": "是否禁用"
+              "description": "Whether disabled"
             },
             "disabledOn": {
               "type": "object",
@@ -35255,7 +35255,7 @@
             },
             "hidden": {
               "type": "boolean",
-              "description": "是否隐藏",
+              "description": "Whether hidden",
               "deprecated": "推荐用 visible"
             },
             "hiddenOn": {
@@ -35264,7 +35264,7 @@
             },
             "visible": {
               "type": "boolean",
-              "description": "是否显示"
+              "description": "Whether visible"
             },
             "visibleOn": {
               "type": "object",
@@ -35272,7 +35272,7 @@
             },
             "id": {
               "type": "string",
-              "description": "组件唯一 id，主要用于日志采集"
+              "description": "Unique component ID, mainly used for log collection"
             },
             "onEvent": {
               "type": "object",
@@ -35280,11 +35280,11 @@
                 "type": "object",
                 "additionalProperties": true
               },
-              "description": "事件动作配置"
+              "description": "Event action configuration"
             },
             "static": {
               "type": "boolean",
-              "description": "是否静态展示"
+              "description": "Whether to display statically"
             },
             "staticOn": {
               "type": "object",
@@ -35292,7 +35292,7 @@
             },
             "staticPlaceholder": {
               "type": "string",
-              "description": "静态展示空值占位"
+              "description": "Static display empty value placeholder"
             },
             "staticClassName": {
               "type": "object",
@@ -35309,7 +35309,7 @@
             "staticSchema": {},
             "style": {
               "type": "object",
-              "description": "组件样式"
+              "description": "Component style"
             },
             "editorSetting": {
               "type": "object",
@@ -35327,11 +35327,11 @@
                   "additionalProperties": true
                 }
               },
-              "description": "编辑器配置，运行时可以忽略"
+              "description": "Editor configuration, can be ignored at runtime"
             },
             "useMobileUI": {
               "type": "boolean",
-              "description": "可以组件级别用来关闭移动端样式"
+              "description": "Can be used at the component level to turn off mobile styles"
             }
           },
           "additionalProperties": false
@@ -35805,7 +35805,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "addButtonClassName": {
               "anyOf": [
@@ -35818,7 +35818,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "addButtonText": {
               "type": "string",
@@ -35968,7 +35968,7 @@
             },
             "tabsLabelTpl": {
               "type": "string",
-              "description": "支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
+              "description": "Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
             },
             "lazyLoad": {
               "type": "boolean",
@@ -36305,7 +36305,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "testid": {
               "type": "string"
@@ -37064,7 +37064,7 @@
         },
         "disabled": {
           "type": "boolean",
-          "description": "是否禁用"
+          "description": "Whether disabled"
         },
         "disabledTip": {
           "type": "string",
@@ -37133,7 +37133,7 @@
           },
           "disabled": {
             "type": "boolean",
-            "description": "是否禁用"
+            "description": "Whether disabled"
           },
           "disabledTip": {
             "type": "string",
@@ -38105,7 +38105,7 @@
             },
             "searchable": {
               "type": "boolean",
-              "description": "是否显示搜索框"
+              "description": "Whether visible搜索框"
             },
             "itemClassName": {
               "type": "string",
@@ -38291,7 +38291,7 @@
             },
             "clearable": {
               "type": "boolean",
-              "description": "是否显示清除按钮"
+              "description": "Whether visible清除按钮"
             },
             "format": {
               "type": "string",
@@ -39074,7 +39074,7 @@
             },
             "showANDOR": {
               "type": "boolean",
-              "description": "是否显示并或切换键按钮，只在简单模式下有用"
+              "description": "Whether visible并或切换键按钮，只在简单模式下有用"
             },
             "draggable": {
               "type": "boolean",
@@ -40485,7 +40485,7 @@
             },
             "icon": {
               "type": "string",
-              "description": "iconfont 里面的类名。"
+              "description": "Class name in iconfont."
             },
             "btnLabel": {
               "type": "string",
@@ -41152,7 +41152,7 @@
             },
             "clearable": {
               "type": "boolean",
-              "description": "是否显示清除按钮"
+              "description": "Whether visible清除按钮"
             },
             "format": {
               "type": "string",
@@ -41204,7 +41204,7 @@
             },
             "disabledDate": {
               "type": "string",
-              "description": "字符串函数，用来决定是否禁用某个日期。\n\n(currentDate: moment.Moment, props: any) => boolean;"
+              "description": "字符串函数，用来决定Whether disabled某个日期。\n\n(currentDate: moment.Moment, props: any) => boolean;"
             },
             "inputForbid": {
               "type": "boolean"
@@ -43612,7 +43612,7 @@
           "properties": {
             "$$id": {
               "type": "string",
-              "description": "组件唯一 id，主要用于页面设计器中定位 json 节点"
+              "description": "Unique component ID, mainly used to locate JSON nodes in the page designer"
             },
             "className": {
               "type": "object",
@@ -43620,11 +43620,11 @@
             },
             "$ref": {
               "type": "string",
-              "description": "配合 definitions 一起使用，可以实现无限循环的渲染器。"
+              "description": "Used together with definitions, infinite loop renderers can be achieved."
             },
             "disabled": {
               "type": "boolean",
-              "description": "是否禁用"
+              "description": "Whether disabled"
             },
             "disabledOn": {
               "type": "object",
@@ -43632,7 +43632,7 @@
             },
             "hidden": {
               "type": "boolean",
-              "description": "是否隐藏",
+              "description": "Whether hidden",
               "deprecated": "推荐用 visible"
             },
             "hiddenOn": {
@@ -43641,7 +43641,7 @@
             },
             "visible": {
               "type": "boolean",
-              "description": "是否显示"
+              "description": "Whether visible"
             },
             "visibleOn": {
               "type": "object",
@@ -43649,7 +43649,7 @@
             },
             "id": {
               "type": "string",
-              "description": "组件唯一 id，主要用于日志采集"
+              "description": "Unique component ID, mainly used for log collection"
             },
             "onEvent": {
               "type": "object",
@@ -43657,11 +43657,11 @@
                 "type": "object",
                 "additionalProperties": true
               },
-              "description": "事件动作配置"
+              "description": "Event action configuration"
             },
             "static": {
               "type": "boolean",
-              "description": "是否静态展示"
+              "description": "Whether to display statically"
             },
             "staticOn": {
               "type": "object",
@@ -43669,7 +43669,7 @@
             },
             "staticPlaceholder": {
               "type": "string",
-              "description": "静态展示空值占位"
+              "description": "Static display empty value placeholder"
             },
             "staticClassName": {
               "type": "object",
@@ -43686,7 +43686,7 @@
             "staticSchema": {},
             "style": {
               "type": "object",
-              "description": "组件样式"
+              "description": "Component style"
             },
             "editorSetting": {
               "type": "object",
@@ -43704,11 +43704,11 @@
                   "additionalProperties": true
                 }
               },
-              "description": "编辑器配置，运行时可以忽略"
+              "description": "Editor configuration, can be ignored at runtime"
             },
             "useMobileUI": {
               "type": "boolean",
-              "description": "可以组件级别用来关闭移动端样式"
+              "description": "Can be used at the component level to turn off mobile styles"
             }
           },
           "additionalProperties": false
@@ -43865,11 +43865,11 @@
             },
             "title": {
               "type": "string",
-              "description": "支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
+              "description": "Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
             },
             "collapseTitle": {
               "type": "string",
-              "description": "支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
+              "description": "Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
             },
             "mountOnEnter": {
               "type": "boolean",
@@ -44439,7 +44439,7 @@
             },
             "hideUploadButton": {
               "type": "boolean",
-              "description": "是否隐藏上传按钮"
+              "description": "Whether hidden上传按钮"
             },
             "maxLength": {
               "type": "number",
@@ -44489,7 +44489,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "btnUploadClassName": {
               "anyOf": [
@@ -44502,7 +44502,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "multiple": {
               "type": "boolean",
@@ -45284,7 +45284,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "columnRatio": {
               "anyOf": [
@@ -45626,7 +45626,7 @@
           "properties": {
             "showErrorModal": {
               "type": "boolean",
-              "description": "格式校验失败是否显示弹窗"
+              "description": "格式校验失败Whether visible弹窗"
             },
             "invalidTypeMessage": {
               "type": "string",
@@ -45684,7 +45684,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "btnUploadClassName": {
               "anyOf": [
@@ -45697,7 +45697,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "compress": {
               "type": "boolean",
@@ -45767,7 +45767,7 @@
             },
             "hideUploadButton": {
               "type": "boolean",
-              "description": "是否隐藏上传按钮"
+              "description": "Whether hidden上传按钮"
             },
             "limit": {
               "type": "object",
@@ -45914,7 +45914,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "draggable": {
               "type": "boolean",
@@ -46378,7 +46378,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             }
           },
           "required": [
@@ -46617,7 +46617,7 @@
             },
             "showRootInfo": {
               "type": "boolean",
-              "description": "顶层类型信息是否隐藏"
+              "description": "顶层类型信息Whether hidden"
             },
             "disabledTypes": {
               "type": "array",
@@ -47160,7 +47160,7 @@
             },
             "hideViewControl": {
               "type": "boolean",
-              "description": "是否隐藏地图控制组件，默认为false"
+              "description": "Whether hidden地图控制组件，默认为false"
             }
           },
           "required": [
@@ -48281,7 +48281,7 @@
             },
             "hideNodePathLabel": {
               "type": "boolean",
-              "description": "是否隐藏选择框中已选中节点的祖先节点的文本信息"
+              "description": "Whether hidden选择框中已选中节点的祖先节点的文本信息"
             },
             "maxTagCount": {
               "type": "number",
@@ -48522,7 +48522,7 @@
             },
             "showSteps": {
               "type": "boolean",
-              "description": "是否显示上下点击按钮"
+              "description": "Whether visible上下点击按钮"
             },
             "borderMode": {
               "type": "string",
@@ -48769,7 +48769,7 @@
             },
             "labelTpl": {
               "type": "string",
-              "description": "支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
+              "description": "Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
             },
             "labelField": {
               "type": "string",
@@ -49632,7 +49632,7 @@
             },
             "disabled": {
               "type": "boolean",
-              "description": "是否禁用"
+              "description": "Whether disabled"
             },
             "clearable": {
               "type": "boolean",
@@ -50655,7 +50655,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "overlay": {
               "type": "object",
@@ -50982,7 +50982,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "itemClassName": {
               "anyOf": [
@@ -50995,7 +50995,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "itemsClassName": {
               "anyOf": [
@@ -51008,7 +51008,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "showErrorMsg": {
               "type": "boolean",
@@ -51728,11 +51728,11 @@
             },
             "tpl": {
               "type": "string",
-              "description": "支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
+              "description": "Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
             },
             "text": {
               "type": "string",
-              "description": "支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
+              "description": "Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template"
             },
             "popOver": {
               "anyOf": [
@@ -51975,7 +51975,7 @@
             },
             "copyAddBtn": {
               "type": "boolean",
-              "description": "是否显示复制按钮"
+              "description": "Whether visible复制按钮"
             },
             "copyData": {
               "type": "object",
@@ -52098,7 +52098,7 @@
             },
             "showIndex": {
               "type": "boolean",
-              "description": "是否显示序号"
+              "description": "Whether visible序号"
             },
             "perPage": {
               "type": "number",
@@ -52130,11 +52130,11 @@
             },
             "showFooterAddBtn": {
               "type": "boolean",
-              "description": "是否显示底部新增按钮"
+              "description": "Whether visible底部新增按钮"
             },
             "showTableAddBtn": {
               "type": "boolean",
-              "description": "是否显示表格操作栏新增按钮"
+              "description": "Whether visible表格操作栏新增按钮"
             },
             "footerAddBtn": {
               "anyOf": [
@@ -52163,7 +52163,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "matchFunc": {
               "anyOf": [
@@ -52767,7 +52767,7 @@
           "properties": {
             "showArrow": {
               "type": "boolean",
-              "description": "是否显示剪头"
+              "description": "Whether visible剪头"
             },
             "sortable": {
               "type": "boolean",
@@ -53690,7 +53690,7 @@
             },
             "showCounter": {
               "type": "boolean",
-              "description": "是否显示计数"
+              "description": "Whether visible计数"
             },
             "prefix": {
               "type": "string",
@@ -54205,7 +54205,7 @@
             },
             "showCounter": {
               "type": "boolean",
-              "description": "是否显示计数"
+              "description": "Whether visible计数"
             },
             "clearable": {
               "type": "boolean",
@@ -55526,7 +55526,7 @@
             },
             "hideRoot": {
               "type": "boolean",
-              "description": "是否隐藏顶级"
+              "description": "Whether hidden顶级"
             },
             "rootLabel": {
               "type": "string",
@@ -55588,7 +55588,7 @@
             },
             "showOutline": {
               "type": "boolean",
-              "description": "是否显示展开线"
+              "description": "Whether visible展开线"
             },
             "deferApi": {
               "anyOf": [
@@ -55916,7 +55916,7 @@
             },
             "hideRoot": {
               "type": "boolean",
-              "description": "是否隐藏顶级"
+              "description": "Whether hidden顶级"
             },
             "rootLabel": {
               "type": "string",
@@ -55962,7 +55962,7 @@
             },
             "hideNodePathLabel": {
               "type": "boolean",
-              "description": "是否隐藏选择框中已选中节点的祖先节点的文本信息"
+              "description": "Whether hidden选择框中已选中节点的祖先节点的文本信息"
             },
             "enableNodePath": {
               "type": "boolean",
@@ -55974,7 +55974,7 @@
             },
             "showOutline": {
               "type": "boolean",
-              "description": "是否显示展开线"
+              "description": "Whether visible展开线"
             },
             "deferApi": {
               "anyOf": [
@@ -57178,7 +57178,7 @@
                   "additionalProperties": true
                 }
               ],
-              "description": "css类名，配置字符串，或者对象。\n\n    className: \"red\"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
+              "description": "CSS class name, configured as a string or object.\n\n    className: \"red\"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         \"red\": \"data.progress > 80\",         \"blue\": \"data.progress > 60\"     }"
             },
             "style": {
               "type": "object",
@@ -57203,7 +57203,7 @@
             },
             "icon": {
               "type": "string",
-              "description": "iconfont 里面的类名。"
+              "description": "Class name in iconfont."
             },
             "closable": {
               "type": "boolean",
@@ -57211,7 +57211,7 @@
             },
             "closeIcon": {
               "type": "string",
-              "description": "iconfont 里面的类名。"
+              "description": "Class name in iconfont."
             },
             "checkable": {
               "type": "boolean",
@@ -57223,7 +57223,7 @@
             },
             "disabled": {
               "type": "boolean",
-              "description": "是否禁用"
+              "description": "Whether disabled"
             }
           },
           "required": [
@@ -57772,7 +57772,7 @@
     },
     "SchemaDefaultData": {
       "type": "object",
-      "description": "初始数据，设置得值可用于组件内部模板使用。"
+      "description": "Initial data, the set value can be used in component internal templates."
     },
     "SchemaObjectLoose": {
       "allOf": [

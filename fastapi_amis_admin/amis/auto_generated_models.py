@@ -7,7 +7,7 @@ This file was automatically generated from the AMIS JSON Schema.
 To regenerate, run: python scripts/generate_models.py
 
 Generation info:
-- Generated at: 2025-12-28T00:05:49.179695
+- Generated at: 2025-12-28T00:41:20.674101
 - Source schema: schema_simplified.json
 - Generator: datamodel-code-generator
 
@@ -27,7 +27,7 @@ from pydantic import BaseModel, ConfigDict, Field, RootModel
 
 class AsidePosition(Enum):
     """
-    边栏位置
+    Sidebar position
     """
 
     left = 'left'
@@ -36,7 +36,7 @@ class AsidePosition(Enum):
 
 class Messages(BaseModel):
     """
-    消息文案配置，记住这个优先级是最低的，如果你的接口返回了 msg，接口返回的优先。
+    Message text configuration. Remember that this has the lowest priority. If your interface returns a msg, the interface return takes precedence.
     """
 
     model_config = ConfigDict(
@@ -57,7 +57,7 @@ class Region(Enum):
 
 class PullRefresh(BaseModel):
     """
-    下拉刷新配置
+    Pull-to-refresh configuration
     """
 
     model_config = ConfigDict(
@@ -100,59 +100,77 @@ class PageSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     type: Any
     testid: Any | None = None
-    title: str | None = Field(None, description='页面标题')
-    sub_title: str | None = Field(None, alias='subTitle', description='页面副标题')
+    title: str | None = Field(None, description='Page title')
+    sub_title: str | None = Field(None, alias='subTitle', description='Page subtitle')
     remark: dict[str, Any] | None = None
     body: dict[str, Any] | None = None
     body_class_name: dict[str, Any] | None = Field(
         None,
         alias='bodyClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     aside: dict[str, Any] | None = None
-    aside_resizor: bool | None = Field(None, alias='asideResizor', description='边栏是否允许拖动')
-    aside_sticky: bool | None = Field(True, alias='asideSticky', description='边栏内容是否粘住，即不跟随滚动。')
-    aside_position: AsidePosition | None = Field('left', alias='asidePosition', description='边栏位置')
-    aside_min_width: float | None = Field(None, alias='asideMinWidth', description='边栏最小宽度')
-    aside_max_width: float | None = Field(None, alias='asideMaxWidth', description='边栏最小宽度')
+    aside_resizor: bool | None = Field(None, alias='asideResizor', description='Whether the sidebar allows dragging')
+    aside_sticky: bool | None = Field(
+        True,
+        alias='asideSticky',
+        description='Whether the sidebar content is sticky, i.e. does not scroll with the page.',
+    )
+    aside_position: AsidePosition | None = Field('left', alias='asidePosition', description='Sidebar position')
+    aside_min_width: float | None = Field(None, alias='asideMinWidth', description='Minimum sidebar width')
+    aside_max_width: float | None = Field(None, alias='asideMaxWidth', description='Minimum sidebar width')
     aside_class_name: dict[str, Any] | None = Field(
         None,
         alias='asideClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
-    css: dict[str, dict[str, Any]] | None = Field(None, description='自定义页面级别样式表')
-    mobile_css: dict[str, dict[str, Any]] | None = Field(None, alias='mobileCSS', description='移动端下的样式表')
-    data: dict[str, Any] | None = Field(None, description='初始数据，设置得值可用于组件内部模板使用。')
+    css: dict[str, dict[str, Any]] | None = Field(None, description='Custom page-level stylesheet')
+    mobile_css: dict[str, dict[str, Any]] | None = Field(
+        None, alias='mobileCSS', description='Stylesheet for mobile devices'
+    )
+    data: dict[str, Any] | None = Field(
+        None, description='Initial data, the set value can be used in component internal templates.'
+    )
     header_class_name: dict[str, Any] | None = Field(
         None,
         alias='headerClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     init_api: dict[str, Any] | None = Field(None, alias='initApi')
-    init_fetch: bool | None = Field(None, alias='initFetch', description='是否默认就拉取？')
-    init_fetch_on: str | None = Field(None, alias='initFetchOn', description='表达式，语法 `${xxx > 5}`。')
+    init_fetch: bool | None = Field(None, alias='initFetch', description='Whether to fetch by default?')
+    init_fetch_on: str | None = Field(None, alias='initFetchOn', description='Expression, syntax `${xxx > 5}`.')
     messages: Messages | None = Field(
-        None, description='消息文案配置，记住这个优先级是最低的，如果你的接口返回了 msg，接口返回的优先。'
+        None,
+        description='Message text configuration. Remember that this has the lowest priority. If your interface returns a msg, the interface return takes precedence.',
     )
-    name: str | None = Field(None, description='组件名字，这个名字可以用来定位，用于组件通信')
+    name: str | None = Field(
+        None, description='Component name, this name can be used for positioning and component communication'
+    )
     toolbar: dict[str, Any] | None = None
     toolbar_class_name: dict[str, Any] | None = Field(
         None,
         alias='toolbarClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     definitions: Any | None = None
-    interval: float | None = Field(None, description='配置轮询间隔，配置后 initApi 将轮询加载。')
-    silent_polling: bool | None = Field(None, alias='silentPolling', description='是否要静默加载，也就是说不显示进度')
+    interval: float | None = Field(
+        None, description='Configure polling interval. After configuration, initApi will load by polling.'
+    )
+    silent_polling: bool | None = Field(
+        None, alias='silentPolling', description='Whether to load silently, i.e. without showing progress'
+    )
     stop_auto_refresh_when: str | None = Field(
-        None, alias='stopAutoRefreshWhen', description='表达式，语法 `${xxx > 5}`。'
+        None, alias='stopAutoRefreshWhen', description='Expression, syntax `${xxx > 5}`.'
     )
-    show_error_msg: bool | None = Field(None, alias='showErrorMsg', description='是否显示错误信息，默认是显示的。')
-    css_vars: Any | None = Field(None, alias='cssVars', description='css 变量')
+    show_error_msg: bool | None = Field(
+        None, alias='showErrorMsg', description='Whether to display error messages. By default, they are displayed.'
+    )
+    css_vars: Any | None = Field(None, alias='cssVars', description='CSS variables')
     regions: list[Region] | None = Field(
-        None, description='默认不设置自动感觉内容来决定要不要展示这些区域 如果配置了，以配置为主。'
+        None,
+        description='By default, it automatically senses the content to decide whether to display these areas. If configured, the configuration takes precedence.',
     )
-    pull_refresh: PullRefresh | None = Field(None, alias='pullRefresh', description='下拉刷新配置')
+    pull_refresh: PullRefresh | None = Field(None, alias='pullRefresh', description='Pull-to-refresh configuration')
 
 
 class SchemaRemark1(BaseModel):
@@ -209,7 +227,7 @@ class TriggerEnum(Enum):
 
 class Placement(Enum):
     """
-    显示位置
+    Display position
     """
 
     top = 'top'
@@ -220,7 +238,7 @@ class Placement(Enum):
 
 class Shape(Enum):
     """
-    icon的形状
+    Icon shape
     """
 
     circle = 'circle'
@@ -259,48 +277,50 @@ class BaseRemarkSchema(BaseModel):
     type: Any
     testid: Any | None = None
     label: str | None = None
-    icon: str | None = Field(None, description='iconfont 里面的类名。')
+    icon: str | None = Field(None, description='Class name in iconfont.')
     tooltip_class_name: dict[str, Any] | None = Field(
         None,
         alias='tooltipClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
-    trigger: list[TriggerEnum] | None = Field(None, description='触发规则')
-    title: str | None = Field(None, description='提示标题')
+    trigger: list[TriggerEnum] | None = Field(None, description='Trigger rules')
+    title: str | None = Field(None, description='Tooltip title')
     content: str = Field(
         ...,
-        description='支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
     )
-    placement: Placement | None = Field(None, description='显示位置')
-    root_close: bool | None = Field(None, alias='rootClose', description='点击其他内容时是否关闭弹框信息')
-    shape: Shape | None = Field(None, description='icon的形状')
+    placement: Placement | None = Field(None, description='Display position')
+    root_close: bool | None = Field(
+        None, alias='rootClose', description='Whether to close the popup when clicking elsewhere'
+    )
+    shape: Shape | None = Field(None, description='Icon shape')
 
 
 class SchemaIcon(RootModel[str]):
-    root: str = Field(..., description='iconfont 里面的类名。')
+    root: str = Field(..., description='Class name in iconfont.')
 
 
 class SchemaClassName(RootModel[str | dict[str, bool | Any]]):
     root: str | dict[str, bool | Any] = Field(
         ...,
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
 
 
 class SchemaExpression(RootModel[str]):
-    root: str = Field(..., description='表达式，语法 `${xxx > 5}`。')
+    root: str = Field(..., description='Expression, syntax `${xxx > 5}`.')
 
 
 class SchemaTpl(RootModel[str]):
     root: str = Field(
         ...,
-        description='支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
     )
 
 
 class EditorSetting(BaseModel):
     """
-    编辑器配置，运行时可以忽略
+    Editor configuration, can be ignored at runtime
     """
 
     behavior: dict[str, Any] | None = None
@@ -539,29 +559,37 @@ class BaseSchema(BaseModel):
     model_config = ConfigDict(
         extra='forbid',
     )
-    field__id: str | None = Field(None, alias='$$id', description='组件唯一 id，主要用于页面设计器中定位 json 节点')
+    field__id: str | None = Field(
+        None, alias='$$id', description='Unique component ID, mainly used to locate JSON nodes in the page designer'
+    )
     class_name: dict[str, Any] | None = Field(None, alias='className')
     field_ref: str | None = Field(
-        None, alias='$ref', description='配合 definitions 一起使用，可以实现无限循环的渲染器。'
+        None, alias='$ref', description='Used together with definitions, infinite loop renderers can be achieved.'
     )
-    disabled: bool | None = Field(None, description='是否禁用')
+    disabled: bool | None = Field(None, description='Whether disabled')
     disabled_on: dict[str, Any] | None = Field(None, alias='disabledOn')
-    hidden: bool | None = Field(None, description='是否隐藏')
+    hidden: bool | None = Field(None, description='Whether hidden')
     hidden_on: dict[str, Any] | None = Field(None, alias='hiddenOn')
-    visible: bool | None = Field(None, description='是否显示')
+    visible: bool | None = Field(None, description='Whether visible')
     visible_on: dict[str, Any] | None = Field(None, alias='visibleOn')
-    id: str | None = Field(None, description='组件唯一 id，主要用于日志采集')
-    on_event: dict[str, dict[str, Any]] | None = Field(None, alias='onEvent', description='事件动作配置')
-    static: bool | None = Field(None, description='是否静态展示')
+    id: str | None = Field(None, description='Unique component ID, mainly used for log collection')
+    on_event: dict[str, dict[str, Any]] | None = Field(None, alias='onEvent', description='Event action configuration')
+    static: bool | None = Field(None, description='Whether to display statically')
     static_on: dict[str, Any] | None = Field(None, alias='staticOn')
-    static_placeholder: str | None = Field(None, alias='staticPlaceholder', description='静态展示空值占位')
+    static_placeholder: str | None = Field(
+        None, alias='staticPlaceholder', description='Static display empty value placeholder'
+    )
     static_class_name: dict[str, Any] | None = Field(None, alias='staticClassName')
     static_label_class_name: dict[str, Any] | None = Field(None, alias='staticLabelClassName')
     static_input_class_name: dict[str, Any] | None = Field(None, alias='staticInputClassName')
     static_schema: Any | None = Field(None, alias='staticSchema')
-    style: dict[str, Any] | None = Field(None, description='组件样式')
-    editor_setting: EditorSetting | None = Field(None, alias='editorSetting', description='编辑器配置，运行时可以忽略')
-    use_mobile_ui: bool | None = Field(None, alias='useMobileUI', description='可以组件级别用来关闭移动端样式')
+    style: dict[str, Any] | None = Field(None, description='Component style')
+    editor_setting: EditorSetting | None = Field(
+        None, alias='editorSetting', description='Editor configuration, can be ignored at runtime'
+    )
+    use_mobile_ui: bool | None = Field(
+        None, alias='useMobileUI', description='Can be used at the component level to turn off mobile styles'
+    )
     type: Type
     testid: str | None = None
 
@@ -805,7 +833,7 @@ class OnEvent(BaseModel):
 
 class EditorSetting1(BaseModel):
     """
-    编辑器配置，运行时可以忽略
+    Editor configuration, can be ignored at runtime
     """
 
     behavior: str | None = Field(None, description='组件行为、用途，如 create、update、remove')
@@ -817,45 +845,53 @@ class BaseSchemaWithoutType(BaseModel):
     model_config = ConfigDict(
         extra='forbid',
     )
-    field__id: str | None = Field(None, alias='$$id', description='组件唯一 id，主要用于页面设计器中定位 json 节点')
+    field__id: str | None = Field(
+        None, alias='$$id', description='Unique component ID, mainly used to locate JSON nodes in the page designer'
+    )
     class_name: str | dict[str, dict[str, Any]] | None = Field(
         None,
         alias='className',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     field_ref: str | None = Field(
-        None, alias='$ref', description='配合 definitions 一起使用，可以实现无限循环的渲染器。'
+        None, alias='$ref', description='Used together with definitions, infinite loop renderers can be achieved.'
     )
-    disabled: bool | None = Field(None, description='是否禁用')
-    disabled_on: str | None = Field(None, alias='disabledOn', description='表达式，语法 `${xxx > 5}`。')
-    hidden: bool | None = Field(None, description='是否隐藏')
-    hidden_on: str | None = Field(None, alias='hiddenOn', description='表达式，语法 `${xxx > 5}`。')
-    visible: bool | None = Field(None, description='是否显示')
-    visible_on: str | None = Field(None, alias='visibleOn', description='表达式，语法 `${xxx > 5}`。')
-    id: str | None = Field(None, description='组件唯一 id，主要用于日志采集')
-    on_event: dict[str, OnEvent] | None = Field(None, alias='onEvent', description='事件动作配置')
-    static: bool | None = Field(None, description='是否静态展示')
-    static_on: str | None = Field(None, alias='staticOn', description='表达式，语法 `${xxx > 5}`。')
-    static_placeholder: str | None = Field(None, alias='staticPlaceholder', description='静态展示空值占位')
+    disabled: bool | None = Field(None, description='Whether disabled')
+    disabled_on: str | None = Field(None, alias='disabledOn', description='Expression, syntax `${xxx > 5}`.')
+    hidden: bool | None = Field(None, description='Whether hidden')
+    hidden_on: str | None = Field(None, alias='hiddenOn', description='Expression, syntax `${xxx > 5}`.')
+    visible: bool | None = Field(None, description='Whether visible')
+    visible_on: str | None = Field(None, alias='visibleOn', description='Expression, syntax `${xxx > 5}`.')
+    id: str | None = Field(None, description='Unique component ID, mainly used for log collection')
+    on_event: dict[str, OnEvent] | None = Field(None, alias='onEvent', description='Event action configuration')
+    static: bool | None = Field(None, description='Whether to display statically')
+    static_on: str | None = Field(None, alias='staticOn', description='Expression, syntax `${xxx > 5}`.')
+    static_placeholder: str | None = Field(
+        None, alias='staticPlaceholder', description='Static display empty value placeholder'
+    )
     static_class_name: str | dict[str, dict[str, Any]] | None = Field(
         None,
         alias='staticClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     static_label_class_name: str | dict[str, dict[str, Any]] | None = Field(
         None,
         alias='staticLabelClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     static_input_class_name: str | dict[str, dict[str, Any]] | None = Field(
         None,
         alias='staticInputClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     static_schema: Any | None = Field(None, alias='staticSchema')
-    style: dict[str, Any] | None = Field(None, description='组件样式')
-    editor_setting: EditorSetting1 | None = Field(None, alias='editorSetting', description='编辑器配置，运行时可以忽略')
-    use_mobile_ui: bool | None = Field(None, alias='useMobileUI', description='可以组件级别用来关闭移动端样式')
+    style: dict[str, Any] | None = Field(None, description='Component style')
+    editor_setting: EditorSetting1 | None = Field(
+        None, alias='editorSetting', description='Editor configuration, can be ignored at runtime'
+    )
+    use_mobile_ui: bool | None = Field(
+        None, alias='useMobileUI', description='Can be used at the component level to turn off mobile styles'
+    )
 
 
 class DataMergeMode(Enum):
@@ -1173,15 +1209,15 @@ class TplSchema(BaseModel):
     testid: Any | None = None
     tpl: str | None = Field(
         None,
-        description='支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
     )
     html: str | None = Field(
         None,
-        description='支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
     )
     text: str | None = Field(
         None,
-        description='支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
     )
     raw: str | None = None
     inline: bool | None = Field(None, description='是否内联显示？')
@@ -1230,8 +1266,8 @@ class BadgeObject(BaseModel):
     )
     position: Position | None = Field(None, description='角标位置')
     overflow_count: float | None = Field(None, alias='overflowCount', description='封顶的数字值')
-    visible_on: str | None = Field(None, alias='visibleOn', description='动态控制是否显示')
-    animation: bool | None = Field(None, description='是否显示动画')
+    visible_on: str | None = Field(None, alias='visibleOn', description='动态控制Whether visible')
+    animation: bool | None = Field(None, description='Whether visible动画')
     style: dict[str, Any] | None = Field(None, description='角标的自定义样式')
     level: str | None = Field(None, description='提示类型')
 
@@ -1508,7 +1544,7 @@ class SchemaApi1(BaseModel):
         description='强制将数据附加在 query，默认只有 api 地址中没有用变量的时候 crud 查询接口才会 自动附加数据到 query 部分，如果想强制附加请设置这个属性。 对于那种临时加了个变量但是又不想全部参数写一遍的时候配置很有用。',
     )
     qs_options: QsOptions | None = Field(None, alias='qsOptions', description='qs 配置项')
-    silent: bool | None = Field(None, description='autoFill 是否显示自动填充错误提示')
+    silent: bool | None = Field(None, description='autoFill Whether visible自动填充错误提示')
     download_file_name: str | None = Field(None, alias='downloadFileName', description='文件下载时，指定文件名')
 
 
@@ -1560,7 +1596,7 @@ class SchemaApiObject(BaseModel):
     data_type: DataType | None = Field(None, alias='dataType', description='发送体的格式')
     response_type: Literal['blob'] = Field('blob', alias='responseType', description='如果是文件下载接口，请配置这个。')
     headers: dict[str, str | float] | None = Field(None, description='携带 headers，用法和 data 一样，可以用变量。')
-    send_on: str | None = Field(None, alias='sendOn', description='表达式，语法 `${xxx > 5}`。')
+    send_on: str | None = Field(None, alias='sendOn', description='Expression, syntax `${xxx > 5}`.')
     replace_data: bool | None = Field(
         None, alias='replaceData', description='默认都是追加模式，如果想完全替换把这个配置成 true'
     )
@@ -1581,7 +1617,7 @@ class SchemaApiObject(BaseModel):
         description='强制将数据附加在 query，默认只有 api 地址中没有用变量的时候 crud 查询接口才会 自动附加数据到 query 部分，如果想强制附加请设置这个属性。 对于那种临时加了个变量但是又不想全部参数写一遍的时候配置很有用。',
     )
     qs_options: QsOptions1 | None = Field(None, alias='qsOptions', description='qs 配置项')
-    silent: bool | None = Field(None, description='autoFill 是否显示自动填充错误提示')
+    silent: bool | None = Field(None, description='autoFill Whether visible自动填充错误提示')
     download_file_name: str | None = Field(None, alias='downloadFileName', description='文件下载时，指定文件名')
 
 
@@ -1705,11 +1741,13 @@ class DialogSchemaBase(BaseModel):
     body_class_name: dict[str, Any] | None = Field(
         None,
         alias='bodyClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     close_on_esc: bool | None = Field(None, alias='closeOnEsc', description='是否支持按 ESC 关闭 Dialog')
     close_on_outside: bool | None = Field(None, alias='closeOnOutside', description='是否支持点其它区域关闭 Dialog')
-    name: str | None = Field(None, description='组件名字，这个名字可以用来定位，用于组件通信')
+    name: str | None = Field(
+        None, description='Component name, this name can be used for positioning and component communication'
+    )
     size: Size | None = Field(None, description='Dialog 大小')
     height: str | None = Field(None, description='Dialog 高度')
     width: str | None = Field(None, description='Dialog 宽度')
@@ -1718,14 +1756,14 @@ class DialogSchemaBase(BaseModel):
     header_class_name: dict[str, Any] | None = Field(
         None,
         alias='headerClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     footer: dict[str, Any] | None = None
     confirm: bool | None = Field(None, description='影响自动生成的按钮，如果自己配置了按钮这个配置无效。')
-    show_close_button: bool | None = Field(None, alias='showCloseButton', description='是否显示关闭按钮')
-    show_error_msg: bool | None = Field(None, alias='showErrorMsg', description='是否显示错误信息')
-    show_loading: bool | None = Field(None, alias='showLoading', description='是否显示 spinner')
-    overlay: bool | None = Field(None, description='是否显示蒙层')
+    show_close_button: bool | None = Field(None, alias='showCloseButton', description='Whether visible关闭按钮')
+    show_error_msg: bool | None = Field(None, alias='showErrorMsg', description='Whether visible错误信息')
+    show_loading: bool | None = Field(None, alias='showLoading', description='Whether visible spinner')
+    overlay: bool | None = Field(None, description='Whether visible蒙层')
     dialog_type: Literal['confirm'] = Field('confirm', alias='dialogType', description='弹框类型 confirm 确认弹框')
     draggable: bool | None = Field(None, description='可拖拽')
     allow_fullscreen: bool | None = Field(None, alias='allowFullscreen', description='可全屏')
@@ -1733,7 +1771,9 @@ class DialogSchemaBase(BaseModel):
 
 
 class SchemaName(RootModel[str]):
-    root: str = Field(..., description='组件名字，这个名字可以用来定位，用于组件通信')
+    root: str = Field(
+        ..., description='Component name, this name can be used for positioning and component communication'
+    )
 
 
 class SchemaReload(RootModel[str]):
@@ -1806,22 +1846,22 @@ class ButtonSchema(BaseModel):
     testid: Any | None = None
     block: bool | None = Field(None, description='是否为块状展示，默认为内联。')
     disabled_tip: str | None = Field(None, alias='disabledTip', description='禁用时的文案提示。')
-    icon: str | None = Field(None, description='iconfont 里面的类名。')
+    icon: str | None = Field(None, description='Class name in iconfont.')
     icon_class_name: dict[str, Any] | None = Field(
         None,
         alias='iconClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
-    right_icon: str | None = Field(None, alias='rightIcon', description='iconfont 里面的类名。')
+    right_icon: str | None = Field(None, alias='rightIcon', description='Class name in iconfont.')
     right_icon_class_name: dict[str, Any] | None = Field(
         None,
         alias='rightIconClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     loading_class_name: dict[str, Any] | None = Field(
         None,
         alias='loadingClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     label: str | None = Field(None, description='按钮文字')
     level: Level | None = Field(None, description='按钮样式')
@@ -1851,7 +1891,7 @@ class ButtonSchema(BaseModel):
         None, description='Badge 角标。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/badge'
     )
     hot_key: str | None = Field(None, alias='hotKey', description='键盘快捷键')
-    loading_on: str | None = Field(None, alias='loadingOn', description='是否显示loading效果')
+    loading_on: str | None = Field(None, alias='loadingOn', description='Whether visibleloading效果')
     disabled_on_action: bool | None = Field(None, alias='disabledOnAction', description='是否在动作结束前禁用按钮')
     on_click: str | Any | None = Field(None, alias='onClick', description='自定义事件处理函数')
     body: dict[str, Any] | None = None
@@ -2132,7 +2172,7 @@ class DialogActionSchema(BaseModel):
     dialog: Dialog = Field(
         ..., description='Dialog 弹框渲染器。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/dialog'
     )
-    next_condition: str | None = Field(None, alias='nextCondition', description='表达式，语法 `${xxx > 5}`。')
+    next_condition: str | None = Field(None, alias='nextCondition', description='Expression, syntax `${xxx > 5}`.')
     reload: str | None = Field(
         None,
         description='配置刷新动作，这个动作通常在完成渲染器本省的固定动作后出发。\n\n一般用来配置目标组件的 name 属性。多个目标可以用逗号隔开。\n\n当目标是 windows 时表示刷新整个页面。\n\n刷新目标的同时还支持传递参数如： `foo?a=${a}&b=${b},boo?c=${c}`',
@@ -2258,7 +2298,7 @@ class DrawerActionSchema(BaseModel):
     drawer: Drawer = Field(
         ..., description='Drawer 抽出式弹框。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/drawer'
     )
-    next_condition: str | None = Field(None, alias='nextCondition', description='表达式，语法 `${xxx > 5}`。')
+    next_condition: str | None = Field(None, alias='nextCondition', description='Expression, syntax `${xxx > 5}`.')
     reload: str | None = Field(
         None,
         description='配置刷新动作，这个动作通常在完成渲染器本省的固定动作后出发。\n\n一般用来配置目标组件的 name 属性。多个目标可以用逗号隔开。\n\n当目标是 windows 时表示刷新整个页面。\n\n刷新目标的同时还支持传递参数如： `foo?a=${a}&b=${b},boo?c=${c}`',
@@ -2327,20 +2367,22 @@ class DrawerSchemaBase(BaseModel):
     body_class_name: dict[str, Any] | None = Field(
         None,
         alias='bodyClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     header_class_name: dict[str, Any] | None = Field(
         None,
         alias='headerClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     footer_class_name: dict[str, Any] | None = Field(
         None,
         alias='footerClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     close_on_esc: bool | None = Field(None, alias='closeOnEsc', description='是否支持按 ESC 关闭 Dialog')
-    name: str | None = Field(None, description='组件名字，这个名字可以用来定位，用于组件通信')
+    name: str | None = Field(
+        None, description='Component name, this name can be used for positioning and component communication'
+    )
     size: Size2 | None = Field(None, description='Dialog 大小')
     title: dict[str, Any] | None = None
     position: Position1 | None = Field(None, description='从什么位置弹出')
@@ -2353,9 +2395,9 @@ class DrawerSchemaBase(BaseModel):
     footer: dict[str, Any] | None = None
     confirm: bool | None = Field(None, description='影响自动生成的按钮，如果自己配置了按钮这个配置无效。')
     resizable: bool | None = Field(None, description='是否可以拖动弹窗大小')
-    overlay: bool | None = Field(None, description='是否显示蒙层')
+    overlay: bool | None = Field(None, description='Whether visible蒙层')
     close_on_outside: bool | None = Field(None, alias='closeOnOutside', description='点击外部的时候是否关闭弹框。')
-    show_error_msg: bool | None = Field(None, alias='showErrorMsg', description='是否显示错误信息')
+    show_error_msg: bool | None = Field(None, alias='showErrorMsg', description='Whether visible错误信息')
     data: dict[str, Any] | None = Field(None, description='数据映射')
 
 
@@ -2811,10 +2853,10 @@ class AlertSchema(BaseModel):
     title: str | None = Field(None, description='提示框标题')
     body: dict[str, Any]
     level: Level1 | None = Field(None, description='提示类型')
-    show_close_button: bool | None = Field(None, alias='showCloseButton', description='是否显示关闭按钮')
+    show_close_button: bool | None = Field(None, alias='showCloseButton', description='Whether visible关闭按钮')
     close_button_class_name: str | None = Field(None, alias='closeButtonClassName', description='关闭按钮CSS类名')
-    show_icon: bool | None = Field(None, alias='showIcon', description='是否显示ICON')
-    icon: str | None = Field(None, description='iconfont 里面的类名。')
+    show_icon: bool | None = Field(None, alias='showIcon', description='Whether visibleICON')
+    icon: str | None = Field(None, description='Class name in iconfont.')
     icon_class_name: str | None = Field(None, alias='iconClassName', description='图标CSS类名')
     actions: dict[str, Any] | None = None
 
@@ -3028,7 +3070,7 @@ class BaseButtonGroupSchema(BaseModel):
     btn_class_name: dict[str, Any] | None = Field(
         None,
         alias='btnClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     btn_active_class_name: str | None = Field(None, alias='btnActiveClassName')
     buttons: list[dict[str, Any]] | None = Field(None, description='按钮集合')
@@ -3551,7 +3593,7 @@ class BaseApiObject(BaseModel):
         description='强制将数据附加在 query，默认只有 api 地址中没有用变量的时候 crud 查询接口才会 自动附加数据到 query 部分，如果想强制附加请设置这个属性。 对于那种临时加了个变量但是又不想全部参数写一遍的时候配置很有用。',
     )
     qs_options: QsOptions2 | None = Field(None, alias='qsOptions', description='qs 配置项')
-    silent: bool | None = Field(None, description='autoFill 是否显示自动填充错误提示')
+    silent: bool | None = Field(None, description='autoFill Whether visible自动填充错误提示')
     messages: Messages1 | None = Field(None, description='提示信息')
 
 
@@ -3630,7 +3672,7 @@ class BaseApi1(BaseModel):
         description='强制将数据附加在 query，默认只有 api 地址中没有用变量的时候 crud 查询接口才会 自动附加数据到 query 部分，如果想强制附加请设置这个属性。 对于那种临时加了个变量但是又不想全部参数写一遍的时候配置很有用。',
     )
     qs_options: QsOptions3 | None = Field(None, alias='qsOptions', description='qs 配置项')
-    silent: bool | None = Field(None, description='autoFill 是否显示自动填充错误提示')
+    silent: bool | None = Field(None, description='autoFill Whether visible自动填充错误提示')
     messages: Messages2 | None = Field(None, description='提示信息')
 
 
@@ -3759,7 +3801,7 @@ class CardSchema(BaseModel):
     type: Any
     testid: Any | None = None
     header: Header | None = Field(None, description='头部配置')
-    body: list[dict[str, Any]] | None = Field(None, description='内容区域')
+    body: list[dict[str, Any]] | None = Field(None, description='Content area')
     media: Media | None = Field(None, description='多媒体区域')
     actions: list[dict[str, Any]] | None = Field(None, description='底部按钮集合。')
     toolbar: list[dict[str, Any]] | None = Field(None, description='工具栏按钮')
@@ -3784,79 +3826,79 @@ class Header1(BaseModel):
     class_name: dict[str, Any] | None = Field(
         None,
         alias='className',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     title: str | None = Field(
         None,
-        description='支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
     )
     title_class_name: dict[str, Any] | None = Field(
         None,
         alias='titleClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     sub_title: dict[str, Any] | None = Field(None, alias='subTitle')
     sub_title_class_name: dict[str, Any] | None = Field(
         None,
         alias='subTitleClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     sub_title_placeholder: str | None = Field(None, alias='subTitlePlaceholder')
     description: str | None = Field(
         None,
-        description='支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
     )
     description_placeholder: str | None = Field(None, alias='descriptionPlaceholder', description='描述占位内容')
     description_class_name: dict[str, Any] | None = Field(
         None,
         alias='descriptionClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     desc: str | None = Field(
         None,
-        description='支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
     )
     desc_placeholder: str | None = Field(
         None,
         alias='descPlaceholder',
-        description='支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
     )
     desc_class_name: dict[str, Any] | None = Field(
         None,
         alias='descClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     avatar: dict[str, Any] | None = None
     avatar_text: str | None = Field(
         None,
         alias='avatarText',
-        description='支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
     )
     avatar_text_background: list[AvatarTextBackgroundItem] | None = Field(None, alias='avatarTextBackground')
     avatar_text_class_name: dict[str, Any] | None = Field(
         None,
         alias='avatarTextClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     avatar_class_name: dict[str, Any] | None = Field(
         None,
         alias='avatarClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     image_class_name: dict[str, Any] | None = Field(
         None,
         alias='imageClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
-    highlight: str | None = Field(None, description='表达式，语法 `${xxx > 5}`。')
+    highlight: str | None = Field(None, description='Expression, syntax `${xxx > 5}`.')
     highlight_class_name: dict[str, Any] | None = Field(
         None,
         alias='highlightClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     href: str | None = Field(
         None,
-        description='支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
     )
     blank: bool | None = Field(None, description='是否新窗口打开')
 
@@ -3896,7 +3938,7 @@ class Media1(BaseModel):
     class_name: dict[str, Any] | None = Field(
         None,
         alias='className',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     type: Type12 | None = Field(None, description='多媒体类型')
     url: dict[str, Any] | None = None
@@ -3911,13 +3953,13 @@ class CardSchemaWithoutType(BaseModel):
         extra='forbid',
     )
     header: Header1 | None = Field(None, description='头部配置')
-    body: list[BodyItem] | None = Field(None, description='内容区域')
+    body: list[BodyItem] | None = Field(None, description='Content area')
     media: Media1 | None = Field(None, description='多媒体区域')
     actions: list[Any] | None = Field(None, description='底部按钮集合。')
     toolbar: list[Any] | None = Field(None, description='工具栏按钮')
     secondary: str | None = Field(
         None,
-        description='支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
     )
     use_card_label: bool | None = Field(
         None, alias='useCardLabel', description='卡片内容区的表单项label是否使用Card内部的样式，默认为true'
@@ -3929,7 +3971,7 @@ class CardBodyField(BaseModel):
     label_class_name: dict[str, Any] | None = Field(
         None,
         alias='labelClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     name: str | None = Field(None, description='绑定字段名')
     pop_over: dict[str, Any] | None = Field(None, alias='popOver')
@@ -4043,7 +4085,9 @@ class SchemaPopOver1(BaseModel):
     size: Size4 | None = Field(None, description='是弹窗形式的时候有用。')
     position: Position3 | None = Field(None, description='弹出位置')
     trigger: Trigger1 | None = Field(None, description='触发条件，默认是 click')
-    show_icon: bool | None = Field(None, alias='showIcon', description='是否显示查看更多的 icon，通常是放大图标。')
+    show_icon: bool | None = Field(
+        None, alias='showIcon', description='Whether visible查看更多的 icon，通常是放大图标。'
+    )
     offset: Offset | None = Field(None, description='偏移量')
     title: str | None = Field(None, description='标题')
     body: dict[str, Any] | None = None
@@ -4071,12 +4115,16 @@ class SchemaPopOverObject(BaseModel):
     )
     class_name: str | None = Field(None, alias='className', description='类名')
     pop_over_class_name: str | None = Field(None, alias='popOverClassName', description='弹框外层类名')
-    pop_over_enable_on: str | None = Field(None, alias='popOverEnableOn', description='表达式，语法 `${xxx > 5}`。')
+    pop_over_enable_on: str | None = Field(
+        None, alias='popOverEnableOn', description='Expression, syntax `${xxx > 5}`.'
+    )
     mode: Mode4 | None = Field(None, description='弹出模式')
     size: Size4 | None = Field(None, description='是弹窗形式的时候有用。')
     position: Position3 | None = Field(None, description='弹出位置')
     trigger: Trigger1 | None = Field(None, description='触发条件，默认是 click')
-    show_icon: bool | None = Field(None, alias='showIcon', description='是否显示查看更多的 icon，通常是放大图标。')
+    show_icon: bool | None = Field(
+        None, alias='showIcon', description='Whether visible查看更多的 icon，通常是放大图标。'
+    )
     offset: Offset1 | None = Field(None, description='偏移量')
     title: str | None = Field(None, description='标题')
     body: dict[str, Any] | None = None
@@ -4151,10 +4199,10 @@ class SchemaCopyableObject(BaseModel):
     model_config = ConfigDict(
         extra='forbid',
     )
-    icon: str | None = Field(None, description='iconfont 里面的类名。')
+    icon: str | None = Field(None, description='Class name in iconfont.')
     content: str | None = Field(
         None,
-        description='支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
     )
     tooltip: str | None = Field(None, description='提示文字内容')
 
@@ -4248,36 +4296,36 @@ class BaseCardsSchema(BaseModel):
     header_class_name: dict[str, Any] | None = Field(
         None,
         alias='headerClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     footer_class_name: dict[str, Any] | None = Field(
         None,
         alias='footerClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     item_class_name: dict[str, Any] | None = Field(
         None,
         alias='itemClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     placeholder: str | None = Field(
         None,
-        description='支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
     )
-    show_footer: bool | None = Field(None, alias='showFooter', description='是否显示底部')
-    show_header: bool | None = Field(None, alias='showHeader', description='是否显示头部')
+    show_footer: bool | None = Field(None, alias='showFooter', description='Whether visible底部')
+    show_header: bool | None = Field(None, alias='showHeader', description='Whether visible头部')
     source: str | None = None
     title: str | None = Field(
         None,
-        description='支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
     )
-    hide_check_toggler: bool | None = Field(None, alias='hideCheckToggler', description='是否隐藏勾选框')
+    hide_check_toggler: bool | None = Field(None, alias='hideCheckToggler', description='Whether hidden勾选框')
     affix_header: bool | None = Field(None, alias='affixHeader', description='是否固顶')
     affix_footer: bool | None = Field(None, alias='affixFooter', description='是否固底')
     header: dict[str, Any] | None = None
     footer: dict[str, Any] | None = None
-    item_checkable_on: str | None = Field(None, alias='itemCheckableOn', description='表达式，语法 `${xxx > 5}`。')
-    item_draggable_on: str | None = Field(None, alias='itemDraggableOn', description='表达式，语法 `${xxx > 5}`。')
+    item_checkable_on: str | None = Field(None, alias='itemCheckableOn', description='Expression, syntax `${xxx > 5}`.')
+    item_draggable_on: str | None = Field(None, alias='itemDraggableOn', description='Expression, syntax `${xxx > 5}`.')
     check_on_item_click: bool | None = Field(None, alias='checkOnItemClick', description='点击卡片的时候是否勾选卡片。')
     masonry_layout: bool | None = Field(None, alias='masonryLayout', description='是否为瀑布流布局？')
     value_field: str | None = Field(None, alias='valueField', description='可以用来作为值的字段')
@@ -4318,7 +4366,7 @@ class Card2Schema(BaseModel):
     body_class_name: dict[str, Any] | None = Field(
         None,
         alias='bodyClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     hide_check_toggler: bool | None = Field(None, alias='hideCheckToggler', description='隐藏选框')
     check_on_item_click: bool = Field(
@@ -4447,7 +4495,9 @@ class CarouselSchema(BaseModel):
     controls: list[Control1] | None = Field(None, description='配置控件内容')
     animation: Animation | None = Field(None, description='动画类型')
     item_schema: dict[str, Any] | None = Field(None, alias='itemSchema')
-    name: str | None = Field(None, description='组件名字，这个名字可以用来定位，用于组件通信')
+    name: str | None = Field(
+        None, description='Component name, this name can be used for positioning and component communication'
+    )
     thumb_mode: ThumbMode | None = Field(None, alias='thumbMode', description='预览图模式')
     options: list[Any] | None = Field(None, description='配置固定值')
     always_show_arrow: bool | None = Field(None, alias='alwaysShowArrow', description='是否一直显示箭头')
@@ -4489,7 +4539,7 @@ class ChartSchema(BaseModel):
     chart_theme: Any | None = Field(None, alias='chartTheme', description='Chart 主题配置')
     api: dict[str, Any] | None = None
     init_fetch: bool | None = Field(None, alias='initFetch', description='是否初始加载。')
-    init_fetch_on: str | None = Field(None, alias='initFetchOn', description='表达式，语法 `${xxx > 5}`。')
+    init_fetch_on: str | None = Field(None, alias='initFetchOn', description='Expression, syntax `${xxx > 5}`.')
     config: Any | None = Field(
         None, description='配置echart的config，支持数据映射。如果用了数据映射，为了同步更新，请设置 trackExpression'
     )
@@ -4501,7 +4551,9 @@ class ChartSchema(BaseModel):
     width: float | str | None = Field(None, description='宽度设置')
     height: float | str | None = Field(None, description='高度设置')
     interval: float | None = Field(None, description='刷新时间')
-    name: str | None = Field(None, description='组件名字，这个名字可以用来定位，用于组件通信')
+    name: str | None = Field(
+        None, description='Component name, this name can be used for positioning and component communication'
+    )
     data_filter: str | None = Field(None, alias='dataFilter')
     source: str | None = None
     disable_data_mapping: bool | None = Field(
@@ -4633,7 +4685,7 @@ class BaseCollapseSchema(BaseModel):
     collapse_header: str | None = Field(
         None,
         alias='collapseHeader',
-        description='支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
     )
     size: Size6 | None = Field(None, description='控件大小')
     mount_on_enter: bool | None = Field(None, alias='mountOnEnter', description='点开时才加载内容')
@@ -4691,7 +4743,7 @@ class CollapseGroupSchema(BaseModel):
     enable_field_set_style: bool | None = Field(
         None,
         alias='enableFieldSetStyle',
-        description='当Collapse作为Form组件的子元素时，开启该属性后组件样式设置为FieldSet组件的样式，默认开启',
+        description='当Collapse作为Form组件的子元素时，开启该属性后Component style设置为FieldSet组件的样式，默认开启',
     )
 
 
@@ -4765,7 +4817,7 @@ class ContainerSchema(BaseModel):
     body_class_name: dict[str, Any] | None = Field(
         None,
         alias='bodyClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     wrapper_component: str | None = Field(None, alias='wrapperComponent', description='使用的标签')
     wrapper_body: bool | None = Field(None, alias='wrapperBody', description='是否需要对body加一层div包裹，默认为 true')
@@ -4865,7 +4917,7 @@ class SwitchContainerSchema(BaseModel):
 
 class EditorSetting2(BaseModel):
     """
-    编辑器配置，运行时可以忽略
+    Editor configuration, can be ignored at runtime
     """
 
     behavior: dict[str, Any] | None = None
@@ -4877,29 +4929,37 @@ class StateSchema(BaseModel):
     model_config = ConfigDict(
         extra='forbid',
     )
-    field__id: str | None = Field(None, alias='$$id', description='组件唯一 id，主要用于页面设计器中定位 json 节点')
+    field__id: str | None = Field(
+        None, alias='$$id', description='Unique component ID, mainly used to locate JSON nodes in the page designer'
+    )
     class_name: dict[str, Any] | None = Field(None, alias='className')
     field_ref: str | None = Field(
-        None, alias='$ref', description='配合 definitions 一起使用，可以实现无限循环的渲染器。'
+        None, alias='$ref', description='Used together with definitions, infinite loop renderers can be achieved.'
     )
-    disabled: bool | None = Field(None, description='是否禁用')
+    disabled: bool | None = Field(None, description='Whether disabled')
     disabled_on: dict[str, Any] | None = Field(None, alias='disabledOn')
-    hidden: bool | None = Field(None, description='是否隐藏')
+    hidden: bool | None = Field(None, description='Whether hidden')
     hidden_on: dict[str, Any] | None = Field(None, alias='hiddenOn')
-    visible: bool | None = Field(None, description='是否显示')
+    visible: bool | None = Field(None, description='Whether visible')
     visible_on: dict[str, Any] | None = Field(None, alias='visibleOn', description='显示条件')
-    id: str | None = Field(None, description='组件唯一 id，主要用于日志采集')
-    on_event: dict[str, dict[str, Any]] | None = Field(None, alias='onEvent', description='事件动作配置')
-    static: bool | None = Field(None, description='是否静态展示')
+    id: str | None = Field(None, description='Unique component ID, mainly used for log collection')
+    on_event: dict[str, dict[str, Any]] | None = Field(None, alias='onEvent', description='Event action configuration')
+    static: bool | None = Field(None, description='Whether to display statically')
     static_on: dict[str, Any] | None = Field(None, alias='staticOn')
-    static_placeholder: str | None = Field(None, alias='staticPlaceholder', description='静态展示空值占位')
+    static_placeholder: str | None = Field(
+        None, alias='staticPlaceholder', description='Static display empty value placeholder'
+    )
     static_class_name: dict[str, Any] | None = Field(None, alias='staticClassName')
     static_label_class_name: dict[str, Any] | None = Field(None, alias='staticLabelClassName')
     static_input_class_name: dict[str, Any] | None = Field(None, alias='staticInputClassName')
     static_schema: Any | None = Field(None, alias='staticSchema')
-    style: dict[str, Any] | None = Field(None, description='组件样式')
-    editor_setting: EditorSetting2 | None = Field(None, alias='editorSetting', description='编辑器配置，运行时可以忽略')
-    use_mobile_ui: bool | None = Field(None, alias='useMobileUI', description='可以组件级别用来关闭移动端样式')
+    style: dict[str, Any] | None = Field(None, description='Component style')
+    editor_setting: EditorSetting2 | None = Field(
+        None, alias='editorSetting', description='Editor configuration, can be ignored at runtime'
+    )
+    use_mobile_ui: bool | None = Field(
+        None, alias='useMobileUI', description='Can be used at the component level to turn off mobile styles'
+    )
     title: str | None = Field(None, description='状态标题')
     body: dict[str, Any] | None = None
 
@@ -5053,7 +5113,9 @@ class CRUDCardsSchema(BaseModel):
         None, alias='perPageAvailable', description='每页显示多少个空间成员的配置如： [10, 20, 50, 100]。'
     )
     messages: dict[str, Any] | None = None
-    hide_quick_save_btn: bool | None = Field(None, alias='hideQuickSaveBtn', description='是否隐藏快速编辑的按钮。')
+    hide_quick_save_btn: bool | None = Field(
+        None, alias='hideQuickSaveBtn', description='Whether hidden快速编辑的按钮。'
+    )
     auto_jump_to_top_on_pager_change: bool | None = Field(
         None, alias='autoJumpToTopOnPagerChange', description='是否自动跳顶部，当切分页的时候。'
     )
@@ -5099,7 +5161,7 @@ class CRUDCardsSchema(BaseModel):
         description='开启查询区域，会根据列元素的searchable属性值，自动生成查询条件表单',
     )
     auto_fill_height: dict[str, Any] | None = Field(
-        None, alias='autoFillHeight', description='内容区域占满屏幕剩余空间'
+        None, alias='autoFillHeight', description='Content area占满屏幕剩余空间'
     )
     parse_primitive_query: dict[str, Any] | None = Field(
         None,
@@ -5181,7 +5243,7 @@ class FooterToolbar1(BaseModel):
 
 class Messages3(BaseModel):
     """
-    消息文案配置，记住这个优先级是最低的，如果你的接口返回了 msg，接口返回的优先。
+    Message text configuration. Remember that this has the lowest priority. If your interface returns a msg, the interface return takes precedence.
     """
 
     model_config = ConfigDict(
@@ -5222,7 +5284,7 @@ class ExpandConfig1(BaseModel):
         extra='forbid',
     )
     expand: Expand | None = Field(None, description='默认是展开第一个、所有、还是都不展开。')
-    expand_all: bool | None = Field(None, alias='expandAll', description='是否显示全部切换按钮')
+    expand_all: bool | None = Field(None, alias='expandAll', description='Whether visible全部切换按钮')
     accordion: bool | None = Field(None, description='是否为手风琴模式')
 
 
@@ -5243,7 +5305,7 @@ class AutoGenerateFilter(BaseModel):
 
 class AutoFillHeight(BaseModel):
     """
-    内容区域占满屏幕剩余空间
+    Content area占满屏幕剩余空间
     """
 
     model_config = ConfigDict(
@@ -5310,15 +5372,17 @@ class CRUDCommonSchemaWithoutType(BaseModel):
     order_dir: OrderDir | None = Field(None, alias='orderDir', description='默认排序方向')
     default_params: dict[str, Any] | None = Field(None, alias='defaultParams')
     draggable: bool | None = Field(None, description='是否可通过拖拽排序')
-    draggable_on: str | None = Field(None, alias='draggableOn', description='表达式，语法 `${xxx > 5}`。')
-    name: str | None = Field(None, description='组件名字，这个名字可以用来定位，用于组件通信')
+    draggable_on: str | None = Field(None, alias='draggableOn', description='Expression, syntax `${xxx > 5}`.')
+    name: str | None = Field(
+        None, description='Component name, this name can be used for positioning and component communication'
+    )
     filter: Any | None = Field(None, description='过滤器表单')
     init_fetch: bool | None = Field(None, alias='initFetch', description='初始是否拉取')
-    init_fetch_on: str | None = Field(None, alias='initFetchOn', description='表达式，语法 `${xxx > 5}`。')
+    init_fetch_on: str | None = Field(None, alias='initFetchOn', description='Expression, syntax `${xxx > 5}`.')
     inner_class_name: str | dict[str, dict[str, Any]] | None = Field(
         None,
         alias='innerClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     interval: float | None = Field(None, description='设置自动刷新时间')
     order_field: str | None = Field(
@@ -5352,15 +5416,18 @@ class CRUDCommonSchemaWithoutType(BaseModel):
         None, alias='perPageAvailable', description='每页显示多少个空间成员的配置如： [10, 20, 50, 100]。'
     )
     messages: Messages3 | None = Field(
-        None, description='消息文案配置，记住这个优先级是最低的，如果你的接口返回了 msg，接口返回的优先。'
+        None,
+        description='Message text configuration. Remember that this has the lowest priority. If your interface returns a msg, the interface return takes precedence.',
     )
-    hide_quick_save_btn: bool | None = Field(None, alias='hideQuickSaveBtn', description='是否隐藏快速编辑的按钮。')
+    hide_quick_save_btn: bool | None = Field(
+        None, alias='hideQuickSaveBtn', description='Whether hidden快速编辑的按钮。'
+    )
     auto_jump_to_top_on_pager_change: bool | None = Field(
         None, alias='autoJumpToTopOnPagerChange', description='是否自动跳顶部，当切分页的时候。'
     )
     silent_polling: bool | None = Field(None, alias='silentPolling', description='静默拉取')
     stop_auto_refresh_when: str | None = Field(
-        None, alias='stopAutoRefreshWhen', description='表达式，语法 `${xxx > 5}`。'
+        None, alias='stopAutoRefreshWhen', description='Expression, syntax `${xxx > 5}`.'
     )
     stop_auto_refresh_when_modal_is_open: bool | None = Field(None, alias='stopAutoRefreshWhenModalIsOpen')
     filter_togglable: bool | FilterTogglable | None = Field(None, alias='filterTogglable')
@@ -5379,7 +5446,7 @@ class CRUDCommonSchemaWithoutType(BaseModel):
     label_tpl: str | None = Field(
         None,
         alias='labelTpl',
-        description='支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
     )
     load_data_once: bool | None = Field(
         None, alias='loadDataOnce', description='是否为前端单次加载模式，可以用来实现前端分页。'
@@ -5407,7 +5474,7 @@ class CRUDCommonSchemaWithoutType(BaseModel):
         description='开启查询区域，会根据列元素的searchable属性值，自动生成查询条件表单',
     )
     auto_fill_height: bool | AutoFillHeight | None = Field(
-        None, alias='autoFillHeight', description='内容区域占满屏幕剩余空间'
+        None, alias='autoFillHeight', description='Content area占满屏幕剩余空间'
     )
     parse_primitive_query: ParsePrimitiveQuery | bool | None = Field(
         None,
@@ -5457,7 +5524,7 @@ class CRUDBultinToolbarType(Enum):
 
 class SchemaMessage(BaseModel):
     """
-    消息文案配置，记住这个优先级是最低的，如果你的接口返回了 msg，接口返回的优先。
+    Message text configuration. Remember that this has the lowest priority. If your interface returns a msg, the interface return takes precedence.
     """
 
     model_config = ConfigDict(
@@ -5474,11 +5541,11 @@ class AutoGenerateFilterObject(BaseModel):
         extra='forbid',
     )
     columns_num: float | None = Field(None, alias='columnsNum', description='过滤条件单行列数')
-    show_btn_toolbar: bool | None = Field(None, alias='showBtnToolbar', description='是否显示设置查询字段')
+    show_btn_toolbar: bool | None = Field(None, alias='showBtnToolbar', description='Whether visible设置查询字段')
     default_collapsed: bool | None = Field(True, alias='defaultCollapsed', description='是否默认收起')
     enable_bulk_actions: bool | None = Field(None, alias='enableBulkActions', description='是否启用多选框')
     enable_bulk_actions_on: str | None = Field(
-        None, alias='enableBulkActionsOn', description='表达式，语法 `${xxx > 5}`。'
+        None, alias='enableBulkActionsOn', description='Expression, syntax `${xxx > 5}`.'
     )
 
 
@@ -5609,7 +5676,9 @@ class CRUDListSchema(BaseModel):
         None, alias='perPageAvailable', description='每页显示多少个空间成员的配置如： [10, 20, 50, 100]。'
     )
     messages: dict[str, Any] | None = None
-    hide_quick_save_btn: bool | None = Field(None, alias='hideQuickSaveBtn', description='是否隐藏快速编辑的按钮。')
+    hide_quick_save_btn: bool | None = Field(
+        None, alias='hideQuickSaveBtn', description='Whether hidden快速编辑的按钮。'
+    )
     auto_jump_to_top_on_pager_change: bool | None = Field(
         None, alias='autoJumpToTopOnPagerChange', description='是否自动跳顶部，当切分页的时候。'
     )
@@ -5655,7 +5724,7 @@ class CRUDListSchema(BaseModel):
         description='开启查询区域，会根据列元素的searchable属性值，自动生成查询条件表单',
     )
     auto_fill_height: dict[str, Any] | None = Field(
-        None, alias='autoFillHeight', description='内容区域占满屏幕剩余空间'
+        None, alias='autoFillHeight', description='Content area占满屏幕剩余空间'
     )
     parse_primitive_query: dict[str, Any] | None = Field(
         None,
@@ -5746,38 +5815,38 @@ class BaseListSchema(BaseModel):
     testid: Any | None = None
     title: str | None = Field(
         None,
-        description='支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
     )
     footer: dict[str, Any] | None = None
     footer_class_name: dict[str, Any] | None = Field(
         None,
         alias='footerClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     header: dict[str, Any] | None = None
     header_class_name: dict[str, Any] | None = Field(
         None,
         alias='headerClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     list_item: ListItem | None = Field(None, alias='listItem')
     source: str | None = None
-    show_footer: bool | None = Field(None, alias='showFooter', description='是否显示底部')
-    show_header: bool | None = Field(None, alias='showHeader', description='是否显示头部')
+    show_footer: bool | None = Field(None, alias='showFooter', description='Whether visible底部')
+    show_header: bool | None = Field(None, alias='showHeader', description='Whether visible头部')
     placeholder: str | None = Field(
         None,
-        description='支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
     )
-    hide_check_toggler: bool | None = Field(None, alias='hideCheckToggler', description='是否隐藏勾选框')
+    hide_check_toggler: bool | None = Field(None, alias='hideCheckToggler', description='Whether hidden勾选框')
     affix_header: bool | None = Field(None, alias='affixHeader', description='是否固顶')
     affix_footer: bool | None = Field(None, alias='affixFooter', description='是否固底')
-    item_checkable_on: str | None = Field(None, alias='itemCheckableOn', description='表达式，语法 `${xxx > 5}`。')
-    item_draggable_on: str | None = Field(None, alias='itemDraggableOn', description='表达式，语法 `${xxx > 5}`。')
+    item_checkable_on: str | None = Field(None, alias='itemCheckableOn', description='Expression, syntax `${xxx > 5}`.')
+    item_draggable_on: str | None = Field(None, alias='itemDraggableOn', description='Expression, syntax `${xxx > 5}`.')
     check_on_item_click: bool | None = Field(None, alias='checkOnItemClick', description='点击列表单行时，是否选择')
     value_field: str | None = Field(None, alias='valueField', description='可以用来作为值的字段')
     size: Size7 | None = Field(None, description='大小')
     item_action: Any | None = Field(None, alias='itemAction')
-    show_index_bar: bool | None = Field(None, alias='showIndexBar', description='是否显示右侧字母索引条')
+    show_index_bar: bool | None = Field(None, alias='showIndexBar', description='Whether visible右侧字母索引条')
     index_field: str | None = Field(None, alias='indexField', description='索引依据字段')
     index_bar_offset: float | None = Field(None, alias='indexBarOffset', description='索引条偏移量')
 
@@ -5795,48 +5864,56 @@ class ListItemSchema(BaseModel):
     model_config = ConfigDict(
         extra='forbid',
     )
-    field__id: str | None = Field(None, alias='$$id', description='组件唯一 id，主要用于页面设计器中定位 json 节点')
+    field__id: str | None = Field(
+        None, alias='$$id', description='Unique component ID, mainly used to locate JSON nodes in the page designer'
+    )
     class_name: dict[str, Any] | None = Field(None, alias='className')
     field_ref: str | None = Field(
-        None, alias='$ref', description='配合 definitions 一起使用，可以实现无限循环的渲染器。'
+        None, alias='$ref', description='Used together with definitions, infinite loop renderers can be achieved.'
     )
-    disabled: bool | None = Field(None, description='是否禁用')
+    disabled: bool | None = Field(None, description='Whether disabled')
     disabled_on: dict[str, Any] | None = Field(None, alias='disabledOn')
-    hidden: bool | None = Field(None, description='是否隐藏')
+    hidden: bool | None = Field(None, description='Whether hidden')
     hidden_on: dict[str, Any] | None = Field(None, alias='hiddenOn')
-    visible: bool | None = Field(None, description='是否显示')
+    visible: bool | None = Field(None, description='Whether visible')
     visible_on: dict[str, Any] | None = Field(None, alias='visibleOn')
-    id: str | None = Field(None, description='组件唯一 id，主要用于日志采集')
-    on_event: dict[str, dict[str, Any]] | None = Field(None, alias='onEvent', description='事件动作配置')
-    static: bool | None = Field(None, description='是否静态展示')
+    id: str | None = Field(None, description='Unique component ID, mainly used for log collection')
+    on_event: dict[str, dict[str, Any]] | None = Field(None, alias='onEvent', description='Event action configuration')
+    static: bool | None = Field(None, description='Whether to display statically')
     static_on: dict[str, Any] | None = Field(None, alias='staticOn')
-    static_placeholder: str | None = Field(None, alias='staticPlaceholder', description='静态展示空值占位')
+    static_placeholder: str | None = Field(
+        None, alias='staticPlaceholder', description='Static display empty value placeholder'
+    )
     static_class_name: dict[str, Any] | None = Field(None, alias='staticClassName')
     static_label_class_name: dict[str, Any] | None = Field(None, alias='staticLabelClassName')
     static_input_class_name: dict[str, Any] | None = Field(None, alias='staticInputClassName')
     static_schema: Any | None = Field(None, alias='staticSchema')
-    style: dict[str, Any] | None = Field(None, description='组件样式')
-    editor_setting: EditorSetting2 | None = Field(None, alias='editorSetting', description='编辑器配置，运行时可以忽略')
-    use_mobile_ui: bool | None = Field(None, alias='useMobileUI', description='可以组件级别用来关闭移动端样式')
+    style: dict[str, Any] | None = Field(None, description='Component style')
+    editor_setting: EditorSetting2 | None = Field(
+        None, alias='editorSetting', description='Editor configuration, can be ignored at runtime'
+    )
+    use_mobile_ui: bool | None = Field(
+        None, alias='useMobileUI', description='Can be used at the component level to turn off mobile styles'
+    )
     actions: list[dict[str, Any]] | None = None
     actions_position: ActionsPosition | None = Field(
         None, alias='actionsPosition', description='操作位置，默认在右侧，可以设置成左侧。'
     )
     avatar: dict[str, Any] | None = None
-    body: list[dict[str, Any]] | None = Field(None, description='内容区域')
+    body: list[dict[str, Any]] | None = Field(None, description='Content area')
     desc: str | None = Field(
         None,
-        description='支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
     )
     remark: dict[str, Any] | None = None
     title: str | None = Field(
         None,
-        description='支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
     )
     sub_title: str | None = Field(
         None,
         alias='subTitle',
-        description='支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
     )
 
 
@@ -5862,12 +5939,12 @@ class ListBodyFieldObject(BaseModel):
     label_class_name: str | dict[str, dict[str, Any]] | None = Field(
         None,
         alias='labelClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     inner_class_name: str | dict[str, dict[str, Any]] | None = Field(
         None,
         alias='innerClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     name: str | None = Field(None, description='绑定字段名')
     pop_over: bool | dict[str, Any] | None = Field(None, alias='popOver')
@@ -5931,7 +6008,7 @@ class CRUDTableSchema(BaseModel):
     )
     can_access_super_data: Any | None = Field(None, alias='canAccessSuperData')
     auto_fill_height: dict[str, Any] | None = Field(
-        None, alias='autoFillHeight', description='内容区域占满屏幕剩余空间'
+        None, alias='autoFillHeight', description='Content area占满屏幕剩余空间'
     )
     table_layout: Any | None = Field(None, alias='tableLayout')
     defer_api: dict[str, Any] | None = Field(None, alias='deferApi')
@@ -5979,7 +6056,9 @@ class CRUDTableSchema(BaseModel):
         None, alias='perPageAvailable', description='每页显示多少个空间成员的配置如： [10, 20, 50, 100]。'
     )
     messages: dict[str, Any] | None = None
-    hide_quick_save_btn: bool | None = Field(None, alias='hideQuickSaveBtn', description='是否隐藏快速编辑的按钮。')
+    hide_quick_save_btn: bool | None = Field(
+        None, alias='hideQuickSaveBtn', description='Whether hidden快速编辑的按钮。'
+    )
     auto_jump_to_top_on_pager_change: bool | None = Field(
         None, alias='autoJumpToTopOnPagerChange', description='是否自动跳顶部，当切分页的时候。'
     )
@@ -6126,28 +6205,28 @@ class BaseTableSchema(BaseModel):
     footer_class_name: dict[str, Any] | None = Field(
         None,
         alias='footerClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     header_class_name: dict[str, Any] | None = Field(
         None,
         alias='headerClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     placeholder: str | dict[str, dict[str, Any]] | None = Field(None, description='占位符')
-    show_index: bool | None = Field(None, alias='showIndex', description='是否显示序号')
-    show_footer: bool | None = Field(None, alias='showFooter', description='是否显示底部')
-    show_header: bool | None = Field(None, alias='showHeader', description='是否显示头部')
+    show_index: bool | None = Field(None, alias='showIndex', description='Whether visible序号')
+    show_footer: bool | None = Field(None, alias='showFooter', description='Whether visible底部')
+    show_header: bool | None = Field(None, alias='showHeader', description='Whether visible头部')
     source: str | None = None
     table_class_name: dict[str, Any] | None = Field(
         None,
         alias='tableClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     title: str | None = Field(None, description='标题')
     toolbar_class_name: dict[str, Any] | None = Field(
         None,
         alias='toolbarClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     combine_num: float | dict[str, Any] | None = Field(
         None, alias='combineNum', description='合并单元格配置，配置数字表示从左到右的多少列自动合并单元格。'
@@ -6908,7 +6987,7 @@ class DropdownButtonSchema(BaseModel):
     btn_class_name: dict[str, Any] | None = Field(
         None,
         alias='btnClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     buttons: list[dict[str, Any]] | None = Field(None, description='按钮集合，支持分组')
     body: dict[str, Any] | None = None
@@ -6919,9 +6998,9 @@ class DropdownButtonSchema(BaseModel):
     size: Size8 | None = Field(None, description='按钮大小')
     align: Align4 | None = Field(None, description='对齐方式')
     icon_only: bool | None = Field(None, alias='iconOnly', description='是否只显示图标。')
-    right_icon: str | None = Field(None, alias='rightIcon', description='iconfont 里面的类名。')
+    right_icon: str | None = Field(None, alias='rightIcon', description='Class name in iconfont.')
     trigger: Trigger1 | None = Field(None, description='触发条件，默认是 click')
-    hide_caret: bool | None = Field(None, alias='hideCaret', description='是否显示下拉按钮')
+    hide_caret: bool | None = Field(None, alias='hideCaret', description='Whether visible下拉按钮')
     pop_over_container_selector: str | None = Field(
         None, alias='popOverContainerSelector', description='弹出的下拉按钮放在哪个节点下'
     )
@@ -7110,7 +7189,7 @@ class GridColumn(BaseModel):
     column_class_name: dict[str, Any] | None = Field(
         None,
         alias='columnClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     style: Any | None = Field(None, description='样式')
     wrapper_custom_style: Any | None = Field(None, alias='wrapperCustomStyle')
@@ -7146,7 +7225,7 @@ class GridColumnObject(BaseModel):
     column_class_name: str | dict[str, dict[str, Any]] | None = Field(
         None,
         alias='columnClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     style: Any | None = Field(None, description='样式')
     wrapper_custom_style: Any | None = Field(None, alias='wrapperCustomStyle')
@@ -7350,8 +7429,8 @@ class HBoxColumn(BaseModel):
     mode: Mode10 | None = Field(None, description='配置子表单项默认的展示方式。')
     horizontal: Horizontal3 | None = None
     body: dict[str, Any] | None = None
-    visible: bool | None = Field(None, description='是否显示')
-    visible_on: str | None = Field(None, alias='visibleOn', description='表达式，语法 `${xxx > 5}`。')
+    visible: bool | None = Field(None, description='Whether visible')
+    visible_on: str | None = Field(None, alias='visibleOn', description='Expression, syntax `${xxx > 5}`.')
 
 
 class Horizontal4(BaseModel):
@@ -7379,8 +7458,8 @@ class HBoxColumnObject(BaseModel):
     mode: Mode10 | None = Field(None, description='配置子表单项默认的展示方式。')
     horizontal: Horizontal4 | None = None
     body: dict[str, Any] | None = None
-    visible: bool | None = Field(None, description='是否显示')
-    visible_on: str | None = Field(None, alias='visibleOn', description='表达式，语法 `${xxx > 5}`。')
+    visible: bool | None = Field(None, description='Whether visible')
+    visible_on: str | None = Field(None, alias='visibleOn', description='Expression, syntax `${xxx > 5}`.')
 
 
 class Vendor(Enum):
@@ -7583,44 +7662,46 @@ class ImageSchema(BaseModel):
     default_image: dict[str, Any] | None = Field(None, alias='defaultImage')
     title: str | None = Field(
         None,
-        description='支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
     )
     name: str | None = Field(None, description='关联字段名，也可以直接配置 src')
     image_caption: str | None = Field(
         None,
         alias='imageCaption',
-        description='支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
     )
     src: dict[str, Any] | None = None
     original_src: dict[str, Any] | None = Field(None, alias='originalSrc')
     enlarge_able: bool | None = Field(None, alias='enlargeAble', description='是否启动放大功能。')
-    enlarge_with_gallary: bool | None = Field(None, alias='enlargeWithGallary', description='放大时是否显示图片集')
+    enlarge_with_gallary: bool | None = Field(
+        None, alias='enlargeWithGallary', description='放大时Whether visible图片集'
+    )
     alt: str | None = Field(None, description='图片无法显示时的替换文本')
     height: float | None = Field(None, description='高度')
     width: float | None = Field(None, description='宽度')
     inner_class_name: dict[str, Any] | None = Field(
         None,
         alias='innerClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     image_class_name: dict[str, Any] | None = Field(
         None,
         alias='imageClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     thumb_class_name: dict[str, Any] | None = Field(
         None,
         alias='thumbClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     image_gallary_class_name: dict[str, Any] | None = Field(
         None,
         alias='imageGallaryClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     caption: str | None = Field(
         None,
-        description='支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
     )
     image_mode: ImageMode | None = Field(
         None, alias='imageMode', description='图片展示模式，默认为缩略图模式、可以配置成原图模式'
@@ -7629,7 +7710,7 @@ class ImageSchema(BaseModel):
     thumb_ratio: ThumbRatio | None = Field(None, alias='thumbRatio', description='预览图比率')
     href: str | None = Field(
         None,
-        description='支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
     )
     blank: bool | None = Field(None, description='是否新窗口打开')
     html_target: str | None = Field(None, alias='htmlTarget', description='链接的 target')
@@ -7741,17 +7822,19 @@ class ImagesSchema(BaseModel):
         None, alias='originalSrc', description='大图地址，不设置用 src 属性，如果不是请配置，如：${imageOriginUrl}'
     )
     enlarge_able: bool | None = Field(None, alias='enlargeAble', description='是否启动放大功能。')
-    enlarget_with_images: bool | None = Field(None, alias='enlargetWithImages', description='放大时是否显示图片集')
-    show_dimensions: bool | None = Field(None, alias='showDimensions', description='是否显示尺寸。')
+    enlarget_with_images: bool | None = Field(
+        None, alias='enlargetWithImages', description='放大时Whether visible图片集'
+    )
+    show_dimensions: bool | None = Field(None, alias='showDimensions', description='Whether visible尺寸。')
     list_class_name: dict[str, Any] | None = Field(
         None,
         alias='listClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     image_gallary_class_name: dict[str, Any] | None = Field(
         None,
         alias='imageGallaryClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     show_toolbar: bool | None = Field(None, alias='showToolbar', description='是否展示图片工具栏')
     toolbar_actions: list[dict[str, Any]] | None = Field(None, alias='toolbarActions', description='工具栏配置')
@@ -7819,10 +7902,10 @@ class JsonSchema(BaseModel):
     level_expand: float | None = Field(None, alias='levelExpand', description='默认展开的级别')
     source: str | None = Field(None, description='支持从数据链取值')
     mutable: bool | None = Field(None, description='是否可修改')
-    display_data_types: bool | None = Field(None, alias='displayDataTypes', description='是否显示数据类型')
+    display_data_types: bool | None = Field(None, alias='displayDataTypes', description='Whether visible数据类型')
     enable_clipboard: bool | None = Field(None, alias='enableClipboard', description='是否可复制')
     icon_style: IconStyle | None = Field(None, alias='iconStyle', description='图标风格')
-    quotes_on_keys: bool | None = Field(None, alias='quotesOnKeys', description='是否显示键的引号')
+    quotes_on_keys: bool | None = Field(None, alias='quotesOnKeys', description='Whether visible键的引号')
     sort_keys: bool | None = Field(None, alias='sortKeys', description='是否为键排序')
     ellipsis_threshold: float | bool | None = Field(
         None,
@@ -7866,7 +7949,7 @@ class LinkSchema(BaseModel):
     href: str | None = Field(None, description='链接地址')
     body: str | None = Field(
         None,
-        description='支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
     )
     badge: Badge | None = Field(
         None, description='Badge 角标。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/badge'
@@ -8113,29 +8196,37 @@ class NavItemSchema(BaseModel):
     model_config = ConfigDict(
         extra='forbid',
     )
-    field__id: str | None = Field(None, alias='$$id', description='组件唯一 id，主要用于页面设计器中定位 json 节点')
+    field__id: str | None = Field(
+        None, alias='$$id', description='Unique component ID, mainly used to locate JSON nodes in the page designer'
+    )
     class_name: dict[str, Any] | None = Field(None, alias='className', description='容器 css 类名')
     field_ref: str | None = Field(
-        None, alias='$ref', description='配合 definitions 一起使用，可以实现无限循环的渲染器。'
+        None, alias='$ref', description='Used together with definitions, infinite loop renderers can be achieved.'
     )
-    disabled: bool | None = Field(None, description='是否禁用')
+    disabled: bool | None = Field(None, description='Whether disabled')
     disabled_on: dict[str, Any] | None = Field(None, alias='disabledOn')
-    hidden: bool | None = Field(None, description='是否隐藏')
+    hidden: bool | None = Field(None, description='Whether hidden')
     hidden_on: dict[str, Any] | None = Field(None, alias='hiddenOn')
-    visible: bool | None = Field(None, description='是否显示')
+    visible: bool | None = Field(None, description='Whether visible')
     visible_on: dict[str, Any] | None = Field(None, alias='visibleOn')
-    id: str | None = Field(None, description='组件唯一 id，主要用于日志采集')
-    on_event: dict[str, dict[str, Any]] | None = Field(None, alias='onEvent', description='事件动作配置')
-    static: bool | None = Field(None, description='是否静态展示')
+    id: str | None = Field(None, description='Unique component ID, mainly used for log collection')
+    on_event: dict[str, dict[str, Any]] | None = Field(None, alias='onEvent', description='Event action configuration')
+    static: bool | None = Field(None, description='Whether to display statically')
     static_on: dict[str, Any] | None = Field(None, alias='staticOn')
-    static_placeholder: str | None = Field(None, alias='staticPlaceholder', description='静态展示空值占位')
+    static_placeholder: str | None = Field(
+        None, alias='staticPlaceholder', description='Static display empty value placeholder'
+    )
     static_class_name: dict[str, Any] | None = Field(None, alias='staticClassName')
     static_label_class_name: dict[str, Any] | None = Field(None, alias='staticLabelClassName')
     static_input_class_name: dict[str, Any] | None = Field(None, alias='staticInputClassName')
     static_schema: Any | None = Field(None, alias='staticSchema')
-    style: dict[str, Any] | None = Field(None, description='组件样式')
-    editor_setting: EditorSetting2 | None = Field(None, alias='editorSetting', description='编辑器配置，运行时可以忽略')
-    use_mobile_ui: bool | None = Field(None, alias='useMobileUI', description='可以组件级别用来关闭移动端样式')
+    style: dict[str, Any] | None = Field(None, description='Component style')
+    editor_setting: EditorSetting2 | None = Field(
+        None, alias='editorSetting', description='Editor configuration, can be ignored at runtime'
+    )
+    use_mobile_ui: bool | None = Field(
+        None, alias='useMobileUI', description='Can be used at the component level to turn off mobile styles'
+    )
     label: str | dict[str, Any] | None = Field(None, description='文字说明')
     icon: dict[str, Any] | list[dict[str, Any]] | None = Field(None, description='图标类名，参考 fontawesome 4。')
     to: dict[str, Any] | None = None
@@ -8154,7 +8245,7 @@ class IconItemSchema(BaseModel):
     model_config = ConfigDict(
         extra='forbid',
     )
-    icon: str | None = Field(None, description='iconfont 里面的类名。')
+    icon: str | None = Field(None, description='Class name in iconfont.')
     position: str
 
 
@@ -8179,21 +8270,21 @@ class NavOverflow(BaseModel):
     )
     enable: bool = Field(..., description='是否开启响应式收纳')
     overflow_label: str | OverflowLabel | None = Field(None, alias='overflowLabel', description='菜单触发按钮的文字')
-    overflow_indicator: str | None = Field(None, alias='overflowIndicator', description='iconfont 里面的类名。')
+    overflow_indicator: str | None = Field(None, alias='overflowIndicator', description='Class name in iconfont.')
     overflow_class_name: str | dict[str, dict[str, Any]] | None = Field(
         None,
         alias='overflowClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     overflow_popover_class_name: str | dict[str, dict[str, Any]] | None = Field(
         None,
         alias='overflowPopoverClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     overflow_list_class_name: str | dict[str, dict[str, Any]] | None = Field(
         None,
         alias='overflowListClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     max_visible_count: float | None = Field(
         None,
@@ -8291,7 +8382,7 @@ class PaginationSchema(BaseModel):
     per_page_available: list[float] | None = Field(
         [10, 20, 50, 100], alias='perPageAvailable', description='指定每页可以显示多少条'
     )
-    show_page_input: bool | None = Field(False, alias='showPageInput', description='是否显示快速跳转输入框')
+    show_page_input: bool | None = Field(False, alias='showPageInput', description='Whether visible快速跳转输入框')
     has_next: bool | None = Field(None, alias='hasNext')
     pop_over_container_selector: str | None = Field(False, alias='popOverContainerSelector', description='弹层挂载节点')
 
@@ -8303,7 +8394,7 @@ class MODETYPE(Enum):
 
 class Position5(Enum):
     """
-    分页显示位置，如果配置为 none 则需要自己在内容区域配置 pagination 组件，否则不显示。
+    分页Display position，如果配置为 none 则需要自己在Content area配置 pagination 组件，否则不显示。
     """
 
     top = 'top'
@@ -8342,13 +8433,14 @@ class PaginationWrapperSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     type: Any
     testid: Any | None = None
-    show_page_input: bool | None = Field(None, alias='showPageInput', description='是否显示快速跳转输入框')
+    show_page_input: bool | None = Field(None, alias='showPageInput', description='Whether visible快速跳转输入框')
     max_buttons: float | None = Field(5, alias='maxButtons', description='最多显示多少个分页按钮。')
     input_name: str | None = Field('items', alias='inputName', description='输入字段名')
     output_name: str | None = Field('items', alias='outputName', description='输出字段名')
     per_page: float | None = Field(10, alias='perPage', description='每页显示多条数据。')
     position: Position5 | None = Field(
-        None, description='分页显示位置，如果配置为 none 则需要自己在内容区域配置 pagination 组件，否则不显示。'
+        None,
+        description='分页Display position，如果配置为 none 则需要自己在Content area配置 pagination 组件，否则不显示。',
     )
     body: dict[str, Any] | None = None
 
@@ -8388,34 +8480,34 @@ class PanelSchema(BaseModel):
     actions_class_name: dict[str, Any] | None = Field(
         None,
         alias='actionsClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     body: dict[str, Any] | None = None
     body_class_name: dict[str, Any] | None = Field(
         None,
         alias='bodyClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     footer: dict[str, Any] | None = None
     footer_class_name: dict[str, Any] | None = Field(
         None,
         alias='footerClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     footer_wrap_class_name: dict[str, Any] | None = Field(
         None,
         alias='footerWrapClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     header: dict[str, Any] | None = None
     header_class_name: dict[str, Any] | None = Field(
         None,
         alias='headerClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     title: str | None = Field(
         None,
-        description='支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
     )
     affix_footer: bool | str | None = Field(
         None, alias='affixFooter', description='固定底部, 想要把按钮固定在底部的时候配置。'
@@ -8463,11 +8555,11 @@ class PlainSchema(BaseModel):
     testid: Any | None = None
     tpl: str | None = Field(
         None,
-        description='支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
     )
     text: str | None = Field(
         None,
-        description='支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
     )
     inline: bool | None = Field(None, description='是否内联显示？')
     placeholder: str | None = Field(None, description='占位符')
@@ -8543,19 +8635,19 @@ class ProgressSchema(BaseModel):
     progress_class_name: dict[str, Any] | None = Field(
         None,
         alias='progressClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     map: dict[str, Any] | None = None
-    show_label: bool | None = Field(None, alias='showLabel', description='是否显示值')
+    show_label: bool | None = Field(None, alias='showLabel', description='Whether visible值')
     placeholder: str | None = Field(None, description='占位符')
-    stripe: bool | None = Field(None, description='是否显示背景间隔')
-    animate: bool | None = Field(None, description='是否显示动画（只有在开启的时候才能看出来）')
+    stripe: bool | None = Field(None, description='Whether visible背景间隔')
+    animate: bool | None = Field(None, description='Whether visible动画（只有在开启的时候才能看出来）')
     stroke_width: float | None = Field(None, alias='strokeWidth', description='进度条线的宽度')
     gap_degree: float | None = Field(None, alias='gapDegree', description='仪表盘进度条缺口角度，可取值 0 ~ 295')
     gap_position: GapPosition | None = Field(None, alias='gapPosition', description='仪表盘进度条缺口位置')
     value_tpl: str | None = Field(None, alias='valueTpl', description='内容的模板函数')
     threshold: Threshold | list[dict[str, Any]] | None = Field(None, description='阈值')
-    show_threshold_text: bool | None = Field(None, alias='showThresholdText', description='是否显示阈值数值')
+    show_threshold_text: bool | None = Field(None, alias='showThresholdText', description='Whether visible阈值数值')
 
 
 class ColorMapTypeItem(BaseModel):
@@ -8676,7 +8768,7 @@ class QRCodeSchema(BaseModel):
     qrcode_class_name: dict[str, Any] | None = Field(
         None,
         alias='qrcodeClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     code_size: float | None = Field(128, alias='codeSize', description='二维码的宽高大小，默认 128')
     background_color: str | None = Field(None, alias='backgroundColor', description='背景色')
@@ -8749,7 +8841,7 @@ class SearchBoxSchema(BaseModel):
 
 class Messages4(BaseModel):
     """
-    消息文案配置，记住这个优先级是最低的，如果你的接口返回了 msg，接口返回的优先。
+    Message text configuration. Remember that this has the lowest priority. If your interface returns a msg, the interface return takes precedence.
     """
 
     model_config = ConfigDict(
@@ -8797,21 +8889,26 @@ class ServiceSchema(BaseModel):
     ws: str | None = Field(None, description='WebScocket 地址，用于实时获取数据')
     data_provider: dict[str, Any] | None = Field(None, alias='dataProvider')
     body: dict[str, Any] | None = None
-    fetch_on: str | None = Field(None, alias='fetchOn', description='表达式，语法 `${xxx > 5}`。')
-    init_fetch: bool | None = Field(None, alias='initFetch', description='是否默认就拉取？')
-    init_fetch_on: str | None = Field(None, alias='initFetchOn', description='表达式，语法 `${xxx > 5}`。')
+    fetch_on: str | None = Field(None, alias='fetchOn', description='Expression, syntax `${xxx > 5}`.')
+    init_fetch: bool | None = Field(None, alias='initFetch', description='Whether to fetch by default?')
+    init_fetch_on: str | None = Field(None, alias='initFetchOn', description='Expression, syntax `${xxx > 5}`.')
     schema_api: dict[str, Any] | None = Field(None, alias='schemaApi')
     init_fetch_schema: bool | None = Field(None, alias='initFetchSchema', description='是否默认加载 schemaApi')
-    init_fetch_schema_on: str | None = Field(None, alias='initFetchSchemaOn', description='表达式，语法 `${xxx > 5}`。')
+    init_fetch_schema_on: str | None = Field(
+        None, alias='initFetchSchemaOn', description='Expression, syntax `${xxx > 5}`.'
+    )
     interval: float | None = Field(None, description='是否轮询拉取')
     silent_polling: bool | None = Field(None, alias='silentPolling', description='是否静默拉取')
     stop_auto_refresh_when: str | None = Field(
-        None, alias='stopAutoRefreshWhen', description='表达式，语法 `${xxx > 5}`。'
+        None, alias='stopAutoRefreshWhen', description='Expression, syntax `${xxx > 5}`.'
     )
     messages: Messages4 | None = Field(
-        None, description='消息文案配置，记住这个优先级是最低的，如果你的接口返回了 msg，接口返回的优先。'
+        None,
+        description='Message text configuration. Remember that this has the lowest priority. If your interface returns a msg, the interface return takes precedence.',
     )
-    name: str | None = Field(None, description='组件名字，这个名字可以用来定位，用于组件通信')
+    name: str | None = Field(
+        None, description='Component name, this name can be used for positioning and component communication'
+    )
     show_error_msg: bool | None = Field(
         None, alias='showErrorMsg', description='是否以Alert的形式显示api接口响应的错误信息，默认展示'
     )
@@ -9000,7 +9097,7 @@ class SpinnerSchema(BaseModel):
     tip: str | None = Field(None, description='spinner文案')
     tip_placement: TipPlacement | None = Field(None, alias='tipPlacement', description='spinner文案位置')
     delay: float | None = Field(None, description='延迟显示')
-    overlay: bool | None = Field(None, description='是否显示遮罩层')
+    overlay: bool | None = Field(None, description='Whether visible遮罩层')
     body: dict[str, Any] | None = None
 
 
@@ -9195,7 +9292,8 @@ class BaseTableSchema2(BaseModel):
     quick_save_api: dict[str, Any] | None = Field(None, alias='quickSaveApi')
     quick_save_item_api: dict[str, Any] | None = Field(None, alias='quickSaveItemApi')
     messages: Messages4 | None = Field(
-        None, description='消息文案配置，记住这个优先级是最低的，如果你的接口返回了 msg，接口返回的优先。'
+        None,
+        description='Message text configuration. Remember that this has the lowest priority. If your interface returns a msg, the interface return takes precedence.',
     )
     reload: str | None = Field(None, description='重新加载的组件名称')
     actions: list[dict[str, Any]] | None = Field(None, description='操作列配置')
@@ -9303,7 +9401,7 @@ class RowSelectionSchema(BaseModel):
     )
     type: str = Field(..., description='选择类型 单选/多选')
     key_field: str | None = Field(None, alias='keyField', description='对应数据源的key值')
-    disable_on: str | None = Field(None, alias='disableOn', description='行是否禁用表达式')
+    disable_on: str | None = Field(None, alias='disableOn', description='行Whether disabled表达式')
     selections: list[Selection] | None = Field(None, description='自定义选择菜单')
     selected_row_keys: list[str | float] | None = Field(None, alias='selectedRowKeys', description='已选择的key值')
     selected_row_keys_expr: str | None = Field(None, alias='selectedRowKeysExpr', description='已选择的key值表达式')
@@ -9402,12 +9500,12 @@ class TabsSchema(BaseModel):
     content_class_name: dict[str, Any] | None = Field(
         None,
         alias='contentClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     links_class_name: dict[str, Any] | None = Field(
         None,
         alias='linksClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     mount_on_enter: bool | None = Field(None, alias='mountOnEnter', description='卡片是否只有在点开的时候加载？')
     unmount_on_exit: bool | None = Field(None, alias='unmountOnExit', description='卡片隐藏的时候是否销毁卡片内容')
@@ -9417,7 +9515,7 @@ class TabsSchema(BaseModel):
     addable: bool | None = Field(None, description='是否支持新增')
     closable: bool | None = Field(None, description='是否支持删除')
     draggable: bool | None = Field(None, description='是否支持拖拽')
-    show_tip: bool | None = Field(None, alias='showTip', description='是否显示提示')
+    show_tip: bool | None = Field(None, alias='showTip', description='Whether visible提示')
     show_tip_class_name: str | None = Field(None, alias='showTipClassName', description='tooltip 提示的类名')
     editable: bool | None = Field(None, description='是否可编辑标签名')
     scrollable: bool | None = Field(None, description='是否导航支持内容溢出滚动。属性废弃，为了兼容暂且保留')
@@ -9466,35 +9564,43 @@ class TabSchema(BaseModel):
     model_config = ConfigDict(
         extra='forbid',
     )
-    field__id: str | None = Field(None, alias='$$id', description='组件唯一 id，主要用于页面设计器中定位 json 节点')
+    field__id: str | None = Field(
+        None, alias='$$id', description='Unique component ID, mainly used to locate JSON nodes in the page designer'
+    )
     class_name: dict[str, Any] | None = Field(None, alias='className')
     field_ref: str | None = Field(
-        None, alias='$ref', description='配合 definitions 一起使用，可以实现无限循环的渲染器。'
+        None, alias='$ref', description='Used together with definitions, infinite loop renderers can be achieved.'
     )
-    disabled: bool | None = Field(None, description='是否禁用')
+    disabled: bool | None = Field(None, description='Whether disabled')
     disabled_on: dict[str, Any] | None = Field(None, alias='disabledOn')
-    hidden: bool | None = Field(None, description='是否隐藏')
+    hidden: bool | None = Field(None, description='Whether hidden')
     hidden_on: dict[str, Any] | None = Field(None, alias='hiddenOn')
-    visible: bool | None = Field(None, description='是否显示')
+    visible: bool | None = Field(None, description='Whether visible')
     visible_on: dict[str, Any] | None = Field(None, alias='visibleOn')
-    id: str | None = Field(None, description='组件唯一 id，主要用于日志采集')
-    on_event: dict[str, dict[str, Any]] | None = Field(None, alias='onEvent', description='事件动作配置')
-    static: bool | None = Field(None, description='是否静态展示')
+    id: str | None = Field(None, description='Unique component ID, mainly used for log collection')
+    on_event: dict[str, dict[str, Any]] | None = Field(None, alias='onEvent', description='Event action configuration')
+    static: bool | None = Field(None, description='Whether to display statically')
     static_on: dict[str, Any] | None = Field(None, alias='staticOn')
-    static_placeholder: str | None = Field(None, alias='staticPlaceholder', description='静态展示空值占位')
+    static_placeholder: str | None = Field(
+        None, alias='staticPlaceholder', description='Static display empty value placeholder'
+    )
     static_class_name: dict[str, Any] | None = Field(None, alias='staticClassName')
     static_label_class_name: dict[str, Any] | None = Field(None, alias='staticLabelClassName')
     static_input_class_name: dict[str, Any] | None = Field(None, alias='staticInputClassName')
     static_schema: Any | None = Field(None, alias='staticSchema')
-    style: dict[str, Any] | None = Field(None, description='组件样式')
-    editor_setting: EditorSetting2 | None = Field(None, alias='editorSetting', description='编辑器配置，运行时可以忽略')
-    use_mobile_ui: bool | None = Field(None, alias='useMobileUI', description='可以组件级别用来关闭移动端样式')
+    style: dict[str, Any] | None = Field(None, description='Component style')
+    editor_setting: EditorSetting2 | None = Field(
+        None, alias='editorSetting', description='Editor configuration, can be ignored at runtime'
+    )
+    use_mobile_ui: bool | None = Field(
+        None, alias='useMobileUI', description='Can be used at the component level to turn off mobile styles'
+    )
     title: str | dict[str, Any] | None = Field(None, description='Tab 标题')
     tab: dict[str, Any] | None = None
     body: dict[str, Any] | None = None
     badge: float | None = Field(None, description='徽标')
     hash: str | None = Field(None, description='设置以后将跟url的hash对应')
-    icon: str | None = Field(None, description='iconfont 里面的类名。')
+    icon: str | None = Field(None, description='Class name in iconfont.')
     icon_position: IconPosition | None = Field(None, alias='iconPosition')
     reload: bool | None = Field(None, description='设置以后内容每次都会重新渲染')
     mount_on_enter: bool | None = Field(None, alias='mountOnEnter', description='点开时才加载卡片内容')
@@ -9549,7 +9655,7 @@ class TasksSchema(BaseModel):
     btn_class_name: dict[str, Any] | None = Field(
         None,
         alias='btnClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     btn_text: str | None = Field('上线', alias='btnText', description='操作按钮文字')
     check_api: dict[str, Any] | None = Field(None, alias='checkApi')
@@ -9557,14 +9663,16 @@ class TasksSchema(BaseModel):
         3000, description='当有任务进行中，会每隔一段时间再次检测，而时间间隔就是通过此项配置，默认 3s。'
     )
     items: list[Item] | None = None
-    name: str | None = Field(None, description='组件名字，这个名字可以用来定位，用于组件通信')
+    name: str | None = Field(
+        None, description='Component name, this name can be used for positioning and component communication'
+    )
     operation_label: str | None = Field(None, alias='operationLabel', description='操作列说明')
     re_submit_api: dict[str, Any] | None = Field(None, alias='reSubmitApi')
     remark_label: str | None = Field('备注', alias='remarkLabel', description='备注列说明')
     retry_btn_class_name: dict[str, Any] | None = Field(
         None,
         alias='retryBtnClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     retry_btn_text: str | None = Field('重试', alias='retryBtnText', description='重试操作按钮文字')
     status_label: str | None = Field('状态', alias='statusLabel', description='状态列说明')
@@ -9582,7 +9690,7 @@ class TasksSchema(BaseModel):
     table_class_name: dict[str, Any] | None = Field(
         None,
         alias='tableClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     task_name_label: str | None = Field('任务名称', alias='taskNameLabel', description='任务名称列说明')
     initial_status_code: float | None = Field(None, alias='initialStatusCode')
@@ -9684,7 +9792,7 @@ class VideoSchema(BaseModel):
     frames_class_name: dict[str, Any] | None = Field(
         None,
         alias='framesClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     is_live: bool | None = Field(None, alias='isLive', description='如果是实时的，请标记一下')
     jump_frame: bool | None = Field(True, alias='jumpFrame', description='点击帧画面时是否跳转视频对应的点')
@@ -9693,7 +9801,7 @@ class VideoSchema(BaseModel):
     player_class_name: dict[str, Any] | None = Field(
         None,
         alias='playerClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     poster: dict[str, Any] | None = None
     split_poster: bool | None = Field(None, alias='splitPoster', description='是否将视频和封面分开显示')
@@ -9753,7 +9861,7 @@ class WizardSchema(BaseModel):
     action_class_name: dict[str, Any] | None = Field(
         None,
         alias='actionClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     action_finish_label: str | None = Field(None, alias='actionFinishLabel', description='完成按钮的文字描述')
     action_next_label: str | None = Field(None, alias='actionNextLabel', description='下一步按钮的文字描述')
@@ -9765,7 +9873,9 @@ class WizardSchema(BaseModel):
     bulk_submit: bool | None = Field(None, alias='bulkSubmit', description='是否合并后再提交')
     init_api: dict[str, Any] | None = Field(None, alias='initApi')
     mode: Mode20 | None = Field('vertical', description='展示模式')
-    name: str | None = Field(None, description='组件名字，这个名字可以用来定位，用于组件通信')
+    name: str | None = Field(
+        None, description='Component name, this name can be used for positioning and component communication'
+    )
     read_only: bool | None = Field(None, alias='readOnly', description='是否为只读模式。')
     redirect: str | None = Field(
         None, description='保存完后，可以指定跳转地址，支持相对路径和组内绝对路径，同时可以通过 $xxx 使用变量'
@@ -9873,7 +9983,7 @@ class WizardStepSchema(BaseModel):
     label_align: Any | None = Field(None, alias='labelAlign')
     label_width: Any | None = Field(None, alias='labelWidth')
     jumpable: bool | None = Field(None, description='是否可直接跳转到该步骤，一般编辑模式需要可直接跳转查看。')
-    jumpable_on: str | None = Field(None, alias='jumpableOn', description='表达式，语法 `${xxx > 5}`。')
+    jumpable_on: str | None = Field(None, alias='jumpableOn', description='Expression, syntax `${xxx > 5}`.')
     label: str | None = None
 
 
@@ -9907,7 +10017,7 @@ class Mode21(Enum):
 
 class Messages6(BaseModel):
     """
-    消息文案配置，记住这个优先级是最低的，如果你的接口返回了 msg，接口返回的优先。
+    Message text configuration. Remember that this has the lowest priority. If your interface returns a msg, the interface return takes precedence.
     """
 
     model_config = ConfigDict(
@@ -10004,7 +10114,8 @@ class BaseFormSchema(BaseModel):
     horizontal: dict[str, Any] | None = None
     auto_focus: bool | None = Field(None, alias='autoFocus', description='是否自动将第一个表单元素聚焦。')
     messages: Messages6 | None = Field(
-        None, description='消息文案配置，记住这个优先级是最低的，如果你的接口返回了 msg，接口返回的优先。'
+        None,
+        description='Message text configuration. Remember that this has the lowest priority. If your interface returns a msg, the interface return takes precedence.',
     )
     name: str | None = None
     panel_class_name: dict[str, Any] | None = Field(None, alias='panelClassName')
@@ -10049,7 +10160,7 @@ class DebugConfig1(BaseModel):
     level_expand: float | None = Field(None, alias='levelExpand', description='默认展开的级别')
     enable_clipboard: bool | None = Field(None, alias='enableClipboard', description='是否可复制')
     icon_style: IconStyle | None = Field(None, alias='iconStyle', description='图标风格')
-    quotes_on_keys: bool | None = Field(None, alias='quotesOnKeys', description='是否显示键的引号')
+    quotes_on_keys: bool | None = Field(None, alias='quotesOnKeys', description='Whether visible键的引号')
     sort_keys: bool | None = Field(None, alias='sortKeys', description='是否为键排序')
     ellipsis_threshold: float | bool | None = Field(
         None,
@@ -10192,7 +10303,7 @@ class Horizontal6(BaseModel):
 
 class Messages7(BaseModel):
     """
-    消息文案配置，记住这个优先级是最低的，如果你的接口返回了 msg，接口返回的优先。
+    Message text configuration. Remember that this has the lowest priority. If your interface returns a msg, the interface return takes precedence.
     """
 
     model_config = ConfigDict(
@@ -10278,7 +10389,8 @@ class FormSchemaBase(BaseModel):
     horizontal: Horizontal6 | None = None
     auto_focus: bool | None = Field(None, alias='autoFocus', description='是否自动将第一个表单元素聚焦。')
     messages: Messages7 | None = Field(
-        None, description='消息文案配置，记住这个优先级是最低的，如果你的接口返回了 msg，接口返回的优先。'
+        None,
+        description='Message text configuration. Remember that this has the lowest priority. If your interface returns a msg, the interface return takes precedence.',
     )
     name: str | None = None
     panel_class_name: str | dict[str, dict[str, Any]] | None = Field(None, alias='panelClassName')
@@ -10311,11 +10423,11 @@ class FormSchemaBase(BaseModel):
     label_align: LabelAlign7 | None = Field(None, alias='labelAlign')
     label_width: float | str | None = Field(None, alias='labelWidth', description='label自定义宽度，默认单位为px')
     static: bool | None = Field(None, description='展示态时的className')
-    static_on: str | None = Field(None, alias='staticOn', description='表达式，语法 `${xxx > 5}`。')
+    static_on: str | None = Field(None, alias='staticOn', description='Expression, syntax `${xxx > 5}`.')
     static_class_name: str | dict[str, dict[str, Any]] | None = Field(
         None,
         alias='staticClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
 
 
@@ -10323,29 +10435,37 @@ class StepSchema(BaseModel):
     model_config = ConfigDict(
         extra='forbid',
     )
-    field__id: str | None = Field(None, alias='$$id', description='组件唯一 id，主要用于页面设计器中定位 json 节点')
+    field__id: str | None = Field(
+        None, alias='$$id', description='Unique component ID, mainly used to locate JSON nodes in the page designer'
+    )
     class_name: dict[str, Any] | None = Field(None, alias='className')
     field_ref: str | None = Field(
-        None, alias='$ref', description='配合 definitions 一起使用，可以实现无限循环的渲染器。'
+        None, alias='$ref', description='Used together with definitions, infinite loop renderers can be achieved.'
     )
-    disabled: bool | None = Field(None, description='是否禁用')
+    disabled: bool | None = Field(None, description='Whether disabled')
     disabled_on: dict[str, Any] | None = Field(None, alias='disabledOn')
-    hidden: bool | None = Field(None, description='是否隐藏')
+    hidden: bool | None = Field(None, description='Whether hidden')
     hidden_on: dict[str, Any] | None = Field(None, alias='hiddenOn')
-    visible: bool | None = Field(None, description='是否显示')
+    visible: bool | None = Field(None, description='Whether visible')
     visible_on: dict[str, Any] | None = Field(None, alias='visibleOn')
-    id: str | None = Field(None, description='组件唯一 id，主要用于日志采集')
-    on_event: dict[str, dict[str, Any]] | None = Field(None, alias='onEvent', description='事件动作配置')
-    static: bool | None = Field(None, description='是否静态展示')
+    id: str | None = Field(None, description='Unique component ID, mainly used for log collection')
+    on_event: dict[str, dict[str, Any]] | None = Field(None, alias='onEvent', description='Event action configuration')
+    static: bool | None = Field(None, description='Whether to display statically')
     static_on: dict[str, Any] | None = Field(None, alias='staticOn')
-    static_placeholder: str | None = Field(None, alias='staticPlaceholder', description='静态展示空值占位')
+    static_placeholder: str | None = Field(
+        None, alias='staticPlaceholder', description='Static display empty value placeholder'
+    )
     static_class_name: dict[str, Any] | None = Field(None, alias='staticClassName')
     static_label_class_name: dict[str, Any] | None = Field(None, alias='staticLabelClassName')
     static_input_class_name: dict[str, Any] | None = Field(None, alias='staticInputClassName')
     static_schema: Any | None = Field(None, alias='staticSchema')
-    style: dict[str, Any] | None = Field(None, description='组件样式')
-    editor_setting: EditorSetting2 | None = Field(None, alias='editorSetting', description='编辑器配置，运行时可以忽略')
-    use_mobile_ui: bool | None = Field(None, alias='useMobileUI', description='可以组件级别用来关闭移动端样式')
+    style: dict[str, Any] | None = Field(None, description='Component style')
+    editor_setting: EditorSetting2 | None = Field(
+        None, alias='editorSetting', description='Editor configuration, can be ignored at runtime'
+    )
+    use_mobile_ui: bool | None = Field(
+        None, alias='useMobileUI', description='Can be used at the component level to turn off mobile styles'
+    )
     title: str | dict[str, Any] | None = Field(None, description='标题')
     sub_title: str | dict[str, Any] | None = Field(None, alias='subTitle', description='子标题')
     icon: str | None = Field(None, description='图标')
@@ -10444,7 +10564,7 @@ class TooltipWrapperSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     type: Any
     testid: Any | None = None
-    title: str | None = Field(None, description='文字提示标题')
+    title: str | None = Field(None, description='文字Tooltip title')
     content: str | None = Field(None, description='文字提示内容，兼容 tooltip，但建议通过 content 来实现提示内容')
     tooltip: str | None = None
     placement: Placement1 | None = Field(None, description='文字提示浮层出现位置，默认为top')
@@ -10453,7 +10573,7 @@ class TooltipWrapperSchema(BaseModel):
     trigger: dict[str, Any] | list[dict[str, Any]] | None = Field(None, description='浮层触发方式，默认为hover')
     mouse_enter_delay: float | None = Field(None, alias='mouseEnterDelay', description='浮层延迟显示时间, 单位 ms')
     mouse_leave_delay: float | None = Field(None, alias='mouseLeaveDelay', description='浮层延迟隐藏时间, 单位 ms')
-    root_close: bool | None = Field(None, alias='rootClose', description='是否点击非内容区域关闭提示，默认为true')
+    root_close: bool | None = Field(None, alias='rootClose', description='是否点击非Content area关闭提示，默认为true')
     body: dict[str, Any] | None = None
     wrapper_component: str = Field(..., alias='wrapperComponent', description='内容区包裹标签')
     inline: bool | None = Field(None, description='内容区是否内联显示，默认为false')
@@ -10489,7 +10609,7 @@ class DebugConfig2(BaseModel):
 
 class Messages8(BaseModel):
     """
-    消息文案配置，记住这个优先级是最低的，如果你的接口返回了 msg，接口返回的优先。
+    Message text configuration. Remember that this has the lowest priority. If your interface returns a msg, the interface return takes precedence.
     """
 
     model_config = ConfigDict(
@@ -10580,7 +10700,8 @@ class FormSchema(BaseModel):
     horizontal: dict[str, Any] | None = None
     auto_focus: bool | None = Field(None, alias='autoFocus', description='是否自动将第一个表单元素聚焦。')
     messages: Messages8 | None = Field(
-        None, description='消息文案配置，记住这个优先级是最低的，如果你的接口返回了 msg，接口返回的优先。'
+        None,
+        description='Message text configuration. Remember that this has the lowest priority. If your interface returns a msg, the interface return takes precedence.',
     )
     name: str | None = None
     panel_class_name: dict[str, Any] | None = Field(None, alias='panelClassName')
@@ -10656,12 +10777,12 @@ class AnchorNavSchema(BaseModel):
     link_class_name: dict[str, Any] | None = Field(
         None,
         alias='linkClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     section_class_name: dict[str, Any] | None = Field(
         None,
         alias='sectionClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     direction: Direction3 | None = None
 
@@ -10674,29 +10795,37 @@ class AnchorNavSectionSchema(BaseModel):
     model_config = ConfigDict(
         extra='forbid',
     )
-    field__id: str | None = Field(None, alias='$$id', description='组件唯一 id，主要用于页面设计器中定位 json 节点')
+    field__id: str | None = Field(
+        None, alias='$$id', description='Unique component ID, mainly used to locate JSON nodes in the page designer'
+    )
     class_name: dict[str, Any] | None = Field(None, alias='className')
     field_ref: str | None = Field(
-        None, alias='$ref', description='配合 definitions 一起使用，可以实现无限循环的渲染器。'
+        None, alias='$ref', description='Used together with definitions, infinite loop renderers can be achieved.'
     )
-    disabled: bool | None = Field(None, description='是否禁用')
+    disabled: bool | None = Field(None, description='Whether disabled')
     disabled_on: dict[str, Any] | None = Field(None, alias='disabledOn')
-    hidden: bool | None = Field(None, description='是否隐藏')
+    hidden: bool | None = Field(None, description='Whether hidden')
     hidden_on: dict[str, Any] | None = Field(None, alias='hiddenOn')
-    visible: bool | None = Field(None, description='是否显示')
+    visible: bool | None = Field(None, description='Whether visible')
     visible_on: dict[str, Any] | None = Field(None, alias='visibleOn')
-    id: str | None = Field(None, description='组件唯一 id，主要用于日志采集')
-    on_event: dict[str, dict[str, Any]] | None = Field(None, alias='onEvent', description='事件动作配置')
-    static: bool | None = Field(None, description='是否静态展示')
+    id: str | None = Field(None, description='Unique component ID, mainly used for log collection')
+    on_event: dict[str, dict[str, Any]] | None = Field(None, alias='onEvent', description='Event action configuration')
+    static: bool | None = Field(None, description='Whether to display statically')
     static_on: dict[str, Any] | None = Field(None, alias='staticOn')
-    static_placeholder: str | None = Field(None, alias='staticPlaceholder', description='静态展示空值占位')
+    static_placeholder: str | None = Field(
+        None, alias='staticPlaceholder', description='Static display empty value placeholder'
+    )
     static_class_name: dict[str, Any] | None = Field(None, alias='staticClassName')
     static_label_class_name: dict[str, Any] | None = Field(None, alias='staticLabelClassName')
     static_input_class_name: dict[str, Any] | None = Field(None, alias='staticInputClassName')
     static_schema: Any | None = Field(None, alias='staticSchema')
-    style: dict[str, Any] | None = Field(None, description='组件样式')
-    editor_setting: EditorSetting2 | None = Field(None, alias='editorSetting', description='编辑器配置，运行时可以忽略')
-    use_mobile_ui: bool | None = Field(None, alias='useMobileUI', description='可以组件级别用来关闭移动端样式')
+    style: dict[str, Any] | None = Field(None, description='Component style')
+    editor_setting: EditorSetting2 | None = Field(
+        None, alias='editorSetting', description='Editor configuration, can be ignored at runtime'
+    )
+    use_mobile_ui: bool | None = Field(
+        None, alias='useMobileUI', description='Can be used at the component level to turn off mobile styles'
+    )
     title: str = Field(..., description='导航文字说明')
     href: str | None = Field(None, description='锚点链接')
     body: dict[str, Any] | None = None
@@ -10783,47 +10912,55 @@ class PortletSchema(BaseModel):
     model_config = ConfigDict(
         extra='forbid',
     )
-    field__id: str | None = Field(None, alias='$$id', description='组件唯一 id，主要用于页面设计器中定位 json 节点')
+    field__id: str | None = Field(
+        None, alias='$$id', description='Unique component ID, mainly used to locate JSON nodes in the page designer'
+    )
     class_name: dict[str, Any] | None = Field(None, alias='className')
     field_ref: str | None = Field(
-        None, alias='$ref', description='配合 definitions 一起使用，可以实现无限循环的渲染器。'
+        None, alias='$ref', description='Used together with definitions, infinite loop renderers can be achieved.'
     )
-    disabled: bool | None = Field(None, description='是否禁用')
+    disabled: bool | None = Field(None, description='Whether disabled')
     disabled_on: dict[str, Any] | None = Field(None, alias='disabledOn')
-    hidden: bool | None = Field(None, description='是否隐藏')
+    hidden: bool | None = Field(None, description='Whether hidden')
     hidden_on: dict[str, Any] | None = Field(None, alias='hiddenOn')
-    visible: bool | None = Field(None, description='是否显示')
+    visible: bool | None = Field(None, description='Whether visible')
     visible_on: dict[str, Any] | None = Field(None, alias='visibleOn')
-    id: str | None = Field(None, description='组件唯一 id，主要用于日志采集')
-    on_event: dict[str, dict[str, Any]] | None = Field(None, alias='onEvent', description='事件动作配置')
-    static: bool | None = Field(None, description='是否静态展示')
+    id: str | None = Field(None, description='Unique component ID, mainly used for log collection')
+    on_event: dict[str, dict[str, Any]] | None = Field(None, alias='onEvent', description='Event action configuration')
+    static: bool | None = Field(None, description='Whether to display statically')
     static_on: dict[str, Any] | None = Field(None, alias='staticOn')
-    static_placeholder: str | None = Field(None, alias='staticPlaceholder', description='静态展示空值占位')
+    static_placeholder: str | None = Field(
+        None, alias='staticPlaceholder', description='Static display empty value placeholder'
+    )
     static_class_name: dict[str, Any] | None = Field(None, alias='staticClassName')
     static_label_class_name: dict[str, Any] | None = Field(None, alias='staticLabelClassName')
     static_input_class_name: dict[str, Any] | None = Field(None, alias='staticInputClassName')
     static_schema: Any | None = Field(None, alias='staticSchema')
-    style: dict[str, Any] | None = Field(None, description='组件样式')
-    editor_setting: EditorSetting2 | None = Field(None, alias='editorSetting', description='编辑器配置，运行时可以忽略')
-    use_mobile_ui: bool | None = Field(None, alias='useMobileUI', description='可以组件级别用来关闭移动端样式')
+    style: dict[str, Any] | None = Field(None, description='Component style')
+    editor_setting: EditorSetting2 | None = Field(
+        None, alias='editorSetting', description='Editor configuration, can be ignored at runtime'
+    )
+    use_mobile_ui: bool | None = Field(
+        None, alias='useMobileUI', description='Can be used at the component level to turn off mobile styles'
+    )
     type: Literal['portlet'] = Field(..., description='指定为 portlet 类型')
     tabs: list[dict[str, Any]]
     source: str | None = Field(None, description='关联已有数据，选项卡直接根据目标数据重复。')
     tabs_class_name: dict[str, Any] | None = Field(
         None,
         alias='tabsClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     tabs_mode: TabsMode2 | None = Field(None, alias='tabsMode', description='展示形式')
     content_class_name: dict[str, Any] | None = Field(
         None,
         alias='contentClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     links_class_name: dict[str, Any] | None = Field(
         None,
         alias='linksClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     mount_on_enter: bool | None = Field(None, alias='mountOnEnter', description='卡片是否只有在点开的时候加载？')
     unmount_on_exit: bool | None = Field(None, alias='unmountOnExit', description='卡片隐藏的时候是否销毁卡片内容')
@@ -10832,7 +10969,7 @@ class PortletSchema(BaseModel):
     divider: bool | None = Field(None, description='header和内容是否展示分割线')
     description: str | None = Field(
         None,
-        description='支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
     )
     hide_header: bool | None = Field(None, alias='hideHeader', description='隐藏头部')
 
@@ -10845,34 +10982,42 @@ class PortletTabSchema(BaseModel):
     model_config = ConfigDict(
         extra='forbid',
     )
-    field__id: str | None = Field(None, alias='$$id', description='组件唯一 id，主要用于页面设计器中定位 json 节点')
+    field__id: str | None = Field(
+        None, alias='$$id', description='Unique component ID, mainly used to locate JSON nodes in the page designer'
+    )
     class_name: dict[str, Any] | None = Field(None, alias='className')
     field_ref: str | None = Field(
-        None, alias='$ref', description='配合 definitions 一起使用，可以实现无限循环的渲染器。'
+        None, alias='$ref', description='Used together with definitions, infinite loop renderers can be achieved.'
     )
-    disabled: bool | None = Field(None, description='是否禁用')
+    disabled: bool | None = Field(None, description='Whether disabled')
     disabled_on: dict[str, Any] | None = Field(None, alias='disabledOn')
-    hidden: bool | None = Field(None, description='是否隐藏')
+    hidden: bool | None = Field(None, description='Whether hidden')
     hidden_on: dict[str, Any] | None = Field(None, alias='hiddenOn')
-    visible: bool | None = Field(None, description='是否显示')
+    visible: bool | None = Field(None, description='Whether visible')
     visible_on: dict[str, Any] | None = Field(None, alias='visibleOn')
-    id: str | None = Field(None, description='组件唯一 id，主要用于日志采集')
-    on_event: dict[str, dict[str, Any]] | None = Field(None, alias='onEvent', description='事件动作配置')
-    static: bool | None = Field(None, description='是否静态展示')
+    id: str | None = Field(None, description='Unique component ID, mainly used for log collection')
+    on_event: dict[str, dict[str, Any]] | None = Field(None, alias='onEvent', description='Event action configuration')
+    static: bool | None = Field(None, description='Whether to display statically')
     static_on: dict[str, Any] | None = Field(None, alias='staticOn')
-    static_placeholder: str | None = Field(None, alias='staticPlaceholder', description='静态展示空值占位')
+    static_placeholder: str | None = Field(
+        None, alias='staticPlaceholder', description='Static display empty value placeholder'
+    )
     static_class_name: dict[str, Any] | None = Field(None, alias='staticClassName')
     static_label_class_name: dict[str, Any] | None = Field(None, alias='staticLabelClassName')
     static_input_class_name: dict[str, Any] | None = Field(None, alias='staticInputClassName')
     static_schema: Any | None = Field(None, alias='staticSchema')
-    style: dict[str, Any] | None = Field(None, description='组件样式')
-    editor_setting: EditorSetting2 | None = Field(None, alias='editorSetting', description='编辑器配置，运行时可以忽略')
-    use_mobile_ui: bool | None = Field(None, alias='useMobileUI', description='可以组件级别用来关闭移动端样式')
+    style: dict[str, Any] | None = Field(None, description='Component style')
+    editor_setting: EditorSetting2 | None = Field(
+        None, alias='editorSetting', description='Editor configuration, can be ignored at runtime'
+    )
+    use_mobile_ui: bool | None = Field(
+        None, alias='useMobileUI', description='Can be used at the component level to turn off mobile styles'
+    )
     title: str | None = Field(None, description='Tab 标题')
     tab: dict[str, Any] | None = None
     toolbar: list[dict[str, Any]] | None = Field(None, description='可以在右侧配置点其他功能按钮，随着tab切换而切换')
     body: dict[str, Any] | None = None
-    icon: str | None = Field(None, description='iconfont 里面的类名。')
+    icon: str | None = Field(None, description='Class name in iconfont.')
     icon_position: IconPosition | None = Field(None, alias='iconPosition')
     reload: bool | None = Field(None, description='设置以后内容每次都会重新渲染')
     mount_on_enter: bool | None = Field(None, alias='mountOnEnter', description='点开时才加载卡片内容')
@@ -10995,29 +11140,37 @@ class TimelineItemSchema(BaseModel):
     model_config = ConfigDict(
         extra='forbid',
     )
-    field__id: str | None = Field(None, alias='$$id', description='组件唯一 id，主要用于页面设计器中定位 json 节点')
+    field__id: str | None = Field(
+        None, alias='$$id', description='Unique component ID, mainly used to locate JSON nodes in the page designer'
+    )
     class_name: dict[str, Any] | None = Field(None, alias='className')
     field_ref: str | None = Field(
-        None, alias='$ref', description='配合 definitions 一起使用，可以实现无限循环的渲染器。'
+        None, alias='$ref', description='Used together with definitions, infinite loop renderers can be achieved.'
     )
-    disabled: bool | None = Field(None, description='是否禁用')
+    disabled: bool | None = Field(None, description='Whether disabled')
     disabled_on: dict[str, Any] | None = Field(None, alias='disabledOn')
-    hidden: bool | None = Field(None, description='是否隐藏')
+    hidden: bool | None = Field(None, description='Whether hidden')
     hidden_on: dict[str, Any] | None = Field(None, alias='hiddenOn')
-    visible: bool | None = Field(None, description='是否显示')
+    visible: bool | None = Field(None, description='Whether visible')
     visible_on: dict[str, Any] | None = Field(None, alias='visibleOn')
-    id: str | None = Field(None, description='组件唯一 id，主要用于日志采集')
-    on_event: dict[str, dict[str, Any]] | None = Field(None, alias='onEvent', description='事件动作配置')
-    static: bool | None = Field(None, description='是否静态展示')
+    id: str | None = Field(None, description='Unique component ID, mainly used for log collection')
+    on_event: dict[str, dict[str, Any]] | None = Field(None, alias='onEvent', description='Event action configuration')
+    static: bool | None = Field(None, description='Whether to display statically')
     static_on: dict[str, Any] | None = Field(None, alias='staticOn')
-    static_placeholder: str | None = Field(None, alias='staticPlaceholder', description='静态展示空值占位')
+    static_placeholder: str | None = Field(
+        None, alias='staticPlaceholder', description='Static display empty value placeholder'
+    )
     static_class_name: dict[str, Any] | None = Field(None, alias='staticClassName')
     static_label_class_name: dict[str, Any] | None = Field(None, alias='staticLabelClassName')
     static_input_class_name: dict[str, Any] | None = Field(None, alias='staticInputClassName')
     static_schema: Any | None = Field(None, alias='staticSchema')
-    style: dict[str, Any] | None = Field(None, description='组件样式')
-    editor_setting: EditorSetting2 | None = Field(None, alias='editorSetting', description='编辑器配置，运行时可以忽略')
-    use_mobile_ui: bool | None = Field(None, alias='useMobileUI', description='可以组件级别用来关闭移动端样式')
+    style: dict[str, Any] | None = Field(None, description='Component style')
+    editor_setting: EditorSetting2 | None = Field(
+        None, alias='editorSetting', description='Editor configuration, can be ignored at runtime'
+    )
+    use_mobile_ui: bool | None = Field(
+        None, alias='useMobileUI', description='Can be used at the component level to turn off mobile styles'
+    )
     time: str = Field(..., description='时间点')
     title: dict[str, Any] | None = None
     detail: str | None = Field(None, description='详细内容')
@@ -11444,29 +11597,37 @@ class FormBaseControl(BaseModel):
     auto_fill: Any | None = Field(None, alias='autoFill')
     init_auto_fill: Any | None = Field(None, alias='initAutoFill')
     row: Any | None = None
-    field__id: str | None = Field(None, alias='$$id', description='组件唯一 id，主要用于页面设计器中定位 json 节点')
+    field__id: str | None = Field(
+        None, alias='$$id', description='Unique component ID, mainly used to locate JSON nodes in the page designer'
+    )
     class_name: dict[str, Any] | None = Field(None, alias='className')
     field_ref: str | None = Field(
-        None, alias='$ref', description='配合 definitions 一起使用，可以实现无限循环的渲染器。'
+        None, alias='$ref', description='Used together with definitions, infinite loop renderers can be achieved.'
     )
-    disabled: bool | None = Field(None, description='是否禁用')
+    disabled: bool | None = Field(None, description='Whether disabled')
     disabled_on: dict[str, Any] | None = Field(None, alias='disabledOn')
-    hidden: bool | None = Field(None, description='是否隐藏')
+    hidden: bool | None = Field(None, description='Whether hidden')
     hidden_on: dict[str, Any] | None = Field(None, alias='hiddenOn')
-    visible: bool | None = Field(None, description='是否显示')
+    visible: bool | None = Field(None, description='Whether visible')
     visible_on: dict[str, Any] | None = Field(None, alias='visibleOn')
-    id: str | None = Field(None, description='组件唯一 id，主要用于日志采集')
-    on_event: dict[str, dict[str, Any]] | None = Field(None, alias='onEvent', description='事件动作配置')
-    static: bool | None = Field(None, description='是否静态展示')
+    id: str | None = Field(None, description='Unique component ID, mainly used for log collection')
+    on_event: dict[str, dict[str, Any]] | None = Field(None, alias='onEvent', description='Event action configuration')
+    static: bool | None = Field(None, description='Whether to display statically')
     static_on: dict[str, Any] | None = Field(None, alias='staticOn')
-    static_placeholder: str | None = Field(None, alias='staticPlaceholder', description='静态展示空值占位')
+    static_placeholder: str | None = Field(
+        None, alias='staticPlaceholder', description='Static display empty value placeholder'
+    )
     static_class_name: dict[str, Any] | None = Field(None, alias='staticClassName')
     static_label_class_name: dict[str, Any] | None = Field(None, alias='staticLabelClassName')
     static_input_class_name: dict[str, Any] | None = Field(None, alias='staticInputClassName')
     static_schema: Any | None = Field(None, alias='staticSchema')
-    style: dict[str, Any] | None = Field(None, description='组件样式')
-    editor_setting: EditorSetting2 | None = Field(None, alias='editorSetting', description='编辑器配置，运行时可以忽略')
-    use_mobile_ui: bool | None = Field(None, alias='useMobileUI', description='可以组件级别用来关闭移动端样式')
+    style: dict[str, Any] | None = Field(None, description='Component style')
+    editor_setting: EditorSetting2 | None = Field(
+        None, alias='editorSetting', description='Editor configuration, can be ignored at runtime'
+    )
+    use_mobile_ui: bool | None = Field(
+        None, alias='useMobileUI', description='Can be used at the component level to turn off mobile styles'
+    )
     size: Size11 | None = Field(None, description='表单项大小')
 
 
@@ -11688,12 +11849,12 @@ class BaseComboControlSchema(BaseModel):
     form_class_name: dict[str, Any] | None = Field(
         None,
         alias='formClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     add_button_class_name: dict[str, Any] | None = Field(
         None,
         alias='addButtonClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     add_button_text: str | None = Field('新增', alias='addButtonText', description='新增按钮文字')
     addable: bool | None = Field(None, description='是否可新增')
@@ -11725,7 +11886,7 @@ class BaseComboControlSchema(BaseModel):
     tabs_label_tpl: str | None = Field(
         None,
         alias='tabsLabelTpl',
-        description='支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
     )
     lazy_load: bool | None = Field(None, alias='lazyLoad', description='数据比较多，比较卡时，可以试试开启。')
     per_page: float | None = Field(None, alias='perPage', description='分页个数，默认不分页')
@@ -11763,7 +11924,7 @@ class ComboSubControl(BaseModel):
     column_class_name: dict[str, Any] | None = Field(
         None,
         alias='columnClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     testid: str | None = None
 
@@ -12003,7 +12164,7 @@ class Option(BaseModel):
         description='可以用来给 Option 标记个范围，让数据展示更清晰。\n\n这个只有在数值展示的时候显示。',
     )
     value: Any | None = Field(None, description='请保证数值唯一，多个选项值一致会认为是同一个选项。')
-    disabled: bool | None = Field(None, description='是否禁用')
+    disabled: bool | None = Field(None, description='Whether disabled')
     disabled_tip: str | None = Field(None, alias='disabledTip', description='禁用提示')
     children: list[dict[str, Any]] | None = None
     visible: bool | None = Field(None, description='是否可见')
@@ -12023,7 +12184,7 @@ class Option1(BaseModel):
         description='可以用来给 Option 标记个范围，让数据展示更清晰。\n\n这个只有在数值展示的时候显示。',
     )
     value: Any | None = Field(None, description='请保证数值唯一，多个选项值一致会认为是同一个选项。')
-    disabled: bool | None = Field(None, description='是否禁用')
+    disabled: bool | None = Field(None, description='Whether disabled')
     disabled_tip: str | None = Field(None, alias='disabledTip', description='禁用提示')
     children: dict[str, Any] | None = None
     visible: bool | None = Field(None, description='是否可见')
@@ -12464,7 +12625,7 @@ class InputCityControlSchema(BaseModel):
     allow_city: bool | None = Field(None, alias='allowCity', description='允许选择城市？')
     allow_district: bool | None = Field(None, alias='allowDistrict', description='允许选择地区？')
     allow_street: bool | None = Field(None, alias='allowStreet', description='允许选择街道？')
-    searchable: bool | None = Field(None, description='是否显示搜索框')
+    searchable: bool | None = Field(None, description='Whether visible搜索框')
     item_class_name: str | None = Field(None, alias='itemClassName', description='下拉框className')
 
 
@@ -12542,7 +12703,7 @@ class InputColorControlSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     size: Any | None = None
     type: Any
-    clearable: bool | None = Field(None, description='是否显示清除按钮')
+    clearable: bool | None = Field(None, description='Whether visible清除按钮')
     format: Format | None = Field(None, description='颜色格式')
     close_on_select: bool | None = Field(None, alias='closeOnSelect', description='选中颜色后是否关闭弹出层。')
     preset_colors: list[dict[str, Any]] | None = Field(
@@ -12877,7 +13038,9 @@ class ConditionBuilderControlSchema(BaseModel):
     config: Config | None = None
     source: dict[str, Any] | None = Field(None, description='通过远程拉取配置项')
     builder_mode: BuilderMode | None = Field(None, alias='builderMode', description='展现模式')
-    show_andor: bool | None = Field(None, alias='showANDOR', description='是否显示并或切换键按钮，只在简单模式下有用')
+    show_andor: bool | None = Field(
+        None, alias='showANDOR', description='Whether visible并或切换键按钮，只在简单模式下有用'
+    )
     draggable: bool | None = Field(None, description='是否可拖拽，默认为 true')
     add_btn_visible_on: str | None = Field(None, alias='addBtnVisibleOn')
     add_group_btn_visible_on: str | None = Field(
@@ -13285,7 +13448,7 @@ class BaseInputFormulaControlSchema(BaseModel):
     allow_input: bool | None = Field(
         None, alias='allowInput', description='外层input是否允许输入，否需要点击fx在弹窗中输入'
     )
-    icon: str | None = Field(None, description='iconfont 里面的类名。')
+    icon: str | None = Field(None, description='Class name in iconfont.')
     btn_label: str | None = Field(None, alias='btnLabel', description='按钮Label，inputMode为button时生效')
     level: Level4 | None = Field(None, description='按钮样式')
     btn_size: BtnSize | None = Field(None, alias='btnSize', description='按钮大小')
@@ -13506,7 +13669,7 @@ class InputDateBaseControlSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     size: Any | None = None
     type: Any
-    clearable: bool | None = Field(None, description='是否显示清除按钮')
+    clearable: bool | None = Field(None, description='Whether visible清除按钮')
     format: str | None = Field(None, description='日期存储格式')
     value_format: str | None = Field(None, alias='valueFormat', description='替代format')
     input_format: str | None = Field(None, alias='inputFormat', description='日期展示格式')
@@ -13520,7 +13683,7 @@ class InputDateBaseControlSchema(BaseModel):
     disabled_date: str | None = Field(
         None,
         alias='disabledDate',
-        description='字符串函数，用来决定是否禁用某个日期。\n\n(currentDate: moment.Moment, props: any) => boolean;',
+        description='字符串函数，用来决定Whether disabled某个日期。\n\n(currentDate: moment.Moment, props: any) => boolean;',
     )
     input_forbid: bool | None = Field(None, alias='inputForbid')
 
@@ -14408,29 +14571,37 @@ class EditorControlSchema(BaseModel):
     auto_fill: Any | None = Field(None, alias='autoFill')
     init_auto_fill: Any | None = Field(None, alias='initAutoFill')
     row: Any | None = None
-    field__id: str | None = Field(None, alias='$$id', description='组件唯一 id，主要用于页面设计器中定位 json 节点')
+    field__id: str | None = Field(
+        None, alias='$$id', description='Unique component ID, mainly used to locate JSON nodes in the page designer'
+    )
     class_name: dict[str, Any] | None = Field(None, alias='className')
     field_ref: str | None = Field(
-        None, alias='$ref', description='配合 definitions 一起使用，可以实现无限循环的渲染器。'
+        None, alias='$ref', description='Used together with definitions, infinite loop renderers can be achieved.'
     )
-    disabled: bool | None = Field(None, description='是否禁用')
+    disabled: bool | None = Field(None, description='Whether disabled')
     disabled_on: dict[str, Any] | None = Field(None, alias='disabledOn')
-    hidden: bool | None = Field(None, description='是否隐藏')
+    hidden: bool | None = Field(None, description='Whether hidden')
     hidden_on: dict[str, Any] | None = Field(None, alias='hiddenOn')
-    visible: bool | None = Field(None, description='是否显示')
+    visible: bool | None = Field(None, description='Whether visible')
     visible_on: dict[str, Any] | None = Field(None, alias='visibleOn')
-    id: str | None = Field(None, description='组件唯一 id，主要用于日志采集')
-    on_event: dict[str, dict[str, Any]] | None = Field(None, alias='onEvent', description='事件动作配置')
-    static: bool | None = Field(None, description='是否静态展示')
+    id: str | None = Field(None, description='Unique component ID, mainly used for log collection')
+    on_event: dict[str, dict[str, Any]] | None = Field(None, alias='onEvent', description='Event action configuration')
+    static: bool | None = Field(None, description='Whether to display statically')
     static_on: dict[str, Any] | None = Field(None, alias='staticOn')
-    static_placeholder: str | None = Field(None, alias='staticPlaceholder', description='静态展示空值占位')
+    static_placeholder: str | None = Field(
+        None, alias='staticPlaceholder', description='Static display empty value placeholder'
+    )
     static_class_name: dict[str, Any] | None = Field(None, alias='staticClassName')
     static_label_class_name: dict[str, Any] | None = Field(None, alias='staticLabelClassName')
     static_input_class_name: dict[str, Any] | None = Field(None, alias='staticInputClassName')
     static_schema: Any | None = Field(None, alias='staticSchema')
-    style: dict[str, Any] | None = Field(None, description='组件样式')
-    editor_setting: EditorSetting2 | None = Field(None, alias='editorSetting', description='编辑器配置，运行时可以忽略')
-    use_mobile_ui: bool | None = Field(None, alias='useMobileUI', description='可以组件级别用来关闭移动端样式')
+    style: dict[str, Any] | None = Field(None, description='Component style')
+    editor_setting: EditorSetting2 | None = Field(
+        None, alias='editorSetting', description='Editor configuration, can be ignored at runtime'
+    )
+    use_mobile_ui: bool | None = Field(
+        None, alias='useMobileUI', description='Can be used at the component level to turn off mobile styles'
+    )
     type: Type23
     language: Language | None = Field(None, description='语言类型')
     size: Size12 | None = Field(None, description='编辑器大小')
@@ -14568,12 +14739,12 @@ class FieldSetControlSchema(BaseModel):
     body: dict[str, Any] | None = None
     title: str | None = Field(
         None,
-        description='支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
     )
     collapse_title: str | None = Field(
         None,
         alias='collapseTitle',
-        description='支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
     )
     sub_form_mode: SubFormMode4 | None = Field(None, alias='subFormMode', description='配置子表单项默认的展示方式。')
     sub_form_horizontal: SubFormHorizontal | None = Field(None, alias='subFormHorizontal')
@@ -14684,7 +14855,7 @@ class FileControlSchema(BaseModel):
         'file', alias='fileField', description='默认 `file`, 如果你不想自己存储，则可以忽略此属性。'
     )
     finish_chunk_api: dict[str, Any] | None = Field(None, alias='finishChunkApi')
-    hide_upload_button: bool | None = Field(None, alias='hideUploadButton', description='是否隐藏上传按钮')
+    hide_upload_button: bool | None = Field(None, alias='hideUploadButton', description='Whether hidden上传按钮')
     max_length: float | None = Field(None, alias='maxLength', description='最多的个数')
     max_size: float | None = Field(
         None, alias='maxSize', description='默认没有限制，当设置后，文件大小大于此值将不允许上传。'
@@ -14703,12 +14874,12 @@ class FileControlSchema(BaseModel):
     btn_class_name: dict[str, Any] | None = Field(
         None,
         alias='btnClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     btn_upload_class_name: dict[str, Any] | None = Field(
         None,
         alias='btnUploadClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     multiple: bool | None = Field(None, description='是否为多选')
     join_values: bool | None = Field(
@@ -14895,7 +15066,7 @@ class GroupSubControl(BaseModel):
     column_class_name: dict[str, Any] | None = Field(
         None,
         alias='columnClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     column_ratio: float | str | None = Field(
         None, alias='columnRatio', description='宽度占用比率。在某些容器里面有用比如 group'
@@ -15152,7 +15323,7 @@ class ImageControlSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     size: Any | None = None
     type: Any
-    show_error_modal: bool | None = Field(None, alias='showErrorModal', description='格式校验失败是否显示弹窗')
+    show_error_modal: bool | None = Field(None, alias='showErrorModal', description='格式校验失败Whether visible弹窗')
     invalid_type_message: str | None = Field(
         None, alias='invalidTypeMessage', description='校验格式失败时显示的文字信息'
     )
@@ -15174,12 +15345,12 @@ class ImageControlSchema(BaseModel):
     btn_class_name: dict[str, Any] | None = Field(
         None,
         alias='btnClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     btn_upload_class_name: dict[str, Any] | None = Field(
         None,
         alias='btnUploadClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     compress: bool | None = None
     compress_options: CompressOptions | None = Field(None, alias='compressOptions')
@@ -15187,7 +15358,7 @@ class ImageControlSchema(BaseModel):
     crop_format: str | None = Field(None, alias='cropFormat', description='裁剪后的图片类型')
     crop_quality: float | None = Field(None, alias='cropQuality', description='裁剪后的质量')
     re_cropable: bool | None = Field(None, alias='reCropable', description='是否允许二次裁剪。')
-    hide_upload_button: bool | None = Field(None, alias='hideUploadButton', description='是否隐藏上传按钮')
+    hide_upload_button: bool | None = Field(None, alias='hideUploadButton', description='Whether hidden上传按钮')
     limit: Limit | None = Field(None, description='限制图片大小，超出不让上传。')
     max_length: float | None = Field(None, alias='maxLength', description='最多的个数')
     max_size: float | None = Field(
@@ -15218,7 +15389,7 @@ class ImageControlSchema(BaseModel):
     fixed_size_class_name: dict[str, Any] | None = Field(
         None,
         alias='fixedSizeClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     draggable: bool | None = Field(None, description='是否可拖拽排序')
     draggable_tip: str | None = Field('可拖拽排序', alias='draggableTip', description='可拖拽排序的提示信息。')
@@ -15410,7 +15581,7 @@ class ListControlSchema(BaseModel):
     list_class_name: dict[str, Any] | None = Field(
         None,
         alias='listClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
 
 
@@ -15483,7 +15654,7 @@ class JSONSchemaEditorControlSchema(BaseModel):
     type: Any
     definitions: dict[str, Definitions] | None = Field(None, description='可以理解为类型模板，方便快速定义复杂类型')
     root_type_mutable: bool | None = Field(None, alias='rootTypeMutable', description='顶层是否允许修改类型')
-    show_root_info: bool | None = Field(None, alias='showRootInfo', description='顶层类型信息是否隐藏')
+    show_root_info: bool | None = Field(None, alias='showRootInfo', description='顶层类型信息Whether hidden')
     disabled_types: list[str] | None = Field(None, alias='disabledTypes', description='禁用类型，默认禁用了 null 类型')
     enable_advanced_setting: bool | None = Field(None, alias='enableAdvancedSetting', description='开启详情配置')
     advanced_settings: dict[str, Any] | None = Field(
@@ -15671,7 +15842,7 @@ class LocationControlSchema(BaseModel):
         description='开启只读模式后的占位提示，默认为“点击获取位置信息” 备注：区分下现有的placeholder（“请选择位置”）',
     )
     hide_view_control: bool | None = Field(
-        None, alias='hideViewControl', description='是否隐藏地图控制组件，默认为false'
+        None, alias='hideViewControl', description='Whether hidden地图控制组件，默认为false'
     )
 
 
@@ -16089,7 +16260,7 @@ class NestedSelectControlSchema(BaseModel):
     )
     only_leaf: bool | None = Field(None, alias='onlyLeaf', description='只允许选择叶子节点')
     hide_node_path_label: bool | None = Field(
-        None, alias='hideNodePathLabel', description='是否隐藏选择框中已选中节点的祖先节点的文本信息'
+        None, alias='hideNodePathLabel', description='Whether hidden选择框中已选中节点的祖先节点的文本信息'
     )
     max_tag_count: float | None = Field(
         None,
@@ -16176,7 +16347,7 @@ class NumberControlSchema(BaseModel):
     min: float | None = Field(None, description='最小值')
     step: float | None = Field(None, description='步长')
     precision: float | None = Field(None, description='精度')
-    show_steps: bool | None = Field(None, alias='showSteps', description='是否显示上下点击按钮')
+    show_steps: bool | None = Field(None, alias='showSteps', description='Whether visible上下点击按钮')
     border_mode: BorderMode | None = Field(
         None, alias='borderMode', description='边框模式，全边框，还是半边框，或者没边框。'
     )
@@ -16327,7 +16498,7 @@ class PickerControlSchema(BaseModel):
     label_tpl: str | None = Field(
         None,
         alias='labelTpl',
-        description='支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
     )
     label_field: str | None = Field(
         None, alias='labelField', description='建议用 labelTpl 选中一个字段名用来作为值的描述文字'
@@ -17063,7 +17234,7 @@ class SelectControlSchema(BaseModel):
     option_class_name: dict[str, Any] | None = Field(
         None,
         alias='optionClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     overlay: Overlay | None = Field(None, description='下拉框 Popover 设置')
     test_id_builder: TestIdBuilder1 | None = Field(None, alias='testIdBuilder')
@@ -17228,17 +17399,17 @@ class SubFormControlSchema(BaseModel):
     add_button_class_name: dict[str, Any] | None = Field(
         None,
         alias='addButtonClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     item_class_name: dict[str, Any] | None = Field(
         None,
         alias='itemClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     items_class_name: dict[str, Any] | None = Field(
         None,
         alias='itemsClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     show_error_msg: bool | None = Field(None, alias='showErrorMsg', description='是否在左下角显示报错信息')
     form: Form | None = Field(
@@ -17391,11 +17562,11 @@ class StaticExactControlSchema(BaseModel):
     type: Any
     tpl: str | None = Field(
         None,
-        description='支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
     )
     text: str | None = Field(
         None,
-        description='支持两种语法，但是不能混着用。分别是：\n\n1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\n更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
+        description='Supports two syntaxes, but they cannot be mixed. They are:\n\n1. `${xxx}` or `${xxx|upperCase}` 2. `<%= data.xxx %>`\n\n\nMore documentation: https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template',
     )
     pop_over: dict[str, Any] | None = Field(None, alias='popOver')
     quick_edit: dict[str, Any] | None = Field(None, alias='quickEdit')
@@ -17438,7 +17609,7 @@ class TableControlSchema(BaseModel):
     footer_class_name: Any | None = Field(None, alias='footerClassName')
     header_class_name: Any | None = Field(None, alias='headerClassName')
     placeholder: Any | None = None
-    show_index: bool | None = Field(None, alias='showIndex', description='是否显示序号')
+    show_index: bool | None = Field(None, alias='showIndex', description='Whether visible序号')
     show_footer: Any | None = Field(None, alias='showFooter')
     show_header: Any | None = Field(None, alias='showHeader')
     source: Any | None = None
@@ -17447,7 +17618,7 @@ class TableControlSchema(BaseModel):
     toolbar_class_name: dict[str, Any] | None = Field(
         None,
         alias='toolbarClassName',
-        description='css类名，配置字符串，或者对象。\n\n    className: "red"\n\n用对象配置时意味着你能跟表达式一起搭配使用，如：\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
+        description='CSS class name, configured as a string or object.\n\n    className: "red"\n\nWhen configured as an object, it means you can use it with expressions, such as:\n\n    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     }',
     )
     combine_num: Any | None = Field(None, alias='combineNum')
     combine_from_index: Any | None = Field(None, alias='combineFromIndex')
@@ -17502,7 +17673,7 @@ class TableControlSchema(BaseModel):
     copyable: bool | None = Field(None, description='可复制新增')
     copy_btn_label: str | None = Field(None, alias='copyBtnLabel', description='复制按钮文字')
     copy_btn_icon: str | None = Field(None, alias='copyBtnIcon', description='复制按钮图标')
-    copy_add_btn: bool | None = Field(None, alias='copyAddBtn', description='是否显示复制按钮')
+    copy_add_btn: bool | None = Field(None, alias='copyAddBtn', description='Whether visible复制按钮')
     copy_data: dict[str, Any] | None = Field(
         None,
         alias='copyData',
@@ -17533,8 +17704,10 @@ class TableControlSchema(BaseModel):
     per_page: float | None = Field(None, alias='perPage', description='分页个数，默认不分页')
     max_length: float | dict[str, Any] | None = Field(None, alias='maxLength', description='限制最大个数')
     min_length: float | dict[str, Any] | None = Field(None, alias='minLength', description='限制最小个数')
-    show_footer_add_btn: bool | None = Field(None, alias='showFooterAddBtn', description='是否显示底部新增按钮')
-    show_table_add_btn: bool | None = Field(None, alias='showTableAddBtn', description='是否显示表格操作栏新增按钮')
+    show_footer_add_btn: bool | None = Field(None, alias='showFooterAddBtn', description='Whether visible底部新增按钮')
+    show_table_add_btn: bool | None = Field(
+        None, alias='showTableAddBtn', description='Whether visible表格操作栏新增按钮'
+    )
     footer_add_btn: dict[str, Any] | None = Field(None, alias='footerAddBtn')
     enable_static_transform: bool | None = Field(
         None, alias='enableStaticTransform', description='是否开启 static 状态切换'
@@ -17802,7 +17975,7 @@ class BaseTransferControlSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     size: Any | None = None
     type: Any | None = None
-    show_arrow: bool | None = Field(None, alias='showArrow', description='是否显示剪头')
+    show_arrow: bool | None = Field(None, alias='showArrow', description='Whether visible剪头')
     sortable: bool | None = Field(None, description='可排序？')
     select_mode: SelectMode2 | None = Field(None, alias='selectMode', description='勾选展示模式')
     result_list_mode_follow_select: bool | None = Field(
@@ -18133,7 +18306,7 @@ class TextControlSchema(BaseModel):
     )
     min_length: float | None = Field(None, alias='minLength', description='限制文字最小输入个数')
     max_length: float | None = Field(None, alias='maxLength', description='限制文字最大输入个数')
-    show_counter: bool | None = Field(None, alias='showCounter', description='是否显示计数')
+    show_counter: bool | None = Field(None, alias='showCounter', description='Whether visible计数')
     prefix: str | None = Field(None, description='前缀')
     suffix: str | None = Field(None, description='后缀')
     transform: Transform | None = Field(None, description='自动转换值')
@@ -18231,7 +18404,7 @@ class TextareaControlSchema(BaseModel):
         None, alias='borderMode', description='边框模式，全边框，还是半边框，或者没边框。'
     )
     max_length: float | None = Field(None, alias='maxLength', description='限制文字个数')
-    show_counter: bool | None = Field(None, alias='showCounter', description='是否显示计数')
+    show_counter: bool | None = Field(None, alias='showCounter', description='Whether visible计数')
     clearable: bool | None = Field(None, description='输入内容是否可清除')
     reset_value: str | None = Field(None, alias='resetValue', description='重置值')
 
@@ -18725,7 +18898,7 @@ class TreeControlSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     size: Any | None = None
     type: Any
-    hide_root: bool | None = Field(None, alias='hideRoot', description='是否隐藏顶级')
+    hide_root: bool | None = Field(None, alias='hideRoot', description='Whether hidden顶级')
     root_label: str | None = Field(None, alias='rootLabel', description='顶级选项的名称')
     root_value: Any | None = Field(None, alias='rootValue', description='顶级选项的值')
     show_icon: bool | None = Field(None, alias='showIcon', description='显示图标')
@@ -18752,7 +18925,7 @@ class TreeControlSchema(BaseModel):
     root_creatable: bool | None = Field(None, alias='rootCreatable', description='顶级节点是否可以创建子节点')
     enable_node_path: bool | None = Field(None, alias='enableNodePath', description='是否开启节点路径模式')
     path_separator: str | None = Field(None, alias='pathSeparator', description='开启节点路径模式后，节点路径的分隔符')
-    show_outline: bool | None = Field(None, alias='showOutline', description='是否显示展开线')
+    show_outline: bool | None = Field(None, alias='showOutline', description='Whether visible展开线')
     highlight_txt: str | None = Field(None, alias='highlightTxt', description='需要高亮的字符串')
     enable_default_icon: bool | None = Field(
         None, alias='enableDefaultIcon', description='是否为选项添加默认的Icon，默认值为true'
@@ -18856,7 +19029,7 @@ class TreeSelectControlSchema(BaseModel):
     use_mobile_ui: Any | None = Field(None, alias='useMobileUI')
     size: Any | None = None
     type: Any
-    hide_root: bool | None = Field(None, alias='hideRoot', description='是否隐藏顶级')
+    hide_root: bool | None = Field(None, alias='hideRoot', description='Whether hidden顶级')
     root_label: str | None = Field(None, alias='rootLabel', description='顶级选项的名称')
     root_value: Any | None = Field(None, alias='rootValue', description='顶级选项的值')
     show_icon: bool | None = Field(None, alias='showIcon', description='显示图标')
@@ -18873,11 +19046,11 @@ class TreeSelectControlSchema(BaseModel):
     only_leaf: bool | None = Field(None, alias='onlyLeaf', description='单选时，只运行选择叶子节点')
     root_creatable: bool | None = Field(None, alias='rootCreatable', description='顶级节点是否可以创建子节点')
     hide_node_path_label: bool | None = Field(
-        None, alias='hideNodePathLabel', description='是否隐藏选择框中已选中节点的祖先节点的文本信息'
+        None, alias='hideNodePathLabel', description='Whether hidden选择框中已选中节点的祖先节点的文本信息'
     )
     enable_node_path: bool | None = Field(None, alias='enableNodePath', description='是否开启节点路径模式')
     path_separator: str | None = Field(None, alias='pathSeparator', description='开启节点路径模式后，节点路径的分隔符')
-    show_outline: bool | None = Field(None, alias='showOutline', description='是否显示展开线')
+    show_outline: bool | None = Field(None, alias='showOutline', description='Whether visible展开线')
     max_tag_count: float | None = Field(
         None,
         alias='maxTagCount',
@@ -19198,9 +19371,9 @@ class TagSchema(BaseModel):
         alias='displayMode',
         description='normal: 面性标签，对应color的背景色 rounded: 线性标签， 对应color的边框 status: 带图标的标签， 图标可以自定义',
     )
-    icon: str | None = Field(None, description='iconfont 里面的类名。')
+    icon: str | None = Field(None, description='Class name in iconfont.')
     closable: bool | None = Field(None, description='是否展示关闭按钮')
-    close_icon: str = Field(..., alias='closeIcon', description='iconfont 里面的类名。')
+    close_icon: str = Field(..., alias='closeIcon', description='Class name in iconfont.')
     checkable: bool | None = Field(None, description='是否是可选的标签')
     checked: bool | None = Field(None, description='是否选中')
 
@@ -19327,7 +19500,7 @@ class SliderSchema(BaseModel):
 
 class SchemaDefaultData(BaseModel):
     """
-    初始数据，设置得值可用于组件内部模板使用。
+    Initial data, the set value can be used in component internal templates.
     """
 
 
