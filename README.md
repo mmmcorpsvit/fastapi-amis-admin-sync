@@ -25,7 +25,7 @@ FastAPI-AMIS-Admin provides **type-safe Pydantic models** for all [Baidu AMIS](h
 - 🚀 **FastAPI Integration**: Ready-to-use examples with forms, tables, and CRUD
 - ✨ **Schema Preprocessing**: Intelligent simplification handles circular references and deep nesting
 
-> **✅ Success!** We solved the RecursionError by preprocessing the AMIS schema. Now enjoy **452 fully type-safe Pydantic models** with complete IDE autocomplete!
+> **✅ Success!** We solved the RecursionError by preprocessing the AMIS schema before generation. The preprocessing resolves circular `$ref` references and limits nesting depth to 3 levels, enabling datamodel-code-generator to successfully create **452 fully type-safe Pydantic models** with complete IDE autocomplete.
 
 ## Quick Start
 
