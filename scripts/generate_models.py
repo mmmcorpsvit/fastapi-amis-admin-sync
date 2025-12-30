@@ -245,6 +245,44 @@ def main(
         if not validate_generated_code(output_path):
             return 1
 
+        # Optional: Fix union types
+        try:
+            import fix_union_types
+            logger.info("Attempting to fix union types...")
+            if fix_union_types.fix_file_regex(output_path):
+                logger.info("✅ Union types fixed")
+                # Re-validate after fixing
+                if not validate_generated_code(output_path):
+                    logger.warning("⚠️  Validation failed after fixing union types")
+        except ImportError:
+            logger.debug("fix_union_types not available, skipping")
+        except Exception as e:
+            logger.warning(f"Could not fix union types: {e}")
+        
+        # Optional: Fix enum duplicates
+        try:
+            import sys
+            sys.path.insert(0, str(Path(__file__).parent))
+            import fix_enum_duplicates
+            logger.info("Attempting to fix enum duplicates...")
+            # Read file, fix, and write back
+            with open(output_path, "r", encoding="utf-8") as f:
+                content = f.read()
+            fixed_content, fixes = fix_enum_duplicates.fix_enum_duplicates(content)
+            if fixes > 0:
+                with open(output_path, "w", encoding="utf-8") as f:
+                    f.write(fixed_content)
+                logger.info(f"✅ Fixed {fixes} enum duplicates")
+                # Re-validate after fixing
+                if not validate_generated_code(output_path):
+                    logger.warning("⚠️  Validation failed after fixing enum duplicates")
+            else:
+                logger.info("✅ No enum duplicates found")
+        except ImportError:
+            logger.debug("fix_enum_duplicates not available, skipping")
+        except Exception as e:
+            logger.warning(f"Could not fix enum duplicates: {e}")
+
         logger.info("=" * 60)
         logger.info("✅ Models generated and validated successfully!")
         logger.info(f"Location: {output_path.absolute()}")

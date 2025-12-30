@@ -21,9 +21,9 @@ sys.path.insert(0, str(SCRIPTS_DIR))
 
 import download_schema
 import translate_schema
-import simplify_schema
 import generate_models
 import clean_chinese
+import final_schema_fix
 
 # Configure logging
 logging.basicConfig(
@@ -62,12 +62,12 @@ def main() -> int:
             logger.error("❌ Schema translation failed!")
             return exit_code
 
-        # Step 3: Simplify schema
-        logger.info("\n🔧 Step 3: Simplifying schema...")
+        # Step 3: Fix and standardize the schema
+        logger.info("\n🔧 Step 3: Fixing and standardizing the schema...")
         logger.info("-" * 70)
-        exit_code = simplify_schema.main()
+        exit_code = final_schema_fix.main()
         if exit_code != 0:
-            logger.error("❌ Schema simplification failed!")
+            logger.error("❌ Schema fixing failed!")
             return exit_code
 
         # Step 4: Generate models

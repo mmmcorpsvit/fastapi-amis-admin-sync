@@ -52,9 +52,17 @@ def remove_chinese_from_docstrings(content: str) -> str:
             logger.debug(f"Removing Chinese docstring line: {line[:80]}...")
             continue
         
+        # Fix malformed docstrings (Chinese text without proper quotes)
+        if contains_chinese(line) and not in_docstring:
+            # Check if this is a malformed docstring line
+            if re.match(r'^\s+[\u4e00-\u9fff]', line):
+                # This is Chinese text that should be in a docstring but isn't
+                logger.debug(f"Removing malformed Chinese line: {line[:80]}...")
+                continue
+        
         # Replace Chinese in description fields
         if 'description=' in line and contains_chinese(line):
-            # Extract the description value
+            # Extract the description value - handle both single and double quotes
             match = re.search(r"description=['\"]([^'\"]+)['\"]", line)
             if match:
                 chinese_desc = match.group(1)
@@ -70,7 +78,7 @@ def remove_chinese_from_docstrings(content: str) -> str:
 
 def remove_chinese_docstring_classes(content: str) -> str:
     """
-    Remove entire docstrings that contain Chinese.
+    Remove entire docstrings that contain Chinese and fix malformed docstrings.
     
     Args:
         content: File content
@@ -78,25 +86,76 @@ def remove_chinese_docstring_classes(content: str) -> str:
     Returns:
         Content with Chinese docstrings removed
     """
-    # Pattern to match class docstrings
-    pattern = r'(class \w+\([^)]+\):\s*""")\s*([^"]+)(""")'
+    lines = content.split('\n')
+    result = []
+    i = 0
     
-    def replace_docstring(match):
-        class_def = match.group(1)
-        docstring_content = match.group(2)
-        end_quotes = match.group(3)
+    while i < len(lines):
+        line = lines[i]
         
-        # If docstring contains Chinese, replace it with a generic one
-        if contains_chinese(docstring_content):
-            logger.debug(f"Removing Chinese from class docstring: {docstring_content[:50]}...")
-            # Extract class name
-            class_match = re.search(r'class (\w+)', class_def)
-            class_name = class_match.group(1) if class_match else "Component"
-            return f'{class_def}\n    AMIS {class_name} component.\n    {end_quotes}'
+        # Check if this is a class definition
+        class_match = re.match(r'^class\s+(\w+)\([^)]+\):', line)
+        if class_match:
+            class_name = class_match.group(1)
+            result.append(line)
+            i += 1
+            
+            # Check next lines for docstring
+            if i < len(lines) and lines[i].strip() == '':
+                i += 1
+            
+            # Check if next line starts a docstring
+            if i < len(lines):
+                next_line = lines[i]
+                # Check for malformed docstring (Chinese text without quotes)
+                if contains_chinese(next_line) and '"""' not in next_line and "'''" not in next_line:
+                    # Skip this malformed line
+                    logger.debug(f"Removing malformed Chinese line after {class_name}: {next_line[:80]}...")
+                    i += 1
+                    # Skip until we find closing quotes or next class
+                    while i < len(lines):
+                        if '"""' in lines[i] or "'''" in lines[i] or re.match(r'^class\s+', lines[i]):
+                            break
+                        if contains_chinese(lines[i]):
+                            i += 1
+                            continue
+                        break
+                    continue
+                
+                # Check for proper docstring
+                if '"""' in next_line or "'''" in next_line:
+                    # This is a docstring - check if it contains Chinese
+                    docstring_lines = [next_line]
+                    i += 1
+                    in_docstring = True
+                    delimiter = '"""' if '"""' in next_line else "'''"
+                    
+                    # Collect docstring lines
+                    while i < len(lines) and in_docstring:
+                        docstring_lines.append(lines[i])
+                        if delimiter in lines[i] and lines[i].count(delimiter) >= 2:
+                            in_docstring = False
+                        i += 1
+                    
+                    # Check if docstring contains Chinese
+                    docstring_content = '\n'.join(docstring_lines)
+                    if contains_chinese(docstring_content):
+                        # Replace with generic docstring
+                        result.append(f'    """')
+                        result.append(f'    AMIS {class_name} component.')
+                        result.append(f'    """')
+                        logger.debug(f"Replaced Chinese docstring for {class_name}")
+                    else:
+                        # Keep original docstring
+                        result.extend(docstring_lines)
+                    continue
+            
+            continue
         
-        return match.group(0)
+        result.append(line)
+        i += 1
     
-    return re.sub(pattern, replace_docstring, content, flags=re.MULTILINE | re.DOTALL)
+    return '\n'.join(result)
 
 
 def main():
