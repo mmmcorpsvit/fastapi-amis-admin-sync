@@ -1,0 +1,1863 @@
+{
+  "patterns": {
+    "no_type_info": [
+      "SchemaObject",
+      "ActionSchema",
+      "SchemaUrlPath",
+      "VanillaAction",
+      "CardBodyField",
+      "CRUDSchema",
+      "ListBodyField",
+      "TableColumnWithType",
+      "CRUD2Schema",
+      "DividerSchema",
+      "GridColumn",
+      "Grid",
+      "HBoxColumn",
+      "HboxRow",
+      "ComboSubControl",
+      "GroupSubControl",
+      "InputTextAddOn",
+      "SchemaObjectLoose",
+      "ActionSchemaLoose"
+    ]
+  },
+  "any_analysis": {
+    "total_any_fields": 2077,
+    "total_classes_with_any": 187,
+    "top_classes": {
+      "VanillaAction": {
+        "field_count": 19,
+        "fields": {
+          "field__id": {
+            "class_name": "VanillaAction",
+            "field_name": "field__id",
+            "found_in_original": true,
+            "found_in_simplified": true,
+            "original_analysis": null,
+            "simplified_analysis": null,
+            "differences": []
+          },
+          "class_name": {
+            "class_name": "VanillaAction",
+            "field_name": "class_name",
+            "found_in_original": true,
+            "found_in_simplified": true,
+            "original_analysis": null,
+            "simplified_analysis": null,
+            "differences": []
+          },
+          "field_ref": {
+            "class_name": "VanillaAction",
+            "field_name": "field_ref",
+            "found_in_original": true,
+            "found_in_simplified": true,
+            "original_analysis": null,
+            "simplified_analysis": null,
+            "differences": []
+          },
+          "disabled": {
+            "class_name": "VanillaAction",
+            "field_name": "disabled",
+            "found_in_original": true,
+            "found_in_simplified": true,
+            "original_analysis": null,
+            "simplified_analysis": null,
+            "differences": []
+          },
+          "disabled_on": {
+            "class_name": "VanillaAction",
+            "field_name": "disabled_on",
+            "found_in_original": true,
+            "found_in_simplified": true,
+            "original_analysis": null,
+            "simplified_analysis": null,
+            "differences": []
+          }
+        }
+      },
+      "AjaxActionSchema": {
+        "field_count": 16,
+        "fields": {
+          "field__id": {
+            "class_name": "AjaxActionSchema",
+            "field_name": "field__id",
+            "found_in_original": true,
+            "found_in_simplified": true,
+            "original_analysis": null,
+            "simplified_analysis": null,
+            "differences": []
+          },
+          "class_name": {
+            "class_name": "AjaxActionSchema",
+            "field_name": "class_name",
+            "found_in_original": true,
+            "found_in_simplified": true,
+            "original_analysis": {
+              "field_name": "className",
+              "definition": "AjaxActionSchema",
+              "path": "definitions.AjaxActionSchema.properties.className",
+              "has_type": false,
+              "type_value": null,
+              "has_anyOf": false,
+              "has_oneOf": false,
+              "has_allOf": false,
+              "has_ref": false,
+              "ref_target": null,
+              "additionalProperties": null,
+              "is_primitive": false,
+              "issues": [
+                "Schema is not a dict: <class 'bool'>"
+              ]
+            },
+            "simplified_analysis": {
+              "field_name": "className",
+              "definition": "AjaxActionSchema",
+              "path": "definitions.AjaxActionSchema.properties.className",
+              "has_type": false,
+              "type_value": null,
+              "has_anyOf": true,
+              "has_oneOf": false,
+              "has_allOf": false,
+              "has_ref": false,
+              "ref_target": null,
+              "additionalProperties": null,
+              "is_primitive": false,
+              "issues": [],
+              "anyOf_count": 2,
+              "anyOf_items": [
+                {
+                  "field_name": "className",
+                  "definition": "AjaxActionSchema",
+                  "path": "definitions.AjaxActionSchema.properties.className.anyOf[0]",
+                  "has_type": true,
+                  "type_value": "string",
+                  "has_anyOf": false,
+                  "has_oneOf": false,
+                  "has_allOf": false,
+                  "has_ref": false,
+                  "ref_target": null,
+                  "additionalProperties": null,
+                  "is_primitive": true,
+                  "issues": []
+                },
+                {
+                  "field_name": "className",
+                  "definition": "AjaxActionSchema",
+                  "path": "definitions.AjaxActionSchema.properties.className.anyOf[1]",
+                  "has_type": true,
+                  "type_value": "object",
+                  "has_anyOf": false,
+                  "has_oneOf": false,
+                  "has_allOf": false,
+                  "has_ref": false,
+                  "ref_target": null,
+                  "additionalProperties": "object",
+                  "is_primitive": false,
+                  "issues": [],
+                  "additionalProperties_schema": {
+                    "field_name": "className",
+                    "definition": "AjaxActionSchema",
+                    "path": "definitions.AjaxActionSchema.properties.className.anyOf[1].additionalProperties",
+                    "has_type": false,
+                    "type_value": null,
+                    "has_anyOf": false,
+                    "has_oneOf": false,
+                    "has_allOf": false,
+                    "has_ref": false,
+                    "ref_target": null,
+                    "additionalProperties": true,
+                    "is_primitive": false,
+                    "issues": [
+                      "additionalProperties: true (allows any value)",
+                      "No type information, only additionalProperties: true"
+                    ]
+                  }
+                }
+              ]
+            },
+            "differences": [
+              "anyOf presence changed: False -> True",
+              "anyOf count changed: None -> 2"
+            ]
+          },
+          "field_ref": {
+            "class_name": "AjaxActionSchema",
+            "field_name": "field_ref",
+            "found_in_original": true,
+            "found_in_simplified": true,
+            "original_analysis": null,
+            "simplified_analysis": null,
+            "differences": []
+          },
+          "disabled": {
+            "class_name": "AjaxActionSchema",
+            "field_name": "disabled",
+            "found_in_original": true,
+            "found_in_simplified": true,
+            "original_analysis": {
+              "field_name": "disabled",
+              "definition": "AjaxActionSchema",
+              "path": "definitions.AjaxActionSchema.properties.disabled",
+              "has_type": false,
+              "type_value": null,
+              "has_anyOf": false,
+              "has_oneOf": false,
+              "has_allOf": false,
+              "has_ref": false,
+              "ref_target": null,
+              "additionalProperties": null,
+              "is_primitive": false,
+              "issues": [
+                "Schema is not a dict: <class 'bool'>"
+              ]
+            },
+            "simplified_analysis": {
+              "field_name": "disabled",
+              "definition": "AjaxActionSchema",
+              "path": "definitions.AjaxActionSchema.properties.disabled",
+              "has_type": true,
+              "type_value": "boolean",
+              "has_anyOf": false,
+              "has_oneOf": false,
+              "has_allOf": false,
+              "has_ref": false,
+              "ref_target": null,
+              "additionalProperties": null,
+              "is_primitive": true,
+              "issues": []
+            },
+            "differences": [
+              "Type changed: None -> boolean"
+            ]
+          },
+          "disabled_on": {
+            "class_name": "AjaxActionSchema",
+            "field_name": "disabled_on",
+            "found_in_original": true,
+            "found_in_simplified": true,
+            "original_analysis": {
+              "field_name": "disabledOn",
+              "definition": "AjaxActionSchema",
+              "path": "definitions.AjaxActionSchema.properties.disabledOn",
+              "has_type": false,
+              "type_value": null,
+              "has_anyOf": false,
+              "has_oneOf": false,
+              "has_allOf": false,
+              "has_ref": false,
+              "ref_target": null,
+              "additionalProperties": null,
+              "is_primitive": false,
+              "issues": [
+                "Schema is not a dict: <class 'bool'>"
+              ]
+            },
+            "simplified_analysis": {
+              "field_name": "disabledOn",
+              "definition": "AjaxActionSchema",
+              "path": "definitions.AjaxActionSchema.properties.disabledOn",
+              "has_type": true,
+              "type_value": "string",
+              "has_anyOf": false,
+              "has_oneOf": false,
+              "has_allOf": false,
+              "has_ref": false,
+              "ref_target": null,
+              "additionalProperties": null,
+              "is_primitive": true,
+              "issues": []
+            },
+            "differences": [
+              "Type changed: None -> string"
+            ]
+          }
+        }
+      },
+      "UrlActionSchema": {
+        "field_count": 16,
+        "fields": {
+          "field__id": {
+            "class_name": "UrlActionSchema",
+            "field_name": "field__id",
+            "found_in_original": true,
+            "found_in_simplified": true,
+            "original_analysis": null,
+            "simplified_analysis": null,
+            "differences": []
+          },
+          "class_name": {
+            "class_name": "UrlActionSchema",
+            "field_name": "class_name",
+            "found_in_original": true,
+            "found_in_simplified": true,
+            "original_analysis": {
+              "field_name": "className",
+              "definition": "UrlActionSchema",
+              "path": "definitions.UrlActionSchema.properties.className",
+              "has_type": false,
+              "type_value": null,
+              "has_anyOf": false,
+              "has_oneOf": false,
+              "has_allOf": false,
+              "has_ref": false,
+              "ref_target": null,
+              "additionalProperties": null,
+              "is_primitive": false,
+              "issues": [
+                "Schema is not a dict: <class 'bool'>"
+              ]
+            },
+            "simplified_analysis": {
+              "field_name": "className",
+              "definition": "UrlActionSchema",
+              "path": "definitions.UrlActionSchema.properties.className",
+              "has_type": false,
+              "type_value": null,
+              "has_anyOf": true,
+              "has_oneOf": false,
+              "has_allOf": false,
+              "has_ref": false,
+              "ref_target": null,
+              "additionalProperties": null,
+              "is_primitive": false,
+              "issues": [],
+              "anyOf_count": 2,
+              "anyOf_items": [
+                {
+                  "field_name": "className",
+                  "definition": "UrlActionSchema",
+                  "path": "definitions.UrlActionSchema.properties.className.anyOf[0]",
+                  "has_type": true,
+                  "type_value": "string",
+                  "has_anyOf": false,
+                  "has_oneOf": false,
+                  "has_allOf": false,
+                  "has_ref": false,
+                  "ref_target": null,
+                  "additionalProperties": null,
+                  "is_primitive": true,
+                  "issues": []
+                },
+                {
+                  "field_name": "className",
+                  "definition": "UrlActionSchema",
+                  "path": "definitions.UrlActionSchema.properties.className.anyOf[1]",
+                  "has_type": true,
+                  "type_value": "object",
+                  "has_anyOf": false,
+                  "has_oneOf": false,
+                  "has_allOf": false,
+                  "has_ref": false,
+                  "ref_target": null,
+                  "additionalProperties": "object",
+                  "is_primitive": false,
+                  "issues": [],
+                  "additionalProperties_schema": {
+                    "field_name": "className",
+                    "definition": "UrlActionSchema",
+                    "path": "definitions.UrlActionSchema.properties.className.anyOf[1].additionalProperties",
+                    "has_type": false,
+                    "type_value": null,
+                    "has_anyOf": false,
+                    "has_oneOf": false,
+                    "has_allOf": false,
+                    "has_ref": false,
+                    "ref_target": null,
+                    "additionalProperties": true,
+                    "is_primitive": false,
+                    "issues": [
+                      "additionalProperties: true (allows any value)",
+                      "No type information, only additionalProperties: true"
+                    ]
+                  }
+                }
+              ]
+            },
+            "differences": [
+              "anyOf presence changed: False -> True",
+              "anyOf count changed: None -> 2"
+            ]
+          },
+          "field_ref": {
+            "class_name": "UrlActionSchema",
+            "field_name": "field_ref",
+            "found_in_original": true,
+            "found_in_simplified": true,
+            "original_analysis": null,
+            "simplified_analysis": null,
+            "differences": []
+          },
+          "disabled": {
+            "class_name": "UrlActionSchema",
+            "field_name": "disabled",
+            "found_in_original": true,
+            "found_in_simplified": true,
+            "original_analysis": {
+              "field_name": "disabled",
+              "definition": "UrlActionSchema",
+              "path": "definitions.UrlActionSchema.properties.disabled",
+              "has_type": false,
+              "type_value": null,
+              "has_anyOf": false,
+              "has_oneOf": false,
+              "has_allOf": false,
+              "has_ref": false,
+              "ref_target": null,
+              "additionalProperties": null,
+              "is_primitive": false,
+              "issues": [
+                "Schema is not a dict: <class 'bool'>"
+              ]
+            },
+            "simplified_analysis": {
+              "field_name": "disabled",
+              "definition": "UrlActionSchema",
+              "path": "definitions.UrlActionSchema.properties.disabled",
+              "has_type": true,
+              "type_value": "boolean",
+              "has_anyOf": false,
+              "has_oneOf": false,
+              "has_allOf": false,
+              "has_ref": false,
+              "ref_target": null,
+              "additionalProperties": null,
+              "is_primitive": true,
+              "issues": []
+            },
+            "differences": [
+              "Type changed: None -> boolean"
+            ]
+          },
+          "disabled_on": {
+            "class_name": "UrlActionSchema",
+            "field_name": "disabled_on",
+            "found_in_original": true,
+            "found_in_simplified": true,
+            "original_analysis": {
+              "field_name": "disabledOn",
+              "definition": "UrlActionSchema",
+              "path": "definitions.UrlActionSchema.properties.disabledOn",
+              "has_type": false,
+              "type_value": null,
+              "has_anyOf": false,
+              "has_oneOf": false,
+              "has_allOf": false,
+              "has_ref": false,
+              "ref_target": null,
+              "additionalProperties": null,
+              "is_primitive": false,
+              "issues": [
+                "Schema is not a dict: <class 'bool'>"
+              ]
+            },
+            "simplified_analysis": {
+              "field_name": "disabledOn",
+              "definition": "UrlActionSchema",
+              "path": "definitions.UrlActionSchema.properties.disabledOn",
+              "has_type": true,
+              "type_value": "string",
+              "has_anyOf": false,
+              "has_oneOf": false,
+              "has_allOf": false,
+              "has_ref": false,
+              "ref_target": null,
+              "additionalProperties": null,
+              "is_primitive": true,
+              "issues": []
+            },
+            "differences": [
+              "Type changed: None -> string"
+            ]
+          }
+        }
+      },
+      "LinkActionSchema": {
+        "field_count": 16,
+        "fields": {
+          "field__id": {
+            "class_name": "LinkActionSchema",
+            "field_name": "field__id",
+            "found_in_original": true,
+            "found_in_simplified": true,
+            "original_analysis": null,
+            "simplified_analysis": null,
+            "differences": []
+          },
+          "class_name": {
+            "class_name": "LinkActionSchema",
+            "field_name": "class_name",
+            "found_in_original": true,
+            "found_in_simplified": true,
+            "original_analysis": {
+              "field_name": "className",
+              "definition": "LinkActionSchema",
+              "path": "definitions.LinkActionSchema.properties.className",
+              "has_type": false,
+              "type_value": null,
+              "has_anyOf": false,
+              "has_oneOf": false,
+              "has_allOf": false,
+              "has_ref": false,
+              "ref_target": null,
+              "additionalProperties": null,
+              "is_primitive": false,
+              "issues": [
+                "Schema is not a dict: <class 'bool'>"
+              ]
+            },
+            "simplified_analysis": {
+              "field_name": "className",
+              "definition": "LinkActionSchema",
+              "path": "definitions.LinkActionSchema.properties.className",
+              "has_type": false,
+              "type_value": null,
+              "has_anyOf": true,
+              "has_oneOf": false,
+              "has_allOf": false,
+              "has_ref": false,
+              "ref_target": null,
+              "additionalProperties": null,
+              "is_primitive": false,
+              "issues": [],
+              "anyOf_count": 2,
+              "anyOf_items": [
+                {
+                  "field_name": "className",
+                  "definition": "LinkActionSchema",
+                  "path": "definitions.LinkActionSchema.properties.className.anyOf[0]",
+                  "has_type": true,
+                  "type_value": "string",
+                  "has_anyOf": false,
+                  "has_oneOf": false,
+                  "has_allOf": false,
+                  "has_ref": false,
+                  "ref_target": null,
+                  "additionalProperties": null,
+                  "is_primitive": true,
+                  "issues": []
+                },
+                {
+                  "field_name": "className",
+                  "definition": "LinkActionSchema",
+                  "path": "definitions.LinkActionSchema.properties.className.anyOf[1]",
+                  "has_type": true,
+                  "type_value": "object",
+                  "has_anyOf": false,
+                  "has_oneOf": false,
+                  "has_allOf": false,
+                  "has_ref": false,
+                  "ref_target": null,
+                  "additionalProperties": "object",
+                  "is_primitive": false,
+                  "issues": [],
+                  "additionalProperties_schema": {
+                    "field_name": "className",
+                    "definition": "LinkActionSchema",
+                    "path": "definitions.LinkActionSchema.properties.className.anyOf[1].additionalProperties",
+                    "has_type": false,
+                    "type_value": null,
+                    "has_anyOf": false,
+                    "has_oneOf": false,
+                    "has_allOf": false,
+                    "has_ref": false,
+                    "ref_target": null,
+                    "additionalProperties": true,
+                    "is_primitive": false,
+                    "issues": [
+                      "additionalProperties: true (allows any value)",
+                      "No type information, only additionalProperties: true"
+                    ]
+                  }
+                }
+              ]
+            },
+            "differences": [
+              "anyOf presence changed: False -> True",
+              "anyOf count changed: None -> 2"
+            ]
+          },
+          "field_ref": {
+            "class_name": "LinkActionSchema",
+            "field_name": "field_ref",
+            "found_in_original": true,
+            "found_in_simplified": true,
+            "original_analysis": null,
+            "simplified_analysis": null,
+            "differences": []
+          },
+          "disabled": {
+            "class_name": "LinkActionSchema",
+            "field_name": "disabled",
+            "found_in_original": true,
+            "found_in_simplified": true,
+            "original_analysis": {
+              "field_name": "disabled",
+              "definition": "LinkActionSchema",
+              "path": "definitions.LinkActionSchema.properties.disabled",
+              "has_type": false,
+              "type_value": null,
+              "has_anyOf": false,
+              "has_oneOf": false,
+              "has_allOf": false,
+              "has_ref": false,
+              "ref_target": null,
+              "additionalProperties": null,
+              "is_primitive": false,
+              "issues": [
+                "Schema is not a dict: <class 'bool'>"
+              ]
+            },
+            "simplified_analysis": {
+              "field_name": "disabled",
+              "definition": "LinkActionSchema",
+              "path": "definitions.LinkActionSchema.properties.disabled",
+              "has_type": true,
+              "type_value": "boolean",
+              "has_anyOf": false,
+              "has_oneOf": false,
+              "has_allOf": false,
+              "has_ref": false,
+              "ref_target": null,
+              "additionalProperties": null,
+              "is_primitive": true,
+              "issues": []
+            },
+            "differences": [
+              "Type changed: None -> boolean"
+            ]
+          },
+          "disabled_on": {
+            "class_name": "LinkActionSchema",
+            "field_name": "disabled_on",
+            "found_in_original": true,
+            "found_in_simplified": true,
+            "original_analysis": {
+              "field_name": "disabledOn",
+              "definition": "LinkActionSchema",
+              "path": "definitions.LinkActionSchema.properties.disabledOn",
+              "has_type": false,
+              "type_value": null,
+              "has_anyOf": false,
+              "has_oneOf": false,
+              "has_allOf": false,
+              "has_ref": false,
+              "ref_target": null,
+              "additionalProperties": null,
+              "is_primitive": false,
+              "issues": [
+                "Schema is not a dict: <class 'bool'>"
+              ]
+            },
+            "simplified_analysis": {
+              "field_name": "disabledOn",
+              "definition": "LinkActionSchema",
+              "path": "definitions.LinkActionSchema.properties.disabledOn",
+              "has_type": true,
+              "type_value": "string",
+              "has_anyOf": false,
+              "has_oneOf": false,
+              "has_allOf": false,
+              "has_ref": false,
+              "ref_target": null,
+              "additionalProperties": null,
+              "is_primitive": true,
+              "issues": []
+            },
+            "differences": [
+              "Type changed: None -> string"
+            ]
+          }
+        }
+      },
+      "DialogActionSchema": {
+        "field_count": 16,
+        "fields": {
+          "field__id": {
+            "class_name": "DialogActionSchema",
+            "field_name": "field__id",
+            "found_in_original": true,
+            "found_in_simplified": true,
+            "original_analysis": null,
+            "simplified_analysis": null,
+            "differences": []
+          },
+          "class_name": {
+            "class_name": "DialogActionSchema",
+            "field_name": "class_name",
+            "found_in_original": true,
+            "found_in_simplified": true,
+            "original_analysis": {
+              "field_name": "className",
+              "definition": "DialogActionSchema",
+              "path": "definitions.DialogActionSchema.properties.className",
+              "has_type": false,
+              "type_value": null,
+              "has_anyOf": false,
+              "has_oneOf": false,
+              "has_allOf": false,
+              "has_ref": false,
+              "ref_target": null,
+              "additionalProperties": null,
+              "is_primitive": false,
+              "issues": [
+                "Schema is not a dict: <class 'bool'>"
+              ]
+            },
+            "simplified_analysis": {
+              "field_name": "className",
+              "definition": "DialogActionSchema",
+              "path": "definitions.DialogActionSchema.properties.className",
+              "has_type": false,
+              "type_value": null,
+              "has_anyOf": true,
+              "has_oneOf": false,
+              "has_allOf": false,
+              "has_ref": false,
+              "ref_target": null,
+              "additionalProperties": null,
+              "is_primitive": false,
+              "issues": [],
+              "anyOf_count": 2,
+              "anyOf_items": [
+                {
+                  "field_name": "className",
+                  "definition": "DialogActionSchema",
+                  "path": "definitions.DialogActionSchema.properties.className.anyOf[0]",
+                  "has_type": true,
+                  "type_value": "string",
+                  "has_anyOf": false,
+                  "has_oneOf": false,
+                  "has_allOf": false,
+                  "has_ref": false,
+                  "ref_target": null,
+                  "additionalProperties": null,
+                  "is_primitive": true,
+                  "issues": []
+                },
+                {
+                  "field_name": "className",
+                  "definition": "DialogActionSchema",
+                  "path": "definitions.DialogActionSchema.properties.className.anyOf[1]",
+                  "has_type": true,
+                  "type_value": "object",
+                  "has_anyOf": false,
+                  "has_oneOf": false,
+                  "has_allOf": false,
+                  "has_ref": false,
+                  "ref_target": null,
+                  "additionalProperties": "object",
+                  "is_primitive": false,
+                  "issues": [],
+                  "additionalProperties_schema": {
+                    "field_name": "className",
+                    "definition": "DialogActionSchema",
+                    "path": "definitions.DialogActionSchema.properties.className.anyOf[1].additionalProperties",
+                    "has_type": false,
+                    "type_value": null,
+                    "has_anyOf": false,
+                    "has_oneOf": false,
+                    "has_allOf": false,
+                    "has_ref": false,
+                    "ref_target": null,
+                    "additionalProperties": true,
+                    "is_primitive": false,
+                    "issues": [
+                      "additionalProperties: true (allows any value)",
+                      "No type information, only additionalProperties: true"
+                    ]
+                  }
+                }
+              ]
+            },
+            "differences": [
+              "anyOf presence changed: False -> True",
+              "anyOf count changed: None -> 2"
+            ]
+          },
+          "field_ref": {
+            "class_name": "DialogActionSchema",
+            "field_name": "field_ref",
+            "found_in_original": true,
+            "found_in_simplified": true,
+            "original_analysis": null,
+            "simplified_analysis": null,
+            "differences": []
+          },
+          "disabled": {
+            "class_name": "DialogActionSchema",
+            "field_name": "disabled",
+            "found_in_original": true,
+            "found_in_simplified": true,
+            "original_analysis": {
+              "field_name": "disabled",
+              "definition": "DialogActionSchema",
+              "path": "definitions.DialogActionSchema.properties.disabled",
+              "has_type": false,
+              "type_value": null,
+              "has_anyOf": false,
+              "has_oneOf": false,
+              "has_allOf": false,
+              "has_ref": false,
+              "ref_target": null,
+              "additionalProperties": null,
+              "is_primitive": false,
+              "issues": [
+                "Schema is not a dict: <class 'bool'>"
+              ]
+            },
+            "simplified_analysis": {
+              "field_name": "disabled",
+              "definition": "DialogActionSchema",
+              "path": "definitions.DialogActionSchema.properties.disabled",
+              "has_type": true,
+              "type_value": "boolean",
+              "has_anyOf": false,
+              "has_oneOf": false,
+              "has_allOf": false,
+              "has_ref": false,
+              "ref_target": null,
+              "additionalProperties": null,
+              "is_primitive": true,
+              "issues": []
+            },
+            "differences": [
+              "Type changed: None -> boolean"
+            ]
+          },
+          "disabled_on": {
+            "class_name": "DialogActionSchema",
+            "field_name": "disabled_on",
+            "found_in_original": true,
+            "found_in_simplified": true,
+            "original_analysis": {
+              "field_name": "disabledOn",
+              "definition": "DialogActionSchema",
+              "path": "definitions.DialogActionSchema.properties.disabledOn",
+              "has_type": false,
+              "type_value": null,
+              "has_anyOf": false,
+              "has_oneOf": false,
+              "has_allOf": false,
+              "has_ref": false,
+              "ref_target": null,
+              "additionalProperties": null,
+              "is_primitive": false,
+              "issues": [
+                "Schema is not a dict: <class 'bool'>"
+              ]
+            },
+            "simplified_analysis": {
+              "field_name": "disabledOn",
+              "definition": "DialogActionSchema",
+              "path": "definitions.DialogActionSchema.properties.disabledOn",
+              "has_type": true,
+              "type_value": "string",
+              "has_anyOf": false,
+              "has_oneOf": false,
+              "has_allOf": false,
+              "has_ref": false,
+              "ref_target": null,
+              "additionalProperties": null,
+              "is_primitive": true,
+              "issues": []
+            },
+            "differences": [
+              "Type changed: None -> string"
+            ]
+          }
+        }
+      },
+      "DrawerActionSchema": {
+        "field_count": 16,
+        "fields": {
+          "field__id": {
+            "class_name": "DrawerActionSchema",
+            "field_name": "field__id",
+            "found_in_original": true,
+            "found_in_simplified": true,
+            "original_analysis": null,
+            "simplified_analysis": null,
+            "differences": []
+          },
+          "class_name": {
+            "class_name": "DrawerActionSchema",
+            "field_name": "class_name",
+            "found_in_original": true,
+            "found_in_simplified": true,
+            "original_analysis": {
+              "field_name": "className",
+              "definition": "DrawerActionSchema",
+              "path": "definitions.DrawerActionSchema.properties.className",
+              "has_type": false,
+              "type_value": null,
+              "has_anyOf": false,
+              "has_oneOf": false,
+              "has_allOf": false,
+              "has_ref": false,
+              "ref_target": null,
+              "additionalProperties": null,
+              "is_primitive": false,
+              "issues": [
+                "Schema is not a dict: <class 'bool'>"
+              ]
+            },
+            "simplified_analysis": {
+              "field_name": "className",
+              "definition": "DrawerActionSchema",
+              "path": "definitions.DrawerActionSchema.properties.className",
+              "has_type": false,
+              "type_value": null,
+              "has_anyOf": true,
+              "has_oneOf": false,
+              "has_allOf": false,
+              "has_ref": false,
+              "ref_target": null,
+              "additionalProperties": null,
+              "is_primitive": false,
+              "issues": [],
+              "anyOf_count": 2,
+              "anyOf_items": [
+                {
+                  "field_name": "className",
+                  "definition": "DrawerActionSchema",
+                  "path": "definitions.DrawerActionSchema.properties.className.anyOf[0]",
+                  "has_type": true,
+                  "type_value": "string",
+                  "has_anyOf": false,
+                  "has_oneOf": false,
+                  "has_allOf": false,
+                  "has_ref": false,
+                  "ref_target": null,
+                  "additionalProperties": null,
+                  "is_primitive": true,
+                  "issues": []
+                },
+                {
+                  "field_name": "className",
+                  "definition": "DrawerActionSchema",
+                  "path": "definitions.DrawerActionSchema.properties.className.anyOf[1]",
+                  "has_type": true,
+                  "type_value": "object",
+                  "has_anyOf": false,
+                  "has_oneOf": false,
+                  "has_allOf": false,
+                  "has_ref": false,
+                  "ref_target": null,
+                  "additionalProperties": "object",
+                  "is_primitive": false,
+                  "issues": [],
+                  "additionalProperties_schema": {
+                    "field_name": "className",
+                    "definition": "DrawerActionSchema",
+                    "path": "definitions.DrawerActionSchema.properties.className.anyOf[1].additionalProperties",
+                    "has_type": false,
+                    "type_value": null,
+                    "has_anyOf": false,
+                    "has_oneOf": false,
+                    "has_allOf": false,
+                    "has_ref": false,
+                    "ref_target": null,
+                    "additionalProperties": true,
+                    "is_primitive": false,
+                    "issues": [
+                      "additionalProperties: true (allows any value)",
+                      "No type information, only additionalProperties: true"
+                    ]
+                  }
+                }
+              ]
+            },
+            "differences": [
+              "anyOf presence changed: False -> True",
+              "anyOf count changed: None -> 2"
+            ]
+          },
+          "field_ref": {
+            "class_name": "DrawerActionSchema",
+            "field_name": "field_ref",
+            "found_in_original": true,
+            "found_in_simplified": true,
+            "original_analysis": null,
+            "simplified_analysis": null,
+            "differences": []
+          },
+          "disabled": {
+            "class_name": "DrawerActionSchema",
+            "field_name": "disabled",
+            "found_in_original": true,
+            "found_in_simplified": true,
+            "original_analysis": {
+              "field_name": "disabled",
+              "definition": "DrawerActionSchema",
+              "path": "definitions.DrawerActionSchema.properties.disabled",
+              "has_type": false,
+              "type_value": null,
+              "has_anyOf": false,
+              "has_oneOf": false,
+              "has_allOf": false,
+              "has_ref": false,
+              "ref_target": null,
+              "additionalProperties": null,
+              "is_primitive": false,
+              "issues": [
+                "Schema is not a dict: <class 'bool'>"
+              ]
+            },
+            "simplified_analysis": {
+              "field_name": "disabled",
+              "definition": "DrawerActionSchema",
+              "path": "definitions.DrawerActionSchema.properties.disabled",
+              "has_type": true,
+              "type_value": "boolean",
+              "has_anyOf": false,
+              "has_oneOf": false,
+              "has_allOf": false,
+              "has_ref": false,
+              "ref_target": null,
+              "additionalProperties": null,
+              "is_primitive": true,
+              "issues": []
+            },
+            "differences": [
+              "Type changed: None -> boolean"
+            ]
+          },
+          "disabled_on": {
+            "class_name": "DrawerActionSchema",
+            "field_name": "disabled_on",
+            "found_in_original": true,
+            "found_in_simplified": true,
+            "original_analysis": {
+              "field_name": "disabledOn",
+              "definition": "DrawerActionSchema",
+              "path": "definitions.DrawerActionSchema.properties.disabledOn",
+              "has_type": false,
+              "type_value": null,
+              "has_anyOf": false,
+              "has_oneOf": false,
+              "has_allOf": false,
+              "has_ref": false,
+              "ref_target": null,
+              "additionalProperties": null,
+              "is_primitive": false,
+              "issues": [
+                "Schema is not a dict: <class 'bool'>"
+              ]
+            },
+            "simplified_analysis": {
+              "field_name": "disabledOn",
+              "definition": "DrawerActionSchema",
+              "path": "definitions.DrawerActionSchema.properties.disabledOn",
+              "has_type": true,
+              "type_value": "string",
+              "has_anyOf": false,
+              "has_oneOf": false,
+              "has_allOf": false,
+              "has_ref": false,
+              "ref_target": null,
+              "additionalProperties": null,
+              "is_primitive": true,
+              "issues": []
+            },
+            "differences": [
+              "Type changed: None -> string"
+            ]
+          }
+        }
+      },
+      "ToastActionSchema": {
+        "field_count": 16,
+        "fields": {
+          "field__id": {
+            "class_name": "ToastActionSchema",
+            "field_name": "field__id",
+            "found_in_original": true,
+            "found_in_simplified": true,
+            "original_analysis": null,
+            "simplified_analysis": null,
+            "differences": []
+          },
+          "class_name": {
+            "class_name": "ToastActionSchema",
+            "field_name": "class_name",
+            "found_in_original": true,
+            "found_in_simplified": true,
+            "original_analysis": {
+              "field_name": "className",
+              "definition": "ToastActionSchema",
+              "path": "definitions.ToastActionSchema.properties.className",
+              "has_type": false,
+              "type_value": null,
+              "has_anyOf": false,
+              "has_oneOf": false,
+              "has_allOf": false,
+              "has_ref": false,
+              "ref_target": null,
+              "additionalProperties": null,
+              "is_primitive": false,
+              "issues": [
+                "Schema is not a dict: <class 'bool'>"
+              ]
+            },
+            "simplified_analysis": {
+              "field_name": "className",
+              "definition": "ToastActionSchema",
+              "path": "definitions.ToastActionSchema.properties.className",
+              "has_type": false,
+              "type_value": null,
+              "has_anyOf": true,
+              "has_oneOf": false,
+              "has_allOf": false,
+              "has_ref": false,
+              "ref_target": null,
+              "additionalProperties": null,
+              "is_primitive": false,
+              "issues": [],
+              "anyOf_count": 2,
+              "anyOf_items": [
+                {
+                  "field_name": "className",
+                  "definition": "ToastActionSchema",
+                  "path": "definitions.ToastActionSchema.properties.className.anyOf[0]",
+                  "has_type": true,
+                  "type_value": "string",
+                  "has_anyOf": false,
+                  "has_oneOf": false,
+                  "has_allOf": false,
+                  "has_ref": false,
+                  "ref_target": null,
+                  "additionalProperties": null,
+                  "is_primitive": true,
+                  "issues": []
+                },
+                {
+                  "field_name": "className",
+                  "definition": "ToastActionSchema",
+                  "path": "definitions.ToastActionSchema.properties.className.anyOf[1]",
+                  "has_type": true,
+                  "type_value": "object",
+                  "has_anyOf": false,
+                  "has_oneOf": false,
+                  "has_allOf": false,
+                  "has_ref": false,
+                  "ref_target": null,
+                  "additionalProperties": "object",
+                  "is_primitive": false,
+                  "issues": [],
+                  "additionalProperties_schema": {
+                    "field_name": "className",
+                    "definition": "ToastActionSchema",
+                    "path": "definitions.ToastActionSchema.properties.className.anyOf[1].additionalProperties",
+                    "has_type": false,
+                    "type_value": null,
+                    "has_anyOf": false,
+                    "has_oneOf": false,
+                    "has_allOf": false,
+                    "has_ref": false,
+                    "ref_target": null,
+                    "additionalProperties": true,
+                    "is_primitive": false,
+                    "issues": [
+                      "additionalProperties: true (allows any value)",
+                      "No type information, only additionalProperties: true"
+                    ]
+                  }
+                }
+              ]
+            },
+            "differences": [
+              "anyOf presence changed: False -> True",
+              "anyOf count changed: None -> 2"
+            ]
+          },
+          "field_ref": {
+            "class_name": "ToastActionSchema",
+            "field_name": "field_ref",
+            "found_in_original": true,
+            "found_in_simplified": true,
+            "original_analysis": null,
+            "simplified_analysis": null,
+            "differences": []
+          },
+          "disabled": {
+            "class_name": "ToastActionSchema",
+            "field_name": "disabled",
+            "found_in_original": true,
+            "found_in_simplified": true,
+            "original_analysis": {
+              "field_name": "disabled",
+              "definition": "ToastActionSchema",
+              "path": "definitions.ToastActionSchema.properties.disabled",
+              "has_type": false,
+              "type_value": null,
+              "has_anyOf": false,
+              "has_oneOf": false,
+              "has_allOf": false,
+              "has_ref": false,
+              "ref_target": null,
+              "additionalProperties": null,
+              "is_primitive": false,
+              "issues": [
+                "Schema is not a dict: <class 'bool'>"
+              ]
+            },
+            "simplified_analysis": {
+              "field_name": "disabled",
+              "definition": "ToastActionSchema",
+              "path": "definitions.ToastActionSchema.properties.disabled",
+              "has_type": true,
+              "type_value": "boolean",
+              "has_anyOf": false,
+              "has_oneOf": false,
+              "has_allOf": false,
+              "has_ref": false,
+              "ref_target": null,
+              "additionalProperties": null,
+              "is_primitive": true,
+              "issues": []
+            },
+            "differences": [
+              "Type changed: None -> boolean"
+            ]
+          },
+          "disabled_on": {
+            "class_name": "ToastActionSchema",
+            "field_name": "disabled_on",
+            "found_in_original": true,
+            "found_in_simplified": true,
+            "original_analysis": {
+              "field_name": "disabledOn",
+              "definition": "ToastActionSchema",
+              "path": "definitions.ToastActionSchema.properties.disabledOn",
+              "has_type": false,
+              "type_value": null,
+              "has_anyOf": false,
+              "has_oneOf": false,
+              "has_allOf": false,
+              "has_ref": false,
+              "ref_target": null,
+              "additionalProperties": null,
+              "is_primitive": false,
+              "issues": [
+                "Schema is not a dict: <class 'bool'>"
+              ]
+            },
+            "simplified_analysis": {
+              "field_name": "disabledOn",
+              "definition": "ToastActionSchema",
+              "path": "definitions.ToastActionSchema.properties.disabledOn",
+              "has_type": true,
+              "type_value": "string",
+              "has_anyOf": false,
+              "has_oneOf": false,
+              "has_allOf": false,
+              "has_ref": false,
+              "ref_target": null,
+              "additionalProperties": null,
+              "is_primitive": true,
+              "issues": []
+            },
+            "differences": [
+              "Type changed: None -> string"
+            ]
+          }
+        }
+      },
+      "CopyActionSchema": {
+        "field_count": 16,
+        "fields": {
+          "field__id": {
+            "class_name": "CopyActionSchema",
+            "field_name": "field__id",
+            "found_in_original": true,
+            "found_in_simplified": true,
+            "original_analysis": null,
+            "simplified_analysis": null,
+            "differences": []
+          },
+          "class_name": {
+            "class_name": "CopyActionSchema",
+            "field_name": "class_name",
+            "found_in_original": true,
+            "found_in_simplified": true,
+            "original_analysis": {
+              "field_name": "className",
+              "definition": "CopyActionSchema",
+              "path": "definitions.CopyActionSchema.properties.className",
+              "has_type": false,
+              "type_value": null,
+              "has_anyOf": false,
+              "has_oneOf": false,
+              "has_allOf": false,
+              "has_ref": false,
+              "ref_target": null,
+              "additionalProperties": null,
+              "is_primitive": false,
+              "issues": [
+                "Schema is not a dict: <class 'bool'>"
+              ]
+            },
+            "simplified_analysis": {
+              "field_name": "className",
+              "definition": "CopyActionSchema",
+              "path": "definitions.CopyActionSchema.properties.className",
+              "has_type": false,
+              "type_value": null,
+              "has_anyOf": true,
+              "has_oneOf": false,
+              "has_allOf": false,
+              "has_ref": false,
+              "ref_target": null,
+              "additionalProperties": null,
+              "is_primitive": false,
+              "issues": [],
+              "anyOf_count": 2,
+              "anyOf_items": [
+                {
+                  "field_name": "className",
+                  "definition": "CopyActionSchema",
+                  "path": "definitions.CopyActionSchema.properties.className.anyOf[0]",
+                  "has_type": true,
+                  "type_value": "string",
+                  "has_anyOf": false,
+                  "has_oneOf": false,
+                  "has_allOf": false,
+                  "has_ref": false,
+                  "ref_target": null,
+                  "additionalProperties": null,
+                  "is_primitive": true,
+                  "issues": []
+                },
+                {
+                  "field_name": "className",
+                  "definition": "CopyActionSchema",
+                  "path": "definitions.CopyActionSchema.properties.className.anyOf[1]",
+                  "has_type": true,
+                  "type_value": "object",
+                  "has_anyOf": false,
+                  "has_oneOf": false,
+                  "has_allOf": false,
+                  "has_ref": false,
+                  "ref_target": null,
+                  "additionalProperties": "object",
+                  "is_primitive": false,
+                  "issues": [],
+                  "additionalProperties_schema": {
+                    "field_name": "className",
+                    "definition": "CopyActionSchema",
+                    "path": "definitions.CopyActionSchema.properties.className.anyOf[1].additionalProperties",
+                    "has_type": false,
+                    "type_value": null,
+                    "has_anyOf": false,
+                    "has_oneOf": false,
+                    "has_allOf": false,
+                    "has_ref": false,
+                    "ref_target": null,
+                    "additionalProperties": true,
+                    "is_primitive": false,
+                    "issues": [
+                      "additionalProperties: true (allows any value)",
+                      "No type information, only additionalProperties: true"
+                    ]
+                  }
+                }
+              ]
+            },
+            "differences": [
+              "anyOf presence changed: False -> True",
+              "anyOf count changed: None -> 2"
+            ]
+          },
+          "field_ref": {
+            "class_name": "CopyActionSchema",
+            "field_name": "field_ref",
+            "found_in_original": true,
+            "found_in_simplified": true,
+            "original_analysis": null,
+            "simplified_analysis": null,
+            "differences": []
+          },
+          "disabled": {
+            "class_name": "CopyActionSchema",
+            "field_name": "disabled",
+            "found_in_original": true,
+            "found_in_simplified": true,
+            "original_analysis": {
+              "field_name": "disabled",
+              "definition": "CopyActionSchema",
+              "path": "definitions.CopyActionSchema.properties.disabled",
+              "has_type": false,
+              "type_value": null,
+              "has_anyOf": false,
+              "has_oneOf": false,
+              "has_allOf": false,
+              "has_ref": false,
+              "ref_target": null,
+              "additionalProperties": null,
+              "is_primitive": false,
+              "issues": [
+                "Schema is not a dict: <class 'bool'>"
+              ]
+            },
+            "simplified_analysis": {
+              "field_name": "disabled",
+              "definition": "CopyActionSchema",
+              "path": "definitions.CopyActionSchema.properties.disabled",
+              "has_type": true,
+              "type_value": "boolean",
+              "has_anyOf": false,
+              "has_oneOf": false,
+              "has_allOf": false,
+              "has_ref": false,
+              "ref_target": null,
+              "additionalProperties": null,
+              "is_primitive": true,
+              "issues": []
+            },
+            "differences": [
+              "Type changed: None -> boolean"
+            ]
+          },
+          "disabled_on": {
+            "class_name": "CopyActionSchema",
+            "field_name": "disabled_on",
+            "found_in_original": true,
+            "found_in_simplified": true,
+            "original_analysis": {
+              "field_name": "disabledOn",
+              "definition": "CopyActionSchema",
+              "path": "definitions.CopyActionSchema.properties.disabledOn",
+              "has_type": false,
+              "type_value": null,
+              "has_anyOf": false,
+              "has_oneOf": false,
+              "has_allOf": false,
+              "has_ref": false,
+              "ref_target": null,
+              "additionalProperties": null,
+              "is_primitive": false,
+              "issues": [
+                "Schema is not a dict: <class 'bool'>"
+              ]
+            },
+            "simplified_analysis": {
+              "field_name": "disabledOn",
+              "definition": "CopyActionSchema",
+              "path": "definitions.CopyActionSchema.properties.disabledOn",
+              "has_type": true,
+              "type_value": "string",
+              "has_anyOf": false,
+              "has_oneOf": false,
+              "has_allOf": false,
+              "has_ref": false,
+              "ref_target": null,
+              "additionalProperties": null,
+              "is_primitive": true,
+              "issues": []
+            },
+            "differences": [
+              "Type changed: None -> string"
+            ]
+          }
+        }
+      },
+      "ReloadActionSchema": {
+        "field_count": 16,
+        "fields": {
+          "field__id": {
+            "class_name": "ReloadActionSchema",
+            "field_name": "field__id",
+            "found_in_original": true,
+            "found_in_simplified": true,
+            "original_analysis": null,
+            "simplified_analysis": null,
+            "differences": []
+          },
+          "class_name": {
+            "class_name": "ReloadActionSchema",
+            "field_name": "class_name",
+            "found_in_original": true,
+            "found_in_simplified": true,
+            "original_analysis": {
+              "field_name": "className",
+              "definition": "ReloadActionSchema",
+              "path": "definitions.ReloadActionSchema.properties.className",
+              "has_type": false,
+              "type_value": null,
+              "has_anyOf": false,
+              "has_oneOf": false,
+              "has_allOf": false,
+              "has_ref": false,
+              "ref_target": null,
+              "additionalProperties": null,
+              "is_primitive": false,
+              "issues": [
+                "Schema is not a dict: <class 'bool'>"
+              ]
+            },
+            "simplified_analysis": {
+              "field_name": "className",
+              "definition": "ReloadActionSchema",
+              "path": "definitions.ReloadActionSchema.properties.className",
+              "has_type": false,
+              "type_value": null,
+              "has_anyOf": true,
+              "has_oneOf": false,
+              "has_allOf": false,
+              "has_ref": false,
+              "ref_target": null,
+              "additionalProperties": null,
+              "is_primitive": false,
+              "issues": [],
+              "anyOf_count": 2,
+              "anyOf_items": [
+                {
+                  "field_name": "className",
+                  "definition": "ReloadActionSchema",
+                  "path": "definitions.ReloadActionSchema.properties.className.anyOf[0]",
+                  "has_type": true,
+                  "type_value": "string",
+                  "has_anyOf": false,
+                  "has_oneOf": false,
+                  "has_allOf": false,
+                  "has_ref": false,
+                  "ref_target": null,
+                  "additionalProperties": null,
+                  "is_primitive": true,
+                  "issues": []
+                },
+                {
+                  "field_name": "className",
+                  "definition": "ReloadActionSchema",
+                  "path": "definitions.ReloadActionSchema.properties.className.anyOf[1]",
+                  "has_type": true,
+                  "type_value": "object",
+                  "has_anyOf": false,
+                  "has_oneOf": false,
+                  "has_allOf": false,
+                  "has_ref": false,
+                  "ref_target": null,
+                  "additionalProperties": "object",
+                  "is_primitive": false,
+                  "issues": [],
+                  "additionalProperties_schema": {
+                    "field_name": "className",
+                    "definition": "ReloadActionSchema",
+                    "path": "definitions.ReloadActionSchema.properties.className.anyOf[1].additionalProperties",
+                    "has_type": false,
+                    "type_value": null,
+                    "has_anyOf": false,
+                    "has_oneOf": false,
+                    "has_allOf": false,
+                    "has_ref": false,
+                    "ref_target": null,
+                    "additionalProperties": true,
+                    "is_primitive": false,
+                    "issues": [
+                      "additionalProperties: true (allows any value)",
+                      "No type information, only additionalProperties: true"
+                    ]
+                  }
+                }
+              ]
+            },
+            "differences": [
+              "anyOf presence changed: False -> True",
+              "anyOf count changed: None -> 2"
+            ]
+          },
+          "field_ref": {
+            "class_name": "ReloadActionSchema",
+            "field_name": "field_ref",
+            "found_in_original": true,
+            "found_in_simplified": true,
+            "original_analysis": null,
+            "simplified_analysis": null,
+            "differences": []
+          },
+          "disabled": {
+            "class_name": "ReloadActionSchema",
+            "field_name": "disabled",
+            "found_in_original": true,
+            "found_in_simplified": true,
+            "original_analysis": {
+              "field_name": "disabled",
+              "definition": "ReloadActionSchema",
+              "path": "definitions.ReloadActionSchema.properties.disabled",
+              "has_type": false,
+              "type_value": null,
+              "has_anyOf": false,
+              "has_oneOf": false,
+              "has_allOf": false,
+              "has_ref": false,
+              "ref_target": null,
+              "additionalProperties": null,
+              "is_primitive": false,
+              "issues": [
+                "Schema is not a dict: <class 'bool'>"
+              ]
+            },
+            "simplified_analysis": {
+              "field_name": "disabled",
+              "definition": "ReloadActionSchema",
+              "path": "definitions.ReloadActionSchema.properties.disabled",
+              "has_type": true,
+              "type_value": "boolean",
+              "has_anyOf": false,
+              "has_oneOf": false,
+              "has_allOf": false,
+              "has_ref": false,
+              "ref_target": null,
+              "additionalProperties": null,
+              "is_primitive": true,
+              "issues": []
+            },
+            "differences": [
+              "Type changed: None -> boolean"
+            ]
+          },
+          "disabled_on": {
+            "class_name": "ReloadActionSchema",
+            "field_name": "disabled_on",
+            "found_in_original": true,
+            "found_in_simplified": true,
+            "original_analysis": {
+              "field_name": "disabledOn",
+              "definition": "ReloadActionSchema",
+              "path": "definitions.ReloadActionSchema.properties.disabledOn",
+              "has_type": false,
+              "type_value": null,
+              "has_anyOf": false,
+              "has_oneOf": false,
+              "has_allOf": false,
+              "has_ref": false,
+              "ref_target": null,
+              "additionalProperties": null,
+              "is_primitive": false,
+              "issues": [
+                "Schema is not a dict: <class 'bool'>"
+              ]
+            },
+            "simplified_analysis": {
+              "field_name": "disabledOn",
+              "definition": "ReloadActionSchema",
+              "path": "definitions.ReloadActionSchema.properties.disabledOn",
+              "has_type": true,
+              "type_value": "string",
+              "has_anyOf": false,
+              "has_oneOf": false,
+              "has_allOf": false,
+              "has_ref": false,
+              "ref_target": null,
+              "additionalProperties": null,
+              "is_primitive": true,
+              "issues": []
+            },
+            "differences": [
+              "Type changed: None -> string"
+            ]
+          }
+        }
+      },
+      "EmailActionSchema": {
+        "field_count": 16,
+        "fields": {
+          "field__id": {
+            "class_name": "EmailActionSchema",
+            "field_name": "field__id",
+            "found_in_original": true,
+            "found_in_simplified": true,
+            "original_analysis": null,
+            "simplified_analysis": null,
+            "differences": []
+          },
+          "class_name": {
+            "class_name": "EmailActionSchema",
+            "field_name": "class_name",
+            "found_in_original": true,
+            "found_in_simplified": true,
+            "original_analysis": {
+              "field_name": "className",
+              "definition": "EmailActionSchema",
+              "path": "definitions.EmailActionSchema.properties.className",
+              "has_type": false,
+              "type_value": null,
+              "has_anyOf": false,
+              "has_oneOf": false,
+              "has_allOf": false,
+              "has_ref": false,
+              "ref_target": null,
+              "additionalProperties": null,
+              "is_primitive": false,
+              "issues": [
+                "Schema is not a dict: <class 'bool'>"
+              ]
+            },
+            "simplified_analysis": {
+              "field_name": "className",
+              "definition": "EmailActionSchema",
+              "path": "definitions.EmailActionSchema.properties.className",
+              "has_type": false,
+              "type_value": null,
+              "has_anyOf": true,
+              "has_oneOf": false,
+              "has_allOf": false,
+              "has_ref": false,
+              "ref_target": null,
+              "additionalProperties": null,
+              "is_primitive": false,
+              "issues": [],
+              "anyOf_count": 2,
+              "anyOf_items": [
+                {
+                  "field_name": "className",
+                  "definition": "EmailActionSchema",
+                  "path": "definitions.EmailActionSchema.properties.className.anyOf[0]",
+                  "has_type": true,
+                  "type_value": "string",
+                  "has_anyOf": false,
+                  "has_oneOf": false,
+                  "has_allOf": false,
+                  "has_ref": false,
+                  "ref_target": null,
+                  "additionalProperties": null,
+                  "is_primitive": true,
+                  "issues": []
+                },
+                {
+                  "field_name": "className",
+                  "definition": "EmailActionSchema",
+                  "path": "definitions.EmailActionSchema.properties.className.anyOf[1]",
+                  "has_type": true,
+                  "type_value": "object",
+                  "has_anyOf": false,
+                  "has_oneOf": false,
+                  "has_allOf": false,
+                  "has_ref": false,
+                  "ref_target": null,
+                  "additionalProperties": "object",
+                  "is_primitive": false,
+                  "issues": [],
+                  "additionalProperties_schema": {
+                    "field_name": "className",
+                    "definition": "EmailActionSchema",
+                    "path": "definitions.EmailActionSchema.properties.className.anyOf[1].additionalProperties",
+                    "has_type": false,
+                    "type_value": null,
+                    "has_anyOf": false,
+                    "has_oneOf": false,
+                    "has_allOf": false,
+                    "has_ref": false,
+                    "ref_target": null,
+                    "additionalProperties": true,
+                    "is_primitive": false,
+                    "issues": [
+                      "additionalProperties: true (allows any value)",
+                      "No type information, only additionalProperties: true"
+                    ]
+                  }
+                }
+              ]
+            },
+            "differences": [
+              "anyOf presence changed: False -> True",
+              "anyOf count changed: None -> 2"
+            ]
+          },
+          "field_ref": {
+            "class_name": "EmailActionSchema",
+            "field_name": "field_ref",
+            "found_in_original": true,
+            "found_in_simplified": true,
+            "original_analysis": null,
+            "simplified_analysis": null,
+            "differences": []
+          },
+          "disabled": {
+            "class_name": "EmailActionSchema",
+            "field_name": "disabled",
+            "found_in_original": true,
+            "found_in_simplified": true,
+            "original_analysis": {
+              "field_name": "disabled",
+              "definition": "EmailActionSchema",
+              "path": "definitions.EmailActionSchema.properties.disabled",
+              "has_type": false,
+              "type_value": null,
+              "has_anyOf": false,
+              "has_oneOf": false,
+              "has_allOf": false,
+              "has_ref": false,
+              "ref_target": null,
+              "additionalProperties": null,
+              "is_primitive": false,
+              "issues": [
+                "Schema is not a dict: <class 'bool'>"
+              ]
+            },
+            "simplified_analysis": {
+              "field_name": "disabled",
+              "definition": "EmailActionSchema",
+              "path": "definitions.EmailActionSchema.properties.disabled",
+              "has_type": true,
+              "type_value": "boolean",
+              "has_anyOf": false,
+              "has_oneOf": false,
+              "has_allOf": false,
+              "has_ref": false,
+              "ref_target": null,
+              "additionalProperties": null,
+              "is_primitive": true,
+              "issues": []
+            },
+            "differences": [
+              "Type changed: None -> boolean"
+            ]
+          },
+          "disabled_on": {
+            "class_name": "EmailActionSchema",
+            "field_name": "disabled_on",
+            "found_in_original": true,
+            "found_in_simplified": true,
+            "original_analysis": {
+              "field_name": "disabledOn",
+              "definition": "EmailActionSchema",
+              "path": "definitions.EmailActionSchema.properties.disabledOn",
+              "has_type": false,
+              "type_value": null,
+              "has_anyOf": false,
+              "has_oneOf": false,
+              "has_allOf": false,
+              "has_ref": false,
+              "ref_target": null,
+              "additionalProperties": null,
+              "is_primitive": false,
+              "issues": [
+                "Schema is not a dict: <class 'bool'>"
+              ]
+            },
+            "simplified_analysis": {
+              "field_name": "disabledOn",
+              "definition": "EmailActionSchema",
+              "path": "definitions.EmailActionSchema.properties.disabledOn",
+              "has_type": true,
+              "type_value": "string",
+              "has_anyOf": false,
+              "has_oneOf": false,
+              "has_allOf": false,
+              "has_ref": false,
+              "ref_target": null,
+              "additionalProperties": null,
+              "is_primitive": true,
+              "issues": []
+            },
+            "differences": [
+              "Type changed: None -> string"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

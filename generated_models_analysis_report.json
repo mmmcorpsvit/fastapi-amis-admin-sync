@@ -1,0 +1,23 @@
+{
+  "syntax_errors": [],
+  "import_issues": [],
+  "duplicate_fields": [],
+  "type_annotation_issues": [],
+  "field_definition_issues": [],
+  "class_structure_issues": [
+    {
+      "type": "missing_docstring",
+      "class": "LoadingConfig",
+      "line": 28
+    },
+    {
+      "type": "missing_docstring",
+      "class": "AsidePosition",
+      "line": 36
+    }
+  ],
+  "pydantic_issues": [],
+  "naming_issues": [],
+  "enum_issues": [],
+  "rootmodel_issues": []
+}
